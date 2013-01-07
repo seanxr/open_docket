@@ -1,0 +1,21 @@
+<% provide(:title, "Edit committee") %> 
+<h1>Edit committee</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@committee) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :shortname %>
+      <%= f.text_field :shortname %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, :size => "60x12" %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

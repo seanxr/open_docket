@@ -1,0 +1,18 @@
+<% provide(:title, @committee.name) %>
+<div class="row">
+  <aside class="span4"
+    <section>
+      <h1>
+        <%= @committee.name %>
+      </h1>
+      <span class=description><%= @committee.description %></span>
+      <span class=creator>Created by <%= @committee.creator.name %> on <%= @committee.created_at %></span>
+      <span class=updater>Last updated by <%= @committee.updater.name %> on <%= @committee.updated_at %></span>
+    </section>
+  <aside>
+  <div class=span8>
+    <h3>Docket Items</h3>
+     Reserved for docket list
+  </div>
+</div>
+

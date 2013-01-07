@@ -174,9 +174,9 @@ input {
   @extend .error;
  }
 
-/* users index */
+/* users, committees index */
 
-.users {
+.users, .committees {
   list-style: none;
   margin: 0;
   li {

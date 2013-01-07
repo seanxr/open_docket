@@ -1,4 +1,7 @@
 OpenDocket::Application.routes.draw do
+#  get "committees/new"
+
+  resources :committees
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
