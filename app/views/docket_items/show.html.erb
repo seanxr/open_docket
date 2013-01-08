@@ -1,0 +1,25 @@
+<% provide(:title, @docketitem.number) %>
+<div class="row">
+  <aside class="span4"
+    <section>
+      <h1>
+        <%= @docketitem.number %>
+      </h1>
+      <span class=requested_by><%= @docketitem.requested_by %></span></br>
+      <span class=request><%= @docketitem.request %></span></br>
+      <span class=reference><%= @docketitem.reference %></span></br>
+      <span class=address><%= @docketitem.address %></span></br>
+      <span class=draft>Draft = <%= @docketitem.draft %></span></br>
+      <span class=precinct>Ward =  <%= @docketitem.ward %></span></br>
+      <span class=precinct>Precinct = <%= @docketitem.precinct %></span></br>
+      <span class=creator>Created by <%= @docketitem.creator.name %> on <%= @docketitem.created_at %></span></br>
+      <span class=updater>Last updated by <%= @docketitem.updater.name %> on <%= @docketitem.updated_at %></span>
+    </section>
+  <aside>
+  <div class=span8>
+    <h3>Actions</h3>
+     Reserved for actions
+  </div>
+</div>
+
+
