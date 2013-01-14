@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130108034721) do
+ActiveRecord::Schema.define(:version => 20130112072034) do
 
   create_table "committees", :force => true do |t|
     t.string   "name"
@@ -25,7 +25,22 @@ ActiveRecord::Schema.define(:version => 20130108034721) do
 
   add_index "committees", ["name"], :name => "index_committees_on_name", :unique => true
 
-  create_table "docket_items", :force => true do |t|
+  create_table "dockets", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "committee_id"
+    t.string   "creator_id"
+    t.string   "integer"
+    t.string   "updater_id"
+    t.text     "note"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "dockets", ["committee_id"], :name => "index_dockets_on_committee_id"
+  add_index "dockets", ["item_id", "committee_id"], :name => "index_dockets_on_docket_item_id_and_committee_id", :unique => true
+  add_index "dockets", ["item_id"], :name => "index_dockets_on_docket_item_id"
+
+  create_table "items", :force => true do |t|
     t.string   "number"
     t.date     "opened_on"
     t.text     "requested_by"
@@ -41,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20130108034721) do
     t.text     "reference"
   end
 
-  add_index "docket_items", ["number"], :name => "index_docket_items_on_number", :unique => true
+  add_index "items", ["number"], :name => "index_docket_items_on_number", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"

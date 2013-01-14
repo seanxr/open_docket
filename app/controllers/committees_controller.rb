@@ -4,6 +4,7 @@ class CommitteesController < ApplicationController
     @committee = Committee.new(params[:committee])
     @committee.creator_id = current_user.id
     @committee.updater_id = current_user.id
+
     if @committee.save
       flash[:success] = "You have succesfully created a new committee!"
       redirect_to @committee
@@ -29,6 +30,7 @@ class CommitteesController < ApplicationController
 
   def show
     @committee = Committee.find(params[:id])
+    @dockets = @committee.dockets
   end
 
   def new

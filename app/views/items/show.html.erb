@@ -1,0 +1,51 @@
+<% provide(:title, @item.number) %>
+<div class="row">
+  <aside class="span4"
+    <section>
+      <h1>
+        <%= @item.number %>
+      </h1>
+      <span><%= @item.opened_on %></span></br>
+      <span><%= @item.requested_by %></span></br>
+      <span><%= @item.request %></span></br>
+      <span><%= @item.reference %></span></br>
+      <span><%= @item.address %></span></br>
+      <span>Draft = <%= @item.draft %></span></br>
+      <span>Ward =  <%= @item.ward %></span></br>
+      <span>Precinct = <%= @item.precinct %></span></br>
+      <span class="timestamp">Created by <%= @item.creator.name %> on <%= @item.created_at.strftime("%m/%d/%y") %></span></br>
+      <span class="timestamp">Last updated by <%= @item.updater.name %> on <%= @item.updated_at.strftime("%m/%d/%y") %></span>
+      <span> <%= link_to "Edit", edit_item_path(@item)%>.
+   </section>
+  </aside>
+  <div class="span8">
+      <h3>On dockets</h3>
+        <ol class="microposts">
+          <% if @item.dockets.any? %>
+            <% @item.dockets.each do |docket| %>
+              <li>
+                <span class="content"><%= link_to docket.committee.name, committee_path(docket.committee_id) %> | 
+                   <%= link_to "Remove", [@item, docket], method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: "Title" %>
+                </span>
+                <span class="timestamp">
+                  Created <%= docket.created_at.strftime("%m/%d/%y") %>
+                </span>
+              </li>
+            <% end %>           
+            <li>
+              <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
+            </li>
+          <% else %>
+            <li>
+                <span class="content">Not on any dockets. <%= link_to "Add to a docket", new_item_docket_path(@item)%>.
+            </li>
+          <% end %>
+        </ol>
+      <h3>Actions</h3>
+     Reserved for actions
+  </div>
+</div>
+
+

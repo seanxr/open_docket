@@ -5,6 +5,7 @@ describe "CommitteePages" do
   subject { page }
 
   describe "new page" do
+
     before { visit new_committee_path }
 
     it { should have_selector('h1',    text: 'New') }
@@ -12,6 +13,8 @@ describe "CommitteePages" do
   end
 
   describe "new committee" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user }
 
     before { visit new_committee_path }
 

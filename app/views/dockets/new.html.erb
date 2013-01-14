@@ -1,0 +1,19 @@
+<% provide(:title, 'Put item on docket') %>
+<h1>Put item on docket</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for ([@item, @docket]) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @docket} %>
+
+      <% Committee.all.each do |committee| %>
+        <%= f.radio_button :committee_id, committee.id %> <%= committee.name %><br />
+      <% end %>
+
+     <%= f.label :note %>
+      <%= f.text_field :note %>
+
+      <%= f.submit "Create docket", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

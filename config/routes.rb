@@ -1,9 +1,14 @@
 OpenDocket::Application.routes.draw do
+#  get "docket/new"
+
 #  get "docket_items/new"
 
 #  get "committees/new"
 
-  resources :docket_items
+#  resources :dockets
+  resources :items do 
+    resources :dockets
+  end
   resources :committees
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -15,7 +20,7 @@ OpenDocket::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/committees/:id/edit' => 'committees#edit', :via => :post
-  match '/docket_items/:id/edit' => 'docket_items#edit', :via => :post
+  match '/items/:id/edit' => 'items#edit', :via => :post
  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

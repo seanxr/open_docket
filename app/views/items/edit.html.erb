@@ -1,0 +1,37 @@
+<% provide(:title, 'Edit docket item') %>
+<h1>Edit docket item</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@item) do |f| %>
+	
+      <%= f.check_box :draft %>
+      <%= f.label :draft %>
+
+      <%= f.label :number %>
+      <%= f.text_field :number %>
+
+      <%= f.label :requested_by %>
+      <%= f.text_field :requested_by %>
+
+      <%= f.label :request %>
+      <%= f.text_area :request, :size => "60x12" %>
+
+      <%= f.label :address %>
+      <%= f.text_area :address, :size => "60x2" %>
+
+      <%= f.label :reference %>
+      <%= f.text_area :reference, :size => "60x2" %>
+
+      <%= f.label :ward %>
+      <%= f.text_field :ward %>
+
+      <%= f.label :precinct %>
+      <%= f.text_field :precinct %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+

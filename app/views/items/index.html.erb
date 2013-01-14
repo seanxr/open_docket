@@ -1,0 +1,15 @@
+<% provide(:title, 'Docket Items') %>
+<h1>Docket Items</h1>
+
+<ul class="items">
+  <% @items.each do |item| %>
+    <li>
+      <%= link_to item.number, item %>
+      <% if current_user.admin? %>
+        | <%= link_to "edit", edit_item_path(item.id) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+

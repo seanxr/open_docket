@@ -5,14 +5,25 @@
       <h1>
         <%= @committee.name %>
       </h1>
-      <span class=description><%= @committee.description %></span>
-      <span class=creator>Created by <%= @committee.creator.name %> on <%= @committee.created_at %></span>
-      <span class=updater>Last updated by <%= @committee.updater.name %> on <%= @committee.updated_at %></span>
+      <span><%= @committee.description %></span></br>
+      <span class="timestamp">Created by <%= @committee.creator.name %> on <%= @committee.created_at.strftime("%m/%d/%y") %></span></br>
+      <span class="timestamp">Last updated by <%= @committee.updater.name %> on <%= @committee.updated_at.strftime("%m/%d/%y") %></span>
     </section>
-  <aside>
-  <div class=span8>
-    <h3>Docket Items</h3>
-     Reserved for docket list
+  </aside>
+  <div class="span8">
+    <% if @committee.dockets.any? %>
+      <h3>Items on committee docket (<%= @committee.dockets.count %>)</h3>
+      <ol class="microposts">
+        <%= render @dockets %>
+      </ol>
+    <% else %>
+      <h3>Items on committee docket</h3>
+      <ol class="microposts">
+        <li>
+          There are no items on the docket. Navigate to an item to add it to this docket.
+        </li>
+      </ol>    
+    <% end %> 
   </div>
 </div>
 
