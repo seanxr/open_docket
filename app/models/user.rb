@@ -29,8 +29,11 @@ class User < ActiveRecord::Base
 
   has_many :committees_as_creator, :class_name => 'Committee', :foreign_key => 'creator_id' 
   has_many :committees_as_updater, :class_name => 'Committee', :foreign_key => 'updater_id'
-  has_many :docket_items_as_creator, :class_name => 'DocketItem', :foreign_key => 'creator_id' 
-  has_many :docket_items_as_updater, :class_name => 'DocketItem', :foreign_key => 'updater_id'
+  has_many :items_as_creator, :class_name => 'Item', :foreign_key => 'creator_id' 
+  has_many :items_as_updater, :class_name => 'Item', :foreign_key => 'updater_id'
+  has_many :sites_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
+  has_many :sites_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
+
 
   private
 

@@ -1,0 +1,22 @@
+<% provide(:title, @site.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @site.name %>
+      </h1>
+      <span><%= @site.address1 %></span>
+      <% if @site.address2? %>
+         <span>test<%= @site.address2 %></span></br>
+      <% end %>
+      <span><%= @site.city %>, <%= @site.state %> <%=@site.postal %></span></br>
+      <span class="timestamp">Created by <%= @site.creator.name %> on <%= @site.created_at.strftime("%m/%d/%y") %></span></br>
+      <span class="timestamp">Last updated by <%= @site.updater.name %> on <%= @site.updated_at.strftime("%m/%d/%y") %></span>
+      <span> <%= link_to "Edit", edit_site_path(@site)%>.
+    </section>
+  </aside>
+  <div class="span8">
+      <h3>Rooms</h3>
+      Reserved for rooms
+  </div>
+</div>
