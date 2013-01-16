@@ -1,5 +1,7 @@
 OpenDocket::Application.routes.draw do
-  get "sites/new"
+#  get "rooms/new"
+
+#  get "sites/new"
 
 #  get "docket/new"
 
@@ -14,7 +16,9 @@ OpenDocket::Application.routes.draw do
   resources :committees
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :sites
+  resources :sites do
+   resources :rooms
+  end
 
   root to: 'static_pages#home'
 

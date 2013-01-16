@@ -1,0 +1,25 @@
+<% provide(:title, 'Edit room for #{@site.name}') %>
+<h1>Edit room #{@room.name} for #{@site.name} </h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for ([@site, @room]) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @room} %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :floor %>
+      <%= f.text_field :floor %>
+
+      <%= f.label :capacity %>
+      <%= f.text_field :capacity %>
+
+      <%= f.label :notes %>
+      <%= f.text_field :notes %>
+
+      <%= f.submit "Edit room", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

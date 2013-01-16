@@ -17,6 +17,28 @@
   </aside>
   <div class="span8">
       <h3>Rooms</h3>
-      Reserved for rooms
+        <ol class="microposts">
+          <% if @site.rooms.any? %>
+            <% @site.rooms.each do |room| %>
+              <li>
+                <span class="content"><%= room.name %> <%= room.id %></span></br>
+                <span class="content"><%= room.floor%></span></br>
+                <span class="content"><%= room.notes %></span></br>
+                <span class="timestamp">
+                  Created <%= room.created_at.strftime("%m/%d/%y") %>  | 
+                   <%= link_to "Edit", edit_site_room_path(@site, room) %>
+
+                </span>
+              </li>
+            <% end %>           
+            <li>
+              <span class="content"><%= link_to "Add another room", new_site_room_path(@site)%>.</span>
+            </li>
+          <% else %>
+            <li>
+                <span class="content">No rooms <%= link_to "Add another room", new_site_room_path(@site)%>.
+            </li>
+          <% end %>
+        </ol>
   </div>
 </div>

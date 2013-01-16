@@ -27,6 +27,7 @@ class Site < ActiveRecord::Base
   validates :creator_id, presence: true
   validates :updater_id, presence: true
 
+  has_many :rooms
 
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
