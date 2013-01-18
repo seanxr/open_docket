@@ -4,6 +4,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'bootstrap-sass', '2.1'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'faker', '1.0.1'
+gem 'haml-rails', '0.3.5'
 gem 'rails', '3.2.9'
 gem 'will_paginate', '3.0.3'
 
