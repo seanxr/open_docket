@@ -24,10 +24,11 @@ class Site < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true, length: { maximum: 2 }
   validates :postal, presence: true, length: { maximum: 10 }
-  validates :creator_id, presence: true
+  validates :creator_id, presence: true  
   validates :updater_id, presence: true
 
   has_many :rooms
+  has_many :meetings, :through => :rooms
 
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'

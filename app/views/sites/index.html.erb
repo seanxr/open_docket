@@ -1,0 +1,14 @@
+<% provide(:title, 'Sites') %>
+<h1>Sites</h1>
+
+<ul class="sites">
+  <% @sites.each do |site| %>
+    <li>
+      <%= link_to site.name, site %>
+      <% if current_user.admin? %>
+        | <%= link_to "edit", edit_committee_path(site.id) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+

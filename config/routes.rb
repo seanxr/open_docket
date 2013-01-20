@@ -1,4 +1,8 @@
 OpenDocket::Application.routes.draw do
+  get "committees_meetings/new"
+
+#  get "meetings/new"
+
 #  get "rooms/new"
 
 #  get "sites/new"
@@ -19,6 +23,7 @@ OpenDocket::Application.routes.draw do
   resources :sites do
    resources :rooms
   end
+  resources :meetings
 
   root to: 'static_pages#home'
 

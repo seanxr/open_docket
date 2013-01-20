@@ -26,6 +26,7 @@ class Room < ActiveRecord::Base
   validates :updater_id, presence: true
   validates :site_id, presence: true
 
+  has_many :meetings
   belongs_to :site
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'

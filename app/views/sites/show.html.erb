@@ -10,7 +10,7 @@
          <span>test<%= @site.address2 %></span></br>
       <% end %>
       <span><%= @site.city %>, <%= @site.state %> <%=@site.postal %></span></br>
-      <span class="timestamp">Created by <%= @site.creator.name %> on <%= @site.created_at.strftime("%m/%d/%y") %></span></br>
+      <span class="timestamp">Created by <%= @site.creator.name %> on <%= @site.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @site.updater.name %> on <%= @site.updated_at.strftime("%m/%d/%y") %></span>
       <span> <%= link_to "Edit", edit_site_path(@site)%>.
     </section>
@@ -21,9 +21,9 @@
           <% if @site.rooms.any? %>
             <% @site.rooms.each do |room| %>
               <li>
-                <span class="content"><%= room.name %> <%= room.id %></span></br>
-                <span class="content"><%= room.floor%></span></br>
-                <span class="content"><%= room.notes %></span></br>
+                <span class="content"><%= room.name %> <%= room.id %></span>
+                <span class="content"><%= room.floor%></span>
+                <span class="content"><%= room.notes %></span>
                 <span class="timestamp">
                   Created <%= room.created_at.strftime("%m/%d/%y") %>  | 
                    <%= link_to "Edit", edit_site_room_path(@site, room) %>

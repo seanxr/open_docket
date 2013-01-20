@@ -23,6 +23,7 @@ class Committee < ActiveRecord::Base
 
   has_many :dockets
   has_many :items, through: :dockets, source: :item
+  has_many :committee_meetings
 
   def ondocket?(item)
     dockets.find_by_item_id(item.id)

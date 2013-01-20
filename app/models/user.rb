@@ -33,6 +33,12 @@ class User < ActiveRecord::Base
   has_many :items_as_updater, :class_name => 'Item', :foreign_key => 'updater_id'
   has_many :sites_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
   has_many :sites_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
+  has_many :rooms_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
+  has_many :rooms_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
+  has_many :meetings_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
+  has_many :meetings_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
+
+
 
 
   private

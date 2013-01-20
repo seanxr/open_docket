@@ -1,0 +1,25 @@
+<% provide(:title, 'Create site') %>
+<h1>Create meeting</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <%= form_for(@meeting) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @meeting} %>
+
+      <%= f.label :date %>
+      <%= f.text_field :date %>
+
+      <% @rooms.each do |room| %>
+        <%= f.radio_button :room_id, room.id %> <%= room.name %><br />
+      <% end %>
+
+      <% @committees.each do |committee| %>
+        <%= check_box_tag "committee_ids[]", committee.id %> <%= h committee.name %><br />
+      <% end %>
+
+      <%= f.submit "Create meeting", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
