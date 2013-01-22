@@ -24,6 +24,19 @@
         </li>
       </ol>    
     <% end %> 
-  </div>
+    <% if @committee.meetings.any? %>
+      <h3>Meetings</h3>
+      <ol class="microposts">
+        <%= render @meetings %>
+      </ol>
+    <% else %>
+      <h3>Meetings</h3>
+      <ol class="microposts">
+        <li>
+          There are no meetings scheduled for this committee.
+        </li>
+      </ol>    
+    <% end %> 
+ </div>
 </div>
 

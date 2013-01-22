@@ -21,9 +21,10 @@ class Committee < ActiveRecord::Base
   belongs_to :creator, :class_name => 'User'
   belongs_to :updater, :class_name => 'User'
 
+  has_many :committee_meetings
+  has_many :meetings, through: :committee_meetings
   has_many :dockets
   has_many :items, through: :dockets, source: :item
-  has_many :committee_meetings
 
   def ondocket?(item)
     dockets.find_by_item_id(item.id)
@@ -37,5 +38,16 @@ class Committee < ActiveRecord::Base
   def undocket!(item)
     dockets.find_by_item_id(item.id).destroy
     #create activities (on docket item and committee)
+  end
+
+  def upcomingmeetings
+    meetings.all.select { |v| v.date > Date.today}
+  end
+
+  def nextmeeting
+    upcomingmeetings.sort_by do |d|
+      d.date
+    end
+    upcomingmeetings.first
   end
 end

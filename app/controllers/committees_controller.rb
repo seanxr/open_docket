@@ -31,6 +31,7 @@ class CommitteesController < ApplicationController
   def show
     @committee = Committee.find(params[:id])
     @dockets = @committee.dockets
+    @meetings = @committee.meetings
   end
 
   def new

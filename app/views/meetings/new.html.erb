@@ -14,9 +14,12 @@
         <%= f.radio_button :room_id, room.id %> <%= room.name %><br />
       <% end %>
 
-      <% @committees.each do |committee| %>
-        <%= check_box_tag "committee_ids[]", committee.id %> <%= h committee.name %><br />
-      <% end %>
+        <%= f.fields_for :committee_meetings do |builder| %>
+          <% committee = Committee.find(builder.object.committee_id) %>
+          <li><%= builder.check_box :committee_id, { :checked => false }, builder.object.committee_id %>
+          <%= builder.label :committee_id, "#{committee.name}" %>
+          </li>
+        <% end %>
 
       <%= f.submit "Create meeting", class: "btn btn-large btn-primary" %>
     <% end %>

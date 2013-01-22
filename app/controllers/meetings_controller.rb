@@ -1,18 +1,18 @@
 class MeetingsController < ApplicationController
 
  def create
+    @rooms = Room.all
+    @committees = Committee.all
     @meeting = Meeting.new(params[:meeting])
     @meeting.creator_id = current_user.id
     @meeting.updater_id = current_user.id
-#    @meeting.item_id = @room.id
 
-
-    if @meeting.save
-      flash[:success] = "You have succesfully created a meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
-      redirect_to root_url 
-    else
-      render 'new'
-    end
+      if @meeting.save
+        flash[:success] = "You have succesfully created a meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
+        redirect_to root_url 
+      else
+        render 'new'
+      end
   end
 
  def edit
@@ -34,8 +34,13 @@ class MeetingsController < ApplicationController
 
   def new
     @rooms = Room.all
-    @committees = Committee.all
+#    @committees = Committee.all
     @meeting = Meeting.new
+#    @meeting.committee_meetings.build
+    Committee.all.each do |committee|
+      committee_meetings = @meeting.committee_meetings.build(:committee_id => committee.id)
+    end 
+
   end
 
   def show

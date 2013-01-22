@@ -1,0 +1,7 @@
+<li>
+<li>
+  <span class="content"><%= docket.id %></span>
+  <span class="timestamp">
+    Created <%= docket.created_at %>
+  </span>
+</li>
