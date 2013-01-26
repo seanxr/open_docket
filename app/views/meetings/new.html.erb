@@ -1,4 +1,4 @@
-<% provide(:title, 'Create site') %>
+<% provide(:title, 'Create Meeting') %>
 <h1>Create meeting</h1>
 
 <div class="row">
@@ -14,12 +14,21 @@
         <%= f.radio_button :room_id, room.id %> <%= room.name %><br />
       <% end %>
 
-        <%= f.fields_for :committee_meetings do |builder| %>
-          <% committee = Committee.find(builder.object.committee_id) %>
-          <li><%= builder.check_box :committee_id, { :checked => false }, builder.object.committee_id %>
-          <%= builder.label :committee_id, "#{committee.name}" %>
-          </li>
+<%# This version creates a parameters array with errors. %>
+<%#     <% @committees.each_with_index do |committee,idx| %>
+<%#         <%= check_box_tag( "meeting[committee_meetings_attributes][#{idx}][committee_id]",committee.id) %>
+<%#         <%= committee.name %>
+<%#         <br/>
+<%#       <% end %>
+
+<%# This version creates the parameters array without error, but only for a single committee value, even when %>
+<%# multiple committees are checked. Returns a "Can't convert symbol into integer" error. %>
+     <% @committees.each do |committee| %>
+          <%= check_box_tag( "meeting[committee_meetings_attributes][committee_id]",committee.id) %>
+          <%= committee.name %>
+          <br/>
         <% end %>
+
 
       <%= f.submit "Create meeting", class: "btn btn-large btn-primary" %>
     <% end %>

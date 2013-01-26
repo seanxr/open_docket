@@ -1,0 +1,16 @@
+<% provide(:title, 'Put item on meeting') %>
+<h1>Put item on meeting</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for ([@item, @itemmeeting]) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @itemmeeting} %>
+
+      <% @potentialmeetings.each do |meeting| %>
+        <%= f.radio_button :meeting_id, meeting.id %> <%= meeting.date %><br />
+      <% end %>
+
+      <%= f.submit "Add to meeting", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

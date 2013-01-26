@@ -15,7 +15,6 @@ class CommitteeMeeting < ActiveRecord::Base
   validates :committee_id, presence: true
   validates :meeting_id, presence: true
 
-
   belongs_to :meeting
   belongs_to :committee
 

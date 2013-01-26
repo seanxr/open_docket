@@ -34,17 +34,21 @@ class MeetingsController < ApplicationController
 
   def new
     @rooms = Room.all
-#    @committees = Committee.all
+    @committees = Committee.all
     @meeting = Meeting.new
 #    @meeting.committee_meetings.build
-    Committee.all.each do |committee|
-      committee_meetings = @meeting.committee_meetings.build(:committee_id => committee.id)
-    end 
+#    Committee.all.each do |committee|
+#      committee_meetings = @meeting.committee_meetings.build(:committee_id => committee.id)
+#    end 
 
   end
 
   def show
     @meeting = Meeting.find(params[:id])
+    @room = @meeting.room
+    @site = @meeting.room.site
+    @committees = @meeting.committees
+    @itemmeetings = @meeting.item_meetings
   end
 
   def index

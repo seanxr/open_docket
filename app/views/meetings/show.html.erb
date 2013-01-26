@@ -1,0 +1,46 @@
+<% provide(:title, @meeting.date) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @meeting.date %>
+      </h1>
+      <% if @committees %>
+        <% @committees.each do |committee| %>
+          <li>
+             <span class="content"><%= link_to committee.name, committee_path(committee) %><%# | 
+<%#               <%= link_to "Remove", destroy_meeting_committee_path(@meeting, committee) %>	
+             </span>
+          </li>
+        <% end %>
+      <% end %>         
+      <span><%= link_to @site.name, site_path(@site) %></span>
+      <span><%= @site.address1 %></span>
+      <% if @site.address2? %>
+         <span>test<%= @site.address2 %></span></br>
+      <% end %>
+      <span><%= @site.city %>, <%= @site.state %> <%=@site.postal %></span>
+      <span><%= @room.name %></span>
+      <span><%= @room.floor %></span>
+      <span class="timestamp">Created by <%= @meeting.creator.name %> on <%= @meeting.created_at.strftime("%m/%d/%y") %></span>
+      <span class="timestamp">Last updated by <%= @meeting.updater.name %> on <%= @meeting.updated_at.strftime("%m/%d/%y") %></span>         
+      <span> <%= link_to "Edit", edit_meeting_path(@meeting)%></span>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @meeting.items.any? %>
+      <h3>Items on meeting (<%= @meeting.item_meetings.count %>)</h3>
+      <ol class="microposts">
+        <%= render @itemmeetings %>
+      </ol>
+    <% else %>
+      <h3>Items on committee docket</h3>
+      <ol class="microposts">
+        <li>
+          There are no items on the docket. Navigate to an item to add it to this docket.
+        </li>
+      </ol>    
+    <% end %> 
+
+  </div>
+</div>

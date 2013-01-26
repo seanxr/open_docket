@@ -1,0 +1,2 @@
+module CommitteeMeetingsHelper
+end

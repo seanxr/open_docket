@@ -1,0 +1,14 @@
+<li>
+  <span class="content">
+    <%= link_to item_meeting.item.number, item_path(item_meeting.item.id) %> | 
+                   <%= link_to "Remove", [item_meeting.item, item_meeting], method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: "Title" %>
+  </span>
+  <span class="content"><%= item_meeting.item.requested_by %></span>
+  <span class="content"><%= item_meeting.item.request %></span>
+  <span class="content"><%= item_meeting.item.address %></span>
+  <span class="timestamp">
+    <%= item_meeting.created_at.strftime("Added %m/%d/%y") %>
+  </span>
+</li>

@@ -4,8 +4,12 @@
                    <%= link_to "Remove", [docket.item, docket], method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: "Title" %>
-   </span>
-  <span class="timestamp">
+  </span>
+      <span class="content"><%= docket.item.requested_by %></span>
+      <span class="content"><%= docket.item.request %></span>
+      <span class="content"><%= docket.item.address %></span>
+  
+<span class="timestamp">
     <%= docket.created_at.strftime("Added %m/%d/%y") %>
   </span>
 </li>

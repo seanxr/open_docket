@@ -30,19 +30,49 @@ class Item < ActiveRecord::Base
 
   has_many :dockets, foreign_key: 'item_id', class_name: 'Docket'
   has_many :committees, through: :dockets, source: :committee
+  has_many :item_meetings
+  has_many :meetings, through: :item_meetings, source: :meeting
 
   def ondocket?(committee)
+    #Tests whether or not the item is on the docket for a particular committee
+
     dockets.find_by_committee_id(committee.id)
+
   end
 
   def ondocket!(committee, note)
+    # Adds the item to a committee's docket
+
     committees.find_by_committee_id(committee.id).docket.create!(docket_id: self.id, note: note)
-    # activities (on committee and docket item)
+
+    # Need to fail if the item is already on the committee's docket
+    # Need to add activities (on committee and docket item)
+
   end
 
   def undocket!(committee)
+    # Removes the item from a committee's docket
+    # Need to fail if the item is not on the committee's docket
+
     dockets.find_by_committee_id(committee.id).destroy
+
     # activities (on committee and docket item)
+
   end
+
+  def potentialmeetings
+
+    # Creates an array (hash?) of the meetings after today, where there is an intersection between
+    # the committees associated with the item and the committees associated with the meeting.
+
+    itemcommittees = self.committees.pluck(:committee_id)
+    meetings = Meeting.all
+    upcomingmeetings = meetings.find_all { |meeting| meeting.date.to_s > Date.today.to_s }
+    potentialmeetings = upcomingmeetings.find_all { |meeting| (meeting.committees.pluck(:committee_id) & itemcommittees).any? }	
+    potentialmeetings
+
+  end
+
+
 
 end
