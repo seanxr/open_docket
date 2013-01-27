@@ -60,6 +60,12 @@ class Item < ActiveRecord::Base
 
   end
 
+  def notdocketcommittees
+
+    Committee.all.reject { |h| self.committees.include? h }
+
+  end
+
   def potentialmeetings
 
     # Creates an array (hash?) of the meetings after today, where there is an intersection between

@@ -36,7 +36,9 @@
               </li>
             <% end %>           
             <li>
-              <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
+              <% if @item.notdocketcommittees.count > 0 %>
+                <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
+              <% end %>
             </li>
           <% else %>
             <li>

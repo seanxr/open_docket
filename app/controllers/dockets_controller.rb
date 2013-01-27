@@ -1,14 +1,15 @@
 class DocketsController < ApplicationController
 
   def new
+   @committees = Committee.all
    @item = Item.find(params[:item_id])
+   @committees_eligible = @item.notdocketcommittees
    @docket = Docket.new
 
   end
 
 
   def create
-#    @committees = Committee.all
     @item = Item.find(params[:item_id])
     @docket = Docket.create(params[:docket])
     @docket.item_id = @item.id

@@ -42,7 +42,7 @@ namespace :db do
                    notes: "Good wifi.",
                    creator_id: 1,
                    updater_id: 1)
-   room1_2.save
+   room1_3.save
     committee1 = Committee.new(name: "Land Use Committee",
                    shortname: "Land Use",
                    description: "Working sessions on the Tuesdays following the first and third Mondays of each month, and Public Hearings on the Tuesday following the second Monday of each month. The Land Use Committee reviews matters relating to Special Permit and Site Plan Approval petitions; utility petitions relating to Special Permit and Site Plan Approval projects; zone change petitions relating to individual, specific parcels; sign permits; lodging house and dormitory licenses; licensing of automobile dealers; permits for storage of towed vehicles; and matters relating to Community Preservation housing proposals. ")
@@ -58,7 +58,7 @@ namespace :db do
 
      item1 = Item.new(number:"417-12",
                    requested_by: "CHESTNUT HILL SHOPPING CENTER, LLC/C&R REALTY TRUST",
-                   request: "petition for a SPECIAL PERMIT /SITE PLAN APPROVAL for a comprehensive sign package at 1-55 BOYLSTON STREET, Ward 7, CHESTNUT HILL, on land known as Sec. 63, Blk. 37, Lots 18A, 22, 25, 26, 27 in a district zoned BUSINESS 4. Ref: 30-24, 30-23, 30-20(l) of the City of Newton Rev Zoning Ord, 2012. Ref: ",
+                   request: "petition for a SPECIAL PERMIT /SITE PLAN APPROVAL for a comprehensive sign package at 1-55 BOYLSTON STREET, Ward 7, CHESTNUT HILL, on land known as Sec. 63, Blk. 37, Lots 18A, 22, 25, 26, 27 in a district zoned BUSINESS 4.",
                    reference: "Sec 30-24, 3-23, 30-20(f)(1), (f)(2), (f)(3), and (f)(9) of the City of Newton Rev Zoning Ord, 2012.", 
                    ward: "7",
                    precinct: "")
