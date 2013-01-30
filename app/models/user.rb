@@ -29,14 +29,16 @@ class User < ActiveRecord::Base
 
   has_many :committees_as_creator, :class_name => 'Committee', :foreign_key => 'creator_id' 
   has_many :committees_as_updater, :class_name => 'Committee', :foreign_key => 'updater_id'
+  has_many :documents_as_creator, :class_name => 'Document', :foreign_key => 'creator_id' 
+  has_many :documentss_as_updater, :class_name => 'Document', :foreign_key => 'updater_id'
   has_many :items_as_creator, :class_name => 'Item', :foreign_key => 'creator_id' 
   has_many :items_as_updater, :class_name => 'Item', :foreign_key => 'updater_id'
+  has_many :meetings_as_creator, :class_name => 'Meeting', :foreign_key => 'creator_id' 
+  has_many :meetings_as_updater, :class_name => 'Meeting', :foreign_key => 'updater_id'
+  has_many :rooms_as_creator, :class_name => 'Room', :foreign_key => 'creator_id' 
+  has_many :rooms_as_updater, :class_name => 'Room', :foreign_key => 'updater_id'
   has_many :sites_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
   has_many :sites_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
-  has_many :rooms_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
-  has_many :rooms_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
-  has_many :meetings_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
-  has_many :meetings_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
 
 
 

@@ -16,9 +16,13 @@ class Meeting < ActiveRecord::Base
   default_scope :order => "date DESC"
 
   has_many :committee_meetings
-  accepts_nested_attributes_for :committee_meetings, :allow_destroy => true
+  accepts_nested_attributes_for :committee_meetings, 
+    :allow_destroy => true
 
   has_many :committees, through: :committee_meetings
+
+  has_many :attachments, :as => :owner
+  has_many :documents, :through => :attachments, :as => :owner
 
   has_many :item_meetings
   has_many :items, through: :item_meetings

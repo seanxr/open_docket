@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @committees = Committee.all
   end
 
   def help

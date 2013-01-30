@@ -29,6 +29,8 @@
       <ol class="microposts">
         <%= render @meetings %>
       </ol>
+      <span class="content"><%= link_to "Create another meeting", new_committee_meeting_path(@committee)%>.</span>
+
     <% else %>
       <h3>Meetings</h3>
       <ol class="microposts">

@@ -1,26 +1,21 @@
 OpenDocket::Application.routes.draw do
-#  get "item_meetings/new"
-
-#  get "committees_meetings/new"
-
-#  get "meetings/new"
-
-#  get "rooms/new"
-
-#  get "sites/new"
-
-#  get "docket/new"
-
-#  get "docket_items/new"
-
-#  get "committees/new"
 
 #  resources :dockets
   resources :items do 
     resources :dockets
     resources :item_meetings
+    resources :documents
   end
-  resources :committees
+ 
+  resources :committees do
+    resources :dockets
+    resources :meetings
+  end
+
+  resources :documents do
+    resources :attachments
+  end
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :sites do
@@ -42,6 +37,25 @@ OpenDocket::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+
+#  get "documents/new"
+
+#  get "item_meetings/new"
+
+#  get "committees_meetings/new"
+
+#  get "meetings/new"
+
+#  get "rooms/new"
+
+#  get "sites/new"
+
+#  get "docket/new"
+
+#  get "docket_items/new"
+
+#  get "committees/new"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -4,7 +4,7 @@
 <div class="row">
   <div class="span6 offset3">
 
-    <%= form_for(@meeting) do |f| %>
+    <%= form_for([@committee, @meeting]) do |f| %>
     <%= render :partial => 'shared/error_messages', :locals => {:object => @meeting} %>
 
       <%= f.label :date %>
@@ -14,20 +14,17 @@
         <%= f.radio_button :room_id, room.id %> <%= room.name %><br />
       <% end %>
 
+<%#      <%= f.fields_for :committee_meetings do |ff| %>
+<%#        <%= ff.label :committee_id %>
+<%#        <%= ff.text_field :committee_id %>
+<%#      <% end %>
+
 <%# This version creates a parameters array with errors. %>
-<%#     <% @committees.each_with_index do |committee,idx| %>
+<%#      <% @committees.each_with_index do |committee,idx| %>
 <%#         <%= check_box_tag( "meeting[committee_meetings_attributes][#{idx}][committee_id]",committee.id) %>
 <%#         <%= committee.name %>
 <%#         <br/>
 <%#       <% end %>
-
-<%# This version creates the parameters array without error, but only for a single committee value, even when %>
-<%# multiple committees are checked. Returns a "Can't convert symbol into integer" error. %>
-     <% @committees.each do |committee| %>
-          <%= check_box_tag( "meeting[committee_meetings_attributes][committee_id]",committee.id) %>
-          <%= committee.name %>
-          <br/>
-        <% end %>
 
 
       <%= f.submit "Create meeting", class: "btn btn-large btn-primary" %>

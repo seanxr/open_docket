@@ -28,10 +28,15 @@ class Item < ActiveRecord::Base
   belongs_to :creator, :class_name => 'User'
   belongs_to :updater, :class_name => 'User'
 
+  has_many :attachments, :as => :owner
+  has_many :documents, :through => :attachments, :as => :owner
+
   has_many :dockets, foreign_key: 'item_id', class_name: 'Docket'
   has_many :committees, through: :dockets, source: :committee
   has_many :item_meetings
   has_many :meetings, through: :item_meetings, source: :meeting
+
+  scope :by_number, lambda{ |number| where(number: number) unless number.nil? }
 
   def ondocket?(committee)
     #Tests whether or not the item is on the docket for a particular committee

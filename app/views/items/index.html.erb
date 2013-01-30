@@ -1,6 +1,14 @@
 <% provide(:title, 'Docket Items') %>
 <h1>Docket Items</h1>
 
+<%= form_for(@search, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
+<div>
+  <%= f.text_field(:number) %>
+  <%= f.submit "Filter List" %>
+  <%= link_to "Clear filter", @index %>
+</div>
+<% end %>
+
 <ul class="items">
   <% @items.each do |item| %>
     <li>

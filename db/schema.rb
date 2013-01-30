@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125045100) do
+ActiveRecord::Schema.define(:version => 20130130040804) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "document_id"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "committee_meetings", :force => true do |t|
     t.integer  "meeting_id"
@@ -46,6 +54,19 @@ ActiveRecord::Schema.define(:version => 20130125045100) do
   add_index "dockets", ["committee_id"], :name => "index_dockets_on_committee_id"
   add_index "dockets", ["item_id", "committee_id"], :name => "index_dockets_on_docket_item_id_and_committee_id", :unique => true
   add_index "dockets", ["item_id"], :name => "index_dockets_on_docket_item_id"
+
+  create_table "documents", :force => true do |t|
+    t.string   "doc_type"
+    t.string   "name"
+    t.string   "description"
+    t.string   "submitted_by"
+    t.string   "submitted_on"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "URL"
+  end
 
   create_table "item_meetings", :force => true do |t|
     t.integer  "item_id"

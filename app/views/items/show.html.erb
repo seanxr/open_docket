@@ -61,7 +61,30 @@
       <% end %> 
       <h3>Actions</h3>
      Reserved for actions
-  </div>
+      <h3>Documents</h3>
+        <ol class="microposts">
+          <% if @item.documents.any? %>
+            <% @item.documents.each do |document| %>
+              <li>
+                <span class="content"><%= link_to document.name, document_path(document.id) %>
+                                  </span>
+                <span class="timestamp">
+                  Document uploaded <%= document.created_at.strftime("%m/%d/%y") %> | 
+                                <%= link_to "Remove", [@item, document], method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: "Title" %>
+
+                </span>
+              </li>
+             <% end %>           
+             <span class="content"><%= link_to "Upload a document", new_item_document_path(@item) %>.</span>
+         <% else %>
+            <li>
+                <span class="content">Not on any dockets. <%= link_to "Upload a document", new_item_document_path(@item) %>.
+            </li>
+          <% end %>
+        </ol>
+   </div>
 </div>
 
 

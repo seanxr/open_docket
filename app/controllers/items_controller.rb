@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @meetings = @item.meetings
+    @documents = @item.documents
   end
 
   def new
@@ -37,6 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @search = Item.new(params[:item])
+    @items = Item.by_number(@search.number)
   end
 end

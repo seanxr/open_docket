@@ -84,6 +84,24 @@ namespace :db do
     item3.updater_id = 1
     item3.save
 
+    docket1_1 = Docket.new(committee_id:1, 
+                   item_id:1)
+    docket1_1.creator_id = 1
+    docket1_1.updater_id = 1
+    docket1_1.save
+
+    docket1_2 = Docket.new(committee_id:1, 
+                   item_id:2)
+    docket1_2.creator_id = 1
+    docket1_2.updater_id = 1
+    docket1_2.save
+
+    docket1_3 = Docket.new(committee_id:1, 
+                   item_id:3)
+    docket1_3.creator_id = 1
+    docket1_3.updater_id = 1
+    docket1_3.save
+
     meeting1 = Meeting.new(date:"2013-01-15",
                         room_id:1)
     meeting1.creator_id = 1
