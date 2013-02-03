@@ -59,27 +59,27 @@ namespace :db do
      item1 = Item.new(name:"417-12",
                    requested_by: "CHESTNUT HILL SHOPPING CENTER, LLC/C&R REALTY TRUST",
                    request: "petition for a SPECIAL PERMIT /SITE PLAN APPROVAL for a comprehensive sign package at 1-55 BOYLSTON STREET, Ward 7, CHESTNUT HILL, on land known as Sec. 63, Blk. 37, Lots 18A, 22, 25, 26, 27 in a district zoned BUSINESS 4.",
+                   address: "1-55 BOYLSTON STREET",
                    reference: "Sec 30-24, 3-23, 30-20(f)(1), (f)(2), (f)(3), and (f)(9) of the City of Newton Rev Zoning Ord, 2012.", 
-                   ward: "7",
-                   precinct: "")
+                   ward: "7")
     item1.creator_id = 1
     item1.updater_id = 1
     item1.save
      item2 = Item.new(name:"416-12",
                    requested_by: "MAIN GATE REALTY LLC",
                    request: "petition for a SPECIAL PERMIT/SITE PLAN APPROVAL and CHANGE in a NONCONFORMING USE for a yoga and life coaching business and to locate 5 parking stalls in the front setback with a 3-foot drive width and to erect a freestanding sign at 242-244 COMMONWEALTH AVENUE, Ward 7, and in addition to allow office, service, retail, or medical office as a future use and to waive 2 required parking stalls for future conversion to medical office use at 242-244 COMMONWEALTH AVENUE, on land known as SBL 61, 13, 11, containing approximately 7,452 sq. ft. of land in a district zoned MULTI RESIDENCE 1.",
+                   address: "242-244 COMMONWEALTH AVENUE",
                    reference: "Ref: Sec 30-24, 30-23, 30-21(b), 30-19(g)(1), (g)(3), 30-19(d)(12), and 30-19(m), 30-20(e)(4), 30-20(l), of the City of Newton Rev Zoning Ord, 2012", 
-                   ward: "7",
-                   precinct: "")
+                   ward: "7")
     item2.creator_id = 1
     item2.updater_id = 1
     item2.save
      item3 = Item.new(name:"415-12",
                    requested_by: "DAVID & CAROLINE ALTMAN",
                    request: "petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to construct a new kitchen and family room addition with a deck, increasing the Floor Area Ratio from .33, which is allowed, to .36 at 37 COLUMBINE ROAD, Ward 8, on land known as SBL 82, 19, 5, containing approximately 15,415 sf of land in a district zoned SINGLE RESIDENCE 1.",
+                   address: "37 COLUMBINE ROAD",
                    reference: "Sec 30-24, 30-23, 30-15(u)(1) of the City of Newton Rev Zoning Ord, 2012.", 
-                   ward: "8",
-                   precinct: "")
+                   ward: "8")
     item3.creator_id = 1
     item3.updater_id = 1
     item3.save
