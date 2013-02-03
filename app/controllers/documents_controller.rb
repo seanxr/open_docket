@@ -1,5 +1,7 @@
 class DocumentsController < ApplicationController
-   before_filter :get_parent # Defined in ApplicationController
+  before_filter :signed_in_user, only: [:new, :create, :edit, :update]
+  before_filter :admin_user,     only: [:new, :create, :edit, :update]
+  before_filter :get_parent # Defined in ApplicationController
 
   def new
     @document = Document.new

@@ -1,9 +1,11 @@
 <li>
   <span class="content">
-    <%= link_to item_meeting.item.number, item_path(item_meeting.item.id) %> | 
-                   <%= link_to "Remove", [item_meeting.item, item_meeting], method: :delete,
+    <%= link_to item_meeting.item.name, item_path(item_meeting.item.id) %>
+    <% if current_user && current_user.admin? %>
+      &nbsp;|&nbsp;<%= link_to "Remove", [item_meeting.item, item_meeting], method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: "Title" %>
+    <% end %>
   </span>
   <span class="content"><%= item_meeting.item.requested_by %></span>
   <span class="content"><%= item_meeting.item.request %></span>

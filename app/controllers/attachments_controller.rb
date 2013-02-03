@@ -1,4 +1,8 @@
 class AttachmentsController < ApplicationController
+  before_filter :signed_in_user, only: [:new, :destroy]
+  before_filter :admin_user,     only: [:new, :destroy]
+
+
   def new
   end
 

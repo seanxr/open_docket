@@ -5,8 +5,8 @@
       <h1>
         <%= @committee.name %>
       </h1>
-      <span><%= @committee.description %></span></br>
-      <span class="timestamp">Created by <%= @committee.creator.name %> on <%= @committee.created_at.strftime("%m/%d/%y") %></span></br>
+      <span><%= @committee.description %></span>
+      <span class="timestamp">Created by <%= @committee.creator.name %> on <%= @committee.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @committee.updater.name %> on <%= @committee.updated_at.strftime("%m/%d/%y") %></span>
     </section>
   </aside>
@@ -34,7 +34,9 @@
           <ol class="microposts">
             <%= render @meetings %>
           </ol>
-          <span class="content"><%= link_to "Create another meeting", new_committee_meeting_path(@committee)%>.</span>
+          <% if current_user && current_user.admin? %>
+            <span class="content"><%= link_to "Create another meeting", new_committee_meeting_path(@committee)%>.</span>
+          <% end %>
         <% else %>
           <ol class="microposts">
             <li>

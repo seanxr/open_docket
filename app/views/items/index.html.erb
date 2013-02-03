@@ -13,7 +13,7 @@
   <% @items.each do |item| %>
     <li>
       <%= link_to item.name, item %>
-      <% if current_user.admin? %>
+      <% if current_user && current_user.admin? %>
         | <%= link_to "edit", edit_item_path(item.id) %>
       <% end %>
     </li>

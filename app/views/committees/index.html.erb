@@ -5,7 +5,7 @@
   <% @committees.each do |committee| %>
     <li>
       <%= link_to committee.name, committee %>
-      <% if current_user.admin? %>
+      <% if current_user && current_user.admin? %>
         | <%= link_to "edit", edit_committee_path(committee.id) %>
       <% end %>
     </li>

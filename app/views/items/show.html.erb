@@ -13,16 +13,18 @@
       <% end %>
       <span>Requested by</span>
       <span><%= @item.requested_by %></span>
+      <span>Address</span>
+      <span><%= @item.address %></span>
       <span>Request</span>
       <span><%= @item.request %></span>
       <span>Reference</span>
       <span><%= @item.reference %></span>
-      <span>Address</span>
-      <span><%= @item.address %></span>
       <span>Ward: <%= @item.ward %></span>
       <span class="timestamp">Created by <%= @item.creator.name %> on <%= @item.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @item.updater.name %> on <%= @item.updated_at.strftime("%m/%d/%y") %></span>
-      <span><%= link_to "Edit", edit_item_path(@item)%>.
+      <% if current_user && current_user.admin? %>
+        <span><%= link_to "Edit", edit_item_path(@item)%>.
+      <% end %>
    </section>
   </aside>
   <div class="span8">
@@ -39,12 +41,17 @@
       <ol class="microposts">
         <% if @parent.documents.any? %>
           <%= render @documents %>
-          <span class="content"><%= link_to "Upload a document", polymorphic_path([@parent, :document], :action => :new) %>.</span>
+          <span class="content">
+            <% if current_user && current_user.admin? %>
+              <%= link_to "Upload a document", polymorphic_path([@parent, :document], :action => :new) %>.</span>
+            <% end %>
         <% else %>
           <li>
             <span class="content">There are no documents associated with this <%= @parent.class.name.downcase %>. 
+              <% if current_user && current_user.admin? %>
                           <%= link_to "Upload a document", 
                           polymorphic_path([@parent, :document], :action => :new)   %>.
+              <% end %>
             </span>
           </li>
         <% end %>
@@ -58,7 +65,10 @@
       <% else %>
         <ol class="microposts">
           <li>
-            <span class="content">Not on any meetings. <%= link_to "Add to a meeting", new_item_item_meeting_path(@item)%>.
+            <span class="content">Not on any meetings. 
+            <% if current_user && current_user.admin? %>
+              <%= link_to "Add to a meeting", new_item_item_meeting_path(@item)%>.
+            <% end %>
           </li>
         </ol>    
       <% end %> 
@@ -73,19 +83,23 @@
               </span>
               <span class="timestamp">
                 Added to docket <%= docket.created_at.strftime("%m/%d/%y") %> | 
-                                <%= link_to "Remove", [@item, docket], method: :delete,
+                <% if current_user && current_user.admin? %>
+                  <%= link_to "Remove", [@item, docket], method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: "Title" %>
-
+                <% end %>
               </span>
             </li>
           <% end %>           
         </ol>
-          <% if @item.notdocketcommittees.count > 0 %>
+          <% if @item.notdocketcommittees.count > 0 && current_user && current_user.admin? %>
             <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
           <% end %>
       <% else %>
-        <span class="content">Not on any dockets. <%= link_to "Add to a docket", new_item_docket_path(@item)%>.
+        <span class="content">Not on any dockets. 
+        <% if current_user && current_user.admin? %>
+          <%= link_to "Add to a docket", new_item_docket_path(@item)%>.
+        <% end %>
       <% end %>
     </div>
   </div>

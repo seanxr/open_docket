@@ -1,4 +1,6 @@
 class CommitteesController < ApplicationController
+  before_filter :signed_in_user, only: [:new, :create, :edit, :update]
+  before_filter :admin_user,     only: [:new, :create, :edit, :update]
 
  def create
     @committee = Committee.new(params[:committee])

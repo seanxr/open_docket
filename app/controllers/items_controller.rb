@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  before_filter :signed_in_user, only: [:new, :create, :edit, :update]
+  before_filter :admin_user,     only: [:new, :create, :edit, :update]
+
 
   def create
     @item = Item.new(params[:item])

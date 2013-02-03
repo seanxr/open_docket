@@ -24,7 +24,9 @@
       <span><%= @room.floor %></span>
       <span class="timestamp">Created by <%= @meeting.creator.name %> on <%= @meeting.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @meeting.updater.name %> on <%= @meeting.updated_at.strftime("%m/%d/%y") %></span>         
-      <span> <%= link_to "Edit", edit_meeting_path(@meeting)%></span>
+      <% if current_user && current_user.admin? %>
+        <span> <%= link_to "Edit", edit_meeting_path(@meeting)%></span>
+      <% end %>
     </section>
   </aside>
   <div class="span8">
@@ -50,12 +52,16 @@
        <ol class="microposts">
           <% if @parent.documents.any? %>
             <%= render @documents %>
-            <span class="content"><%= link_to "Upload a document", polymorphic_path([@parent, :document], :action => :new) %>.</span>
+            <% if current_user && current_user.admin? %>
+              <span class="content"><%= link_to "Upload a document", polymorphic_path([@parent, :document], :action => :new) %>.</span>
+            <% end %>
           <% else %>
             <li>
               <span class="content">There are no documents associated with this <%= @parent.class.name.downcase %>. 
-                          <%= link_to "Upload a document", 
-                          polymorphic_path([@parent, :document], :action => :new)   %>.
+              <% if current_user && current_user.admin? %>
+                <%= link_to "Upload a document", 
+                             polymorphic_path([@parent, :document], :action => :new)   %>.
+              <% end %>
               </span>
             </li>
           <% end %>
