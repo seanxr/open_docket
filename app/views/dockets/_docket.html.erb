@@ -1,6 +1,6 @@
 <li>
   <span class="content">
-    <%= link_to docket.item.number, item_path(docket.item.id) %> | 
+    <%= link_to docket.item.name, item_path(docket.item.id) %> | 
                    <%= link_to "Remove", [docket.item, docket], method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: "Title" %>
