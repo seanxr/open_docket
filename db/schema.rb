@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130040804) do
+ActiveRecord::Schema.define(:version => 20130203025223) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "document_id"
@@ -60,11 +60,11 @@ ActiveRecord::Schema.define(:version => 20130130040804) do
     t.string   "name"
     t.string   "description"
     t.string   "submitted_by"
-    t.string   "submitted_on"
+    t.date     "submitted_on", :limit => 255
     t.integer  "creator_id"
     t.integer  "updater_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "URL"
   end
 
@@ -78,14 +78,13 @@ ActiveRecord::Schema.define(:version => 20130130040804) do
   end
 
   create_table "items", :force => true do |t|
-    t.string   "number"
+    t.string   "name"
     t.date     "opened_on"
     t.text     "requested_by"
     t.boolean  "draft"
     t.text     "request"
     t.text     "address"
     t.string   "ward"
-    t.string   "precinct"
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.datetime "created_at",   :null => false
@@ -93,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20130130040804) do
     t.text     "reference"
   end
 
-  add_index "items", ["number"], :name => "index_docket_items_on_number", :unique => true
+  add_index "items", ["name"], :name => "index_docket_items_on_number", :unique => true
 
   create_table "meetings", :force => true do |t|
     t.date     "date"

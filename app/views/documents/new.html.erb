@@ -2,7 +2,7 @@
 <h1>Upload document</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for([@item, @document]) do |f| %>
+    <%= form_for([@parent, @document]) do |f| %>
     <%= render :partial => 'shared/error_messages', :locals => {:object => @document} %>
 	
       <%= f.label :name %>

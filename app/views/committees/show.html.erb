@@ -1,6 +1,6 @@
 <% provide(:title, @committee.name) %>
 <div class="row">
-  <aside class="span4"
+  <aside class="span4">
     <section>
       <h1>
         <%= @committee.name %>
@@ -11,34 +11,43 @@
     </section>
   </aside>
   <div class="span8">
-    <% if @committee.dockets.any? %>
-      <h3>Items on committee docket (<%= @committee.dockets.count %>)</h3>
-      <ol class="microposts">
-        <%= render @dockets %>
-      </ol>
-    <% else %>
-      <h3>Items on committee docket</h3>
-      <ol class="microposts">
-        <li>
-          There are no items on the docket. Navigate to an item to add it to this docket.
-        </li>
-      </ol>    
-    <% end %> 
-    <% if @committee.meetings.any? %>
-      <h3>Meetings</h3>
-      <ol class="microposts">
-        <%= render @meetings %>
-      </ol>
-      <span class="content"><%= link_to "Create another meeting", new_committee_meeting_path(@committee)%>.</span>
-
-    <% else %>
-      <h3>Meetings</h3>
-      <ol class="microposts">
-        <li>
-          There are no meetings scheduled for this committee.
-        </li>
-      </ol>    
-    <% end %> 
- </div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#items" data-toggle="tab">Items&nbsp;(<%= @committee.dockets.count %>)</a></li>
+      <li><a href="#meetings" data-toggle="tab">Meetings</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="items">
+        <% if @committee.dockets.any? %>
+          <ol class="microposts">
+            <%= render @dockets %>
+          </ol>
+        <% else %>
+          <ol class="microposts">
+            <li>
+              There are no items on the docket. Navigate to an item to add it to this docket.
+            </li>
+          </ol>    
+        <% end %> 
+      </div>
+      <div class="tab-pane" id="meetings">
+        <% if @committee.meetings.any? %>
+          <ol class="microposts">
+            <%= render @meetings %>
+          </ol>
+          <span class="content"><%= link_to "Create another meeting", new_committee_meeting_path(@committee)%>.</span>
+        <% else %>
+          <ol class="microposts">
+            <li>
+              There are no meetings scheduled for this committee.
+            </li>
+          </ol>    
+        <% end %> 
+      </div>
+    </div>
+  </div>
 </div>
+<script>  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+</script>
 

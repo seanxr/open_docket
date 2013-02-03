@@ -1,4 +1,4 @@
-# == Schema Information
+# == Schema Informationn
 #
 # Table name: documents
 #
@@ -7,7 +7,7 @@
 #  name         :string(255)
 #  description  :string(255)
 #  submitted_by :string(255)
-#  submitted_on :string(255)
+#  submitted_on :date(255)
 #  creator_id   :integer
 #  updater_id   :integer
 #  created_at   :datetime         not null

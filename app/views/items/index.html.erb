@@ -3,7 +3,7 @@
 
 <%= form_for(@search, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
 <div>
-  <%= f.text_field(:number) %>
+  <%= f.text_field(:name) %>
   <%= f.submit "Filter List" %>
   <%= link_to "Clear filter", @index %>
 </div>
@@ -12,7 +12,7 @@
 <ul class="items">
   <% @items.each do |item| %>
     <li>
-      <%= link_to item.number, item %>
+      <%= link_to item.name, item %>
       <% if current_user.admin? %>
         | <%= link_to "edit", edit_item_path(item.id) %>
       <% end %>

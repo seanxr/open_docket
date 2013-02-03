@@ -1,90 +1,99 @@
-<% provide(:title, @item.number) %>
+<% provide(:title, @item.name) %>
 <div class="row">
-  <aside class="span4"
+  <aside class="span4">
     <section>
       <h1>
-        <%= @item.number %>
+        Item #<%= @item.name %>
       </h1>
-      <span><%= @item.opened_on %></span></br>
-      <span><%= @item.requested_by %></span></br>
-      <span><%= @item.request %></span></br>
-      <span><%= @item.reference %></span></br>
-      <span><%= @item.address %></span></br>
-      <span>Draft = <%= @item.draft %></span></br>
-      <span>Ward =  <%= @item.ward %></span></br>
-      <span>Precinct = <%= @item.precinct %></span></br>
-      <span class="timestamp">Created by <%= @item.creator.name %> on <%= @item.created_at.strftime("%m/%d/%y") %></span></br>
+      <% if @item.draft %>
+        <span>Draft</span>
+      <% end %>	
+      <% if @item.opened_on %>
+        <span>Opened <%= @item.opened_on %></span></br>
+      <% end %>
+      <span>Requested by</span>
+      <span><%= @item.requested_by %></span>
+      <span>Request</span>
+      <span><%= @item.request %></span>
+      <span>Reference</span>
+      <span><%= @item.reference %></span>
+      <span>Address</span>
+      <span><%= @item.address %></span>
+      <span>Ward: <%= @item.ward %></span>
+      <span class="timestamp">Created by <%= @item.creator.name %> on <%= @item.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @item.updater.name %> on <%= @item.updated_at.strftime("%m/%d/%y") %></span>
-      <span> <%= link_to "Edit", edit_item_path(@item)%>.
+      <span><%= link_to "Edit", edit_item_path(@item)%>.
    </section>
   </aside>
   <div class="span8">
-      <h3>On dockets</h3>
-        <ol class="microposts">
-          <% if @item.dockets.any? %>
-            <% @item.dockets.each do |docket| %>
-              <li>
-                <span class="content"><%= link_to docket.committee.name, committee_path(docket.committee_id) %>
-                                  </span>
-                <span class="timestamp">
-                  Added to docket <%= docket.created_at.strftime("%m/%d/%y") %> | 
-                                <%= link_to "Remove", [@item, docket], method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: "Title" %>
-
-                </span>
-              </li>
-            <% end %>           
-            <li>
-              <% if @item.notdocketcommittees.count > 0 %>
-                <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-                <span class="content">Not on any dockets. <%= link_to "Add to a docket", new_item_docket_path(@item)%>.
-            </li>
-          <% end %>
-        </ol>
-      <% if @item.meetings.any? %>
-        <h3>Meetings</h3>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+      <li><a href="#documents" data-toggle="tab">Documents</a></li>
+      <li><a href="#meetings" data-toggle="tab">Meetings</a></li>
+      <li><a href="#dockets" data-toggle="tab">Dockets</a></li>
+    </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="activity">Reserved for actions
+    </div>
+    <div class="tab-pane" id="documents">
+      <ol class="microposts">
+        <% if @parent.documents.any? %>
+          <%= render @documents %>
+          <span class="content"><%= link_to "Upload a document", polymorphic_path([@parent, :document], :action => :new) %>.</span>
+        <% else %>
+          <li>
+            <span class="content">There are no documents associated with this <%= @parent.class.name.downcase %>. 
+                          <%= link_to "Upload a document", 
+                          polymorphic_path([@parent, :document], :action => :new)   %>.
+            </span>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+    <div class="tab-pane" id="meetings">
+       <% if @item.meetings.any? %>
         <ol class="microposts">
           <%= render @meetings %>
         </ol>
       <% else %>
-        <h3>Meetings</h3>
         <ol class="microposts">
           <li>
             <span class="content">Not on any meetings. <%= link_to "Add to a meeting", new_item_item_meeting_path(@item)%>.
           </li>
         </ol>    
       <% end %> 
-      <h3>Actions</h3>
-     Reserved for actions
-      <h3>Documents</h3>
+    </div>
+    <div class="tab-pane" id="dockets">
+      <% if @item.dockets.any? %>
         <ol class="microposts">
-          <% if @item.documents.any? %>
-            <% @item.documents.each do |document| %>
-              <li>
-                <span class="content"><%= link_to document.name, document_path(document.id) %>
-                                  </span>
-                <span class="timestamp">
-                  Document uploaded <%= document.created_at.strftime("%m/%d/%y") %> | 
-                                <%= link_to "Remove", [@item, document], method: :delete,
+          <% @item.dockets.each do |docket| %>
+            <li>
+              <span class="content">
+                <%= link_to docket.committee.name, committee_path(docket.committee_id) %>
+              </span>
+              <span class="timestamp">
+                Added to docket <%= docket.created_at.strftime("%m/%d/%y") %> | 
+                                <%= link_to "Remove", [@item, docket], method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: "Title" %>
 
-                </span>
-              </li>
-             <% end %>           
-             <span class="content"><%= link_to "Upload a document", new_item_document_path(@item) %>.</span>
-         <% else %>
-            <li>
-                <span class="content">Not on any dockets. <%= link_to "Upload a document", new_item_document_path(@item) %>.
+              </span>
             </li>
-          <% end %>
+          <% end %>           
         </ol>
-   </div>
+          <% if @item.notdocketcommittees.count > 0 %>
+            <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
+          <% end %>
+      <% else %>
+        <span class="content">Not on any dockets. <%= link_to "Add to a docket", new_item_docket_path(@item)%>.
+      <% end %>
+    </div>
+  </div>
+  </div>
 </div>
-
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+</script>
 

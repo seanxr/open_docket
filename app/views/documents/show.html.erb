@@ -1,0 +1,25 @@
+<% provide(:title, @document.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @document.name %>
+      </h1>
+      <span>URL</span>
+      <span> <%= link_to @document.URL, @document.URL %></span>
+      <span>Submitted on</span>
+      <span><%= @document.submitted_on.strftime("%m/%d/%y") %></span>
+      <span>Submitted by</span>
+      <span><%= @document.submitted_by %></span>
+      <% if @document.description? %>
+        <span>Description</span>
+        <span><%= @document.description %></span>
+      <% end %>
+      <span class="timestamp">Created by <%= @document.creator.name %> on <%= @document.created_at.strftime("%m/%d/%y") %></span>
+      <span class="timestamp">Last updated by <%= @document.updater.name %> on <%= @document.updated_at.strftime("%m/%d/%y") %></span>
+      <span> <%= link_to "Edit", edit_document_path(@document)%>.
+    </section>
+  </aside>
+  <div class="span8">
+  </div>
+</div>

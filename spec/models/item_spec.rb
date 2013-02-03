@@ -3,14 +3,13 @@
 # Table name: items
 #
 #  id           :integer          not null, primary key
-#  number       :string(255)
+#  name         :string(255)
 #  opened_on    :date
 #  requested_by :text
 #  draft        :boolean
 #  request      :text
 #  address      :text
 #  ward         :string(255)
-#  precinct     :string(255)
 #  creator_id   :integer
 #  updater_id   :integer
 #  created_at   :datetime         not null

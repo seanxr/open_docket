@@ -8,10 +8,10 @@
       <%= f.label :draft %>
 
       <%= f.label :opened_on %>
-      <%= f.text_field :opened_on %>
+      <%= f.date_select :opened_on, :order => [:year, :month, :day]   %>
             
-      <%= f.label :number %>
-      <%= f.text_field :number %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
       <%= f.label :requested_by %>
       <%= f.text_field :requested_by %>

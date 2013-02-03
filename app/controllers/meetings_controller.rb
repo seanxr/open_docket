@@ -1,4 +1,5 @@
 class MeetingsController < ApplicationController
+#  before_filter :get_parent # Defined in ApplicationController
 
  def create
     @rooms = Room.all
@@ -46,6 +47,7 @@ class MeetingsController < ApplicationController
 #    @committees = Committee.all
     @committee = Committee.find(params[:committee_id])
     @meeting = Meeting.new
+    @documents = @meeting.documents
 #    @meeting.committee_meetings.build
 #    Committee.all.each do |committee|
 #      committee_meetings = @meeting.committee_meetings.build(:committee_id => committee.id)
@@ -59,6 +61,8 @@ class MeetingsController < ApplicationController
     @site = @meeting.room.site
     @committees = @meeting.committees
     @itemmeetings = @meeting.item_meetings
+    @documents = @meeting.documents
+    @parent = @meeting
   end
 
   def index

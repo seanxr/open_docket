@@ -3,14 +3,13 @@
 # Table name: items
 #
 #  id           :integer          not null, primary key
-#  number       :string(255)
+#  name         :string(255)
 #  opened_on    :date
 #  requested_by :text
 #  draft        :boolean
 #  request      :text
 #  address      :text
 #  ward         :string(255)
-#  precinct     :string(255)
 #  creator_id   :integer
 #  updater_id   :integer
 #  created_at   :datetime         not null
@@ -19,9 +18,9 @@
 #
 
 class Item < ActiveRecord::Base
-  attr_accessible :address, :draft, :number, :opened_on, :precinct, :request, :requested_by, :updater_id, :creator_id, :ward, :reference
+  attr_accessible :address, :draft, :name, :opened_on, :precinct, :request, :requested_by, :updater_id, :creator_id, :ward, :reference
 
-  validates :number, presence: true, length: { maximum: 20 }, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { maximum: 20 }, uniqueness: { case_sensitive: false }
   validates :creator_id, presence: true
   validates :updater_id, presence: true
 
@@ -36,7 +35,7 @@ class Item < ActiveRecord::Base
   has_many :item_meetings
   has_many :meetings, through: :item_meetings, source: :meeting
 
-  scope :by_number, lambda{ |number| where(number: number) unless number.nil? }
+  scope :by_name, lambda{ |name| where(name: name) unless name.nil? }
 
   def ondocket?(committee)
     #Tests whether or not the item is on the docket for a particular committee

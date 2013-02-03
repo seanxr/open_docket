@@ -1,0 +1,14 @@
+<% attachment = document.attachments.find_by_owner_id(@parent.id) %>
+<li>
+  <span class="content">
+    <%= link_to document.name, document.URL %>&nbsp;|&nbsp;<%= link_to "Details", document_path(document.id) %>
+  </span>
+  <span class="timestamp">
+    Uploaded <%= document.created_at.strftime("%m/%d/%y") %> | 
+     <%= link_to "Remove", [document, attachment], method: :delete,
+         data: { confirm: "You sure?" },
+         title: "Title" %>
+  </span>
+</li>
+   
+
