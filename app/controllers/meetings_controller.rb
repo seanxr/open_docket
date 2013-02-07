@@ -4,27 +4,40 @@ class MeetingsController < ApplicationController
 #  before_filter :get_parent # Defined in ApplicationController
 
  def create
+    @committees = Committee.all
     @rooms = Room.all
-    @committee = Committee.find(params[:committee_id])
-#    @committees = Committee.all
+    if params[:has_committee]
+     @committee = Committee.find(params[:has_committee])
+    end
+    if params[:committee_meetings_attributes]
+      @committee_meetings = params[:committee_meetings_attributes]
+    end
     @meeting = Meeting.new(params[:meeting])
     @meeting.creator_id = current_user.id
     @meeting.updater_id = current_user.id
-#    @meeting.committee_meetings.build  
-#    @meeting.new(:committee_meeting_attributes => {:committee_id => @committee.id})  
-#   @meeting.committee_meetings.build(:committee_id => (params[:committee_id])).save
+#    @committee_name_string = for @committee_meetings.each { |i| Committee.find_by_id(i).name & "/" }
+# Need to put an error if no committee.
 
+    if @committee_meetings
       if @meeting.save
-        if @meeting.committee_meetings.build(:committee_id => (params[:committee_id])).save
-          flash[:success] = "You have succesfully created a #{@committee.name} meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
-          redirect_to @committee
-        else
-         @meeting.destroy
-         render 'new'
-        end
+#        if @meeting.committee_meetings.build(:committee_id => (params[:committee_id])).save
+#          if @attachments
+             @committee_meetings.each { |i| @meeting.committee_meetings.build(:committee_id => i).save }
+#          end
+         if @committee
+           flash[:success] = "You have succesfully created a #{@committee.name} meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
+           redirect_to @committee
+         else
+           flash[:success] = "You have succesfully created a meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
+    	   redirect_to root_url
+         end
       else
         render 'new'
       end
+    else
+      flash[:error] = "Please select a committee"
+      render 'new'
+    end
   end
 
  def edit
@@ -46,8 +59,10 @@ class MeetingsController < ApplicationController
 
   def new
     @rooms = Room.all
-#    @committees = Committee.all
-    @committee = Committee.find(params[:committee_id])
+    @committees = Committee.all
+    if params[:committee_id]
+      @committee = Committee.find(params[:committee_id])
+    end
     @meeting = Meeting.new
     @documents = @meeting.documents
 #    @meeting.committee_meetings.build

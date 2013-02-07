@@ -30,6 +30,15 @@ class Meeting < ActiveRecord::Base
   belongs_to :room
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
+
+  def name
+    self.date
+  end
   
+  def validate_committee
+    if (self.committee_meetings.sum(:count) == 0)
+      self.errors.add(:base, "A meeting must have a committee")
+    end 
+  end
  
 end

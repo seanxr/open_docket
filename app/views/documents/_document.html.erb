@@ -6,7 +6,7 @@
   <span class="timestamp">
     Uploaded <%= document.created_at.strftime("%m/%d/%y") %>
       <% if current_user && current_user.admin? %>
-        %nbsp;|&nbsp;<%= link_to "Remove", [document, attachment], method: :delete,
+        &nbsp;|&nbsp;<%= link_to "Remove", [document, attachment], method: :delete,
          data: { confirm: "You sure?" },
          title: "Title" %>
       <% end %>

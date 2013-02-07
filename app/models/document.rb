@@ -22,7 +22,10 @@ class Document < ActiveRecord::Base
   has_many :owners, :through => :attachments
 
   accepts_nested_attributes_for :attachments 
+
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
+
+  validates :URL, presence: true
 
 end
