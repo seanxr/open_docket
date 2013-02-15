@@ -3,10 +3,8 @@ class CreateDockets < ActiveRecord::Migration
     create_table :dockets do |t|
       t.integer :docket_item_id
       t.integer :committee_id
-      t.string :creator_id
-      t.string :integer
-      t.string :updater_id
-      t.string :integer
+      t.integer :creator_id
+      t.integer :updater_id
       t.text :note
 
       t.timestamps

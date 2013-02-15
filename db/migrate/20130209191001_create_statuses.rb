@@ -4,8 +4,9 @@ class CreateStatuses < ActiveRecord::Migration
       t.integer :code
       t.string :statused_type
       t.integer :statused_id
-      t.integer :statused_by
-      t.integer :created_by
+      t.integer :statuser_id
+      t.integer :creator_id
+      t.date :as_of
 
       t.timestamps
     end
