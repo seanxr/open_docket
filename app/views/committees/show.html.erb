@@ -12,24 +12,14 @@
   </aside>
   <div class="span8">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#items" data-toggle="tab">Items&nbsp;(<%= @committee.dockets.count %>)</a></li>
-      <li><a href="#meetings" data-toggle="tab">Meetings</a></li>
+      <li class="active"><a href="#meetings" data-toggle="tab">Meetings</a></li>
+      <li><a href="#items" data-toggle="tab">Items&nbsp;(<%= @committee.dockets.count %>)</a></li>
+      <li><a href="#activities" data-toggle="tab">Activities</a></li>
     </ul>
+
     <div class="tab-content">
-      <div class="tab-pane active" id="items">
-        <% if @committee.dockets.any? %>
-          <ol class="microposts">
-            <%= render @dockets %>
-          </ol>
-        <% else %>
-          <ol class="microposts">
-            <li>
-              There are no items on the docket. Navigate to an item to add it to this docket.
-            </li>
-          </ol>    
-        <% end %> 
-      </div>
-      <div class="tab-pane" id="meetings">
+
+      <div class="tab-pane active" id="meetings">
         <% if @committee.meetings.any? %>
           <ol class="microposts">
             <%= render @meetings %>
@@ -45,8 +35,36 @@
           </ol>    
         <% end %> 
       </div>
+
+      <div class="tab-pane" id="items">
+        <% if @committee.dockets.any? %>
+          <span class="content">Days on docket in parantheses.</span>
+          <span class="content">Average days on docket for current items: <%= @agingaverage %></span>
+          <ol class="microposts">
+            <%= render @dockets %>
+          </ol>
+        <% else %>
+          <ol class="microposts">
+            <li>
+              There are no items on the docket. Navigate to an item to add it to this docket.
+            </li>
+          </ol>    
+        <% end %> 
+      </div>
+ 
+     <div class="tab-pane" id="activities">
+         <% if @committee.activities.any? %>
+           <%= render @activities %>
+         <% else %>
+           Reserved for actions
+         <% end %>
+      </div>
+
+
     </div>
+
   </div>
+
 </div>
 <script>  $(function () {
     $('#myTab a:last').tab('show');

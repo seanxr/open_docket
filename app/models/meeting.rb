@@ -27,6 +27,9 @@ class Meeting < ActiveRecord::Base
   has_many :item_meetings
   has_many :items, through: :item_meetings
  
+  has_many :activity_logs, :as => :owner
+  has_many :activities, :through => :activity_logs, :as => :owner
+
   belongs_to :room
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'

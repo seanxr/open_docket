@@ -3,13 +3,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@item) do |f| %>
-	
-      <%= f.check_box :draft %>
-      <%= f.label :draft %>
-
-      <%= f.label :opened_on %>
-      <%= f.date_select :opened_on, {:order => [:year, :month, :day]},  {:class => "date-select"}   %>
-            
+	           
       <%= f.label :name %>
       <%= f.text_field :name %>
 
@@ -28,6 +22,12 @@
       <%= f.label :ward %>
       <%= f.text_field :ward %>
 
+      <%= f.check_box :draft %>
+      <%= f.label :draft %>
+
+      <%= label :status, :as_of %>
+      <%= text_field :status, :as_of, :value => Date.today    %>
+ 
       <%= f.submit "Create docket item", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

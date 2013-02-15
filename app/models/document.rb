@@ -28,4 +28,8 @@ class Document < ActiveRecord::Base
 
   validates :URL, presence: true
 
+  has_many :activity_logs, :as => :owner
+  has_many :activities, :through => :activity_logs, :as => :owner
+
+
 end

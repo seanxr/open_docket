@@ -28,11 +28,12 @@
 <%#         <%= item.name %>
 <%#         <br/>
 <%#       <% end %>
-
-      <% for item in @items.all %>
-        <%= check_box_tag( "[item_attachments_attributes][]", item.id) %>
-        <%= item.name %>
-        <br/>
+      <% if @items %>
+        <% for item in @items.all %>
+          <%= check_box_tag( "[item_attachments_attributes][]", item.id) %>
+          <%= item.name %>
+          <br/>
+       <% end %>
      <% end %>
 
       <%= f.submit "Upload document", class: "btn btn-large btn-primary" %>

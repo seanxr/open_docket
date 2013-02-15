@@ -8,9 +8,6 @@
       <% if @item.draft %>
         <span>Draft</span>
       <% end %>	
-      <% if @item.opened_on %>
-        <span>Opened <%= @item.opened_on %></span></br>
-      <% end %>
       <span>Requested by</span>
       <span><%= @item.requested_by %></span>
       <span>Address</span>
@@ -20,22 +17,44 @@
       <span>Reference</span>
       <span><%= @item.reference %></span>
       <span>Ward: <%= @item.ward %></span>
+      <% @item.statuses.each do |status| %>
+        <% if status == @item.statuses.first %>
+           <span>Opened:&nbsp;
+        <% elsif status == @item.statuses.third %>
+           <span>Re-opened:&nbsp;
+        <% else %>
+           <span>Closed:&nbsp;
+        <% end %>
+           <%= status.as_of %></span>
+      <% end %>
       <span class="timestamp">Created by <%= @item.creator.name %> on <%= @item.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @item.updater.name %> on <%= @item.updated_at.strftime("%m/%d/%y") %></span>
       <% if current_user && current_user.admin? %>
-        <span><%= link_to "Edit", edit_item_path(@item)%>.
+        <span><%= link_to "Edit", edit_item_path(@item)%>&nbsp;|&nbsp;
+        <% if @item.statuses.last.code = 1 %>
+          <%= link_to "Close", new_item_status_path(@item)%>
+        <% else %>
+          <%= link_to "Re-open", new_item_status_path(@item)%>
+        <% end %>
       <% end %>
    </section>
   </aside>
   <div class="span8">
     <ul class="nav nav-tabs">
       <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
-      <li><a href="#documents" data-toggle="tab">Documents</a></li>
-      <li><a href="#meetings" data-toggle="tab">Meetings</a></li>
-      <li><a href="#dockets" data-toggle="tab">Dockets</a></li>
+      <li><a href="#documents" data-toggle="tab">Documents&nbsp;(<%= @item.attachments.count %>)</a></li>
+      <li><a href="#meetings" data-toggle="tab">Meetings&nbsp;(<%= @item.item_meetings.count %>)</a></li>
+      <li><a href="#dockets" data-toggle="tab">Dockets&nbsp;(<%= @item.dockets.count %>)</a></li>
     </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="activity">Reserved for actions
+    <div class="tab-pane active" id="activity">
+      <% if @item.activities.any? %>
+        <ol class="microposts">
+          <%= render @activities %>
+        </ol>
+      <% else %>
+        Reserved for actions
+      <% end %>
     </div>
     <div class="tab-pane" id="documents">
       <ol class="microposts">
@@ -82,11 +101,9 @@
                 <%= link_to docket.committee.name, committee_path(docket.committee_id) %>
               </span>
               <span class="timestamp">
-                Added to docket <%= docket.created_at.strftime("%m/%d/%y") %> | 
+                Added to docket <%= docket.created_at.strftime("%m/%d/%y") %>&nbsp;(<%= docket.age %> days) 
                 <% if current_user && current_user.admin? %>
-                  <%= link_to "Remove", [@item, docket], method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: "Title" %>
+                  &nbsp;|&nbsp;<%= link_to "Remove from docket", new_docket_status_path(docket.id) %>
                 <% end %>
               </span>
             </li>
@@ -98,7 +115,7 @@
       <% else %>
         <span class="content">Not on any dockets. 
         <% if current_user && current_user.admin? %>
-          <%= link_to "Add to a docket", new_item_docket_path(@item)%>.
+          <%= link_to "Add to a docket", new_item_docket_path(@item) %>.
         <% end %>
       <% end %>
     </div>

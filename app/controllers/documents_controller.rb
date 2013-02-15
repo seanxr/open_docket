@@ -26,24 +26,47 @@ class DocumentsController < ApplicationController
     @document.updater_id = current_user.id
 
     if @document.save
+      @activity1 = Activity.create(
+                :message => "Document #{@document.name} uploaded into Open Docket",
+                :activity_type => "DocumentUploaded", :date_actual => Date.today)
+      ActivityLog.create(:activity_id => @activity1.id, :owner_type => "Document", :owner_id => @document.id) 
+
       if @document.attachments.build(:owner_type => @parent.class.name, :owner_id => @parent.id).save
-       if @attachments
-          @attachments.each { |i| @document.attachments.build(:owner_type => "Item", :owner_id => i).save }
-       end
+          @activity2 = Activity.create(
+                :message => "Document #{@document.name} attached to #{@parent.class.name} #{@parent.name}.",
+                :activity_type => "DocumentAttachment", :date_actual => Date.today)
+          ActivityLog.create(:activity_id => @activity2.id, :owner_type => "Document", :owner_id => @document.id) 
+          ActivityLog.create(:activity_id => @activity2.id, :owner_type => @parent.class.name, :owner_id => @parent.id)   
+
+        if @attachments
+          for attachment in @attachments.each do
+            @document.attachments.build(:owner_type => "Item", :owner_id => attachment).save
+            @activity3 = Activity.create(
+                :message => "Document #{@document.name} attached to Item {Item.find_by_id(attachment).name}.",
+                :activity_type => "DocumentAttachment", :date_actual => Date.today)
+            ActivityLog.create(:activity_id => @activity3.id, :owner_type => "Document", :owner_id => @document.id) 
+            ActivityLog.create(:activity_id => @activity3.id, :owner_type => "Item", :owner_id => attachment)              
+          end
+        end
         flash[:success] = "You have succesfully uploaded document #{@document.name} to #{@parent.class.name.downcase} #{@parent.name}"
         redirect_to @parent
+
+
       else
         @document.destroy
         render 'new'
       end
+
     else
       render 'new'
     end
+
   end
 
   def show
     @document = Document.find_by_id(params[:id])
     @attachedto = @document.attachments.collect
+    @activities = @document.activities
   end
 
 end

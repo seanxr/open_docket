@@ -1,41 +1,32 @@
 class MeetingsController < ApplicationController
   before_filter :signed_in_user, only: [:new, :create, :edit, :update]
   before_filter :admin_user,     only: [:new, :create, :edit, :update]
-#  before_filter :get_parent # Defined in ApplicationController
 
  def create
     @committees = Committee.all
     @rooms = Room.all
-    if params[:has_committee]
-     @committee = Committee.find(params[:has_committee])
-    end
-    if params[:committee_meetings_attributes]
-      @committee_meetings = params[:committee_meetings_attributes]
-    end
+    @committee_meetings = params[:committee_meetings_attributes]
+    params[:meeting][:committee_meetings_attributes] = params[:committee_meetings_attributes].map{ |x| {"committee_id" => x}}
     @meeting = Meeting.new(params[:meeting])
     @meeting.creator_id = current_user.id
     @meeting.updater_id = current_user.id
-#    @committee_name_string = for @committee_meetings.each { |i| Committee.find_by_id(i).name & "/" }
+    @committee_names_string =  params[:committee_meetings_attributes].collect { |id| Committee.find_by_id(id).name }.join('/') 
 # Need to put an error if no committee.
 
     if @committee_meetings
       if @meeting.save
-#        if @meeting.committee_meetings.build(:committee_id => (params[:committee_id])).save
-#          if @attachments
-             @committee_meetings.each { |i| @meeting.committee_meetings.build(:committee_id => i).save }
-#          end
-         if @committee
-           flash[:success] = "You have succesfully created a #{@committee.name} meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
-           redirect_to @committee
-         else
-           flash[:success] = "You have succesfully created a meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
-    	   redirect_to root_url
-         end
+        @activity = Activity.create(
+                :message => "Created new #{@committee_names_string} meeting for #{@meeting.date}.",
+                :activity_type => "NewMeeting", :date_actual => @meeting.created_at)
+        ActivityLog.create(:activity_id => @activity.id, :owner_type => "Meeting", :owner_id => @meeting.id)
+        @committee_meetings.each { |i| ActivityLog.create(:activity_id => @activity.id, :owner_type => "Committee", :owner_id => i) }
+        flash[:success] = "You have succesfully created a #{@committee_names_string} meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}! #{@meeting.id}"
+        redirect_to session[:return_to] 
       else
         render 'new'
       end
     else
-      flash[:error] = "Please select a committee"
+#      flash[:error] = "Please select a committee"
       render 'new'
     end
   end
@@ -58,6 +49,7 @@ class MeetingsController < ApplicationController
 
 
   def new
+    session[:return_to] = request.referer
     @rooms = Room.all
     @committees = Committee.all
     if params[:committee_id]
@@ -65,11 +57,6 @@ class MeetingsController < ApplicationController
     end
     @meeting = Meeting.new
     @documents = @meeting.documents
-#    @meeting.committee_meetings.build
-#    Committee.all.each do |committee|
-#      committee_meetings = @meeting.committee_meetings.build(:committee_id => committee.id)
-#    end 
-
   end
 
   def show
@@ -80,6 +67,7 @@ class MeetingsController < ApplicationController
     @itemmeetings = @meeting.item_meetings
     @documents = @meeting.documents
     @parent = @meeting
+    @activities = @meeting.activities
   end
 
   def index

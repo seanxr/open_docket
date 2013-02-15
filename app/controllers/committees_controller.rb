@@ -32,7 +32,11 @@ class CommitteesController < ApplicationController
 
   def show
     @committee = Committee.find(params[:id])
-    @dockets = @committee.dockets
+    @activities = @committee.activities
+    if @committee.dockets.count > 0
+      @dockets = @committee.dockets
+      @agingaverage = @dockets.collect(&:age).inject(:+)/@dockets.size
+    end
     @meetings = @committee.meetings
   end
 

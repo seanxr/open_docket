@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130203034946) do
+ActiveRecord::Schema.define(:version => 20130213040343) do
+
+  create_table "activities", :force => true do |t|
+    t.date     "date_actual"
+    t.string   "person_actual"
+    t.text     "note"
+    t.string   "activity_type"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.text     "message"
+  end
+
+  create_table "activity_logs", :force => true do |t|
+    t.integer  "activity_id"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "attachments", :force => true do |t|
     t.integer  "document_id"
@@ -43,12 +63,11 @@ ActiveRecord::Schema.define(:version => 20130203034946) do
   create_table "dockets", :force => true do |t|
     t.integer  "item_id"
     t.integer  "committee_id"
-    t.string   "creator_id"
-    t.string   "integer"
-    t.string   "updater_id"
     t.text     "note"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   add_index "dockets", ["committee_id"], :name => "index_dockets_on_committee_id"
@@ -127,6 +146,18 @@ ActiveRecord::Schema.define(:version => 20130203034946) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "creator_id"
+    t.integer  "updater_id"
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.integer  "code"
+    t.string   "statused_type"
+    t.integer  "statused_id"
+    t.integer  "statuser_id"
+    t.integer  "creator_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.date     "as_of"
     t.integer  "updater_id"
   end
 

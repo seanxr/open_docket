@@ -3,7 +3,7 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= @meeting.date.strftime("%m/%d/%y") %>
+        Meeting: <%= @meeting.date.strftime("%m/%d/%y") %>
       </h1>
       <% if @committees %>
         <% @committees.each do |committee| %>
@@ -32,7 +32,8 @@
   <div class="span8">
     <ul class="nav nav-tabs">
       <li class="active"><a href="#items" data-toggle="tab">Items&nbsp;(<%= @meeting.item_meetings.count %>)</a></li>
-      <li><a href="#documents" data-toggle="tab">Documents</a></li>
+      <li><a href="#documents" data-toggle="tab">Documents&nbsp;(<%= @meeting.attachments.count %>)</a></li>
+      <li><a href="#activities" data-toggle="tab">Activities</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="items">
@@ -43,7 +44,7 @@
         <% else %>
           <ol class="microposts">
           <li>
-            There are no items on the docket. Navigate to an item to add it to this docket.
+            There are no items on the meeting agenda. Navigate to an item to add it to this meeting.
           </li>
         </ol>    
       <% end %> 
@@ -67,6 +68,16 @@
           <% end %>
         </ol>
       </div>
+
+      <div class="tab-pane" id="activities">
+         <% if @meeting.activities.any? %>
+           <%= render @activities %>
+         <% else %>
+           Reserved for actions
+         <% end %>
+      </div>
+
+
     </div>
   </div>
 </div>

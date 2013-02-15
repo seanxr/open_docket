@@ -1,0 +1,11 @@
+<% attachment = document.attachments.find_by_owner_id(@parent.id) %>
+<li>
+  <span class="content">
+    <%= activity.note %>
+  </span>
+  <span class="timestamp">
+    <%= activity.created_at.strftime("%m/%d/%y") %>
+  </span>
+</li>
+   
+

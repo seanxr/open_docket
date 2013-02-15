@@ -5,12 +5,11 @@
 #  id           :integer          not null, primary key
 #  item_id      :integer
 #  committee_id :integer
-#  creator_id   :string(255)
-#  integer      :string(255)
-#  updater_id   :string(255)
 #  note         :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  creator_id   :integer
+#  updater_id   :integer
 #
 
 require 'spec_helper'

@@ -1,5 +1,11 @@
 OpenDocket::Application.routes.draw do
 
+  get "statuses/new"
+
+  get "user/new"
+
+  get "status/new"
+
   get "attachments/new"
 
 #  resources :dockets
@@ -7,6 +13,7 @@ OpenDocket::Application.routes.draw do
     resources :dockets
     resources :item_meetings
     resources :documents
+    resources :statuses
   end
  
   resources :committees do
@@ -23,9 +30,14 @@ OpenDocket::Application.routes.draw do
   resources :sites do
     resources :rooms
   end
+
   resources :meetings do
     resources :committee_meetings
     resources :documents
+  end
+
+  resources :dockets do
+    resources :statuses
   end
 
   root to: 'static_pages#home'

@@ -33,7 +33,12 @@
            <%= attachedto.owner.class.name %>: <%= link_to attachedto.owner.name, polymorphic_path([attachedto.owner]) %><br/>
          <% end %>
       </div>
-      <div class="tab-pane" id="activity">Reserved for actions.
+      <div class="tab-pane" id="activity">
+       <% if @document.activities.any? %>
+         <%= render @activities %>
+       <% else %>
+         Reserved for actions
+       <% end %>
       </div>
     </div>
   </div>

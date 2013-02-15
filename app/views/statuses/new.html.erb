@@ -1,0 +1,39 @@
+<% provide(:title, 'Change status') %>
+<% if @parent.class.name == "Docket" %>
+  <% if @parent.statuses.last == 1 %>
+    <h1>Remove item <%= @parent.item.name %> from <%= @parent.committee.name %> docket </h1>
+  <% else %>
+    <h1>Add item <%= @parent.item.name %> to <%= @parent.committee.name %> docket </h1>
+  <% end %>
+<% elsif @parent.class.name == "Item" %>
+  <% if @parent.statuses.last == 1 %>
+    <h1>Close item <%= @parent.name %></h1>
+  <% else %>
+    <h1>Re-open item <%= @parent.name %></h1>
+  <% end %>
+<% else %>
+  <h1>Change status on <%= @parent.class.name %> <%= @parent.name %></h1>
+<% end %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for ([@parent, @status]) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @status} %>
+
+      <%= f.label :statuser_id %>
+      <%= f.text_field :statuser_id %>
+
+      <%= f.label :as_of %>
+      <%= f.text_field :as_of, :value => Date.today.to_s %>
+
+      <%= f.hidden_field :code, :value => @newcode %>
+
+      <%= label :activity, :note %>
+      <%= text_field :activity, :note %>
+
+<%#      <%= date_select :as_of, {:order => [:year, :month, :day]},  {:class => "date-select"}   %>
+
+      <%= f.submit "Change status", class: "btn btn-large btn-primary" %> <%= link_to "Cancel", @parent %>
+    <% end %>
+  </div>
+</div>
+

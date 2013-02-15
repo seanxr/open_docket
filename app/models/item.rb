@@ -18,9 +18,12 @@
 #
 
 class Item < ActiveRecord::Base
-  attr_accessible :address, :draft, :name, :opened_on, :precinct, :request, :requested_by, :updater_id, :creator_id, :ward, :reference
+  attr_accessible :address, :draft, :name, :opened_on, :precinct, :request, 
+                  :requested_by, :updater_id, :creator_id, :ward, :reference, 
+                  :statuses_attributes
 
-  validates :name, presence: true, length: { maximum: 20 }, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { maximum: 20 }, 
+            uniqueness: { case_sensitive: false }
   validates :creator_id, presence: true
   validates :updater_id, presence: true
 
@@ -29,6 +32,12 @@ class Item < ActiveRecord::Base
 
   has_many :attachments, :as => :owner
   has_many :documents, :through => :attachments, :as => :owner
+
+  has_many :activity_logs, :as => :owner
+  has_many :activities, :through => :activity_logs, :as => :owner
+
+  has_many :statuses, :as => :statused
+  accepts_nested_attributes_for :statuses
 
   has_many :dockets, foreign_key: 'item_id', class_name: 'Docket'
   has_many :committees, through: :dockets, source: :committee
@@ -83,6 +92,8 @@ class Item < ActiveRecord::Base
 
   end
 
-
+  def currentstatus
+    self.statuses.last
+  end
 
 end

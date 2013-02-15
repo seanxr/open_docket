@@ -65,6 +65,27 @@ namespace :db do
     item1.creator_id = 1
     item1.updater_id = 1
     item1.save
+    item1_status1 = Status.new(code: 1, statused_type: "Item", statused_id: 1, as_of: "2002-10-10")
+    item1_status1.creator_id = 1
+    item1_status1.updater_id = 1
+    item1_status1.save
+
+    activity1_1 = Activity.new(
+                :message => "Item #417-12 entered in OpenDocket by Ted Mann",
+                :activity_type => "NewItem", :date_actual => "2012-12-01")
+    activity1_1.creator_id = 1
+    activity1_1.updater_id = 1
+    activity1_1.save
+    log1_1 = ActivityLog.create(:activity_id => 1, :owner_type => "Item", :owner_id => 1) 
+    activity1_2 = Activity.new(
+                :message => "Item #417-12 opened by __.", :activity_type => "ItemOpen", 
+                :date_actual => "2012-12-01")
+    activity1_2.creator_id = 1
+    activity1_2.updater_id = 1
+    activity1_2.save
+    log1_2 = ActivityLog.create(:activity_id => 2, :owner_type => "Item", :owner_id => 1)
+
+
      item2 = Item.new(name:"416-12",
                    requested_by: "MAIN GATE REALTY LLC",
                    request: "petition for a SPECIAL PERMIT/SITE PLAN APPROVAL and CHANGE in a NONCONFORMING USE for a yoga and life coaching business and to locate 5 parking stalls in the front setback with a 3-foot drive width and to erect a freestanding sign at 242-244 COMMONWEALTH AVENUE, Ward 7, and in addition to allow office, service, retail, or medical office as a future use and to waive 2 required parking stalls for future conversion to medical office use at 242-244 COMMONWEALTH AVENUE, on land known as SBL 61, 13, 11, containing approximately 7,452 sq. ft. of land in a district zoned MULTI RESIDENCE 1.",
@@ -74,6 +95,27 @@ namespace :db do
     item2.creator_id = 1
     item2.updater_id = 1
     item2.save
+    item2_status1 = Status.new(code: 1, statused_type: "Item", statused_id: 2, as_of: "2002-10-10")
+    item2_status1.creator_id = 1
+    item2_status1.updater_id = 1
+    item2_status1.save
+
+    activity2_1 = Activity.new(
+                :message => "Item #416-12 entered in OpenDocket by Ted Mann",
+                :activity_type => "NewItem", :date_actual => "2012-12-01")
+    activity2_1.creator_id = 1
+    activity2_1.updater_id = 1
+    activity2_1.save
+    log2_1 = ActivityLog.create(:activity_id => 3, :owner_type => "Item", :owner_id => 2) 
+    activity2_2 = Activity.new(
+                :message => "Item #416-12 opened by __.", :activity_type => "ItemOpen", 
+                :date_actual => "2012-12-01")
+    activity2_2.creator_id = 1
+    activity2_2.updater_id = 1
+    activity2_2.save
+    log2_2 = ActivityLog.create(:activity_id => 4, :owner_type => "Item", :owner_id => 2)
+
+
      item3 = Item.new(name:"415-12",
                    requested_by: "DAVID & CAROLINE ALTMAN",
                    request: "petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to construct a new kitchen and family room addition with a deck, increasing the Floor Area Ratio from .33, which is allowed, to .36 at 37 COLUMBINE ROAD, Ward 8, on land known as SBL 82, 19, 5, containing approximately 15,415 sf of land in a district zoned SINGLE RESIDENCE 1.",
@@ -83,24 +125,85 @@ namespace :db do
     item3.creator_id = 1
     item3.updater_id = 1
     item3.save
+    item3_status1 = Status.new(code: 1, statused_type: "Item", statused_id: 3, as_of: "2002-10-10")
+    item3_status1.creator_id = 1
+    item3_status1.updater_id = 1
+    item3_status1.save
+
+    activity3_1 = Activity.new(
+                :message => "Item #415-12 entered in OpenDocket by Ted Mann",
+                :activity_type => "NewItem", :date_actual => "2012-12-01")
+    activity3_1.creator_id = 1
+    activity3_1.updater_id = 1
+    activity3_1.save
+    log3_1 = ActivityLog.create(:activity_id => 5, :owner_type => "Item", :owner_id => 3) 
+    activity3_2 = Activity.new(
+                :message => "Item #415-12 opened by __.", :activity_type => "ItemOpen", 
+                :date_actual => "2012-12-01")
+    activity3_2.creator_id = 1
+    activity3_2.updater_id = 1
+    activity3_2.save
+    log3_2 = ActivityLog.create(:activity_id => 6, :owner_type => "Item", :owner_id => 3)
+
 
     docket1_1 = Docket.new(committee_id:1, 
                    item_id:1)
     docket1_1.creator_id = 1
     docket1_1.updater_id = 1
     docket1_1.save
+    docket1_status1 = Status.new(code: 1, statused_type: "Docket", statused_id: 1, as_of: "2012-12-06")
+    docket1_status1.creator_id = 1
+    docket1_status1.updater_id = 1
+    docket1_status1.save
+
+
+    activity4_1 = Activity.new(
+                :message => "Item #417-12 added to Land Use Committee docket.",
+                :activity_type => "ItemToDocket", :date_actual => "2012-12-14")
+    activity4_1.creator_id = 1
+    activity4_1.updater_id = 1
+    activity4_1.save
+    log4_1 =  ActivityLog.create(:activity_id => 7, :owner_type => "Item", :owner_id => 1) 
+    log4_2 =  ActivityLog.create(:activity_id => 7, :owner_type => "Committee", :owner_id => 1) 
+
 
     docket1_2 = Docket.new(committee_id:1, 
                    item_id:2)
     docket1_2.creator_id = 1
     docket1_2.updater_id = 1
     docket1_2.save
+    docket1_status2 = Status.new(code: 1, statused_type: "Docket", statused_id: 2, as_of: "2012-12-18")
+    docket1_status2.creator_id = 1
+    docket1_status2.updater_id = 1
+    docket1_status2.save
+
+    activity5_1 = Activity.new(
+                :message => "Item #416-12 added to Land Use Committee docket.",
+                :activity_type => "ItemToDocket", :date_actual => "2012-12-14")
+    activity5_1.creator_id = 1
+    activity5_1.updater_id = 1
+    activity5_1.save
+    log5_1 =  ActivityLog.create(:activity_id => 8, :owner_type => "Item", :owner_id => 2) 
+    log5_2 =  ActivityLog.create(:activity_id => 8, :owner_type => "Committee", :owner_id => 1) 
 
     docket1_3 = Docket.new(committee_id:1, 
                    item_id:3)
     docket1_3.creator_id = 1
     docket1_3.updater_id = 1
     docket1_3.save
+    docket1_status3 = Status.new(code: 1, statused_type: "Docket", statused_id: 3, as_of: "2012-12-16")
+    docket1_status3.creator_id = 1
+    docket1_status3.updater_id = 1
+    docket1_status3.save
+
+    activity6_1 = Activity.new(
+                :message => "Item #415-12 added to Land Use Committee docket.",
+                :activity_type => "ItemToDocket", :date_actual => "2012-12-14")
+    activity6_1.creator_id = 1
+    activity6_1.updater_id = 1
+    activity6_1.save
+    log6_1 =  ActivityLog.create(:activity_id => 9, :owner_type => "Item", :owner_id => 3) 
+    log6_2 =  ActivityLog.create(:activity_id => 9, :owner_type => "Committee", :owner_id => 1) 
 
     meeting1 = Meeting.new(date:"2013-01-15",
                         room_id:1)

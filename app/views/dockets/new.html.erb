@@ -13,8 +13,13 @@
         <% end %>
       <% end %>
 
-     <%= f.label :note %>
+      <%= f.label :note %>
       <%= f.text_field :note %>
+
+      <%= label :status, :as_of %>
+      <%= text_field :status, :as_of %>
+
+<%#      <%= date_select :as_of, {:order => [:year, :month, :day]},  {:class => "date-select"}   %>
 
       <%= f.submit "Assign", class: "btn btn-large btn-primary" %> <%= link_to "Cancel", @item %>
     <% end %>
