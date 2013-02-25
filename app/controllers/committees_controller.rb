@@ -8,7 +8,11 @@ class CommitteesController < ApplicationController
     @committee.updater_id = current_user.id
 
     if @committee.save
-      flash[:success] = "You have succesfully created a new committee!"
+      @activity = Activity.create(
+                :message => "Added #{@committee.name} to Open Docket.",
+                :activity_type => "NewCommittee", :date_actual => @committee.created_at)
+      ActivityLog.create(:activity_id => @activity.id, :owner_type => "Committee", :owner_id => @committee.id)
+      flash[:success] = "You have succesfully created #{@committee.name}!"
       redirect_to @committee
     else
       render 'new'

@@ -1,0 +1,53 @@
+<ol class="microposts">
+  <% for action in @meeting.aktions %>
+     <li>
+     <% for item_meeting in action.item_meetings %>
+	     	<% if item_meeting.agendable_type == "Item" %>
+			<span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></span>
+		<% elsif item_meeting.agendable_type == "MeetingText" %> 
+			<% if item_meeting.aktion.meeting_text.size > 200 %>
+				<span class="content"><%= item_meeting.aktion.meeting_text[0..200] %> ...</span>
+			<% else %>
+				<span class="content"><%= item_meeting.aktion.meeting_text %></span>
+			<% end %>
+		<% end %>
+	<% end %>
+			 <% if current_user && current_user.admin? %>
+				      <span><%= link_to "Edit action", edit_aktion_path(action)%>
+				      <% end %>
+	                <% if action.discussion.size > 200 %>
+				<a class="toggle" href="javascript:void(0);">Expand/collapse</a>&nbsp;	
+				<span class="content"><%= action.discussion[0..200] %> ...</span>
+				<span class="contentfull" style="display:none"><%= action.discussion %></span>
+			<% else %>
+				<span class="content"><%= action.discussion %></span>
+			<% end %>
+    </li>
+  <% end %>
+ </ol>
+ <span class="content">The following items have no actions, yet.</span>
+ <ol class="microposts">
+  <% for item_meeting in @meeting.item_meetings.all%>
+	  <% if item_meeting.aktion %>
+	  <% else %>
+	<% if item_meeting.agendable_type == "Item" %>
+	<li>
+			<span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %>	
+			<% if current_user && current_user.admin? %>
+			  &nbsp;|&nbsp;<%= link_to "Add an action", 
+						new_meeting_aktion_path(item_meeting.meeting)+"?agendable_type=item&agendable_id="+item_meeting.agendable_id.to_s %>
+			<% end %>
+			</span>
+		</li>
+	<% elsif item_meeting.agendable_type == "MeetingText" %>
+	  <li>
+	  <span class="content"><%= item_meeting.agendable.name %>
+		  	<% if current_user && current_user.admin? %>
+			  &nbsp;|&nbsp;<%= link_to "Add an action", 
+						new_meeting_aktion_path(item_meeting.meeting)+"?agendable_type=item&agendable_id="+item_meeting.agendable_id.to_s %>
+			<% end %>
+		</li>
+	<% end %>
+	<% end %>
+  <% end %>
+</ol>

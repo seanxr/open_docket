@@ -6,9 +6,14 @@
     <% end %>
   </span>
       <span class="content"><%= docket.item.requested_by %></span>
-      <span class="content"><%= docket.item.request %></span>
       <span class="content"><%= docket.item.address %></span>
-  
+  <% if docket.item.request.size > 200 %>
+    <a class="toggle" href="javascript:void(0);">Expand/collapse</a>
+    <span class="content"><%= docket.item.request[0..200] %>...</span>
+    <span class="contentfull" style="display:none"><%= docket.item.request %></span>
+    <% else %>
+    <span class="content"><%= docket.item.request %></span>
+    <% end %>
 <span class="timestamp">
     <%= docket.created_at.strftime("Added %m/%d/%y") %>
   </span>

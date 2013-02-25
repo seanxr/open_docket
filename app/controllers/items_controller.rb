@@ -9,15 +9,7 @@ class ItemsController < ApplicationController
     @item.statuses_attributes = 
                 [ {"creator_id" => @item.creator_id, "updater_id" => @item.updater_id, 
                  "code" => "1", "as_of" => params[:status][:as_of] } ]
-    if @item.save
-      @activity1 = Activity.create(
-                :message => "Item #{@item.name} entered in OpenDocket by #{current_user.name}",
-                :activity_type => "NewItem", :date_actual => Date.today)
-      ActivityLog.create(:activity_id => @activity1.id, :owner_type => "Item", :owner_id => @item.id) 
-      @activity2 = Activity.create(
-                :message => "Item #{@item.name} opened by __.", :activity_type => "ItemOpen", 
-                :date_actual => @item.statuses.last.as_of)
-      ActivityLog.create(:activity_id => @activity2.id, :owner_type => "Item", :owner_id => @item.id)
+    if @item.save_with_activities(current_user)
       flash[:success] = "You have succesfully created docket item #{@item.name}!"
       redirect_to @item
     else

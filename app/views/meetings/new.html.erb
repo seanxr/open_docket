@@ -12,8 +12,11 @@
           <%= f.date_select :date, {:order => [:year, :month, :day]}, {:class => "date-select"}  %>
         </div>
 
-        <% @rooms.each do |room| %>
-          <%= f.radio_button :room_id, room.id %> <%= room.name %><br />
+        <% @sites.each do |site| %>
+          <span><%= site.name %></span><br/>
+          <% site.rooms.each do |room| %>
+            <%= f.radio_button :room_id, room.id %> <%= room.name %><br/>
+          <% end %>
         <% end %>
 
 <%#      <%= f.fields_for :committee_meetings do |ff| %>

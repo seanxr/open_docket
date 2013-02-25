@@ -41,8 +41,8 @@ class Item < ActiveRecord::Base
 
   has_many :dockets, foreign_key: 'item_id', class_name: 'Docket'
   has_many :committees, through: :dockets, source: :committee
-  has_many :item_meetings
-  has_many :meetings, through: :item_meetings, source: :meeting
+  has_many :item_meetings, :as => :agendable
+  has_many :meetings, through: :item_meetings, :as => :agendable
 
   scope :by_name, lambda{ |name| where(name: name) unless name.nil? }
 
@@ -73,27 +73,41 @@ class Item < ActiveRecord::Base
 
   end
 
-  def notdocketcommittees
+  def not_docket_committees
 
     Committee.all.reject { |h| self.committees.include? h }
 
   end
 
-  def potentialmeetings
+  def potential_meetings
 
-    # Creates an array (hash?) of the meetings after today, where there is an intersection between
+    # Creates a hash of the meetings after today, where there is an intersection between
     # the committees associated with the item and the committees associated with the meeting.
 
-    itemcommittees = self.committees.pluck(:committee_id)
+    item_committees = self.committees.pluck(:committee_id)
     meetings = Meeting.all
-    upcomingmeetings = meetings.find_all { |meeting| meeting.date.to_s > Date.today.to_s }
-    potentialmeetings = upcomingmeetings.find_all { |meeting| (meeting.committees.pluck(:committee_id) & itemcommittees).any? }	
-    potentialmeetings
+    upcoming_meetings = meetings.find_all { |meeting| meeting.date.to_s > Date.today.to_s }
+    potential_meetings = upcoming_meetings.find_all { |meeting| (meeting.committees.pluck(:committee_id) & item_committees).any? }	
+    potential_meetings
 
   end
 
-  def currentstatus
-    self.statuses.last
+  def current_status
+    statuses.last
+  end
+
+  def save_with_activities(current_user)
+    Item.transaction do
+      self.save!
+      activity1 = Activity.create!(
+        :message => "Item #{name} entered in OpenDocket by #{current_user.name}",
+        :activity_type => "NewItem", :date_actual => Date.today)
+      ActivityLog.create!(:activity_id => activity1.id, :owner_type => "Item", :owner_id => self.id) 
+      activity2 = Activity.create!(
+          :message => "Item #{name} opened by __.", :activity_type => "ItemOpen", 
+          :date_actual => statuses.last.as_of)
+      ActivityLog.create!(:activity_id => activity2.id, :owner_type => "Item", :owner_id => self.id)
+    end
   end
 
 end

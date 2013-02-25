@@ -2,15 +2,28 @@
 <h1>Put item on meeting</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for ([@item, @itemmeeting]) do |f| %>
-    <%= render :partial => 'shared/error_messages', :locals => {:object => @itemmeeting} %>
-
-      <% @potentialmeetings.each do |meeting| %>
+    <% if @agendable %>
+    <%= form_for ([@agendable, @item_meeting]) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @item_meeting} %>
+    <% f.hidden_field 'agendable_type', :value => @agendable.class.name %>
+    <% f.hidden_field 'agendable_id', :value => @agendable.id %>
+      <% @potential_meetings.each do |meeting| %>
         <%= f.radio_button :meeting_id, meeting.id %> <%= meeting.date %><br />
       <% end %>
-
-      <%= f.submit "Add to meeting", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Add item to meeting", class: "btn btn-large btn-primary" %>
     <% end %>
+  <% elsif @meeting %>
+    <span content="class">Add an item to <%= @meeting.name %> <%= @meeting.committee_names_string %> meeting.</span>
+    <%= form_for ([@meeting, @item_meeting]) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @item_meeting} %>
+      <%= f.hidden_field 'agendable_type', :value => "Item" %>
+      <%= f.hidden_field 'meeting_id', :value => @meeting.id %>
+      <% @potential_items.each do |item| %>
+        <%= f.radio_button :agendable_id, item.id %> <%= item.name %><br />
+      <% end %>
+      <%= f.submit "Add item to meeting", class: "btn btn-large btn-primary" %>
+    <% end %>
+  <% end %>
   </div>
 </div>
 

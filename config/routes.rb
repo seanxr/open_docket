@@ -1,5 +1,7 @@
 OpenDocket::Application.routes.draw do
 
+  get "meeting_texts/new"
+
   get "statuses/new"
 
   get "user/new"
@@ -9,6 +11,8 @@ OpenDocket::Application.routes.draw do
   get "attachments/new"
 
 #  resources :dockets
+  resources :aktions 
+
   resources :items do 
     resources :dockets
     resources :item_meetings
@@ -32,13 +36,18 @@ OpenDocket::Application.routes.draw do
   end
 
   resources :meetings do
+    resources :aktions
     resources :committee_meetings
     resources :documents
+    resources :meeting_texts
+    resources :item_meetings
   end
 
   resources :dockets do
     resources :statuses
   end
+
+#  resources :item_meetings
 
   root to: 'static_pages#home'
 
@@ -52,6 +61,8 @@ OpenDocket::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
+
+  match 'item_meetings/reorder' => 'item_meetings#reorder', :as => 'item_meetings_reorder', :via => :get
 
 #  get "documents/new"
 

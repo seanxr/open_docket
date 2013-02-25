@@ -1,0 +1,16 @@
+<% provide(:title, 'Create Meeting Text') %>
+<h1>Create meeting text</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <%= form_for([@meeting, @meeting_text]) do |f| %>
+
+      <%= f.hidden_field 'meeting_id', :value => params[:meeting_id] %>
+      <%= f.label :meeting_text %>
+      <%= f.text_area :meeting_text, :size => "60x4" %>
+
+      <%= f.submit "Create action", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

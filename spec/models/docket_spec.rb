@@ -10,6 +10,7 @@
 #  updated_at   :datetime         not null
 #  creator_id   :integer
 #  updater_id   :integer
+#  as_of        :date
 #
 
 require 'spec_helper'

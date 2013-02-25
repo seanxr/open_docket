@@ -25,6 +25,6 @@ class Activity < ActiveRecord::Base
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
 
-  default_scope order('date_actual DESC')    
+  default_scope order('date_actual DESC, created_at DESC')    
 
 end

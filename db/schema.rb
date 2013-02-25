@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213040343) do
+ActiveRecord::Schema.define(:version => 20130221133740) do
+
+  create_table "action_item_meetings", :force => true do |t|
+    t.integer  "aktion_id"
+    t.integer  "item_meeting_id"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "activities", :force => true do |t|
     t.date     "date_actual"
@@ -31,6 +40,15 @@ ActiveRecord::Schema.define(:version => 20130213040343) do
     t.integer  "owner_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "aktions", :force => true do |t|
+    t.text     "discussion"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "meeting_id"
   end
 
   create_table "attachments", :force => true do |t|
@@ -68,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20130213040343) do
     t.datetime "updated_at",   :null => false
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.date     "as_of"
   end
 
   add_index "dockets", ["committee_id"], :name => "index_dockets_on_committee_id"
@@ -92,8 +111,11 @@ ActiveRecord::Schema.define(:version => 20130213040343) do
     t.integer  "meeting_id"
     t.integer  "creator_id"
     t.integer  "updater_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "agendable_id"
+    t.string   "agendable_type"
+    t.integer  "position"
   end
 
   create_table "items", :force => true do |t|
@@ -112,6 +134,16 @@ ActiveRecord::Schema.define(:version => 20130213040343) do
   end
 
   add_index "items", ["name"], :name => "index_docket_items_on_number", :unique => true
+
+  create_table "meeting_texts", :force => true do |t|
+    t.integer  "meeting_id"
+    t.text     "meeting_text"
+    t.integer  "action_required"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "meetings", :force => true do |t|
     t.date     "date"

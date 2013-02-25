@@ -54,7 +54,9 @@
  
      <div class="tab-pane" id="activities">
          <% if @committee.activities.any? %>
-           <%= render @activities %>
+           <ol class="microposts">
+             <%= render @activities %>
+           </ol>
          <% else %>
            Reserved for actions
          <% end %>

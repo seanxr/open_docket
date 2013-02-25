@@ -1,0 +1,2 @@
+module AktionsHelper
+end

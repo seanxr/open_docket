@@ -5,7 +5,7 @@ class DocketsController < ApplicationController
   def new
    @committees = Committee.all
    @item = Item.find(params[:item_id])
-   @committees_eligible = @item.notdocketcommittees
+   @committees_eligible = @item.not_docket_committees
    @docket = Docket.new
 
   end
@@ -14,22 +14,16 @@ class DocketsController < ApplicationController
   def create
     @item = Item.find(params[:item_id]) 
     @docket = Docket.new(params[:docket])
-    @committees_eligible = @item.notdocketcommittees
+    @committees_eligible = @item.not_docket_committees
     @committee = @docket.committee
     @docket.creator_id = current_user.id
     @docket.updater_id = current_user.id
     @docket.statuses_attributes = 
                 [ {"creator_id" => @docket.creator_id, "updater_id" => @docket.updater_id, "code" => "1",
-                "statuser_id" => "99", "as_of" => params[:status][:as_of] } ]
+                "statuser_id" => "99", "as_of" => @docket.as_of } ]
     @docket.item_id = @item.id
-    @docket.save
 
-    if @docket.save
-      @activity1 = Activity.create(
-                :message => "Item #{@item.name} added to #{@committee.name} docket. #{@docket.note}",
-                :activity_type => "ItemToDocket", :date_actual => params[:status][:as_of])
-      ActivityLog.create(:activity_id => @activity1.id, :owner_type => "Item", :owner_id => @item.id) 
-      ActivityLog.create(:activity_id => @activity1.id, :owner_type => "Committee", :owner_id => @committee.id) 
+    if @docket.save_with_activity
       flash[:success] = "You have successfully assigned item #{@item.name} to the #{@committee.name} docket!"
       redirect_to @item
     else

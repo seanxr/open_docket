@@ -4,14 +4,14 @@ class MeetingsController < ApplicationController
 
  def create
     @committees = Committee.all
-    @rooms = Room.all
+    @sites = Site.all
     @committee_meetings = params[:committee_meetings_attributes]
     params[:meeting][:committee_meetings_attributes] = params[:committee_meetings_attributes].map{ |x| {"committee_id" => x}}
     @meeting = Meeting.new(params[:meeting])
     @meeting.creator_id = current_user.id
     @meeting.updater_id = current_user.id
     @committee_names_string =  params[:committee_meetings_attributes].collect { |id| Committee.find_by_id(id).name }.join('/') 
-# Need to put an error if no committee.
+# Need to put an error if no committee selected.
 
     if @committee_meetings
       if @meeting.save
@@ -20,7 +20,7 @@ class MeetingsController < ApplicationController
                 :activity_type => "NewMeeting", :date_actual => @meeting.created_at)
         ActivityLog.create(:activity_id => @activity.id, :owner_type => "Meeting", :owner_id => @meeting.id)
         @committee_meetings.each { |i| ActivityLog.create(:activity_id => @activity.id, :owner_type => "Committee", :owner_id => i) }
-        flash[:success] = "You have succesfully created a #{@committee_names_string} meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}! #{@meeting.id}"
+        flash[:success] = "You have succesfully created a #{@committee_names_string} meeting on #{@meeting.date} in #{@meeting.room.site.name}, #{@meeting.room.name}!"
         redirect_to session[:return_to] 
       else
         render 'new'
@@ -50,7 +50,7 @@ class MeetingsController < ApplicationController
 
   def new
     session[:return_to] = request.referer
-    @rooms = Room.all
+    @sites = Site.all
     @committees = Committee.all
     if params[:committee_id]
       @committee = Committee.find(params[:committee_id])
@@ -61,10 +61,7 @@ class MeetingsController < ApplicationController
 
   def show
     @meeting = Meeting.find(params[:id])
-    @room = @meeting.room
-    @site = @meeting.room.site
-    @committees = @meeting.committees
-    @itemmeetings = @meeting.item_meetings
+    @item_meetings = @meeting.item_meetings.order('position ASC')
     @documents = @meeting.documents
     @parent = @meeting
     @activities = @meeting.activities

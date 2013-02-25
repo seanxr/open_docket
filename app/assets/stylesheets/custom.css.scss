@@ -201,7 +201,10 @@ input {
 
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    &:last-child {
+      border-bottom: 0px solid $grayLighter;
+    }
   }
 }
 .content {

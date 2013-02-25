@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
 
   def new
     if @parent.class.name == "Meeting"
-      @items = @parent.items
+      @item_meetings = @parent.item_meetings
     end
     @document = Document.new
     @document.submitted_on = Date.today
@@ -19,7 +19,7 @@ class DocumentsController < ApplicationController
       @document.name = @document.URL
     end
     if @parent.class.name == "Meeting"
-      @items = @parent.items
+      @item_meetings = @parent.item_meetings
     end
     @attachments = params[:item_attachments_attributes]
     @document.creator_id = current_user.id

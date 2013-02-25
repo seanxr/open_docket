@@ -1,16 +1,33 @@
-<li>
-  <span class="content">
-    <%= link_to item_meeting.item.name, item_path(item_meeting.item.id) %>
-    <% if current_user && current_user.admin? %>
-      &nbsp;|&nbsp;<%= link_to "Remove", [item_meeting.item, item_meeting], method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: "Title" %>
+<% meeting = item_meeting.meeting %>
+<% if item_meeting.agendable_type == "Item" %>
+  <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
+    <span class="content">
+      <% if current_user && current_user.admin? %>
+        <span class="handle" style="color: green;cursor:move;">[drag]</span>
+      <% end %>
+      <%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %>
+      <% if current_user && current_user.admin? %>
+        &nbsp;|&nbsp;<%= link_to "Remove from meeting", [meeting, item_meeting], method: :delete,
+          data: { confirm: "You sure?" },
+          title: "Title" %>
+      <% end %>
+    </span>
+    <span class="content"><%= item_meeting.agendable.requested_by %></span>
+    <span class="content"><%= item_meeting.agendable.address %></span>
+    <% if item_meeting.agendable.request.size > 200 %>
+      <a class="toggle" href="javascript:void(0);">Expand/collapse</a>
+      <span class="content"><%= item_meeting.agendable.request[0..200] %>...</span>
+      <span class="contentfull" style="display:none"><%= item_meeting.agendable.request %></span>
+    <% else %>
+      <span class="content"><%= item_meeting.agendable.request %></span>
     <% end %>
-  </span>
-  <span class="content"><%= item_meeting.item.requested_by %></span>
-  <span class="content"><%= item_meeting.item.request %></span>
-  <span class="content"><%= item_meeting.item.address %></span>
-  <span class="timestamp">
-    <%= item_meeting.created_at.strftime("Added %m/%d/%y") %>
-  </span>
-</li>
+    <span class="timestamp">
+      <%= item_meeting.created_at.strftime("Added %m/%d/%y") %>
+    </span>
+  </li>
+<% else %>
+  <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
+    <span class="content"><span class="handle" style="color: green;cursor:move;">[drag]</span>
+    <%= item_meeting.agendable.meeting_text %></span>
+  </li>
+<% end %>

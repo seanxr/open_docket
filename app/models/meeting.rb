@@ -19,18 +19,24 @@ class Meeting < ActiveRecord::Base
   accepts_nested_attributes_for :committee_meetings, 
     :allow_destroy => true
 
-  has_many :committees, through: :committee_meetings
+  has_many :committees, :through => :committee_meetings
 
   has_many :attachments, :as => :owner
   has_many :documents, :through => :attachments, :as => :owner
 
-  has_many :item_meetings
-  has_many :items, through: :item_meetings
+  has_many :aktions
  
+  has_many :item_meetings
+  has_many :agendables, :through => :item_meetings
+
+  has_many :action_item_meetings, :through => :item_meetings
+
   has_many :activity_logs, :as => :owner
   has_many :activities, :through => :activity_logs, :as => :owner
 
   belongs_to :room
+  has_one :site, :through => :room
+
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
 
@@ -43,5 +49,13 @@ class Meeting < ActiveRecord::Base
       self.errors.add(:base, "A meeting must have a committee")
     end 
   end
+
+   def committee_names_string
+    committees.collect { |id| Committee.find_by_id(id).name }.join('/') 
+  end
+
  
+  def potential_items
+    Item.all
+  end
 end

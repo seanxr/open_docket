@@ -27,21 +27,20 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  has_many :actions_as_creator,    :class_name => 'Action',    :foreign_key => 'creator_id' 
+  has_many :actions_as_updater,    :class_name => 'Action',    :foreign_key => 'updater_id'
   has_many :committees_as_creator, :class_name => 'Committee', :foreign_key => 'creator_id' 
   has_many :committees_as_updater, :class_name => 'Committee', :foreign_key => 'updater_id'
-  has_many :documents_as_creator, :class_name => 'Document', :foreign_key => 'creator_id' 
-  has_many :documentss_as_updater, :class_name => 'Document', :foreign_key => 'updater_id'
-  has_many :items_as_creator, :class_name => 'Item', :foreign_key => 'creator_id' 
-  has_many :items_as_updater, :class_name => 'Item', :foreign_key => 'updater_id'
-  has_many :meetings_as_creator, :class_name => 'Meeting', :foreign_key => 'creator_id' 
-  has_many :meetings_as_updater, :class_name => 'Meeting', :foreign_key => 'updater_id'
-  has_many :rooms_as_creator, :class_name => 'Room', :foreign_key => 'creator_id' 
-  has_many :rooms_as_updater, :class_name => 'Room', :foreign_key => 'updater_id'
-  has_many :sites_as_creator, :class_name => 'Site', :foreign_key => 'creator_id' 
-  has_many :sites_as_updater, :class_name => 'Site', :foreign_key => 'updater_id'
-
-
-
+  has_many :documents_as_creator,  :class_name => 'Document',  :foreign_key => 'creator_id' 
+  has_many :documents_as_updater,  :class_name => 'Document',  :foreign_key => 'updater_id'
+  has_many :items_as_creator,      :class_name => 'Item',      :foreign_key => 'creator_id' 
+  has_many :items_as_updater,      :class_name => 'Item',      :foreign_key => 'updater_id'
+  has_many :meetings_as_creator,   :class_name => 'Meeting',   :foreign_key => 'creator_id' 
+  has_many :meetings_as_updater,   :class_name => 'Meeting',   :foreign_key => 'updater_id'
+  has_many :rooms_as_creator,      :class_name => 'Room',      :foreign_key => 'creator_id' 
+  has_many :rooms_as_updater,      :class_name => 'Room',      :foreign_key => 'updater_id'
+  has_many :sites_as_creator,      :class_name => 'Site',      :foreign_key => 'creator_id' 
+  has_many :sites_as_updater,      :class_name => 'Site',      :foreign_key => 'updater_id'
 
   private
 

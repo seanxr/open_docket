@@ -1,130 +1,135 @@
 <% provide(:title, @item.name) %>
 <div class="row">
   <aside class="span4">
-    <section>
-      <h1>
-        Item #<%= @item.name %>
-      </h1>
-      <% if @item.draft %>
-        <span>Draft</span>
-      <% end %>	
-      <span>Requested by</span>
-      <span><%= @item.requested_by %></span>
-      <span>Address</span>
-      <span><%= @item.address %></span>
-      <span>Request</span>
-      <span><%= @item.request %></span>
-      <span>Reference</span>
-      <span><%= @item.reference %></span>
-      <span>Ward: <%= @item.ward %></span>
-      <% @item.statuses.each do |status| %>
-        <% if status == @item.statuses.first %>
-           <span>Opened:&nbsp;
-        <% elsif status == @item.statuses.third %>
-           <span>Re-opened:&nbsp;
+  <section>
+  <h1>
+    Item #<%= @item.name %>
+  </h1>
+  <% if @item.draft %>
+    <span>Draft</span>
+  <% end %>	
+  <span>Requested by</span>
+  <span><%= @item.requested_by %></span>
+  <span>Address</span>
+  <span><%= @item.address %></span>
+  <span>Request</span>
+  <span><%= @item.request %></span>
+  <span>Reference</span>
+  <span><%= @item.reference %></span>
+  <span>Ward: <%= @item.ward %></span>
+  <% @item.statuses.each do |status| %>
+    <% if status == @item.statuses.first %>
+      <span>Opened:&nbsp;
+      <% elsif status == @item.statuses.third %>
+        <span>Re-opened:&nbsp;
         <% else %>
-           <span>Closed:&nbsp;
-        <% end %>
-           <%= status.as_of %></span>
+          <span>Closed:&nbsp;
+          <% end %>
+          <%= status.as_of.strftime("%m/%d/%y") %></span>
       <% end %>
       <span class="timestamp">Created by <%= @item.creator.name %> on <%= @item.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @item.updater.name %> on <%= @item.updated_at.strftime("%m/%d/%y") %></span>
       <% if current_user && current_user.admin? %>
         <span><%= link_to "Edit", edit_item_path(@item)%>&nbsp;|&nbsp;
-        <% if @item.statuses.last.code = 1 %>
-          <%= link_to "Close", new_item_status_path(@item)%>
-        <% else %>
-          <%= link_to "Re-open", new_item_status_path(@item)%>
-        <% end %>
-      <% end %>
-   </section>
-  </aside>
-  <div class="span8">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
-      <li><a href="#documents" data-toggle="tab">Documents&nbsp;(<%= @item.attachments.count %>)</a></li>
-      <li><a href="#meetings" data-toggle="tab">Meetings&nbsp;(<%= @item.item_meetings.count %>)</a></li>
-      <li><a href="#dockets" data-toggle="tab">Dockets&nbsp;(<%= @item.dockets.count %>)</a></li>
-    </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="activity">
-      <% if @item.activities.any? %>
-        <ol class="microposts">
-          <%= render @activities %>
-        </ol>
-      <% else %>
-        Reserved for actions
-      <% end %>
-    </div>
-    <div class="tab-pane" id="documents">
-      <ol class="microposts">
-        <% if @parent.documents.any? %>
-          <%= render @documents %>
-          <span class="content">
-            <% if current_user && current_user.admin? %>
-              <%= link_to "Upload a document", polymorphic_path([@parent, :document], :action => :new) %>.</span>
-            <% end %>
-        <% else %>
-          <li>
-            <span class="content">There are no documents associated with this <%= @parent.class.name.downcase %>. 
-              <% if current_user && current_user.admin? %>
-                          <%= link_to "Upload a document", 
-                          polymorphic_path([@parent, :document], :action => :new)   %>.
-              <% end %>
-            </span>
-          </li>
-        <% end %>
-      </ol>
-    </div>
-    <div class="tab-pane" id="meetings">
-       <% if @item.meetings.any? %>
-        <ol class="microposts">
-          <%= render @meetings %>
-        </ol>
-      <% else %>
-        <ol class="microposts">
-          <li>
-            <span class="content">Not on any meetings. 
-            <% if current_user && current_user.admin? %>
-              <%= link_to "Add to a meeting", new_item_item_meeting_path(@item)%>.
-            <% end %>
-          </li>
-        </ol>    
-      <% end %> 
-    </div>
-    <div class="tab-pane" id="dockets">
-      <% if @item.dockets.any? %>
-        <ol class="microposts">
-          <% @item.dockets.each do |docket| %>
-            <li>
-              <span class="content">
-                <%= link_to docket.committee.name, committee_path(docket.committee_id) %>
-              </span>
-              <span class="timestamp">
-                Added to docket <%= docket.created_at.strftime("%m/%d/%y") %>&nbsp;(<%= docket.age %> days) 
-                <% if current_user && current_user.admin? %>
-                  &nbsp;|&nbsp;<%= link_to "Remove from docket", new_docket_status_path(docket.id) %>
-                <% end %>
-              </span>
-            </li>
-          <% end %>           
-        </ol>
-          <% if @item.notdocketcommittees.count > 0 && current_user && current_user.admin? %>
-            <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
+          <% if @item.statuses.last.code = 1 %>
+            <%= link_to "Close", new_item_status_path(@item)%>
+          <% else %>
+            <%= link_to "Re-open", new_item_status_path(@item)%>
           <% end %>
-      <% else %>
-        <span class="content">Not on any dockets. 
-        <% if current_user && current_user.admin? %>
-          <%= link_to "Add to a docket", new_item_docket_path(@item) %>.
         <% end %>
-      <% end %>
-    </div>
-  </div>
-  </div>
-</div>
-<script>
-  $(function () {
-    $('#myTab a:last').tab('show');
-  })
-</script>
+        </section>
+        </aside>
+        <div class="span8">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+            <li><a href="#documents" data-toggle="tab">Documents&nbsp;(<%= @item.attachments.count %>)</a></li>
+            <li><a href="#meetings" data-toggle="tab">Meetings&nbsp;(<%= @item.item_meetings.count %>)</a></li>
+            <li><a href="#dockets" data-toggle="tab">Dockets&nbsp;(<%= @item.dockets.count %>)</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="activity">
+              <% if @item.activities.any? %>
+                <ol class="microposts">
+                  <%= render @activities %>
+                </ol>
+              <% else %>
+                Reserved for actions
+              <% end %>
+            </div>
+            <div class="tab-pane" id="documents">
+              <ol class="microposts">
+                <% if @parent.documents.any? %>
+                  <%= render @documents %>
+                  <span class="content">
+                    <% if current_user && current_user.admin? %>
+                      <%= link_to "Upload a document", polymorphic_path([@parent, :document], :action => :new) %>.</span>
+                  <% end %>
+                <% else %>
+                  <li>
+                  <span class="content">There are no documents associated with this <%= @parent.class.name.downcase %>. 
+                    <% if current_user && current_user.admin? %>
+                      <%= link_to "Upload a document", 
+                        polymorphic_path([@parent, :document], :action => :new)   %>.
+                      <% end %>
+                    </span>
+                    </li>
+                  <% end %>
+                </ol>
+              </div>
+              <div class="tab-pane" id="meetings">
+                <% if @item.dockets.any? %>
+                  <% if @item.meetings.any? %>
+                    <ol class="microposts">
+                      <%= render @meetings %>
+                    </ol>
+                    <%= link_to "Add to another meeting", new_item_item_meeting_path(@item)%>.
+                  <% else %>
+                    <ol class="microposts">
+                      <li>
+                      <span class="content">Not on any meetings. 
+                        <% if current_user && current_user.admin? %>
+                          <%= link_to "Add to a meeting", new_item_item_meeting_path(@item)%>.
+                        <% end %>
+                        </li>
+                      </ol>    
+                    <% end %>
+                  <% else %>
+                    <span class="content">The item must be associated with a docket. <%= link_to "Add to a docket", new_item_docket_path(@item)%>.</span>
+                  <% end %>
+                </div>
+                <div class="tab-pane" id="dockets">
+                  <% if @item.dockets.any? %>
+                    <ol class="microposts">
+                      <% @item.dockets.each do |docket| %>
+                        <li>
+                        <span class="content">
+                          <%= link_to docket.committee.name, committee_path(docket.committee_id) %>
+                        </span>
+                        <span class="timestamp">
+                          Added to docket <%= docket.created_at.strftime("%m/%d/%y") %>&nbsp;(<%= docket.age %> days) 
+                          <% if current_user && current_user.admin? %>
+                            &nbsp;|&nbsp;<%= link_to "Remove from docket", new_docket_status_path(docket.id) %>
+                          <% end %>
+                        </span>
+                        </li>
+                      <% end %>           
+                    </ol>
+                    <% if @item.not_docket_committees.count > 0 && current_user && current_user.admin? %>
+                      <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
+                    <% end %>
+                  <% else %>
+                    <span class="content">Not on any dockets. 
+                      <% if current_user && current_user.admin? %>
+                        <%= link_to "Add to a docket", new_item_docket_path(@item) %>.
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+              $(function () {
+                $('#myTab a:last').tab('show');
+              })
+            </script>
 

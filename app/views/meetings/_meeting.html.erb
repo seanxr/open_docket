@@ -3,5 +3,5 @@
 <%#    <%= meeting.committees.collect { |committee| link_to committee.name, committee }.join("|") %>
 <%#    <%= meetingtitle = meeting.committees.collect { |committee| committee.name}.join(" | ") %>
 <%#    <%= meetingtitle = meetingtitle + " " + meeting.date.to_s %>
-    <%= link_to meeting.committees.collect { |committee| committee.name}.join(" | ") + " " + meeting.date.to_s, meeting_path(meeting.id) %>
+    <%= link_to meeting.committees.collect { |committee| committee.name}.join(" | ") + " " + meeting.date.strftime("%m/%d/%y"), meeting_path(meeting.id) %>
 </li>

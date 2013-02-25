@@ -49,14 +49,30 @@ namespace :db do
     committee1.creator_id = 1
     committee1.updater_id = 1
     committee1.save
+    activity1 = Activity.new(
+                :message => "Added #{committee1.name} to Open Docket.",
+                :activity_type => "NewCommittee", :date_actual => "2001-01-01")
+    activity1.creator_id = 1
+    activity1.updater_id = 1
+    activity1.save
+
+    log1_1 = ActivityLog.create(:activity_id => activity1.id, :owner_type => "Committee", :owner_id => committee1.id)
+
     committee2 = Committee.new(name: "Traffic Council",
                    shortname: "Traffic Council",
                    description: "The Traffic Council reviews site-specific requests for traffic and parking improvements. Traffic Council meetings are open to the general public and residents of affected streets are notified in writing approximately 1-2 weeks before the item is heard by the Traffic Council. Due to the volume of petitions received, there is approximately a 3 to 6 month wait for requests to be heard. Please contact Traffic Council at trafficcouncil@newtonma.gov or the office at (617) 796-1210 for additional information.")
     committee2.creator_id = 1
     committee2.updater_id = 1
     committee2.save
+    activity2 = Activity.new(
+                :message => "Added #{committee2.name} to Open Docket.",
+                :activity_type => "NewCommittee", :date_actual => "2001-01-01")
+    activity2.creator_id = 1
+    activity2.updater_id = 1
+    activity2.save
+    log2_1 = ActivityLog.create(:activity_id => activity2.id, :owner_type => "Committee", :owner_id => committee2.id)
 
-     item1 = Item.new(name:"417-12",
+    item1 = Item.new(name:"417-12",
                    requested_by: "CHESTNUT HILL SHOPPING CENTER, LLC/C&R REALTY TRUST",
                    request: "petition for a SPECIAL PERMIT /SITE PLAN APPROVAL for a comprehensive sign package at 1-55 BOYLSTON STREET, Ward 7, CHESTNUT HILL, on land known as Sec. 63, Blk. 37, Lots 18A, 22, 25, 26, 27 in a district zoned BUSINESS 4.",
                    address: "1-55 BOYLSTON STREET",
@@ -72,18 +88,18 @@ namespace :db do
 
     activity1_1 = Activity.new(
                 :message => "Item #417-12 entered in OpenDocket by Ted Mann",
-                :activity_type => "NewItem", :date_actual => "2012-12-01")
+                :activity_type => "NewItem", :date_actual => "2012-10-01")
     activity1_1.creator_id = 1
     activity1_1.updater_id = 1
     activity1_1.save
-    log1_1 = ActivityLog.create(:activity_id => 1, :owner_type => "Item", :owner_id => 1) 
+    log1_1 = ActivityLog.create(:activity_id => activity1_1.id, :owner_type => "Item", :owner_id => item1.id) 
     activity1_2 = Activity.new(
                 :message => "Item #417-12 opened by __.", :activity_type => "ItemOpen", 
-                :date_actual => "2012-12-01")
+                :date_actual => "2012-06-01")
     activity1_2.creator_id = 1
     activity1_2.updater_id = 1
     activity1_2.save
-    log1_2 = ActivityLog.create(:activity_id => 2, :owner_type => "Item", :owner_id => 1)
+    log1_2 = ActivityLog.create(:activity_id => activity1_2.id, :owner_type => "Item", :owner_id => item1.id)
 
 
      item2 = Item.new(name:"416-12",
@@ -102,18 +118,18 @@ namespace :db do
 
     activity2_1 = Activity.new(
                 :message => "Item #416-12 entered in OpenDocket by Ted Mann",
-                :activity_type => "NewItem", :date_actual => "2012-12-01")
+                :activity_type => "NewItem", :date_actual => "2012-10-01")
     activity2_1.creator_id = 1
     activity2_1.updater_id = 1
     activity2_1.save
-    log2_1 = ActivityLog.create(:activity_id => 3, :owner_type => "Item", :owner_id => 2) 
+    log2_1 = ActivityLog.create(:activity_id => activity2_1.id, :owner_type => "Item", :owner_id => item2.id) 
     activity2_2 = Activity.new(
                 :message => "Item #416-12 opened by __.", :activity_type => "ItemOpen", 
-                :date_actual => "2012-12-01")
+                :date_actual => "2012-06-01")
     activity2_2.creator_id = 1
     activity2_2.updater_id = 1
     activity2_2.save
-    log2_2 = ActivityLog.create(:activity_id => 4, :owner_type => "Item", :owner_id => 2)
+    log2_2 = ActivityLog.create(:activity_id => activity2_2.id, :owner_type => "Item", :owner_id => item2.id)
 
 
      item3 = Item.new(name:"415-12",
@@ -132,26 +148,26 @@ namespace :db do
 
     activity3_1 = Activity.new(
                 :message => "Item #415-12 entered in OpenDocket by Ted Mann",
-                :activity_type => "NewItem", :date_actual => "2012-12-01")
+                :activity_type => "NewItem", :date_actual => "2012-10-01")
     activity3_1.creator_id = 1
     activity3_1.updater_id = 1
     activity3_1.save
-    log3_1 = ActivityLog.create(:activity_id => 5, :owner_type => "Item", :owner_id => 3) 
+    log3_1 = ActivityLog.create(:activity_id => activity3_1.id, :owner_type => "Item", :owner_id => item3.id) 
     activity3_2 = Activity.new(
                 :message => "Item #415-12 opened by __.", :activity_type => "ItemOpen", 
-                :date_actual => "2012-12-01")
+                :date_actual => "2012-06-01")
     activity3_2.creator_id = 1
     activity3_2.updater_id = 1
     activity3_2.save
-    log3_2 = ActivityLog.create(:activity_id => 6, :owner_type => "Item", :owner_id => 3)
+    log3_2 = ActivityLog.create(:activity_id => activity3_2.id, :owner_type => "Item", :owner_id => item3.id)
 
 
-    docket1_1 = Docket.new(committee_id:1, 
-                   item_id:1)
+    docket1_1 = Docket.new(committee_id:committee1.id, 
+                   item_id:item1.id)
     docket1_1.creator_id = 1
     docket1_1.updater_id = 1
     docket1_1.save
-    docket1_status1 = Status.new(code: 1, statused_type: "Docket", statused_id: 1, as_of: "2012-12-06")
+    docket1_status1 = Status.new(code: 1, statused_type: "Docket", statused_id: docket1_1.id, as_of: "2012-12-06")
     docket1_status1.creator_id = 1
     docket1_status1.updater_id = 1
     docket1_status1.save
@@ -159,73 +175,114 @@ namespace :db do
 
     activity4_1 = Activity.new(
                 :message => "Item #417-12 added to Land Use Committee docket.",
-                :activity_type => "ItemToDocket", :date_actual => "2012-12-14")
+                :activity_type => "ItemToDocket", :date_actual => "2012-12-01")
     activity4_1.creator_id = 1
     activity4_1.updater_id = 1
     activity4_1.save
-    log4_1 =  ActivityLog.create(:activity_id => 7, :owner_type => "Item", :owner_id => 1) 
-    log4_2 =  ActivityLog.create(:activity_id => 7, :owner_type => "Committee", :owner_id => 1) 
+    log4_1 =  ActivityLog.create(:activity_id => activity4_1.id, :owner_type => "Item", :owner_id => item1.id) 
+    log4_2 =  ActivityLog.create(:activity_id => activity4_1.id, :owner_type => "Committee", :owner_id => committee1.id) 
 
 
-    docket1_2 = Docket.new(committee_id:1, 
-                   item_id:2)
+    docket1_2 = Docket.new(committee_id:committee1.id, 
+                   item_id:item2.id)
     docket1_2.creator_id = 1
     docket1_2.updater_id = 1
     docket1_2.save
-    docket1_status2 = Status.new(code: 1, statused_type: "Docket", statused_id: 2, as_of: "2012-12-18")
+    docket1_status2 = Status.new(code: 1, statused_type: "Docket", statused_id: docket1_2.id, as_of: "2012-12-18")
     docket1_status2.creator_id = 1
     docket1_status2.updater_id = 1
     docket1_status2.save
 
     activity5_1 = Activity.new(
                 :message => "Item #416-12 added to Land Use Committee docket.",
-                :activity_type => "ItemToDocket", :date_actual => "2012-12-14")
+                :activity_type => "ItemToDocket", :date_actual => "2012-12-01")
     activity5_1.creator_id = 1
     activity5_1.updater_id = 1
     activity5_1.save
-    log5_1 =  ActivityLog.create(:activity_id => 8, :owner_type => "Item", :owner_id => 2) 
-    log5_2 =  ActivityLog.create(:activity_id => 8, :owner_type => "Committee", :owner_id => 1) 
+    log5_1 =  ActivityLog.create(:activity_id => activity5_1.id, :owner_type => "Item", :owner_id => item2.id) 
+    log5_2 =  ActivityLog.create(:activity_id => activity5_1.id, :owner_type => "Committee", :owner_id => committee1.id) 
 
-    docket1_3 = Docket.new(committee_id:1, 
-                   item_id:3)
+    docket1_3 = Docket.new(committee_id:committee1.id, 
+                   item_id:item3.id)
     docket1_3.creator_id = 1
     docket1_3.updater_id = 1
     docket1_3.save
-    docket1_status3 = Status.new(code: 1, statused_type: "Docket", statused_id: 3, as_of: "2012-12-16")
+    docket1_status3 = Status.new(code: 1, statused_type: "Docket", statused_id: docket1_3.id, as_of: "2012-12-16")
     docket1_status3.creator_id = 1
     docket1_status3.updater_id = 1
     docket1_status3.save
 
     activity6_1 = Activity.new(
                 :message => "Item #415-12 added to Land Use Committee docket.",
-                :activity_type => "ItemToDocket", :date_actual => "2012-12-14")
+                :activity_type => "ItemToDocket", :date_actual => "2012-12-01")
     activity6_1.creator_id = 1
     activity6_1.updater_id = 1
     activity6_1.save
-    log6_1 =  ActivityLog.create(:activity_id => 9, :owner_type => "Item", :owner_id => 3) 
-    log6_2 =  ActivityLog.create(:activity_id => 9, :owner_type => "Committee", :owner_id => 1) 
+    log6_1 =  ActivityLog.create(:activity_id => activity6_1.id, :owner_type => "Item", :owner_id => item3.id) 
+    log6_2 =  ActivityLog.create(:activity_id => activity6_1.id, :owner_type => "Committee", :owner_id => committee1.id) 
 
     meeting1 = Meeting.new(date:"2013-01-15",
                         room_id:1)
     meeting1.creator_id = 1
     meeting1.updater_id = 1
     meeting1.save
-
-    committeemeeting1_1 = CommitteeMeeting.new(committee_id:1, 
-                   meeting_id:1)
+    committeemeeting1_1 = CommitteeMeeting.new(committee_id:committee1.id, 
+                   meeting_id:meeting1.id)
     committeemeeting1_1.save
+    activity7_1 = Activity.new(
+                :message => "Created new #{committee1.name} meeting for #{meeting1.date}.",
+                :activity_type => "NewMeeting", :date_actual => "2012-06-01")
+    activity7_1.creator_id = 1
+    activity7_1.updater_id = 1
+    activity7_1.save
+    log7_1 =  ActivityLog.create(:activity_id => activity7_1.id, :owner_type => "Meeting", :owner_id => meeting1.id) 
+    log7_2 =  ActivityLog.create(:activity_id => activity7_1.id, :owner_type => "Committee", :owner_id => committee1.id) 
 
-    itemmeeting1_1 = ItemMeeting.new(item_id:1,
-                   meeting_id:1)
+
+    itemmeeting1_1 = ItemMeeting.new(agendable_type:"Item", agendable_id:item1.id,
+                   meeting_id:meeting1.id)
+    itemmeeting1_1.creator_id = 1
+    itemmeeting1_1.updater_id = 1
     itemmeeting1_1.save
+    activity8_1 = Activity.new(
+                :message => "Item #{item1.name} assigned to #{meeting1.name} meeting.",
+                :activity_type => "ItemToMeeting", :date_actual => "2012-12-14")
+    activity8_1.creator_id = 1
+    activity8_1.updater_id = 1
+    activity8_1.save
+    log8_1 = ActivityLog.create(:activity_id => activity8_1.id, :owner_type => "Item", :owner_id => item1.id) 
+    log8_2 = ActivityLog.create(:activity_id => activity8_1.id, :owner_type => "Meeting", :owner_id => meeting1.id) 
 
-    itemmeeting2_1 = ItemMeeting.new(item_id:2,
-                   meeting_id:1)
+
+    itemmeeting2_1 = ItemMeeting.new(agendable_type:"Item", agendable_id:item2.id,
+                   meeting_id:meeting1.id)
+    itemmeeting2_1.creator_id = 1
+    itemmeeting2_1.updater_id = 1
     itemmeeting2_1.save
+    activity9_1 = Activity.new(
+                :message => "Item #{item2.name} assigned to #{meeting1.name} meeting.",
+                :activity_type => "ItemToMeeting", :date_actual => "2012-12-14")
+    activity9_1.creator_id = 1
+    activity9_1.updater_id = 1
+    activity9_1.save
+    log9_1 = ActivityLog.create(:activity_id => activity9_1.id, :owner_type => "Item", :owner_id => item2.id) 
+    log9_2 = ActivityLog.create(:activity_id => activity9_1.id, :owner_type => "Meeting", :owner_id => meeting1.id) 
 
-    itemmeeting3_1 = ItemMeeting.new(item_id:3,
-                   meeting_id:1)
+
+    itemmeeting3_1 = ItemMeeting.new(agendable_type:"Item", agendable_id:item3.id,
+                   meeting_id:meeting1.id)
+    itemmeeting3_1.creator_id = 1
+    itemmeeting3_1.updater_id = 1
     itemmeeting3_1.save
+    activity10_1 = Activity.new(
+                :message => "Item #{item3.name} assigned to #{meeting1.name} meeting.",
+                :activity_type => "ItemToMeeting", :date_actual => "2012-12-14")
+    activity10_1.creator_id = 1
+    activity10_1.updater_id = 1
+    activity10_1.save
+    log10_1 = ActivityLog.create(:activity_id => activity10_1.id, :owner_type => "Item", :owner_id => item3.id) 
+    log10_2 = ActivityLog.create(:activity_id => activity10_1.id, :owner_type => "Meeting", :owner_id => meeting1.id) 
+
 
   end
 end

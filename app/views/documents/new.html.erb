@@ -28,11 +28,13 @@
 <%#         <%= item.name %>
 <%#         <br/>
 <%#       <% end %>
-      <% if @items %>
-        <% for item in @items.all %>
-          <%= check_box_tag( "[item_attachments_attributes][]", item.id) %>
-          <%= item.name %>
+      <% if @item_meetings %>
+        <% for item_meeting in @item_meetings.all %>
+          <% if item_meeting.agendable_type = "Item" %>
+          <%= check_box_tag( "[item_attachments_attributes][]", item_meeting.agendable_id) %>
+          <%= item_meeting.agendable.name %>
           <br/>
+        <% end %>
        <% end %>
      <% end %>
 
