@@ -34,6 +34,7 @@ class AktionsController < ApplicationController
 
   def update
     @action = Aktion.find(params[:id])
+    @orginal_discussion = @action.discussion
     @action.update_attributes(params[:aktion])
     @action.updater_id = current_user.id
     @item_meetings_pre_change = @action.item_meetings.collect { |item_meeting| item_meeting.id }
@@ -41,10 +42,12 @@ class AktionsController < ApplicationController
     @item_meetings_not_changing = @item_meetings_pre_change & @item_meetings_post_change 
     @item_meetings_destroy = @item_meetings_pre_change.reject { |x| @item_meetings_post_change.include? x }
     @item_meetings_add = @item_meetings_post_change.reject { |x| @item_meetings_pre_change.include? x }
-    activity1 = Activity.create!(
-        :message => "Updated action at #{@action.meeting.date} #{@action.meeting.committee_names_string} meeting. #{@action.discussion}",
-        :activity_type => "UpdateAction", :date_actual => Date.today)
-    ActivityLog.create(:activity_id => activity1.id, :owner_type => "Meeting", :owner_id => @action.meeting_id)
+    if @original_discussion != @action.discussion 
+      activity1 = Activity.create!(
+          :message => "Updated action at #{@action.meeting.date} #{@action.meeting.committee_names_string} meeting. #{@action.discussion}",
+          :activity_type => "UpdateAction", :date_actual => Date.today)
+      ActivityLog.create(:activity_id => activity1.id, :owner_type => "Meeting", :owner_id => @action.meeting_id)
+    end
     if @item_meetings_not_changing.count > 0
       for item_meeting in @item_meetings_not_changing
         ActivityLog.create(:activity_id => activity1.id, :owner_type => item_meeting.agendable_type, :owner_id => item_meeting.agendable_id)
@@ -56,8 +59,12 @@ class AktionsController < ApplicationController
         activity2 = Activity.create!(
           :message => "Removed action from #{ItemMeeting.find(item_meeting).agendable.name} for #{ItemMeeting.find(item_meeting).meeting.date} #{ItemMeeting.find(item_meeting).meeting.committee_names_string} meeting.",
           :activity_type => "RemoveActionFromItem", :date_actual => Date.today )
-        ActivityLog.create(:activity_id => activity2.id, :owner_type => ItemMeeting.find(item_meeting).agendable_type, :owner_id => ItemMeeting.find(item_meeting).agendable_id)
-        ActivityLog.create(:activity_id => activity2.id, :owner_type => "Meeting", :owner_id => ItemMeeting.find(item_meeting).meeting_id)
+        ActivityLog.create(
+          :activity_id => activity2.id, :owner_type => ItemMeeting.find(item_meeting).agendable_type, 
+          :owner_id => ItemMeeting.find(item_meeting).agendable_id)
+        ActivityLog.create(
+          :activity_id => activity2.id, :owner_type => "Meeting", 
+          :owner_id => ItemMeeting.find(item_meeting).meeting_id)
       end
     end
     if @item_meetings_add.count > 0
@@ -66,17 +73,12 @@ class AktionsController < ApplicationController
         activity3 = Activity.create!(
           :message => "Added action to #{ItemMeeting.find(item_meeting).agendable.name} for #{ItemMeeting.find(item_meeting).meeting.date} #{ItemMeeting.find(item_meeting).meeting.committee_names_string} meeting. #{@action.discussion}",
           :activity_type => "AddActionToItem", :date_actual => Date.today)
-        ActivityLog.create(:activity_id => activity3.id, :owner_type => ItemMeeting.find(item_meeting).agendable_type, :owner_id => ItemMeeting.find(item_meeting).agendable_id)
-        ActivityLog.create(:activity_id => activity3.id, :owner_type => "Meeting", :owner_id => ItemMeeting.find(item_meeting).meeting_id)
+        ActivityLog.create(:activity_id => activity3.id, :owner_type => ItemMeeting.find(item_meeting).agendable_type, 
+                           :owner_id => ItemMeeting.find(item_meeting).agendable_id)
+        ActivityLog.create(:activity_id => activity3.id, :owner_type => "Meeting", 
+                           :owner_id => ItemMeeting.find(item_meeting).meeting_id)
       end
     end
-#     if (@item_meetings_pre_change.include? item.id) && (item_meetings_post_change.include? item.id)
-#      ActivityLog.create!(:activity_id => activity1.id, :owner_type => "Meeting", :owner_id => meeting.id)
-#        if !(@item_meetings_pre_change.include? item.id) && (item_meetings_post_change.include? item.id)
-#        if (@item_meetings_pre_change.include? item.id) && !(item_meetings_post_change.include? item.id)
-#    @item_meetings = params[:item_meetings_attributes]
-#    params[:aktion][:action_item_meetings_attributes] = params[:item_meetings_attributes].map{
-#       |x| {"item_meeting_id" => x, "creator_id" => current_user.id, "updater_id" => current_user.id}}
     if @action.update_attributes(params[:aktion])
       flash[:success] = "Action #{@item} successfully updated"
       redirect_to session[:return_to] 

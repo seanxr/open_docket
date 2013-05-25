@@ -12,6 +12,7 @@
 #  agendable_id   :integer
 #  agendable_type :string(255)
 #  position       :integer
+#  assigner_id    :integer
 #
 
 require 'spec_helper'

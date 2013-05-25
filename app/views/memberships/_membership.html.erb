@@ -1,0 +1,20 @@
+<% if @person %>
+  <li>
+    <span class="content">
+	    <%= link_to membership.committee.name, committee_path(membership.committee.id) %> (<%= membership.term_string %>)
+      	    <% if current_user && current_user.admin? %>
+              | <%= link_to "edit assignment", edit_membership_path(membership.id) %>
+            <% end %>
+    </span>
+  </li>
+<% else %>
+  <li>
+    <span class="content">
+	    <%= link_to membership.display_as, person_path(membership.person.id) %> (<%= membership.term_string %>) 
+      	    <% if current_user && current_user.admin? %>
+              | <%= link_to "edit assignment", edit_membership_path(membership.id) %>
+            <% end %>
+    </span>
+  </li>
+    <% end %>
+

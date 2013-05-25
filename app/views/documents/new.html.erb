@@ -12,7 +12,7 @@
       <%= f.text_field :URL %>
 
       <%= f.label :submitted_on %>
-      <%= f.date_select :submitted_on, {:order => [:year, :month, :day]}, {:class => "date-select"}  %>
+      <%= f.text_field :submitted_on, :value => Date.today, class: "date-picker" %>
 
       <%= f.label :submitted_by %>
       <%= f.text_field :submitted_by %>

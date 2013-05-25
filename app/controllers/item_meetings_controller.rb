@@ -2,14 +2,14 @@ class ItemMeetingsController < ApplicationController
 
   def new
     session[:return_to] = request.referer
-   if params[:item_id]
-     @agendable = Item.find(params[:item_id])
-     @potential_meetings = @agendable.potential_meetings
-   elsif params[:meeting_id]
-     @meeting = Meeting.find(params[:meeting_id])
-     @potential_items = @meeting.potential_items
-   end
-   @item_meeting = ItemMeeting.new
+    if params[:item_id]
+      @agendable = Item.find(params[:item_id])
+      @potential_meetings = @agendable.potential_meetings
+    elsif params[:meeting_id]
+      @meeting = Meeting.find(params[:meeting_id])
+      @potential_items = @meeting.potential_items
+    end
+    @item_meeting = ItemMeeting.new
   end
 
   def create
@@ -22,7 +22,7 @@ class ItemMeetingsController < ApplicationController
 
     if @item_meeting.save
       @activity1 = Activity.create(
-                :message => "Item #{@item_meeting.agendable.name} added to  #{@item_meeting.meeting.committee_names_string} #{@item_meeting.meeting.name} meeting.",
+                :message => "Item #{@item_meeting.agendable.name} added to #{@item_meeting.meeting.committee_names_string} #{@item_meeting.meeting.name} meeting by #{@item_meeting.assigner.name}.",
                 :activity_type => "ItemToMeeting", :date_actual => Date.today)
       ActivityLog.create(:activity_id => @activity1.id, :owner_type => @item_meeting.agendable.class.name, :owner_id => @item_meeting.agendable.id) 
       ActivityLog.create(:activity_id => @activity1.id, :owner_type => "Meeting", :owner_id => @item_meeting.meeting.id) 

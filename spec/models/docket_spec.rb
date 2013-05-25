@@ -11,6 +11,7 @@
 #  creator_id   :integer
 #  updater_id   :integer
 #  as_of        :date
+#  assigner_id  :integer
 #
 
 require 'spec_helper'

@@ -1,0 +1,25 @@
+<% provide(:title, 'Add Person to Committee') %>
+<h1>Add Person to Committee</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+      <%= form_for([@person, @membership]) do |f| %>
+      <%= render :partial => 'shared/error_messages', :locals => {:object => @membership} %>
+
+        <span>Select a committee.</span><br/>
+      <% @committees.each do |committee| %>
+          <%= f.radio_button :committee_id, committee.id %> <%= committee.name %><br />
+      <% end %>
+        <%= f.label :term_start %>
+          <%= f.text_field :term_start, :value => Date.today, class: "date-picker" %>
+          <%= f.label :term_end %>
+          <%= f.text_field :term_end, :value => Date.today, class: "date-picker" %>
+          <%= f.label :display_as%>
+          <%= f.text_field :display_as, :value => @person.name %>
+
+
+         <%= f.submit "Add person to commitee", class: "btn btn-large btn-primary" %>
+       <% end %>
+  </div>
+</div>

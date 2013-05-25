@@ -12,10 +12,11 @@
 #  agendable_id   :integer
 #  agendable_type :string(255)
 #  position       :integer
+#  assigner_id    :integer
 #
 
 class ItemMeeting < ActiveRecord::Base
-  attr_accessible :agendable_id, :agendable_type, :creator_id, :item_id, :meeting_id, :updater_id
+  attr_accessible :agendable_id, :agendable_type, :creator_id, :item_id, :meeting_id, :updater_id, :assigner_id
 
   has_one :meeting
   has_one :agendable
@@ -27,6 +28,7 @@ class ItemMeeting < ActiveRecord::Base
 
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
+  belongs_to :assigner,    :class_name => 'Person'
 
   validates :agendable_id, presence: true
   validates :agendable_type, presence: true

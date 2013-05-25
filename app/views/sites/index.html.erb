@@ -6,7 +6,7 @@
     <li>
       <%= link_to site.name, site %>
       <% if current_user.admin? %>
-        | <%= link_to "edit", edit_committee_path(site.id) %>
+        | <%= link_to "edit", edit_site_path(site.id) %>
       <% end %>
     </li>
   <% end %>

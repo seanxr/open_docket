@@ -17,7 +17,10 @@
       <%= f.text_field :note %>
 
       <%= f.label :as_of %>
-      <%= f.text_field :as_of %>
+      <%= f.text_field :as_of, :value => Date.today, class: "date-picker" %>
+
+      <%= f.label :assigner_id %>
+      <%= f.collection_select(:assigner_id, Person.all, :id, :name) %>
 
 <%#      <%= date_select :as_of, {:order => [:year, :month, :day]},  {:class => "date-select"}   %>
 

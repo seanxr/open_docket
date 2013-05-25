@@ -26,10 +26,13 @@
       <%= f.label :draft %>
 
       <%= label :status, :as_of %>
-      <%= text_field :status, :as_of, :value => Date.today    %>
+      <%= text_field :status, :as_of, :value => Date.today, class: "date-picker"    %>
  
       <%= f.submit "Create docket item", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
-
+<script>
+$ ->
+$(".date-picker").datepicker()
+</script>

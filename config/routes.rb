@@ -1,5 +1,13 @@
 OpenDocket::Application.routes.draw do
 
+#  get "memberships/new"
+
+#  get "people/new"
+
+  resources :people do
+    resources :memberships
+  end
+  
   get "meeting_texts/new"
 
   get "statuses/new"
@@ -13,6 +21,8 @@ OpenDocket::Application.routes.draw do
 #  resources :dockets
   resources :aktions 
 
+  resources :memberships
+
   resources :items do 
     resources :dockets
     resources :item_meetings
@@ -23,6 +33,7 @@ OpenDocket::Application.routes.draw do
   resources :committees do
     resources :dockets
     resources :meetings
+    resources :memberships
   end
 
   resources :documents do

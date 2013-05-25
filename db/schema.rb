@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221133740) do
+ActiveRecord::Schema.define(:version => 20130525030852) do
 
   create_table "action_item_meetings", :force => true do |t|
     t.integer  "aktion_id"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20130221133740) do
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.date     "as_of"
+    t.integer  "assigner_id"
   end
 
   add_index "dockets", ["committee_id"], :name => "index_dockets_on_committee_id"
@@ -116,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20130221133740) do
     t.integer  "agendable_id"
     t.string   "agendable_type"
     t.integer  "position"
+    t.integer  "assigner_id"
   end
 
   create_table "items", :force => true do |t|
@@ -150,8 +152,32 @@ ActiveRecord::Schema.define(:version => 20130221133740) do
     t.integer  "room_id"
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "assigner_id"
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "committee_id"
+    t.integer  "person_id"
+    t.date     "term_start"
+    t.date     "term_end"
+    t.string   "display_as"
+    t.integer  "position"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "image_url"
   end
 
   create_table "rooms", :force => true do |t|

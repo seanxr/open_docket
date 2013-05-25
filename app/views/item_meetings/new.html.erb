@@ -5,11 +5,16 @@
     <% if @agendable %>
     <%= form_for ([@agendable, @item_meeting]) do |f| %>
     <%= render :partial => 'shared/error_messages', :locals => {:object => @item_meeting} %>
-    <% f.hidden_field 'agendable_type', :value => @agendable.class.name %>
-    <% f.hidden_field 'agendable_id', :value => @agendable.id %>
+    <%= f.hidden_field 'agendable_type', :value => @agendable.class.name %>
+    <%= f.hidden_field 'agendable_id', :value => @agendable.id %>
       <% @potential_meetings.each do |meeting| %>
-        <%= f.radio_button :meeting_id, meeting.id %> <%= meeting.date %><br />
+        <%= f.radio_button :meeting_id, meeting.id %> <%=  meeting.name_date_string %><br />
+      
       <% end %>
+
+    <%= f.label :assigner_id %>
+    <%= f.collection_select(:assigner_id, Person.all, :id, :name) %>
+
       <%= f.submit "Add item to meeting", class: "btn btn-large btn-primary" %>
     <% end %>
   <% elsif @meeting %>
@@ -20,7 +25,11 @@
       <%= f.hidden_field 'meeting_id', :value => @meeting.id %>
       <% @potential_items.each do |item| %>
         <%= f.radio_button :agendable_id, item.id %> <%= item.name %><br />
+      
       <% end %>
+        <%= f.label :assigner_id %>
+        <%= f.collection_select(:assigner_id, Person.all, :id, :name) %>
+
       <%= f.submit "Add item to meeting", class: "btn btn-large btn-primary" %>
     <% end %>
   <% end %>

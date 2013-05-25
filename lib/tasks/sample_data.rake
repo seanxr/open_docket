@@ -283,6 +283,366 @@ namespace :db do
     log10_1 = ActivityLog.create(:activity_id => activity10_1.id, :owner_type => "Item", :owner_id => item3.id) 
     log10_2 = ActivityLog.create(:activity_id => activity10_1.id, :owner_type => "Meeting", :owner_id => meeting1.id) 
 
+    person = Person.new(fname:"Ted", lname:"Hess-Mahan", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/HessMahan11.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Deb", lname:"Crossley")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Greg", lname:"Schwartz")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Vicki", lname:"Danberg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"John", lname:"Rice")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id)     
+
+    person = Person.new(fname:"Scott", lname:"Lennon", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/Lennon113.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Allan", lname:"Ciccone", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/Ciccone113.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Stephen", lname:"Linsky", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/Linsky11.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Mitch", lname:"Fischman", image_url:"http://www.newtonma.gov/images/aldermen/pix/fischman_1.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Susan", lname:"Albright", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/Albright11.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Jay", lname:"Harney")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Marc", lname:"Laredo")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Greer", lname:"Tan Swiston", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/Swiston11.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Marcia", lname:"Johnson", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/Johnson11.jpg") 
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Anthony", lname:"Salvucci", image_url:"http://www.newtonma.gov/images/aldermen/Headshots/Salvucci11.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Leonard", lname:"Gentile")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Amy", lname:"Mah Sangiolo")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Brian", lname:"Yates")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Richard", lname:"Blazar")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Lisle", lname:"Baker")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Ruthanne", lname:"Fuller")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"Cheryl", lname:"Lappin", image_url:"http://www.newtonma.gov/images/aldermen/pix/aldlappinPicture1201_2.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    person = Person.new(fname:"David", lname:"Kalis", image_url:"http://www.newtonma.gov/images/aldermen/pix/KalisWard8_2.jpg")
+    person.creator_id = 1
+    person.updater_id = 1
+    person.save
+    activity = Activity.new(
+        :message => "#{person.name} added to OpenDocket by #{User.find_by_id(1).name}",
+        :activity_type => "NewPerson", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    membership = Membership.new(:committee_id => 1, :person_id => 1, :term_start => "2012-01-01", :display_as => "Ted Hess-Mahan")
+    membership.creator_id = 1
+    membership.updater_id = 1
+    membership.save
+    activity = Activity.new(
+        :message => "#{person.name} assignment to #{Committee.find_by_id(1).name} edited. Term: #{membership.term_string}.",
+        :activity_type => "PersonToCommittee", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    membership = Membership.new(:committee_id => 1, :person_id => 2, :term_start => "2012-01-01", :display_as => "Deb Crossley")
+    membership.creator_id = 1
+    membership.updater_id = 1
+    membership.save
+    activity = Activity.new(
+        :message => "#{person.name} assignment to #{Committee.find_by_id(1).name} edited. Term: #{membership.term_string}.",
+        :activity_type => "PersonToCommittee", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+    
+    membership = Membership.new(:committee_id => 1, :person_id => 3, :term_start => "2012-01-01", :display_as => "Greg Schwartz")
+    membership.creator_id = 1
+    membership.updater_id = 1
+    membership.save
+    activity = Activity.new(
+        :message => "#{person.name} assignment to #{Committee.find_by_id(1).name} edited. Term: #{membership.term_string}.",
+        :activity_type => "PersonToCommittee", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    membership = Membership.new(:committee_id => 1, :person_id => 9, :term_start => "2012-01-01", :display_as => "Mitch Fischman")
+    membership.creator_id = 1
+    membership.updater_id = 1
+    membership.save
+    activity = Activity.new(
+        :message => "#{person.name} assignment to #{Committee.find_by_id(1).name} edited. Term: #{membership.term_string}.",
+        :activity_type => "PersonToCommittee", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    membership = Membership.new(:committee_id => 1, :person_id => 10, :term_start => "2012-01-01", :display_as => "Susan Albright")
+    membership.creator_id = 1
+    membership.updater_id = 1
+    membership.save
+    activity = Activity.new(
+        :message => "#{person.name} assignment to #{Committee.find_by_id(1).name} edited. Term: #{membership.term_string}.",
+        :activity_type => "PersonToCommittee", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    membership = Membership.new(:committee_id => 1, :person_id => 11, :term_start => "2012-01-01", :display_as => "Jay Harney")
+    membership.creator_id = 1
+    membership.updater_id = 1
+    membership.save
+    activity = Activity.new(
+        :message => "#{person.name} assignment to #{Committee.find_by_id(1).name} edited. Term: #{membership.term_string}.",
+        :activity_type => "PersonToCommittee", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+
+    membership = Membership.new(:committee_id => 1, :person_id => 12, :term_start => "2012-01-01", :display_as => "Marc Laredo")
+    membership.creator_id = 1
+    membership.updater_id = 1
+    membership.save
+    activity = Activity.new(
+        :message => "#{person.name} assignment to #{Committee.find_by_id(1).name} edited. Term: #{membership.term_string}.",
+        :activity_type => "PersonToCommittee", :date_actual => Date.today)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => person.id) 
+    
 
   end
 end

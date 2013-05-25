@@ -1,0 +1,57 @@
+<% provide(:title, @person.name) %>
+<div class="row">
+  <aside class="span4">
+  <section>
+  <h1>
+    <%= @person.name %>
+  </h1>
+  <img src="<%= @person.image_url %>">
+      <span class="timestamp">Created by <%= @person.creator.name %> on <%= @person.created_at.strftime("%m/%d/%y") %></span>
+      <span class="timestamp">Last updated by <%= @person.updater.name %> on <%= @person.updated_at.strftime("%m/%d/%y") %></span>
+      <% if current_user && current_user.admin? %>
+        <span class="content"><%= link_to "Edit", edit_person_path(@person)%>
+          <span class="content"><%= link_to "Add #{@person.name} to a committee", new_person_membership_path(@person)%></span>
+      <% end %>
+   </section>
+        </aside>
+        <div class="span8">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#committees" data-toggle="tab">Committees</a></li>
+            <li><a href="#activity" data-toggle="tab">Activity</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="committees">
+              <% if @person.memberships.any? %>
+                  <span class="content">
+                    Current assignments
+                  </span>
+                <ol class="microposts">
+                  <%= render @person.memberships_current %>
+                </ol>
+                  <span class="content">
+	            Past assignments
+                  </span>
+                  <ol class="microposts">
+                    <%= render @person.memberships_past %>
+                  </ol>
+              <% else %>
+                Reserved for committees
+              <% end %>
+            </div>
+            <div class="tab-pane" id="activity">
+              <% if @person.activities.any? %>
+                <ol class="microposts">
+                  <%= render @activities %>
+                </ol>
+              <% else %>
+                Reserved for actions
+              <% end %>
+            </div>
+            </div>
+            <script>
+              $(function () {
+                $('#myTab a:last').tab('show');
+              })
+            </script>
+
+

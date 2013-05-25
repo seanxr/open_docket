@@ -30,6 +30,9 @@ class Committee < ActiveRecord::Base
   has_many :activity_logs, :as => :owner
   has_many :activities, :through => :activity_logs, :as => :owner
 
+  has_many :memberships
+  has_many :people, through: :memberships, source: :person
+
   def ondocket?(item)
     dockets.find_by_item_id(item.id)
   end
@@ -54,4 +57,13 @@ class Committee < ActiveRecord::Base
     end
     upcomingmeetings.first
   end
+
+  def memberships_current
+    memberships.select{|x| x['term_end'] == nil}
+  end
+
+   def memberships_past
+    memberships.select{|x| x['term_end'] != nil}
+  end
+  
 end

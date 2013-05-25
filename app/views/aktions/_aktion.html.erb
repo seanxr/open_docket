@@ -39,7 +39,7 @@
 			<% end %>
 			</span>
 		</li>
-	<% elsif item_meeting.agendable_type == "MeetingText" %>
+	<% elsif item_meeting.agendable_type == "MeetingText" && item_meeting.agendable.action_required %>
 	  <li>
 	  <span class="content"><%= item_meeting.agendable.name %>
 		  	<% if current_user && current_user.admin? %>

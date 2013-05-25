@@ -14,6 +14,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#meetings" data-toggle="tab">Meetings</a></li>
       <li><a href="#items" data-toggle="tab">Items&nbsp;(<%= @committee.dockets.count %>)</a></li>
+      <li><a href="#members" data-toggle="tab">Members</a></li>
       <li><a href="#activities" data-toggle="tab">Activities</a></li>
     </ul>
 
@@ -51,7 +52,27 @@
           </ol>    
         <% end %> 
       </div>
- 
+
+     <div class="tab-pane" id="members">
+              <% if @committee.memberships.any? %>
+                  <span class="content">
+                    Current members
+                  </span>
+                <ol class="microposts">
+                  <%= render @committee.memberships_current %>
+                </ol>
+                  <span class="content">
+	            Past members
+                  </span>
+                  <ol class="microposts">
+                    <%= render @committee.memberships_past %>
+                  </ol>
+              <% else %>
+                Reserved for committees
+              <% end %>
+      </div>
+
+      
      <div class="tab-pane" id="activities">
          <% if @committee.activities.any? %>
            <ol class="microposts">

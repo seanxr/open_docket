@@ -9,7 +9,7 @@
 
         <div class="test">
           <%= f.label :date %>
-          <%= f.date_select :date, {:order => [:year, :month, :day]}, {:class => "date-select"}  %>
+          <%= f.text_field :date, :value => Date.today, class: "date-picker" %>
         </div>
 
         <% @sites.each do |site| %>
@@ -43,6 +43,7 @@
           <% end %>
           <br/>
         <% end %>
+
          <%= f.submit "Create meeting", class: "btn btn-large btn-primary" %>
        <% end %>
   </div>

@@ -2,13 +2,14 @@
 #
 # Table name: meetings
 #
-#  id         :integer          not null, primary key
-#  date       :date
-#  room_id    :integer
-#  creator_id :integer
-#  updater_id :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  date        :date
+#  room_id     :integer
+#  creator_id  :integer
+#  updater_id  :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  assigner_id :integer
 #
 
 class Meeting < ActiveRecord::Base
@@ -39,7 +40,7 @@ class Meeting < ActiveRecord::Base
 
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
-
+   
   def name
     self.date
   end
@@ -53,6 +54,10 @@ class Meeting < ActiveRecord::Base
    def committee_names_string
     committees.collect { |id| Committee.find_by_id(id).name }.join('/') 
   end
+
+   def name_date_string
+     self.committee_names_string + " (" + self.name.strftime("%m/%d/%Y") + ")"
+   end
 
  
   def potential_items

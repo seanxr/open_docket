@@ -41,6 +41,8 @@ class User < ActiveRecord::Base
   has_many :rooms_as_updater,      :class_name => 'Room',      :foreign_key => 'updater_id'
   has_many :sites_as_creator,      :class_name => 'Site',      :foreign_key => 'creator_id' 
   has_many :sites_as_updater,      :class_name => 'Site',      :foreign_key => 'updater_id'
+  has_many :people_as_creator,     :class_name => 'People',    :foreign_key => 'creator_id' 
+  has_many :people_as_updater,     :class_name => 'People',    :foreign_key => 'updater_id'
 
   private
 

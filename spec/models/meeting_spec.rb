@@ -2,13 +2,14 @@
 #
 # Table name: meetings
 #
-#  id         :integer          not null, primary key
-#  date       :date
-#  room_id    :integer
-#  creator_id :integer
-#  updater_id :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  date        :date
+#  room_id     :integer
+#  creator_id  :integer
+#  updater_id  :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  assigner_id :integer
 #
 
 require 'spec_helper'
