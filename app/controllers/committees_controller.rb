@@ -42,7 +42,7 @@ class CommitteesController < ApplicationController
       @agingaverage = @dockets.collect(&:age).inject(:+)/@dockets.size
     end
     @meetings = @committee.meetings
-  end
+   end
 
   def new
     @committee = Committee.new

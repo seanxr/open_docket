@@ -59,7 +59,7 @@ class Committee < ActiveRecord::Base
   end
 
   def memberships_current
-    memberships.select{|x| x['term_end'] == nil}
+    memberships.select{|x| x['term_end'] == nil}.sort_by{|e| e['position']}
   end
 
    def memberships_past

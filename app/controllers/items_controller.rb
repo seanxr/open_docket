@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @people = Person.find(:all,:select=>'lname').map(&:lname)
   end
 
   def index

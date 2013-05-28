@@ -55,20 +55,22 @@
 
      <div class="tab-pane" id="members">
               <% if @committee.memberships.any? %>
-                  <span class="content">
+ <!--                 <span class="content">
                     Current members
                   </span>
+-->
                 <ol class="microposts">
                   <%= render @committee.memberships_current %>
                 </ol>
-                  <span class="content">
+<!--                  <span class="content">
 	            Past members
                   </span>
+                  -->
                   <ol class="microposts">
                     <%= render @committee.memberships_past %>
                   </ol>
               <% else %>
-                Reserved for committees
+                Reserved for members
               <% end %>
       </div>
 

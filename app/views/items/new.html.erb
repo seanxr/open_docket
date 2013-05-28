@@ -19,11 +19,14 @@
       <%= f.label :reference %>
       <%= f.text_area :reference, :size => "60x2" %>
 
-      <%= f.label :ward %>
-      <%= f.text_field :ward %>
-
       <%= f.check_box :draft %>
       <%= f.label :draft %>
+
+      <%= f.label :ward %>
+      <%= f.select(:ward, Person.all.map { |person| [person.name, person.id] }, { :prompt => "Please select"},
+                                   { :multiple => true, :size => 5 }) %>
+
+        <input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="8" data-source='<%= @people.to_json %>'>  
 
       <%= label :status, :as_of %>
       <%= text_field :status, :as_of, :value => Date.today, class: "date-picker"    %>

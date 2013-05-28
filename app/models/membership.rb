@@ -44,7 +44,7 @@ class Membership < ActiveRecord::Base
     if term_end
       term_start.strftime("%m/%d/%Y") + " - " + term_end.strftime("%m/%d/%Y")
     else
-       term_start.strftime("%m/%d/%Y") + "- present"
+       term_start.strftime("%m/%d/%Y") + " - present"
     end
   end
 
