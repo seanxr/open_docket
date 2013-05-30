@@ -27,7 +27,10 @@
   </li>
 <% else %>
   <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
-    <span class="content"><span class="handle" style="color: green;cursor:move;">[drag]</span>
+    <span class="content">
+      <% if current_user && current_user.admin? %>
+        <span class="handle" style="color: green;cursor:move;">[drag]</span>
+      <% end %>
     <%= item_meeting.agendable.meeting_text %></span>
   </li>
 <% end %>

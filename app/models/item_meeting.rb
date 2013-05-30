@@ -16,7 +16,7 @@
 #
 
 class ItemMeeting < ActiveRecord::Base
-  attr_accessible :agendable_id, :agendable_type, :creator_id, :item_id, :meeting_id, :updater_id, :assigner_id
+  attr_accessible :agendable_id, :agendable_type, :creator_id, :item_id, :meeting_id, :updater_id, :assigner_id, :position
 
   has_one :meeting
   has_one :agendable

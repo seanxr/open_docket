@@ -30,17 +30,17 @@ class MeetingText < ActiveRecord::Base
       self.save!
       @item_meeting = ItemMeeting.create!(:meeting_id => meeting_id, :agendable_type => "MeetingText", :agendable_id => id)
       activity1 = Activity.create!(
-        :message => "Meeting text added to #{meeting.date} meeting. #{meeting_text}",
-        :activity_type => "NewMeetingText", :date_actual => meeting.date)
+        :message => "Meeting text added to #{meeting.date} meeting: #{meeting_text}",
+        :activity_type => "NewMeetingText", :date_actual => Today.date)
         ActivityLog.create!(:activity_id => activity1.id, :owner_type => "Meeting", :owner_id => meeting.id)
     end
   end
 
   def name
     if meeting_text.length > 50
-      "Agenda text: "+ meeting_text[0..50]+"..."
+      "Meeting text: "+ meeting_text[0..50]+"..."
     else
-      "Agenda text: "+ meeting_text
+      "Meeting text: "+ meeting_text
     end
   end
 

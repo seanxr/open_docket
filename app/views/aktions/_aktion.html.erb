@@ -5,10 +5,10 @@
 	     	<% if item_meeting.agendable_type == "Item" %>
 			<span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></span>
 		<% elsif item_meeting.agendable_type == "MeetingText" %> 
-			<% if item_meeting.aktion.meeting_text.size > 200 %>
-				<span class="content"><%= item_meeting.aktion.meeting_text[0..200] %> ...</span>
+			<% if MeetingText.find_by_id(item_meeting.agendable_id).meeting_text.size > 200 %>
+				<span class="content"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text[0..200] %> ...</span>
 			<% else %>
-				<span class="content"><%= item_meeting.aktion.meeting_text %></span>
+				<span class="content"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text %></span>
 			<% end %>
 		<% end %>
 	<% end %>
@@ -24,7 +24,7 @@
 			<% end %>
     </li>
   <% end %>
- </ol>
+</ol>
  <span class="content">The following items have no actions, yet.</span>
  <ol class="microposts">
   <% for item_meeting in @meeting.item_meetings.all%>

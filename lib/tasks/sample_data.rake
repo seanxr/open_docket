@@ -43,6 +43,13 @@ namespace :db do
                    creator_id: 1,
                    updater_id: 1)
    room1_3.save
+       room1_3 = site1.rooms.new(name: "Room 222",
+                   floor: "2nd Floor",
+                   capacity: "20",
+                   notes: "Good wifi.",
+                   creator_id: 1,
+                   updater_id: 1)
+   room1_3.save
 
    committees = [[ "Land Use Committee", "Land Use",
                   "Working sessions on the Tuesdays following the first and third Mondays of each month, and Public Hearings on the Tuesday following the second Monday of each month. The Land Use Committee reviews matters relating to Special Permit and Site Plan Approval petitions; utility petitions relating to Special Permit and Site Plan Approval projects; zone change petitions relating to individual, specific parcels; sign permits; lodging house and dormitory licenses; licensing of automobile dealers; permits for storage of towed vehicles; and matters relating to Community Preservation housing proposals. "],
@@ -175,13 +182,120 @@ known as Section 42, Block 11, Lot 4 containing approximately 116,650 square
 feet of land in a Business 5 Zoned district. (The Public Hearing, opened 
 on 10/09/12, continued to 11/27/12, was closed on 12/18/12.)",
    "399 Grove Street",
-   "Ref: Sections 30-15, Table 3; 30-
-19(d)(3); 30-19(d)(13); 30-19(h); 30-19(h)(2)a); 30-19(h)(2)b); 30-19(h)(2)c); 30-
-19(h)(2)e); 30-19(h)(3)b); 30-19(h)(4)b); 30-19(i); 30-19(i)(1); 30-19(i)(2); 30-
-19(j); 30-19(j)(1)a); 30-19(j)(2)e); 30-19(k)(1); 30-19(l); 30-19(m); 30-20(f)(1); 
-30-20(f)(2); 30-20(f)(9); 30-20(l); 30-21(b); 30-23; 30-24; and 30-26(a)(1) of the 
-City of Newton Revised Zoning Ordinances, 2012. ",
-    "4"]
+   "Ref: Sections 30-15, Table 3; 30-19(d)(3); 30-19(d)(13); 30-19(h); 30-19(h)(2)a); 30-19(h)(2)b); 30-19(h)(2)c); 30-19(h)(2)e); 30-19(h)(3)b); 30-19(h)(4)b); 30-1(i); 30-19(i)(1); 30-19(i)(2); 30-19(j); 30-19(j)(1)a); 30-19(j)(2)e); 30-19(k)(1); 30-19(l); 30-19(m); 30-20(f)(1); 30-20(f)(2); 30-20(f)(9); 30-20(l); 30-21(b); 30-23; 30-24; and 30-26(a)(1) of the City of Newton Revised Zoning Ordinances, 2012. ",
+    "4"],
+["58-13",
+"ROBERT FRANCHI/MARCH V. FRANCHI TRUST, MARY V. FRANCHI, TRUSTEE",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to convert an existing two family structure into two single-family attached dwellings and to construct two single-family attached dwellings; to waive front and sideset back requirements; and to locate a driveway within 10 feet of the side lot line at 281 NEVADA STREET, Ward 1, on land known as SBL 23, 6, 9, containing approx.. 17,999 sq. ft. of land in a district zoned MULTI RESIDENCE 1.",
+"281 Nevada Street", 
+"Sec 30-24, 30-23, 30-9(b)(5)a) and b), 30-15 Table 1 of the City of Newton Rev 
+Zoning Ord, 2012.",
+"1"],
+["59-13",
+"JEFFREY A. ORLIN & FRANCES KEECH",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to convert an attic into a master bedroom suite, which will increase the Floor Area Ratio from .41 to .53 where .45 is allowed at 105 NONANTUM STREET, Ward 1, on land known as SBL 72, 21, 14, containing approx. 5,872 sq. ft. of land in a district zoned SINGLE FAMILY 
+2.",
+"105 Nonantum Street",
+"Sec 30-24, 30-23 3015 Table A, 30-15(u) and u(2) of the City of Newton Rev Zoning Ord, 2012. ",
+"1"],
+["60-13",
+"JOHN & CAROLE deJONG",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to locate a veterinary hospital and to waive two parking stalls at 602 WASHINGTON STREET, Ward 2, on land known as SBL 12, 16, 4 and 23, 18, 1, containing approx. 7,076 sq. ft. of land in a district zoned BUSINESS 2.",
+"602 Washington Street", 
+"Sec 30-24, 30-23, 30-11(g)(7), 30-19(m) of the City of Newton Rev Zoning Ord, 2012.",
+"2"],
+["61-13",
+"STEPHEN EDSALL/MICHAEL J. CEDRONE",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to construct 4 attached dwellings in 2 buildings; waive the side setback requirements; and locate a driveway within 10 feet of the side lot line at 288 NEVADA STREET, Ward 1, on land known as SBL 14, 8, 11, containing approx. 50,227 sq. ft. of land in a district zoned MULTI RESIDENCE 1.",
+"288 Nevada Street",
+"30-24, 30-23, 30-9(b)(5)a) and b) of the City of Newton Rev Zoning Ord, 2012.",
+"1"],
+["376-12",
+"NEWTON COLLISION INC. d/b/a GM AUTO BODY",
+"",
+"64 Crafts Street",
+"",
+""],
+["259-12(4)",
+"NINE RIPLEY LLC",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to add an attached dwelling to an existing dwelling and to construct two additional attached dwellings for a total of four dwellings; to waive the side and rear setback requirements; allow a driveway 7.2 feet from a side lot line, and, to allow parking within the required side setback at 9 RIPLEY STREET, Ward 6, Newton Centre, on land known as SBL 65, 19, 20, containing approx. 19,367 sq. ft. of land in a district zoned MULTI RESIDENCE 1.",
+"9 Ripley Street",
+"Sec 30-24, 30-23, 30-9(b)(5)a) and b), 30-15 Table 1, 30-19(g)(1), and (m) of the City of Newton Rev Zoning Ord, 2012.",
+"6"],
+["105-13",
+"J. STEPHEN COHEN petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to construct a one-story addition to the rear of an existing singlefamily house and to add a second garage bayto an existing single-car garage which will increase the Floor Area Ratio from .36 to .45 where .34 is allowed at 132 HAMMOND STREET, Ward 7, on land known as SBL 61, 12, 24, containing approximately 13,561 sq. ft. of land in a district zoned Single Residence 2.",
+"132 Hammond Street",
+"Sec 30-24, 30-23, 30-15(u)(2)Table A, and Table 1 of the City of Newton Rev Zoning Ord, 2012.",
+"7"],
+["106-13",
+"A&L AUTO SERVICE, LLC, ANTOINE DAHER, MANAGER",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to AMEND special permit #559-70 
+in order to erect a one-story rear addition; delete the requirement for and reference to 'wooden planters' and substitute in place thereof a 5-foot fence along the easterly property line at 414 WATERTOWN STREET, Ward 1, on land known as SBL 14, 15, 24, containing approximately 10,992 sq. ft. of land in a district zoned Business 2.",
+"414 Watertown Street",
+"Sec 30-24, 30-23, 30-11(g)(2) of the City of Newton Rev Zoning Ord, 2012.",
+"1"],
+["188-12",
+"ALD. HESS-MAHAN", 
+"requesting a discussion regarding the types of information that should be required from petitioners applying for a special permit to exceed FAR under Sec. 30-15(u)(2) in order to meet their burden of proof to show that the 'proposed structure is consistent with and not in derogation of the size, scale and design of other structures in the neighborhood.'",
+"",
+"",
+"",],
+["140-13",
+"WILLIAM & ALICE KELLY",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to construct a 2-story addition to the right side and rear of an existing single-family dwelling, increasing the Floor Area Ratio from .39 to .50 where .40 is allowed by right, at 12 FELLSMERE ROAD, Newton Centre, Ward 7, on land known as SBL 73, 37, 8, containing approx. 8,500 sf of land in a district zoned SINGLE RESIDENCE 2.",
+"12 Fellsmere Road",
+"Sec 30-24, 30-23, 30-15(u), 30-15 Table A of the City of Newton Rev Zoning Ord, 2012.",
+"7"],
+["141-13",
+"ZION YEHOSHUA & NIKZUN GORDON",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to re-grade an existing driveway to make it less steep by rebuilding existing retaining walls within the setback at a maximum height of 6 feet and to provide 2 parking spaces with the front setback at 74 NEWTONVILLE AVENUE, Newton, Ward 1, on land known as SBL 12, 21, 25 containing approx. 10,021 sf of land in a district zoned SINGLE RESIDENCE 3.",
+"74 NEWTONVILLE AVENUE",
+"Sec 30-24, 30-23, 30-19(g)(1), 30-19(m), 30-5(b)(4) of the City of Newton Rev Zoning Ord, 2012.",
+"1"],
+["211-12(2)",
+"ROBERT & PATRICIA WELBOURN",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to construct several retaining walls greater than four feet in height within a side setback and to waive if necessary the minimum driveway width of 12 feet to accommodate an existing city-owned tree in conjunction with a new single-family dwelling at 24 WILDE ROAD, Waban, Ward 5, on land known as SBL 55, 19, 5, containing approx. 8,446 sf of land in a district zoned SINGLE RESIDENCE 2. ",
+"24 Wilde Road",
+"Sec 30-24, 30-23, 30-5(b)(4) 30-19(g), 30-19(m) of the City of Newton Rev Zoning Ord, 2012.",
+"5"],
+["142-13",
+"ELIZABETH & PETER NURCZYNSKI",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to EXTEND A NONCONFORMING STRUCTURE to construct a 510 sf addition to the first floor unit of an existing 2-family dwelling, which will increase the Floor Area Ratio from .56 to .65, where .54 is allowed by right, at 99-101 ATWOOD AVENUE, Newtonville, Ward 2, on land known as SBL 22, 23, 8, containing approx. 7,434 of land in a district zoned MULTI RESIDENCE 1. ",
+"99-101 Atwood Avenue",
+"Sec. 30-24, 30-23, 30-21(a)(2)b), 30-15(u), 30-15 Table A of the City of Newton Rev Zoning Ord, 2012.",
+"2"],
+["143-13",
+"DANA J. KATZ, TRUSTEE, DK REALTY TRUST",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to EXTEND a NONCONFORMING STRUCTURE to construct an addition of approx. 1,280 sf to an existing building and to locate parking stalls within 2 feet of a side lot line and for various waivers from lighting, landscaping, and bicycle parking requirements at 176 BOYLSTON STREET (Miltons Store for Men), Chestnut Hill, Ward 7, on land known as SBL 82, 2, 18 in a district zoned BUSINESS 4. ",
+"176 Boylston Street",
+"Sec 30-24, 30-23, 30-21, 30-19(h)(1), 30-19(i)(1)a), and (2), 30-19(j), 30-19(k) of the City of Newton Rev Zoning Ord, 2012",
+"7"], 
+["144-13",
+"CLAUDIA JOSEPH & SEAN DOHERTY petition for SPECIAL PERMIT/SITE PLAN APPROVAL to EXTEND A NONCONFORMING STRUCTURE by adding a 94.5 sf mudroom at the rear of an existing two-family dwelling and to fill in a 14.5 sf corner of the kitchen at 140 CHURCH STREET, Newton Corner, on land known as SBL 72, 6, 4, containing approx. 9,070 sf of land in a district zoned MULTI RESIDENCE 1. ",
+"140 Church Street",
+"Sec 30-24, 30-23, 30-21(b), 30-15(u), 30-15 Table A of the City of Newton Rev Zoning Ord, 2012",
+""],
+["542-03(4)",
+"HIS HONOR THE MAYOR",
+"requesting that the Telecommunication Specialist position within the Law Department be designated as the Remediation Fund Administrator as established in condition 2.H. of special permit #542-03 granted on November 1, 2005 to Clear Channel et al. for five radio transmission towers with ancillary equipment at 750 Saw Mill Brook Parkway.",
+"",
+"",
+""],
+["61-13",
+"STEPHEN EDSALL/MICHAEL J. CEDRONE",
+"petition for a SPECIAL 
+PERMIT/SITE PLAN APPROVAL to construct 4 attached dwellings in 2 buildings; waive the side setback requirements; and locate a driveway within 10 feet of the side lot line at 288 NEVADA STREET, Ward 1, on land known as SBL 14, 8, 11, containing approx. 50,227 sq. ft. of land in a district zoned MULTI RESIDENCE 1.",
+"288 Nevada Street",
+"Sec. 30-24, 30-23, 30-9(b)(5)a) and b) of the City of Newton Rev Zoning Ord, 2012",
+"1"],
+["258-12(2)",
+"BH NORMANDY RIVERSIDE, LLC/MASSACHUSETTS BAY TRANSPORTATION AUTHORITY",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to construct a mixed use, transit oriented development including an office building of approximately 225,000 sq. ft., a residential 
+building containing 290 apartments with 5,000 sq. ft. of retail space, a three story building containing approximately 15,000 sq. ft. of retail space and approximately 8,000 sq. ft. of community space, and related site improvements; to permit office use on the ground floor, medical office use, retail and personal establishments of more than 5,000 sq. ft., eating and drinking establishments of more than 5,000 sq. ft. ,retail banking and financial services, and health club establishments on the ground floor; and reduced minimum setbacks of side setback of office building, and front setback of retail/community building; parking facility design standards including stall width, stall depth, maneuvering space for end stalls, minimum width for entrance and exit driveways, tandem stalls, number of required offstreet loading facilities and design standards of same, landscape screening requirements, surfacing and curbing requirements and one foot candle lighting at 327 GROVE STREET, Ward 4, on land known as SBL 42, 11, 3A containing approx. 9.4 acres of land in a proposed Mixed Use 3 Transit Oriented Zoned 
+district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was closed on 12/18/12.) 90-Days 6/20/13",
+"327 Grove Street",
+"Sec 30-13(f), Table A Footnote ; 30-13(g); 30-15(v)(1); 30-15, Table 3; 30-19(d)(22); 30-19(h); 30-19(h)(2)a); 30-19(h)(2)b); 30-19(h)(2)e); 30-19(h)(4)a); 30-19(h)(5)a); 30-19(i); 30-19(i)(1)a); 30-19(j); 30-19(j)(1)a); 30-19(j)(2)d); 30-19(l); 30-19(l)(2); 30-19(l)(3); 30-19(m); 30-23; 30-24; 30-24(i)(7) of the City of Newton Revised Zoning Ord, 2012.",
+"4"],
     ]
 
     items.each { |name, requested_by, request, address, reference, ward|
@@ -218,7 +332,23 @@ City of Newton Revised Zoning Ordinances, 2012. ",
                [1,6],
                [1,7],
                [1,8],
-               [1,9]]
+               [1,9],
+               [1,10],
+               [1,11],
+               [1,12],
+               [1,13],
+               [1,14],
+               [1,15],
+               [1,16],
+               [1,17],
+               [1,18],
+               [1,19],
+               [1,20],
+               [1,21],
+               [1,22],
+               [1,23],
+               [1,24],
+               [1,25]]
 
     dockets.each { |committee_id, item_id|
     
@@ -243,16 +373,16 @@ City of Newton Revised Zoning Ordinances, 2012. ",
     # land use meetings
 
     meetings = [["2013-01-15", 1],
-                ["2013-02-05", 1],
+                ["2013-02-05", 4],
                 ["2013-02-12", 1],
-                ["2013-03-05", 1],
+                ["2013-03-05", 4],
                 ["2013-03-19", 1],
-                ["2013-04-02", 1],
+                ["2013-04-02", 4],
                 ["2013-04-09", 1],
-                ["2013-04-23", 1],
-                ["2013-05-07", 1],
+                ["2013-04-23", 4],
+                ["2013-05-07", 4],
                 ["2013-05-14", 1],
-                ["2013-05-21", 1]]
+                ["2013-05-21", 4]]
 
     meetings.each { |date, room_id|
    
@@ -272,25 +402,71 @@ City of Newton Revised Zoning Ordinances, 2012. ",
     log =  ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting.id) 
     log =  ActivityLog.create(:activity_id => activity.id, :owner_type => "Committee", :owner_id => 1) }
 
+    meetingtexts = [["Public Hearings will be held on the following items, after which if the hearings are closed the committee will convene a working session:",
+                     1, "2012-12-14"],
+                    ["Respectfully submitted,",
+                     1, "2012-12-14"],
+                    ["Ted-Hess Mahan", 1, "2012-12-14"]
+    ]
+
+    meetingtexts.each { | meeting_text, meeting_id |
+
+    meetingtext = MeetingText.new(:meeting_text => meeting_text, :meeting_id => meeting_id)
+    meetingtext.creator_id = 1
+    meetingtext.updater_id = 1
+    meetingtext.save
+    activity = Activity.create(
+        :message => "Meeting text added to #{Meeting.find_by_id(meetingtext.meeting_id).date} meeting: #{meetingtext.meeting_text}",
+        :activity_type => "NewMeetingText", :date_actual => Meeting.find_by_id(meetingtext.meeting_id).date)
+    ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meetingtext.meeting_id)}
+
+
+
 # items on meetings
 
-    itemmeetings = [["Item", 1, 1, "2012-12-14"],
-                    ["Item", 2, 1, "2012-12-14"],
-                    ["Item", 3, 1, "2012-12-14"],
-                    ["Item", 1, 2, "2013-01-17"],
-                    ["Item", 2, 2, "2013-01-17"],
-                    ["Item", 4, 3, "2013-01-14"],
-                    ["Item", 5, 3, "2013-01-14"],
-                    ["Item", 6, 3, "2013-01-14"],
-                    ["Item", 7, 4, "2013-01-14"],
-                    ["Item", 8, 4, "2013-02-14"],
-                    ["Item", 9, 4, "2013-02-14"],
- ]
+    itemmeetings = [["MeetingText", 1, 1, "2012-12-14", 1],
+                    ["Item", 1, 1, "2012-12-14", 4],
+                    ["Item", 2, 1, "2012-12-14", 3],
+                    ["Item", 3, 1, "2012-12-14", 2],
+                    ["Item", 1, 2, "2013-01-17", 2],
+                    ["Item", 2, 2, "2013-01-17", 1],
+                    ["Item", 4, 3, "2013-01-14", 1],
+                    ["Item", 5, 3, "2013-01-14", 2],
+                    ["Item", 6, 3, "2013-01-14", 3],
+                    ["Item", 7, 4, "2013-01-14", 1],
+                    ["Item", 8, 4, "2013-02-14", 2],
+                    ["Item", 9, 4, "2013-02-14", 3],
+                    ["MeetingText", 2, 1, "2012-12-14",5],
+                    ["MeetingText", 3, 1, "2012-12-14",6],
+                    ["Item", 10, 5, "2013-03-14", 1],
+                    ["Item", 11, 5, "2013-03-14", 2],
+                    ["Item", 12, 5, "2013-03-14", 3],
+                    ["Item", 13, 5, "2013-03-14", 4],
+                    ["Item", 14, 5, "2013-03-14", 5],
+                    ["Item", 13, 6, "2013-03-21", 1],
+                    ["Item", 7, 6, "2013-03-21", 2],
+                    ["Item", 8, 6, "2013-03-21", 3],
+                    ["Item", 9, 6, "2013-03-21", 4],
+                    ["Item", 15, 7, "2013-04-02", 1],
+                    ["Item", 16, 7, "2013-04-02", 2],
+                    ["Item", 17, 7, "2013-04-02", 3],
+                    ["Item", 18, 8, "2013-04-14", 1],
+                    ["Item", 10, 8, "2013-04-14", 2],
+                    ["Item", 15, 9, "2013-04-26", 1],
+                    ["Item", 7, 9, "2013-04-26", 2],
+                    ["Item", 19, 10, "2013-05-06", 1],
+                    ["Item", 20, 10, "2013-05-06", 2],
+                    ["Item", 21, 10, "2013-05-06", 3],
+                    ["Item", 22, 10, "2013-05-06", 4],
+                    ["Item", 23, 10, "2013-05-06", 5],  
+                    ["Item", 25, 11, "2013-05-13", 1],
+                    ["Item", 7, 11, "2013-05-13", 2],
+                     ]
 
-    itemmeetings.each { |agendable_type, agendable_id, meeting_id, date_actual|
+    itemmeetings.each { |agendable_type, agendable_id, meeting_id, date_actual, position|
 
     itemmeeting = ItemMeeting.new(:agendable_type => agendable_type, :agendable_id => agendable_id,
-                   :meeting_id => meeting_id)
+                   :meeting_id => meeting_id, :position => position)
     itemmeeting.creator_id = 1
     itemmeeting.updater_id = 1
     itemmeeting.save
@@ -303,11 +479,53 @@ City of Newton Revised Zoning Ordinances, 2012. ",
     log = ActivityLog.create(:activity_id => activity.id, :owner_type => agendable_type, :owner_id => agendable_id) 
     log = ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting_id) }
 
+
+# documents
+
+   documents = [["http://www.newtonma.gov/civicax/filebank/documents/48847/01-15-13LandUseReport.pdf","2013-01-16","Official 1/15/13 Land Use meeting report", 1, [1,2,3]],
+                ["http://www.newtonma.gov/civicax/filebank/documents/49112/01-15-13LandUse.mp3","2013-01-16","1/15/13 Land Use meeting audio", 1, [1,2,3]]]
+
+   documents.each { | url, submitted_on, name, meeting_id, item_id |
+   document = Document.new(:URL => url, :submitted_on => submitted_on, :name => name)
+   document.creator_id = 1
+   document.updater_id = 1
+   document.save
+   activity = Activity.create(
+                :message => "Document #{name} uploaded into Open Docket",
+                :activity_type => "DocumentUploaded", :date_actual => Date.today)
+   ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
+   if meeting_id
+     attachment = Attachment.new(:document_id => document.id, :owner_type => "Meeting", :owner_id => meeting_id)
+     attachment.save
+     activity = Activity.create(
+        :message => "Document #{name} attached to meeting #{Meeting.find_by_id(meeting_id).name}.",
+        :activity_type => "DocumentAttachment", :date_actual => Date.today)
+          ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
+          ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting_id)   
+   end
+
+   if item_id
+     for item in item_id.each do
+       attachment = Attachment.new(:document_id => document.id, :owner_type => "Item", :owner_id => item)
+       attachment.save
+       activity = Activity.create(
+        :message => "Document #{name} attached to Item #{Item.find_by_id(item).name}.",
+        :activity_type => "DocumentAttachment", :date_actual => Date.today)
+          ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
+          ActivityLog.create(:activity_id => activity.id, :owner_type => "Item", :owner_id => item)
+        end
+   end }
+
+
+
+
+ 
+
 # actions
 
     aktions = [["ACTION: HEARING CLOSED; APPROVED 7-0
 NOTE: Architect Will Saltonstall presented the petition. The existing single-family house and garage were constructed in 2002 after a c.1950 ranch-style house was demolished. The petitioners purchased their home shortly after its construction. They wish to remain there but need more room to accommodate their family. The 5,000 square-foot house appears as 2.5 stories from the street and 3 stories from the west side where the topography slopes downwardbefore it levels off again. They are seeking a special permit to construct an approximately 440 square-foot, three-story addition on the west side of the house. The first floor contains approximately 29x14 feet and the second and third floors each contain approximately 16x9 feet. The maximum allowed FAR is .31 with an additional .02 bonus for construction on pre1953 lots that conform to the post-1953 setback requirements, for an allowed maximum FAR of .33; the petitioners are seeking to increase the FAR to .36. The house meets and will continue to meet all dimensional and open space requirements. The proposed addition will allow for a guest bedroom in the basement, a larger dining room and outdoor patio on the first floor, and a dressing room off the second-floor master bedroom. The addition will not be visible from the street and although it will be visible on the west side, it will be located where there is an existing patio; on the south side it will overlook a large yard, deck, and pool on a lot that contains over 100,000 square feet. It is an eclectic neighborhood that consisted mostly of 1950s ranch homes, many of which over time have been demolished and replaced with larger homes. The proposed addition will have a hip roof and the same exterior material to blend with the existing house. Saul Wisnia, 24 Hamlin Road, spoke in support of the petition. The petitioners submitted letters from neighbors at 21, 29 (the westerly abutter), 45 Columbine Road and 74 Oak Hill Street (the southerly abutter) in support of the petition. 
-In working session, Ms. Holmes reviewed the relief requested. She pointed out that several neighborhood properties including one currently under construction have the maximum allowed FAR of .31. The Planning Department noted that there is a shed located closer to the side and rear property lines than is permitted. The petitioners submitted a letter agreeing that the shed will be moved to comply that it be at least five feet from the property lines. Alderman Fischman moved approval of the petition finding that the proposed increase in FAR is consistent with and not in derogation of the size and scale of other structures in the neighborhood; that the proposed addition will not intrude into the rear yard; and that the proposed 440 square-foot addition to an existing 5,000 square foot house is modest in scale. The motion to approve carried unanimously, 7-0.", 3, 1, 3],
+In working session, Ms. Holmes reviewed the relief requested. She pointed out that several neighborhood properties including one currently under construction have the maximum allowed FAR of .31. The Planning Department noted that there is a shed located closer to the side and rear property lines than is permitted. The petitioners submitted a letter agreeing that the shed will be moved to comply that it be at least five feet from the property lines. Alderman Fischman moved approval of the petition finding that the proposed increase in FAR is consistent with and not in derogation of the size and scale of other structures in the neighborhood; that the proposed addition will not intrude into the rear yard; and that the proposed 440 square-foot addition to an existing 5,000 square foot house is modest in scale. The motion to approve carried unanimously, 7-0.", 3, 1, 4],
     ["ACTION: HEARING CLOSED; HELD 7-0
 NOTE: The petition was presented by property owner Wally Zainoun and petitioner Debra Bennett who operates Core Harmony, the yoga and life coaching business for which they are seeking to locate four parking stalls in the front setback and to erect a freestanding sign to replace the existing blade sign that extends out from the building. (The proposed sign has been reduced from 25 square feet to 15 square feet, the limit allowed by special permit.) See the attached PowerPoint.In addition, Mr. Zainoun is requesting relief to allow office, service, and retail use and/or medical office in the event the second space, currently occupied by TNM Realty, in this legally nonconforming commercial building becomes vacant without the need to amend a special permit and to waive the two parking stalls that would be required for a future conversion to medical office use. Mr. Zainoun said this request was prompted by an inquiry from a husband and wife, both dentists, looking to open a small dental office. Located in a Multi Residence 1 District, the building was constructed in 1922 prior to zoning. Historically, the building has housed two tenants, which over the years have included a grocer, drug store, gift shop (for which a special permit was granted in 1973), insurance office, and poster shop. TNM Realty is located in the east side of the building and Core Harmony in the west side.Ms. Bennett has operated a virtual business out of her home for the past 14 years. She decided to open a studio to offer clients open classes at a lower cost. Classes include yoga, Pilates, fitness, wellness, weight loss, and relationships, as well as small business services, coaching, consulting, and web design. She plans to continue providing in-home and virtual corporate services. Given the size of the space (approximately 300 square feet in the main room), she anticipates no more than eight clients in a class. Most clients are from Newton and she expects many, perhaps 60%, will walk or bike to class. She explained that she signed a lease in August and prepared the interior for a Septemberopening. She was informed by the Inspectional Services Department when she went to amend her business registration that she needed a special permit. When asked why there appeared to be a delay in seeking the special permit, it was pointed out that the application was filed in December for public hearing in January, the earliest it could be after completing the review process the city requires for all special permit applications. The business is operating because in most cases the Inspectional Services Department does not issue a cease and desist if a special permit application is pending. Alderman Laredo was troubled that the owner did not advise Ms. Bennett prior to leasing the space that she needed a special permit. Mr. Zainoun said he was unaware that a special permit was required. When asked about the number of classes and times, Ms. Bennett said she plans to offer 10 to 12 classes a week. Day classes are generally for one hour; evening classes 1.5 hours. She expects that the front can provide parking for three to four cars. There are four spaces behind the building and there is one-hour parking available on the carriage lane. Currently, class times are 9:00 am to 10:00 am on Monday, Wednesday, Thursday and Friday,  4:00 pm to 5:00 pm on Monday, Wednesday and Thursday, 6:00 pm to 7:00 pm and 7:00 pm to 8:30 pm on Tuesday, 10:00 am to 11:00 am on Tuesday and Saturday, 1:00 pm to 2:00 pm on Saturday and possibly a 2:00 to 3:30 pm class. Aldermen Albright and Fuller suggested that a half hour gap between classes would ensure a smoother transition of the parking spaces. When asked about plans to use the side yard for outdoor classes, Ms. Bennett said initially she thought it would be pleasant space to utilize in nice weather, but the noise on Commonwealth Avenue makes is less than ideal for practicing yoga. Although, she would like to use it for small gatherings such as the Marathon much like anyone else uses their yard. Alderman Schwarz said that he is not particularly concerned about the proposed used given the building's past. However he like Alderman Laredo is troubled because this is not the first petition coming in after the fact seeking forgiveness. Alderman Fischman visited the site today and observed five cars, one parked tandem, occupying the entire rear lot. Mr. Zainoun said he allows two students to park in the lot overnight because they have no parking. Alderman Fischman is concerned about the intersection of Commonwealth Avenue and Manet Road and with pedestrians crossing there because of the curve and the potential obstruction of the site line by the proposed freestanding sign. In Alderman Harney's opinion this evening was a bit harsh on Ms. Bennett, particularly given 
 the site's history and her long term connection to the city. He believes she has good intentions 
@@ -362,7 +580,7 @@ pavement markings, crosswalks, and a number of new or amended parking restrictio
 which the state required the city to implement as part of the reconstruction.
 Alderman Crossley suggested that the petitioners install a bike rack. The committee also asked 
 for a copy of the 1973 special permit. Alderman Fischman moved to hold the petition, which 
-motion carried 7-0.", 2, 1, 2],
+motion carried 7-0.", 2, 1, 3],
    ["ACTION: HEARING CLOSED; HELD 7-0
 NOTE: This petition was presented by attorney Franklin Stearns of K&L Gates and director of 
 design and planning Richard Askin of WS Development. There are a number of special permits 
@@ -386,7 +604,7 @@ a new world and the city's sign ordinance is extremely outdated, but is there to
 noise? The committee asked the petitioner to break out the purposes of the different types of 
 signs, i.e., identification, way finding, etc. and what each type of sign is meant to tell people. 
 Individual maps might be helpful. Alderman Laredo moved to hold the petition, which motion 
-carried 7-0.", 1, 1, 1],
+carried 7-0.", 1, 1, 2],
    ["ACTION: HEARING CLOSED; APPROVED 6-0
 NOTE: This petition is an amendment to petition #277-10(3) for which a public hearing was 
 opened and closed on December 11, 2012. Attorneys Jason Rosenberg and Laurance Lee 
@@ -471,7 +689,7 @@ structures; compliance with parking requirements including stall size, maneuveri
 interior landscape screening and lighting is impracticable given the size of the lot; the petition 
 will provide one inclusionary housing unit and the three first floor units will be adaptable units 
 under the Massachusetts Architectural Access Code. Alderman Harney's motion carried 
-unanimously. ", 4, 3, 6 ],
+unanimously. ", 4, 3, 7 ],
    ["ACTIONS: APPROVED 5-0
 REQUEST TO ALLOW SERVICE USE AND/OR CONVERSION TO 
 MEDICAL OFFICE AND ASSOCIATED PARKING WAIVER WITHDRAWN 
@@ -516,7 +734,7 @@ generate the same amount of traffic and parking demand as prior uses on the site
 shape of the lot make the prohibition on parking in the setback impracticable; replacing the 
 existing large blade sign with a freestanding sign of up to 15 square feet is more appropriate for 
 the building and its architecture. The motion to approve the petition as amended carried 
-unanimously, 5-0.",2,2,5 ],
+unanimously, 5-0.",2,2,6 ],
    ["ACTION: APPROVED 5-0
 NOTE: The public hearing was opened and closed on January 15, 2013. The attached email 
 contains the petitioner's responses to questions raised at the public hearing. In addition, a 
@@ -559,7 +777,7 @@ Alderman Laredo moved approval of the petition, finding that the proposed signs 
 public interest given the size and shape of the site and its uniqueness; the signs are accessory to 
 the businesses on the site; the signs that have changeable content that will not flash or blink to 
 create an animated effect; the proposed signs will not adversely affect the neighborhood. The 
-motion to approve carried unanimously, 5-0.",1, 2, 4],
+motion to approve carried unanimously, 5-0.",1, 2, 5],
    ["ACTION: HEARING CLOSED; APPROVED 6-0
 NOTE: The existing single-family home was constructed c. 1897. It is considered a 2.5 story 
 structure. The previous owner constructed an addition and relocated the garage in 2003. The 
@@ -610,7 +828,7 @@ vehicles or pedestrians as it will be separated from the parking area; the waive
 12 parking stalls for a total waiver of 37 if appropriate given the mixed uses on the site and the 
 amount of parking available; the proposed outdoor seating is consistent with the City's goals of 
 enlivening the Needham Street corridor and with the Comprehensive Plan. The motion to 
-approve carried unanimously.", 6, 3, 8]
+approve carried unanimously.", 6, 3, 7]
 ]
 
    aktions.each { |discussion, item_id, meeting_id, item_meeting_id|
