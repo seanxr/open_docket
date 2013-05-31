@@ -453,12 +453,13 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
                     ["Item", 18, 8, "2013-04-14", 1],
                     ["Item", 10, 8, "2013-04-14", 2],
                     ["Item", 15, 9, "2013-04-26", 1],
-                    ["Item", 7, 9, "2013-04-26", 2],
+                    ["Item", 7, 9, "2013-04-26", 2], 
                     ["Item", 19, 10, "2013-05-06", 1],
                     ["Item", 20, 10, "2013-05-06", 2],
                     ["Item", 21, 10, "2013-05-06", 3],
                     ["Item", 22, 10, "2013-05-06", 4],
                     ["Item", 23, 10, "2013-05-06", 5],  
+                    ["Item", 24, 10, "2013-05-06", 6],
                     ["Item", 25, 11, "2013-05-13", 1],
                     ["Item", 7, 11, "2013-05-13", 2],
                      ]
@@ -483,7 +484,25 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
 # documents
 
    documents = [["http://www.newtonma.gov/civicax/filebank/documents/48847/01-15-13LandUseReport.pdf","2013-01-16","Official 1/15/13 Land Use meeting report", 1, [1,2,3]],
-                ["http://www.newtonma.gov/civicax/filebank/documents/49112/01-15-13LandUse.mp3","2013-01-16","1/15/13 Land Use meeting audio", 1, [1,2,3]]]
+                ["http://www.newtonma.gov/civicax/filebank/documents/49112/01-15-13LandUse.mp3","2013-01-16","1/15/13 Land Use meeting audio", 1, [1,2,3]],
+["http://www.newtonma.gov/civicax/filebank/documents/49452/02-05-13LandUseReportWithAttachments.pdf", "2013-02-06", "2/5/13 Land Use Report", 2, [1,2]],
+["http://www.newtonma.gov/civicax/filebank/documents/49279/02-05-13LandUse.mp3", "2013-02-06", "2/5/13 Land Use Audio", 2, [1,2]],
+["http://www.newtonma.gov/civicax/filebank/documents/49456/02-12-13LandUseReport.pdf", "2013-02-14", "2/12/13 Land Use Report", 3, [4,5,6]],
+["http://www.newtonma.gov/civicax/filebank/documents/49393/02-12-13LandUseWorkingSession.mp3", "2013-02-14", "2/12/13 Land Use Audio - Working Session", 3, [4,5,6]],
+["http://www.newtonma.gov/civicax/filebank/documents/49392/02-12-13LandUseHearing.mp3", "2013-02-14", "2/12/13 Land Use Audio - Public Hearing", 3, [4,5,6]],
+["http://www.newtonma.gov/civicax/filebank/documents/49801/03-05-13LandUse.mp3", "2013-03-06","3/5/13 Land Use Audio", 4, [7,8,9]],
+["http://www.newtonma.gov/civicax/filebank/documents/49990/03-19-13LandUseAgenda.pdf", "2013-03-20", "3/19/13 Land Use Report", 5, [10, 11, 12, 13, 14]],
+["http://www.newtonma.gov/civicax/filebank/documents/51082/03-19-13%20LandUseHearings.mp3", "2013-03-20", "3/19/13 Land Use Audio - Public Hearing", 5,[10, 11, 12, 13, 14]],
+["http://www.newtonma.gov/civicax/filebank/documents/51083/03-19-13LU%20WorkingSession.mp3", "2013-03-20", "3/19/13 Land Use Audio - Working Session", 5, [10, 11, 12, 13, 14]],
+["http://www.newtonma.gov/civicax/filebank/documents/51306/04-02-13LandUseReport.pdf", "2013-04-03", "4/2/13 Land Use Report", 6, [13, 7, 8, 9]],
+["http://www.newtonma.gov/civicax/filebank/documents/51157/04-02-13LandUse.mp3", "2013-04-03", "4/2/13 Land Use Audio", 6, [13, 7, 8, 9]],
+["http://www.newtonma.gov/civicax/filebank/documents/51307/04-09-13LandUseReport.pdf", "2013-04-10","4/9/13 Land Use Report", 7, [15, 16, 17]],
+["http://www.newtonma.gov/civicax/filebank/documents/51816/04-23-13LandUseAgendaWithAttachment.pdf","2013-04-24", "4/23/13 Land Use Report", 8, [18, 10]],
+["http://www.newtonma.gov/civicax/filebank/documents/51870/04-23-13LandUse.mp3","2013-04-24", "4/23/13 Land Use Audio", 8, [18, 10]],
+["http://www.newtonma.gov/civicax/filebank/documents/52123/05-07-13LandUseReportWithAttachments.pdf","2013-05-08", "5/7/13 Land Use Report", 9, [15, 7]],
+["http://www.newtonma.gov/civicax/filebank/documents/51890/05-07-13LandUse.mp3", "2013-05-08","5/7/13 Land Use Audio", 9, [15, 7]],
+["http://www.newtonma.gov/civicax/filebank/documents/52126/05-14-13LandUseReport%20WithAttachments.pdf","2013-05-18", "5/14/13 Land Use Report", 10, [19, 20, 21, 22, 23, 24]],
+["http://www.newtonma.gov/civicax/filebank/documents/52082/05-14-13LandUse.mp3", "2013-05-18", "5/14/13 Land Use Audio", 10, [19, 20, 21, 22, 23, 24]]]
 
    documents.each { | url, submitted_on, name, meeting_id, item_id |
    document = Document.new(:URL => url, :submitted_on => submitted_on, :name => name)
@@ -492,14 +511,14 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
    document.save
    activity = Activity.create(
                 :message => "Document #{name} uploaded into Open Docket",
-                :activity_type => "DocumentUploaded", :date_actual => Date.today)
+                :activity_type => "DocumentUploaded", :date_actual => submitted_on)
    ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
    if meeting_id
      attachment = Attachment.new(:document_id => document.id, :owner_type => "Meeting", :owner_id => meeting_id)
      attachment.save
      activity = Activity.create(
         :message => "Document #{name} attached to meeting #{Meeting.find_by_id(meeting_id).name}.",
-        :activity_type => "DocumentAttachment", :date_actual => Date.today)
+        :activity_type => "DocumentAttachment", :date_actual => submitted_on)
           ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
           ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting_id)   
    end
@@ -510,13 +529,55 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
        attachment.save
        activity = Activity.create(
         :message => "Document #{name} attached to Item #{Item.find_by_id(item).name}.",
-        :activity_type => "DocumentAttachment", :date_actual => Date.today)
+        :activity_type => "DocumentAttachment", :date_actual => submitted_on)
           ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
           ActivityLog.create(:activity_id => activity.id, :owner_type => "Item", :owner_id => item)
         end
    end }
 
+# non-meeting documents
 
+documents = [["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=48723", "2013-01-15", "Planning Department Memo for docket item #415-12",[3]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=48721", "2013-01-15", "Planning Department Memo for docket item #416-12", [2]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=48713", "2013-01-15", "Planning Department Memo for docket item #417-12", [1]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=49236", "2013-01-15", "Planning Department Memo for docket item #23-13", [5]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=49283", "2013-01-15", "Planning Department Memo for docket item #277-10(3)", [4]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=49282", "2013-01-15", "Planning Department Memo for docket item # 149-03(4)", [6]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=49989", "2013-01-15", "Planning Department Memo for docket item #61-13", [13]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=49942", "2013-01-15", "Planning Department Memo for docket item #60-13", [12]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=49987", "2013-01-15", "Planning Department Memo for docket item #59-13", [11]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=49981", "2013-01-15", "Planning Department Memo for docket item #58-13", [10]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51153", "2013-01-15", "Planning Department Memo for docket item #106-13", [17]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51152", "2013-01-15", "Planning Department Memo for docket item #105-13", [16]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51148", "2013-01-15", "Planning Department Memo for docket item #259-12(4)", [15]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51933", "2013-01-15", "Planning Department Memo for docket item #144-13", [24]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51932", "2013-01-15", "Planning Department Memo for docket item #143-13", [23]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51931", "2013-01-15", "Planning Department Memo for docket item #142-13", []],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51939", "2013-01-15", "Planning Department Memo for docket item #211-12(2)", []],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51938", "2013-01-15", "Planning Department Memo for docket item #141-13", [20]],
+["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=51930", "2013-01-15", "Planning Department Memo for docket item #140-13", [19]]
+]
+
+   documents.each { | url, submitted_on, name, item_id |
+   document = Document.new(:URL => url, :submitted_on => submitted_on, :name => name)
+   document.creator_id = 1
+   document.updater_id = 1
+   document.save
+   activity = Activity.create(
+                :message => "Document #{name} uploaded into Open Docket",
+                :activity_type => "DocumentUploaded", :date_actual => submitted_on)
+   ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
+   if item_id
+     for item in item_id.each do
+       attachment = Attachment.new(:document_id => document.id, :owner_type => "Item", :owner_id => item)
+       attachment.save
+       activity = Activity.create(
+        :message => "Document #{name} attached to Item #{Item.find_by_id(item).name}.",
+        :activity_type => "DocumentAttachment", :date_actual => submitted_on)
+       ActivityLog.create(:activity_id => activity.id, :owner_type => "Document", :owner_id => document.id) 
+       ActivityLog.create(:activity_id => activity.id, :owner_type => "Item", :owner_id => item)
+      end
+    end }
 
 
  
@@ -610,11 +671,7 @@ NOTE: This petition is an amendment to petition #277-10(3) for which a public he
 opened and closed on December 11, 2012. Attorneys Jason Rosenberg and Laurance Lee 
 represented the petitioner. Present were Aldermen Hess-Mahan (Chairman), Albright, Crossley, 
 Laredo, Fischman, Schwartz, and Harney; Aldermen. Lennon was also present. 
-In 2010 the petitioner received special permit #277-10 to redevelop the site as a mixed-used 
-development with ground floor retail and second and third floor apartments. However, that 
-special permit was not exercised and the petitioner is now seeking a special permit to construct a 
-three-story, nine-unit multi-family building. The subject site has an existing single-family house 
-on an approximately 12,000 square foot lot. As in the previous special permit, the house will be demolished. The petitioner owns an adjacent lot to the west at 138-142 Adams Street and 
+In 2010 the petitioner received special permit #277-10 to redevelop the site as a mixed-used development with ground floor retail and second and third floor apartments. However, that special permit was not exercised and the petitioner is now seeking a special permit to construct a three-story, nine-unit multi-family building. The subject site has an existing single-family house on an approximately 12,000 square foot lot. As in the previous special permit, the house will be demolished. The petitioner owns an adjacent lot to the west at 138-142 Adams Street and 
 intends to transfer a strip of property from this lot to the subject site to create conforming 
 setbacks. The new lot will be approximately 14,835 square feet. Most of the site is located in a 
 Business 2 zone with the small transferred piece of land remaining in the Business 1 zone. The 
@@ -828,8 +885,409 @@ vehicles or pedestrians as it will be separated from the parking area; the waive
 12 parking stalls for a total waiver of 37 if appropriate given the mixed uses on the site and the 
 amount of parking available; the proposed outdoor seating is consistent with the City's goals of 
 enlivening the Needham Street corridor and with the Comprehensive Plan. The motion to 
-approve carried unanimously.", 6, 3, 7]
-]
+approve carried unanimously.", 6, 3, 7],
+["ACTION: HEARING CLOSED; APPROVED 7-0
+NOTE: The petitioners wish to convert unfinished attic space in their single-family home into a master bedroom suite. They are seeking relief to increase the Floor Area Ratio (FAR) from .41, where .45 is allowed by right, to .53. Although the proposal includes the addition of three dormers, all are conforming and there are no changes proposed to the roofline or to the number of stories, lot coverage, or setbacks. The proposed conversion of the attic space will add approximately 678 square feet to the existing 2,400 square foot house. There was no public testimony and the hearing was closed. 
+***
+At the working session, Alderman Laredo moved approval of the petition finding that the conversion of attic space into a master suite with an increase of FAR from .41 to .53 is consistent with and not in derogation of size, scale and design of other structures in the neighborhood.
+Alderman Laredo motion was approved 7-0.", 11, 5, 16],
+
+["ACTION: HEARING CLOSED; APPROVED 7-0
+NOTE: The petitioners want to open a veterinary hospital in an existing building located in a 
+Business 2 district. A veterinary hospital is considered a service use and requires a special 
+permit in a Business 2 district. The petitioners will occupy the entire building. Although there 
+are ten parking stalls (including one HP space) on the site, they also need relief to waive one 
+parking stall to allow up to three employees. The request to waive a second parking stall
+anticipates that the business will grow and the second stall will allow three additional employees
+without having to amend the special permit. Most of the building will not be for public use, so 
+the ten parking stalls should be more than sufficient. There is also unregulated on-street parking 
+in the front of the building. Although there is a stockade fence along most of the west side of the 
+property where eight of the parking spaces are located, there is limited access to the retail block 
+at 612 Washington Street through parking stall #7. The Planning Department suggested the 
+petitioners might extend the stockade fence to block the access. The petitioners explained that it 
+is a long-term informal arrangement (there is no easement on the property) for the neighbors'
+convenience. The Board could, if it wishes, require the petitioners to block it off as 612 
+Washington Street has its own access on the west side of its property; however, the petitioners 
+prefer that the access remain. The subject site is bordered to the east by an NSTAR transformer 
+station. 
+There are no changes proposed to the exterior of the building or to the existing parking. The 
+property was the subject of a negotiated 1990 variance/consent decree through the Land Court
+that granted the owner permission to build on the undersized property. The decree granted relief 
+from certain setback requirements for the building and parking area, and prohibited certain uses, 
+such as a liquor store, restaurant, and food sales on the site. A veterinary hospital would not 
+violate the decision. 
+This would be the third animal hospital in the city. The petitioners will offer triage care; they 
+don't plan or want to offer kennel or boarding facilities. There was no public comment.
+***
+In working session, the petitioners confirmed that except for the occasional patient that needs to 
+kept immobile and quiet a condition prohibiting overnight kennel and/or boarding facilities is 
+acceptable. The hospital will not be staffed overnight. 
+As to whether parking stall #7 should be blocked off, the petitioners prefer it remain as is to 
+provide access to 612 Washington Street; it had no impact on prior users of the property. If the 
+parking stall is needed, tenants of 612 Washington Street have unrestricted access on the other 
+side of their building. 
+There is existing landscaping at the front of the property, which species are identified on the site 
+plan. There is also a small grassed are to the rear.
+A ramp at the front of the building provides handicapped access. However, the Planning 
+Department raised the issue of whether or not the existing handicapped parking stall is compliant
+with current requirements or whether it is grandfathered. It suggested and the petitioners agreed 
+that should the special permit be approved its status be determined by the Inspectional Services 
+Department and if necessary it will be brought into compliance.
+Alderman Albright moved approval of the petition finding that it is an appropriate site for a 
+veterinary hospital and the use will not adversely affect the neighborhood; there will be no 
+nuisance or serious hazard to vehicles or pedestrians; and the waiver of two parking stalls is 
+appropriate because compliance is impractical due to the location, size, frontage, depth, shape or grade of the lot. Alderman Albright's motion carried 7-0.", 12, 5, 17],
+["ACTION: APPROVED 7-0
+NOTE: This renewal application was filed after January 1, 2013, hence the delay. The business 
+has no outstanding zoning complaints, owes no money to the City of Newton, and has posted a 
+surety bond with the city.", 14, 5, 19],
+["ACTION: HEARING CLOSED
+NOTE: This item will be reported when it is voted out of committee.", 10, 5, 15],
+["ACTION: HEARING CLOSED
+NOTE: This item will be reported when it is voted out of committee.", 13, 5, 18],
+["ACTION: APPROVED 5-0-1 (Fischman abstaining)
+NOTE: The petition was presented by attorney G. Michael Peirce at a public hearing that was 
+opened and closed on March 19, 2013. Present at the public hearing were Aldermen HessMahan, Laredo, Albright, Fischman, Schwartz, Crossley, and Harney as well as Aldermen 
+Ciccone and Lennon. The petitioner is seeking to demolish an existing two-family house and 
+carriage house and construct four new attached dwellings in two sets of two. Although the 
+Historical Commission found the existing c. 1890 house preferably preserved, it has been 
+neglected for so long that it has deteriorated into almost total disrepair. The proposed dwellings 
+will be two stories and 2,777 square feet each, which includes the attached garage space. The 
+petitioner is seeking a waiver to locate a driveway 6.5 feet from the side lot line where 10 feet is 
+required and to allow a reduction in the side yard setback. Attached dwellings in an MR-1 
+district require front, rear, and side setbacks of 25 feet; the petitioner is seeking relief for a left 
+side setback of 22.8 feet and a right side setback of 22.5 feet. Although the lot is over 50,000 
+square feet, approximately half of it is wetland, the remains of Silver Lake after decades of its 
+being filled in. The lot slopes to the rear and petitioner is proposing to re-grade it and separate 
+the wetland portion of the lot with a small retaining wall that has been approved by the 
+Conservation Commission. There is a 'flowage easement' on the rear of the property. The 
+flowage easement granted in the early 1980s has never been used and if the water does rise it will go into a city drain. As the proposal impinges on a small portion of the easement, the petitioner will need to seek an abandonment of that portion from the Board of Aldermen. The property is abutted to the south by the former Silver Lake Cordage mill and to the rear by a contractor's yard, both located in a Manufacturing zone, and to the north by one residence. The existing driveway abuts the Silver Lake Cordage site and will be moved slightly to lead to a parking area located between the two proposed buildings. The petitioner proposes to modify, repair, and retain the existing handsome stone wall with pillars that runs along the front of the property. The 
+petitioner will install a concrete sidewalk along the frontage. No new curb cuts are proposed.
+A tree preservation plan has been signed off by Marc Welch. The Fire Department has approved 
+the plan, the two rear units will be sprinklered and a fire hydrant will be located on the site. 
+Utilities to the units will be undergrounded. With the exception of handicapped ramps, the 
+engineering issues raised in John Daghlian's memo of February 27, 2013 have been addressed by 
+VTP Associates. Alderman Fischman asked whether the petitioner was willing to install 
+handicapped ramps across the street at Churchill and Nevada Streets. 
+The Chairman asked about what appear to be small vertical jogs protruding from the buildings. 
+Mr. Peirce explained that they are bay windows to meet the somewhat arcane definition of 
+attached dwelling so it is not a two-family dwelling as defined in Sec. 30-1. 
+Several members of the Committee expressed concern about changing the neighborhood. How 
+many other properties could support similar development? There was also some concern that 
+although the lot was large, half of it was unbuildable. What about landscaping? 
+Public Comment:
+Phil Herr, 20 Marlboro Street, said he generally supports the petition. Mr. Herr, who fills many 
+roles in the city, explained that this lot is one of 37 lots identified by the Newton Housing 
+Partnership with potential to accommodate more units, i.e., relatively small compact units 
+without subsidies or deed restrictions but still affordable. Although it is not the size/type of units 
+the Partnership had in mind and is geared to a different demographic, it is located near public 
+transportation and a village center and has a transitional aspect 
+***
+This evening, the Committee was pleased that the petitioner has provided additional landscaping 
+towards the front of the property, including rhododendron, viburnum, etc. Both Aldermen 
+Laredo and Albright said they were struggling with the density issue. Is this essentially a rear lot 
+subdivision? How many other lots in the area could be developed? It was pointed out that most 
+lots in the area are approximately 9,000 square feet, too small for this type of project. Relative to 
+density, the lot area per unit is coACTION: HEARING CLOSED; APPROVED 6-0-1 (Fischman abstaining)
+NOTE: The petitioner was represented by attorney Rick Mann, 196 Battle Trail Road, 
+Needham. The petitioner recently purchased this single-family located on a corner lot at the 
+intersection of Hammond Street and Crosby Road. The house has been neglected and in need of updating. He wishes to construct a one-story addition to the rear to expand the kitchen and add a family room. The proposed addition will add approximately 400 square feet to the existing 4, 900 square-foot house. (The petitioner is also proposing a 150 square-foot deck off the family 
+room.) In addition, the petitioner is proposing to add a 330 square-foot second garage bay 
+adjacent to the existing one-car garage. Because this is a corner lot the east side (right side) of 
+the house has a 25-foot setback requirement from Crosby Road. To construct the garage as 
+proposed the petitioner is seeking a waiver of approximately 12.5 feet, reducing the setback to 
+approximately 12.7 feet. The Planning Department noted that it would only require 7.5 feet if it
+mparable to smaller sites with two units, which is most of the surrounding neighborhood. 
+Consensus in Committee was that although in certain cases it is legitimate to ask a petitioner to 
+install handicapped ramps, for example as was the case of a prior special permit for 258 Nevada 
+Street, a corner lot at a four-way intersection, where the petitioner funded two of the ramps and 
+the city the other two, in this instance there is no nexus between the relief sought and 
+handicapped ramps across the street. Alderman Fischman, however, remained unconvinced. 
+The Committee did not feel strongly either way about the protruding bay windows, but agreed if 
+the petitioner were to remove them it could be through a consistency ruling. 
+Alderman Laredo moved approval of the petition, finding that two single-family attached 
+dwellings in an MR-1 zone where a two-family dwelling is allowed by right is appropriate 
+because the lot area per unit is compatible with the surrounding neighborhood; both dwellings 
+are sited to resemble the single-structure streetscape of the neighborhood; and relief to locate a 
+driveway is appropriate because compliance is impractical due to the use, location, size, 
+frontage, depth, shape and grade of the lot. The motion carried 5-0-1, with Alderman Fischman 
+abstaining.", 13, 6, 20],
+["ACTION: HEARING CLOSED; HELD 
+NOTE: This item will be reported when it is voted out of Committee.", 15, 7, 24],
+["NOTE: The petitioner was represented by attorney Rick Mann, 196 Battle Trail Road, 
+Needham. The petitioner recently purchased this single-family located on a corner lot at the 
+intersection of Hammond Street and Crosby Road. The house has been neglected and in need of 
+updating. He wishes to construct a one-story addition to the rear to expand the kitchen and add a 
+family room. The proposed addition will add approximately 400 square feet to the existing 4, 
+900 square-foot house. (The petitioner is also proposing a 150 square-foot deck off the family 
+room.) In addition, the petitioner is proposing to add a 330 square-foot second garage bay 
+adjacent to the existing one-car garage. Because this is a corner lot the east side (right side) of 
+the house has a 25-foot setback requirement from Crosby Road. To construct the garage as 
+proposed the petitioner is seeking a waiver of approximately 12.5 feet, reducing the setback to 
+approximately 12.7 feet. The Planning Department noted that it would only require 7.5 feet if it
+were considered a side setback. Should the special permit for the increase in Floor Area Ratio be 
+approved, the petitioner will need to obtain a variance from the Zoning Board of Appeals for the 
+front setback encroachment.
+There was no public comment, but the petitioner submitted a letter signed by neighbors at 126 
+Manet Road, 117 and 146 Hammond Street, and 65 Crosby Road in support of the petition
+***
+In working session, Alderman Fischman asked if the petitioner intends to make any 
+improvements to the sidewalk since the adjacent portion of sidewalk along Crosby Road appears to be the unpaved section. He noted that the Associate City Engineer suggests the petitioner upgrade the existing HP ramp at Hammond Street and Crosby Road. The petitioner is not sure if the existing HP ramp is up to current standards, but believes it can adequately accommodate a wheelchair or stroller. As to the sidewalk, it would involve a significant cost which he would prefer to not incur. The Committee discussed whether there was a nexus between the relief requested and the sidewalk/HP ramp. Alderman Fischman feels it is not an unreasonable public benefit to ask of petitioners. Aldermen Albright and Schwartz suggested a policy might be helpful since every time this come up the committee has the same deliberations. The Chairman expressed his doubts about creating a policy because each case is unique. The standard is supposed to be mitigation related to the relief granted.
+The Committee noted that the Associate City Engineer indicates that the site plan does not show 
+a utility pole and city tree along Hammond Street both in the way of the driveway. Initially, the 
+petitioner was proposing a circular driveway but revised the plan to the one that is in front of the
+Committee. Since there is no circular driveway, there is no conflict with the driveway as 
+proposed. The existing landscaping is somewhat overgrown and fencing is falling apart. The 
+petitioner plans to clean up and enhance the landscaping and replace the fencing. 
+Alderman Laredo moved approval of the petition finding that the proposed FAR of .45 where .34 
+is the maximum allowed by right is consistent with and not in derogation of the size, scale and 
+design of other structures in the neighborhood; the majority of the addition is to the rear of the 
+house, minimally visible from the street; the additional garage bay is in the best location re its 
+impact on the lot and abutters; the lot meets lot coverage and open space requirements. 
+The Planning Department noted that should the proposed garage bay and the existing bay are
+combined they will exceed the 700 square-foot garage allowed by right. A condition will be 
+included to require the bays remain separated. A condition also will be included to address 
+Alderman Crossley's concern that if the petitioner cannot obtain a variance for the front setback, 
+he will still be able to construct the addition. The Committee chose to not require the petitioner 
+to upgrade the HP ramp at Hammond Street and Crosby Road and install a sidewalk along 
+Crosby Road. 
+Alderman Laredo's motion to approve carried 6-0-1, with Alderman Fischman abstaining.", 16, 7, 25],
+["ACTION: HEARING CLOSED; APPROVED 7-0
+NOTE: The petition was presented by attorney Terrence Morris, 57 Elm Road, Newton. The 
+petitioner wishes to add two separate one-story additions to the rear of an existing T-shaped 
+building to square off the structure, which is located at the corner of Washington and Adams 
+Streets. The site was a 'gasoline selling and service station' from 1926 to 1999. Since 1999, 
+when the pumps and tanks were removed, it has been used as an auto repair facility. One 
+addition will be for an additional garage bay which will be used primarily for alignments and the 
+other addition will be used for storage. The proposed additions will add approximately 530 
+square feet to the existing 1,500 square-foot building. Condition #1 of board order #559-70 
+required installation of planters and a minimum 5-foot fence along Adams Street, the easterly 
+property line. The petitioner wishes to retain the fence, but eliminate the requirement for the 
+planters. The petition seeks to expand a garage repair shop and to amend board order #559-70.
+A special permit for a freestanding sign was granted in 1992 but never exercised.
+The site is accessed via two curb cuts, one on Watertown Street and one on Adams Street. The 
+Planning Department believes the cub cut on the corner creates an unsafe condition for 
+pedestrians and vehicles and encourages the petitioner to move the cub cut further down Adams Street and install an HP ramp. Mr. Morris pointed out that there are three obstructions to placing  an HP ramp at the location suggested: a street tree, a utility pole, and a fire hydrant. The 
+Chairman reported that he has seen vehicles exiting the Adams Street cub cut and taking a left, 
+cutting across traffic to Watertown Street. The petitioner does not want to close the Adams 
+Street curb cut as it provides an exit from the site southerly onto Adams Street. However, the 
+petitioner will instruct his patrons and employees that it is a right turn only and will post a 'right 
+turn only' sign.
+The Planning Department also suggests that the petitioner delineate his site and parking area 
+from the sidewalk on Watertown Street with a low fence, a line of bollards, or planters. Mr. 
+Morris said that a permanent delineator will hinder snow removal and limit the petitioner's 
+access to his site. The Dunkin' Donuts across the street has bollards in its parking lot and 
+problems clearing the snow. Perhaps stanchions with chain? The sidewalk is concrete and the 
+petitioner's property is asphalt, creating a visual delineation; however, Mr. Morris offered to 
+work with the city to create a mutually acceptable delineation. At a maximum there are six cars 
+parked at the front of the site. A number of cars can be accommodated to the rear where there is 
+approximately 55 feet to the fenced rear property line. 
+Alderman Albright asked if there was any place on the site for some vegetation. The petitioner 
+said he places seasonal planters in front of the building.
+The only public comment was from Anthony Pellegrini, Jr., 56 Clinton Street, who spoke in 
+support of the petition and confirmed that the bollards at Dunkin' Donuts do indeed impede 
+snow removal. 
+***
+In working session, Alderman Ciccone and Lennon reported that there is ongoing discussion in 
+the Nonantum Advisory Committee relative to aesthetic and access improvements to Watertown 
+Street. The Adams and Watertown Streets intersection is located prominently in the heart of 
+Nonantum but there are a number of costly obstructions, e.g., the two sides of Adams Street do 
+not align because they are different widths and although $140,000 to $160,000 in CDBG funding 
+is expected it is not enough to upgrade this intersection. 
+Alderman Laredo moved approval of the petition finding that the site is an appropriate location 
+for the expanded use of the structure and use of a garage repair shop; the expanded use and 
+structure will not adversely affect the neighborhood; there should be no nuisance or serious 
+hazard to vehicles or pedestrians as a result of the expansion. Applicable conditions from special 
+permit #559-70 are included in the current draft special permit, which supersedes #559-70. The 
+motion to approve carried 7-0.", 17, 7, 26,],
+["ACTION: APPROVED 3-0-3 (Hess-Mahan, Albright, Harney voting in the affirmative;
+Crossley, Laredo, Schwartz abstaining)
+NOTE: This site was the subject of a previous petition subsequently withdrawn without 
+prejudice in late 2012. In the interim, the petitioner worked with the neighbors and made 
+substantial revisions before filing this revised petition, which was the subject of a public hearing 
+on April 9, 2013. Present at the hearing were Aldermen Hess-Mahan, Laredo, Harney, Crossley, 
+Schwartz, Fischman, and Albright. The petitioner was represented by attorney Stephen 
+Buchbinder who explained that the proposal has been reduced from over 16% of what was 
+originally proposed. It is significantly smaller and has greater setbacks to address neighborhood 
+concerns. Although there is no Floor Area Ratio (FAR) requirement for single-family attached 
+dwellings, the FAR of the proposed project has been reduced to .44, which is in keeping with the 
+maximum allowable FAR if this were a by-right project in the Multi Residence 1 zone. Mr. 
+Buchbinder pointed out that single-family attached dwellings are a use the zoning ordinance 
+allows by special permit. The petitioner is seeking relief from the 25-foot setbacks required in a 
+Multi Residence 1 district. 
+The site contains a c.1866 carriage house that was converted into a dwelling in the 1920s. The 
+property is surrounded by a mix of one- and two-family dwellings. The petitioner proposes to 
+add one unit to the existing dwelling and to construct a second building containing two 
+additional units. One unit will be handicapped adaptable. The existing dwelling is a mix of 
+mansard and colonial architecture. Toward the front of the building there is a 16.5-foot 
+extension that has a partial low gable end roof containing uninhabitable attic space. The 
+Planning Department recommends extending the mansard roof over this portion of the structure
+to enhance the design. The proposed two front buildings mimic Queen Anne architecture. Two 
+of the proposed new units encroach into the required 25-foot side setbacks. A total of nine 
+parking stalls are shown on the site. The new building will have four parking stalls underneath 
+it; the other two units will each have one-car garages. There are three exterior stalls, two of 
+which encroach into the side setback for which the petitioner is also seeking relief. 
+The existing dwelling is situated to the rear of the site. Although the Historical Commission 
+found the existing dwelling preferably preserved, several committee members expressed the 
+opinion that its demolition would allow for a better site plan; however, the petitioner feels 
+strongly about its preservation. 
+Public comment:
+Gunnar Engstrom, 3 Ripley Street, thanked the petitioner for working with the neighborhood and 
+is not opposed to the petition but urged the Board of Aldermen to 'close the loophole that allows 
+attached dwellings.'
+The owner of 62 Chase Street, which is closest to proposed unit 2, said she had sent a detailed 
+request to the petitioner for a fence and plantings. Although there is an existing patio she is a bit 
+concerned about an additional patio or deck.
+The owner of 19 Ripley, which is closest to units 3 and 4 and to one of the parking spaces for 
+which relief is sought, also thanked the petitioner for working with the neighborhood. The 
+petitioner has agreed to provide a privacy fence along her property as well.
+Norman Sirk, 94 Herrick Road, the abutter to the rear of the site, provided letters (attached) in 
+support of the project from Sasha Goldman of 92 Herrick Road and Philip Warburg of 102 
+Herrick Road. Mr. Sirk told the committee that the petitioner has not acted as a developer, but 
+has treated everyone as a neighbor. In his opinion the architectural design is attractive and well 
+integrated with appropriate plantings and screening. 
+The committee asked that an updated landscape plan be submitted prior to the working session. 
+Could the guest parking be eliminated? The committee asked the petitioner to provide a 
+breakdown of the reduction in square footage by unit and number of bedrooms. The committee 
+also asked about the development potential of other lots in the neighborhood.
+***
+This evening the committee reviewed with Ms. Ananth a density analysis of the surrounding 
+neighborhood. There are seven other lots with the lot area and frontage with potential for 
+attached dwellings. 
+A revised landscape plan was submitted. A number of mature trees will have to be removed 
+from the site. Compliance with the Tree Ordinance requires either replacement of the trees or 
+cash payment for the caliper inches removed. In this instance the petitioner will make a cash 
+contribution.
+Demolition of the existing dwelling is not economically feasible. The cost of demolition would 
+add approximately $600,000 to the budget, whereas renovation will cost approximately 
+$150,000. In addition, the interior of the existing dwelling is in good condition with many of its 
+original details intact.
+To clarify the size of the proposed units, the original project filed in 2012 contained a total of 
+10,191 square feet, 13 bedrooms and an FAR of approximately .53 (prior to that petition being 
+withdrawn it was reduced to 9,141 square feet, 12 bedrooms and an FAR of approximately .47). 
+The current proposal has a total of 8,520 square feet, 11 bedrooms, and an approximate FAR of 
+.44. A breakdown of the units by square footage and number of bedrooms is attached. Although 
+expanding the mansard roof of the existing dwelling would complement the existing mansard 
+portion of the roof it would increase the size of the project by approximately 590 square feet. In 
+order to meet the FAR of .44, the petitioner eliminated the expansion of the mansard roof. 
+However, the petitioner has since agreed to restore the mansard roof, which will increase the 
+FAR slightly.
+An existing post and rail fence will remain. Details relative to screening the surface parking are 
+being worked out with abutters; the petitioner has offered to install 4-foot cedar privacy fencing 
+and plantings to screen the outdoor parking. However, depending on the abutters' wishes, the 
+petitioner is flexible re the height of the fencing.
+Several committee members said they were still struggling with four units on 20,000 square feet,
+the configuration of the site plan, the number of styles, shapes, and forms of the proposed 
+buildings and the appearance of mass in context of the neighborhood. Ms. Ananth said that the 
+Planning Department does not always support attached dwellings; however, in this case it 
+recommends approval. Its reasons for doing so are the good location which is close to transit and already in a neighborhood of mixed single- and two-family dwellings (there is a five-family 
+dwelling that predates zoning on Chase Street), the variety in unit sizes, the accessible unit, and
+preservation of a house found preferably preserved. Alderman Crossley differed; she believes 
+there are other options and choices for the site. Alderman Laredo was troubled that there are no 
+criteria specific to granting relief for attached dwellings. Alderman Schwartz reflected that if a 
+project is considered transit oriented development - the presumption that residents will take 
+public transportation - perhaps it should have less parking. He would be more inclined to 
+support the petition if the petitioner were seeking a waiver of the number of parking stalls. 
+However, several members pointed out that providing on-site visitor parking takes the burden off 
+the street(s). 
+It appears this developer has genuinely tried to address the concerns of the neighborhood. The 
+specter of a 40B comprehensive permit hangs over many sites since less than 10% of the city's 
+housing stock qualifies as affordable. The Chairman commented that the committee votes on the 
+petition in front of it, not the one it wishes.
+Alderman Harney moved approval finding the site is an appropriate location for attached 
+dwellings and the proposal is consistent with the 2007 Comprehensive Plan because of its close 
+proximity to a village center and public transportation and diversity of units sizes; the proposed 
+density is in keeping with the allowed neighborhood build out potential; relief for side setbacks
+of 17.5 feet and 20.2 and 20.3 feet for the existing dwelling and the proposed two new units 
+respectively and a rear setback of 16.3 feet for the existing dwelling where 25-foot setbacks are 
+required are appropriate given the size and shape of the lot and the location of the existing 
+historic house; locating two parking stalls within the side setbacks will not adversely affect the 
+neighborhood because they will be landscaped and fenced and treated with pavers; the character of the existing historic building even with the approximately 500 square feet of additional space will be maintained. 
+Alderman Sangiolo suggested that construction deliveries to the site should be timed to not occur in the periods that children walk to and from school and that parking for contractors and 
+construction vehicles be provided either on the site or someplace other than on the surrounding 
+streets. Ms. Young said she would work with attorney Buchbinder to try and craft something 
+both acceptable and doable.
+The motion to approve carried 3-0-3 with Aldermen Hess-Mahan, Albright, Harney voting in the 
+affirmative and Aldermen Crossley, Laredo, Schwartz abstaining.", 15, 7, 24],
+["ACTION: HEARING CLOSED; APPROVED 6-0
+NOTE: The petitioners wish to remain in their home but need more space to accommodate their 
+family of five. They are proposing to add a two-story addition to the right and rear sides of their 
+home in place of an existing sunroom in order to create a larger kitchen and family room on the 
+first floor and to add a bedroom and bath on the second floor. They are seeking a special permit 
+to exceed the maximum allowed floor area ratio (FAR). The proposed addition of approximately 
+945 square feet will increase the FAR from .39 to .50, where .40 is allowed by right. There are 
+no other changes proposed to the dwelling or to the site. The Planning Department reported that 
+existing landscaping appears adequate to screen the proposed addition. There was no public 
+comment. In working session, the committee reviewed a draft board order and Alderman Laredo 
+moved approval of the petition finding that the proposed increase in FAR to .50 where .40 is 
+allowed by right is consistent with and not in derogation of the size, scale and design of other 
+structure in the neighborhood; most of the addition is to the rear of the house, minimally visible 
+from the street, the site meets lot coverage and open space requirements. The motion to approve carried unanimously.", 19, 10, 31],
+["ACTION: HEARING CLOSED; APPROVED 6-0
+NOTE: The petition was presented by attorney Stephen Buchbinder. The petitioner is proposing 
+to add two additions, totaling 1,400 square feet, to the west side of the existing Miltons Store for 
+Men. The front entrance with a new 122 square-foot vestibule will be relocated to the west side 
+of the building facing Chestnut Hill Square. A 1,280 square-foot two-story addition will be 
+added at the southwest corner of the building; the first floor will be available for a new tenant 
+and the second floor will be used by Miltons for additional dressing rooms and storage. The 
+petitioner is currently reconstructing the existing parking lot located behind the building 
+(approved by a consistency ruling). The new lot improves access and converts previously 
+parallel parking spaces to perpendicular spaces, resulting in an additional 21 conforming parking 
+stalls. The new configuration provides more than the required number of parking stalls and
+increases the open space and opportunity for landscaping on the site. The petitioner is seeking 
+relief for the proposed parking area to the southeast of the building because it is two feet from 
+the side lot line that runs parallel to the interior access drive serving Chestnut Hill Square. The 
+petitioner is also seeking technical waivers to legalize the existing parking facility; those waivers
+include requirements for interior landscaping and lighting, and bicycle parking. The Planning 
+Department is pleased with the proposed additions and with the redesigned parking that 
+integrates the Miltons site with Chestnut Hill Square. The Associate City Engineer noted in his 
+review that on-site drainage improvements will be required at the permitting stage. 
+There was one speaker, Mary McElvoy of 10 Hammond Pond Parkway, who wanted to know if 
+any parking spaces were going to be removed. When told no, she said that satisfied her only 
+concern. 
+In working session, Mr. Buchbinder confirmed there is no change in the grade between Miltons 
+and Barnes & Noble. Although there appear to be two driveways they are actually on separate 
+properties owned by different owners but used by both sites; one is used as an entrance and the 
+other as an exit. The committee agreed that the proposal interacts well with Chestnut Hill 
+Square. The committee noted that two striped pedestrian crossings help to connect this site to 
+Chestnut Hill Square and liked that the existing entrance will be replaced with clear glass.
+Alderman Laredo moved approval of the petition finding that the proposed extension of a 
+nonconforming structure relative to height is not substantially more detrimental to the 
+neighborhood because the additions will maintain the existing height; the exceptions to the 
+parking requirements are appropriate as literal compliance is impracticable due to the nature of 
+the use or location, size, width, depth, shape, or grade of the lot and the newly reconfigured lot 
+improves access and creates 21 additional parking stalls; the parking area two feet from the side 
+lot line is appropriate because the lot line runs parallel to the interior access drive serving 
+Chestnut Hill Square and will have no negative affect on abutters; the site plan design relates to 
+Chestnut Hill Square and the circulation plan and includes vehicular and pedestrian connections 
+between the sites; the project is in keeping with the city's 2007 Comprehensive Plan in 
+supporting existing business and attracting new business.", 23, 10, 35],
+["ACTION: HEARING CLOSED; APPROVED 6-0
+NOTE: The petitioners are seeking to add a 94.5 square-foot mudroom at the rear of their 
+condominium in a c.1880 dwelling and to fill in a 14.5 square-foot corner of the kitchen, totaling 
+109 square feet. The proposed additions will increase an already nonconforming floor area ratio 
+(FAR) from .76 to .77, where .51 is allowed by right. The proposal will also increase the 
+maximum lot coverage percentage from 35.18% to 36.39%, where 30% is the maximum allowed 
+by right, and will decrease the already nonconforming minimum open space from 37.90% to 
+37.36%, where 50% is the minimum allowed by right. The proposed additions will not change 
+the street view of the house. An email (attached) in support of the petition was received from 
+Mark Dyen and Elizabeth Reisen abutters at 132 Church Street. In working session, Alderman 
+Laredo moved approval of the petition finding that the increase in FAR from .76 to .77, where 
+.51 is allowed by right, is not substantially more detrimental that the existing structure because 
+the total square footage to be added is less than 2% of the existing square footage, or 109 square feet, and the FAR is consistent with and not in derogation of the size, scale and design of other structures in the neighborhood; the maximum lot coverage of 36.39% where 30% is the 
+maximum allowed by right is not substantially more detrimental to the neighborhood than the 
+existing lot coverage because the added mass of the building is in the rear, not visible from the 
+street; the minimum open space of 37.36% where 50% is the minimum allowed by right is not 
+substantially more detrimental to the neighborhood than the existing open space of 37.90% 
+because the additions square off the existing building and do not significantly affect open space; 
+the dwelling is dimensionally conforming in most other respects. Before voting, the committee 
+agreed that this is the type of petition for which an administrative process needs to be created. 
+Alderman Laredo's motion to approve carried unanimously.", 24, 10, 36],
+["ACTION: HEARING CONTINUED TO A DATE TO BE DETERMINED", 20, 10, 32],
+["ACTION: HEARING CLOSED
+NOTE: This item will be reported when it is voted out of committee.", 21, 10, 33],
+["ACTION: HEARING CLOSED
+NOTE: This item will be reported when it is voted out of committee.", 22, 10, 34]]
 
    aktions.each { |discussion, item_id, meeting_id, item_meeting_id|
 
@@ -843,7 +1301,7 @@ approve carried unanimously.", 6, 3, 7]
    actionitemmeeting.updater_id = 1
    actionitemmeeting.save
    activity = Activity.create(
-        :message => "Action at #{meeting.date} #{meeting.committee_names_string} meeting. #{discussion}",
+        :message => "Action at #{meeting.date} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}. #{discussion}",
         :activity_type => "NewAction", :date_actual => meeting.date)
    ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting.id)
    ActivityLog.create(

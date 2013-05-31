@@ -30,12 +30,16 @@ class Aktion < ActiveRecord::Base
     committees.collect { |id| Committee.find_by_id(id).name }.join('/') 
   end
 
+  def item_names_string
+    item_meetings.collect { |id| ItemMeeting.find_by_id(id).agendable.name }.join('/')
+  end
+
   def save_with_activity(current_user)
     # committee_names_string doesn't work in the message string
 
     Aktion.transaction do
       activity1 = Activity.create!(
-        :message => "Action at #{meeting.date} #{committee_names_string} meeting. #{discussion}",
+        :message => "Action at #{meeting.date} #{committee_names_string} meeting for item(s): #{item_names_string}. #{discussion}",
         :activity_type => "NewAction", :date_actual => meeting.date)
       ActivityLog.create!(:activity_id => activity1.id, :owner_type => "Meeting", :owner_id => meeting.id)
       item_meetings.each { |i| ActivityLog.create!(
