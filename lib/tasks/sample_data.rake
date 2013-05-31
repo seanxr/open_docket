@@ -1208,7 +1208,7 @@ construction vehicles be provided either on the site or someplace other than on 
 streets. Ms. Young said she would work with attorney Buchbinder to try and craft something 
 both acceptable and doable.
 The motion to approve carried 3-0-3 with Aldermen Hess-Mahan, Albright, Harney voting in the 
-affirmative and Aldermen Crossley, Laredo, Schwartz abstaining.", 15, 7, 24],
+affirmative and Aldermen Crossley, Laredo, Schwartz abstaining.", 15, 9, 29],
 ["ACTION: HEARING CLOSED; APPROVED 6-0
 NOTE: The petitioners wish to remain in their home but need more space to accommodate their 
 family of five. They are proposing to add a two-story addition to the right and rear sides of their 
