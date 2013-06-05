@@ -372,21 +372,21 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
 
     # land use meetings
 
-    meetings = [["2013-01-15", 1],
-                ["2013-02-05", 4],
-                ["2013-02-12", 1],
-                ["2013-03-05", 4],
-                ["2013-03-19", 1],
-                ["2013-04-02", 4],
-                ["2013-04-09", 1],
-                ["2013-04-23", 4],
-                ["2013-05-07", 4],
-                ["2013-05-14", 1],
-                ["2013-05-21", 4]]
+    meetings = [["2013-01-15", "19:00", 1],
+                ["2013-02-05", "19:00", 4],
+                ["2013-02-12", "19:00", 1],
+                ["2013-03-05", "19:00", 4],
+                ["2013-03-19", "19:00", 1],
+                ["2013-04-02", "19:00", 4],
+                ["2013-04-09", "19:00", 1],
+                ["2013-04-23", "19:00", 4],
+                ["2013-05-07", "19:00", 4],
+                ["2013-05-14", "19:00", 1],
+                ["2013-05-21", "19:00", 4]]
 
-    meetings.each { |date, room_id|
+    meetings.each { |date, time, room_id|
    
-    meeting = Meeting.new(:date => date, :room_id => room_id)
+    meeting = Meeting.new(:date => date, :time => time, :room_id => room_id)
     meeting.creator_id = 1
     meeting.updater_id = 1
     meeting.save

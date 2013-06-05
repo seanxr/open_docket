@@ -2,7 +2,7 @@ class MeetingsController < ApplicationController
   before_filter :signed_in_user, only: [:new, :create, :edit, :update]
   before_filter :admin_user,     only: [:new, :create, :edit, :update]
 
- def create
+  def create
     @committees = Committee.all
     @sites = Site.all
     @committee_meetings = params[:committee_meetings_attributes]
@@ -70,4 +70,17 @@ class MeetingsController < ApplicationController
   def index
     @meetings = Meeting.all
   end
+
+  def agenda
+    @meeting = Meeting.find(params[:id])
+    @parent = "agenda"
+    render :layout => false
+  end
+
+  def report
+    @meeting = Meeting.find(params[:id])
+    @parent = "report"
+    render :layout => false
+  end
+
 end

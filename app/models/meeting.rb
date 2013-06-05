@@ -10,10 +10,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  assigner_id :integer
+#  time        :time
 #
 
 class Meeting < ActiveRecord::Base
-  attr_accessible :creator_id, :date, :room_id, :updater_id, :committee_meetings_attributes
+  attr_accessible :creator_id, :date, :room_id, :updater_id, :committee_meetings_attributes, :time
   default_scope :order => "date DESC"
 
   has_many :committee_meetings

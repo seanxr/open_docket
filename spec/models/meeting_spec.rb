@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  assigner_id :integer
+#  time        :time
 #
 
 require 'spec_helper'

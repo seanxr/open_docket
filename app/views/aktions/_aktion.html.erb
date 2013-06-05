@@ -1,5 +1,17 @@
 <ol class="microposts">
   <% for action in @meeting.aktions %>
+    <% if @parent == "report" %>
+     <li>
+     <% for item_meeting in action.item_meetings %>
+	     	<% if item_meeting.agendable_type == "Item" %>
+			<span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></span>
+		<% elsif item_meeting.agendable_type == "MeetingText" %> 
+				<span class="content"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text %></span>
+		<% end %>
+	<% end %>
+	 <span class="content"><%= action.discussion %></span>
+    </li>
+    <% else %>
      <li>
      <% for item_meeting in action.item_meetings %>
 	     	<% if item_meeting.agendable_type == "Item" %>
@@ -24,6 +36,7 @@
 			<% end %>
     </li>
   <% end %>
+<% end %>
 </ol>
  <span class="content">The following items have no actions, yet.</span>
  <ol class="microposts">

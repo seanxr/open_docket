@@ -1,5 +1,22 @@
 <% meeting = item_meeting.meeting %>
-<% if item_meeting.agendable_type == "Item" %>
+<% if @parent == "agenda" %>
+  <% if item_meeting.agendable_type == "Item" %>
+  <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
+    <span class="content">
+      <%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %>
+    </span>
+    <span class="content"><%= item_meeting.agendable.requested_by %></span>
+    <span class="content"><%= item_meeting.agendable.address %></span>
+      <span class="content"><%= item_meeting.agendable.request %></span>
+  </li>
+<% else %>
+  <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
+    <span class="content">
+    <%= item_meeting.agendable.meeting_text %></span>
+  </li>
+<% end %>
+<% else %>
+  <% if item_meeting.agendable_type == "Item" %>
   <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
     <span class="content">
       <% if current_user && current_user.admin? %>
@@ -33,4 +50,5 @@
       <% end %>
     <%= item_meeting.agendable.meeting_text %></span>
   </li>
+<% end %>
 <% end %>

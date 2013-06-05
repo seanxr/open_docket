@@ -68,6 +68,10 @@ OpenDocket::Application.routes.draw do
 
   match '/committees/:id/edit' => 'committees#edit', :via => :post
   match '/items/:id/edit' => 'items#edit', :via => :post
+  match '/meetings/:id/agenda' => 'meetings#agenda', :as => 'meeting_agenda', :via => :get
+  match '/meetings/:id/report' => 'meetings#report', :as => 'meeting_report', :via => :get
+
+  
  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

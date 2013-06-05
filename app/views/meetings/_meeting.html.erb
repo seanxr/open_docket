@@ -3,6 +3,6 @@
 <%#    <%= meeting.committees.collect { |committee| link_to committee.name, committee }.join("|") %>
 <%#    <%= meetingtitle = meeting.committees.collect { |committee| committee.name}.join(" | ") %>
 <%#    <%= meetingtitle = meetingtitle + " " + meeting.date.to_s %>
-<%= link_to  meeting.date.strftime("%m/%d/%y") + " -- " + meeting.committees.collect { |committee| committee.name}.join(" | ") +
+<%= link_to  meeting.date.strftime("%m/%d/%y") + " (" + meeting.time.strftime("%l:%M %p") + ")" + " -- " + meeting.committees.collect { |committee| committee.name}.join(" | ") +
   ", " + Room.find_by_id(meeting.room_id).name, meeting_path(meeting.id) %>
 </li>

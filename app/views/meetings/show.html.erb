@@ -14,6 +14,7 @@
       </li>
     <% end %>
   <% end %>         
+  <span><%= @meeting.time.strftime("%l:%M %p") %> </span>
   <span><%= @meeting.room.name %> (<%= @meeting.room.floor %>)</span>
   <span><%= link_to @meeting.site.name, site_path(@meeting.site) %></span>
   <span><%= @meeting.site.address1 %></span>
@@ -42,6 +43,7 @@
           <span class="content"><%= link_to "Create agenda text", new_meeting_meeting_text_path(@meeting) %></span>
         <% end %>
         <% if @meeting.item_meetings.any? %>
+          <span class="content"> <%= link_to "Print version of agenda", meeting_agenda_path(@meeting) %></span>
           <ol id="item_meetings" class="microposts">
             <%= render @meeting.item_meetings.order('position ASC') %>
           </ol>
@@ -58,6 +60,8 @@
         <% end %> 
       </div>
       <div class="tab-pane" id="actions">
+                  <span class="content"> <%= link_to "Print version of report", meeting_report_path(@meeting) %></span>
+
             <%= render :partial => 'aktions/aktion' %>
       </div>
       <div class="tab-pane" id="documents"> 
