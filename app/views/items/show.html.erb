@@ -132,4 +132,11 @@
                 $('#myTab a:last').tab('show');
               })
             </script>
+            <script type="text/javascript">
+$('.toggle').click(function() {
+  var content = $(this).next();
+  $(content).toggle();
+  $(content).next().toggle(); 
+  return false;
+});</script>
 

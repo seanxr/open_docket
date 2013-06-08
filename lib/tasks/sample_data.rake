@@ -584,18 +584,11 @@ documents = [["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=4872
 
 # actions
 
-    aktions = [["ACTION: HEARING CLOSED; APPROVED 7-0
-NOTE: Architect Will Saltonstall presented the petition. The existing single-family house and garage were constructed in 2002 after a c.1950 ranch-style house was demolished. The petitioners purchased their home shortly after its construction. They wish to remain there but need more room to accommodate their family. The 5,000 square-foot house appears as 2.5 stories from the street and 3 stories from the west side where the topography slopes downwardbefore it levels off again. They are seeking a special permit to construct an approximately 440 square-foot, three-story addition on the west side of the house. The first floor contains approximately 29x14 feet and the second and third floors each contain approximately 16x9 feet. The maximum allowed FAR is .31 with an additional .02 bonus for construction on pre1953 lots that conform to the post-1953 setback requirements, for an allowed maximum FAR of .33; the petitioners are seeking to increase the FAR to .36. The house meets and will continue to meet all dimensional and open space requirements. The proposed addition will allow for a guest bedroom in the basement, a larger dining room and outdoor patio on the first floor, and a dressing room off the second-floor master bedroom. The addition will not be visible from the street and although it will be visible on the west side, it will be located where there is an existing patio; on the south side it will overlook a large yard, deck, and pool on a lot that contains over 100,000 square feet. It is an eclectic neighborhood that consisted mostly of 1950s ranch homes, many of which over time have been demolished and replaced with larger homes. The proposed addition will have a hip roof and the same exterior material to blend with the existing house. Saul Wisnia, 24 Hamlin Road, spoke in support of the petition. The petitioners submitted letters from neighbors at 21, 29 (the westerly abutter), 45 Columbine Road and 74 Oak Hill Street (the southerly abutter) in support of the petition. 
+    aktions = [["ACTION: HEARING CLOSED; APPROVED 7-0",
+"NOTE: Architect Will Saltonstall presented the petition. The existing single-family house and garage were constructed in 2002 after a c.1950 ranch-style house was demolished. The petitioners purchased their home shortly after its construction. They wish to remain there but need more room to accommodate their family. The 5,000 square-foot house appears as 2.5 stories from the street and 3 stories from the west side where the topography slopes downwardbefore it levels off again. They are seeking a special permit to construct an approximately 440 square-foot, three-story addition on the west side of the house. The first floor contains approximately 29x14 feet and the second and third floors each contain approximately 16x9 feet. The maximum allowed FAR is .31 with an additional .02 bonus for construction on pre1953 lots that conform to the post-1953 setback requirements, for an allowed maximum FAR of .33; the petitioners are seeking to increase the FAR to .36. The house meets and will continue to meet all dimensional and open space requirements. The proposed addition will allow for a guest bedroom in the basement, a larger dining room and outdoor patio on the first floor, and a dressing room off the second-floor master bedroom. The addition will not be visible from the street and although it will be visible on the west side, it will be located where there is an existing patio; on the south side it will overlook a large yard, deck, and pool on a lot that contains over 100,000 square feet. It is an eclectic neighborhood that consisted mostly of 1950s ranch homes, many of which over time have been demolished and replaced with larger homes. The proposed addition will have a hip roof and the same exterior material to blend with the existing house. Saul Wisnia, 24 Hamlin Road, spoke in support of the petition. The petitioners submitted letters from neighbors at 21, 29 (the westerly abutter), 45 Columbine Road and 74 Oak Hill Street (the southerly abutter) in support of the petition. 
 In working session, Ms. Holmes reviewed the relief requested. She pointed out that several neighborhood properties including one currently under construction have the maximum allowed FAR of .31. The Planning Department noted that there is a shed located closer to the side and rear property lines than is permitted. The petitioners submitted a letter agreeing that the shed will be moved to comply that it be at least five feet from the property lines. Alderman Fischman moved approval of the petition finding that the proposed increase in FAR is consistent with and not in derogation of the size and scale of other structures in the neighborhood; that the proposed addition will not intrude into the rear yard; and that the proposed 440 square-foot addition to an existing 5,000 square foot house is modest in scale. The motion to approve carried unanimously, 7-0.", 3, 1, 4],
-    ["ACTION: HEARING CLOSED; HELD 7-0
-NOTE: The petition was presented by property owner Wally Zainoun and petitioner Debra Bennett who operates Core Harmony, the yoga and life coaching business for which they are seeking to locate four parking stalls in the front setback and to erect a freestanding sign to replace the existing blade sign that extends out from the building. (The proposed sign has been reduced from 25 square feet to 15 square feet, the limit allowed by special permit.) See the attached PowerPoint.In addition, Mr. Zainoun is requesting relief to allow office, service, and retail use and/or medical office in the event the second space, currently occupied by TNM Realty, in this legally nonconforming commercial building becomes vacant without the need to amend a special permit and to waive the two parking stalls that would be required for a future conversion to medical office use. Mr. Zainoun said this request was prompted by an inquiry from a husband and wife, both dentists, looking to open a small dental office. Located in a Multi Residence 1 District, the building was constructed in 1922 prior to zoning. Historically, the building has housed two tenants, which over the years have included a grocer, drug store, gift shop (for which a special permit was granted in 1973), insurance office, and poster shop. TNM Realty is located in the east side of the building and Core Harmony in the west side.Ms. Bennett has operated a virtual business out of her home for the past 14 years. She decided to open a studio to offer clients open classes at a lower cost. Classes include yoga, Pilates, fitness, wellness, weight loss, and relationships, as well as small business services, coaching, consulting, and web design. She plans to continue providing in-home and virtual corporate services. Given the size of the space (approximately 300 square feet in the main room), she anticipates no more than eight clients in a class. Most clients are from Newton and she expects many, perhaps 60%, will walk or bike to class. She explained that she signed a lease in August and prepared the interior for a Septemberopening. She was informed by the Inspectional Services Department when she went to amend her business registration that she needed a special permit. When asked why there appeared to be a delay in seeking the special permit, it was pointed out that the application was filed in December for public hearing in January, the earliest it could be after completing the review process the city requires for all special permit applications. The business is operating because in most cases the Inspectional Services Department does not issue a cease and desist if a special permit application is pending. Alderman Laredo was troubled that the owner did not advise Ms. Bennett prior to leasing the space that she needed a special permit. Mr. Zainoun said he was unaware that a special permit was required. When asked about the number of classes and times, Ms. Bennett said she plans to offer 10 to 12 classes a week. Day classes are generally for one hour; evening classes 1.5 hours. She expects that the front can provide parking for three to four cars. There are four spaces behind the building and there is one-hour parking available on the carriage lane. Currently, class times are 9:00 am to 10:00 am on Monday, Wednesday, Thursday and Friday,  4:00 pm to 5:00 pm on Monday, Wednesday and Thursday, 6:00 pm to 7:00 pm and 7:00 pm to 8:30 pm on Tuesday, 10:00 am to 11:00 am on Tuesday and Saturday, 1:00 pm to 2:00 pm on Saturday and possibly a 2:00 to 3:30 pm class. Aldermen Albright and Fuller suggested that a half hour gap between classes would ensure a smoother transition of the parking spaces. When asked about plans to use the side yard for outdoor classes, Ms. Bennett said initially she thought it would be pleasant space to utilize in nice weather, but the noise on Commonwealth Avenue makes is less than ideal for practicing yoga. Although, she would like to use it for small gatherings such as the Marathon much like anyone else uses their yard. Alderman Schwarz said that he is not particularly concerned about the proposed used given the building's past. However he like Alderman Laredo is troubled because this is not the first petition coming in after the fact seeking forgiveness. Alderman Fischman visited the site today and observed five cars, one parked tandem, occupying the entire rear lot. Mr. Zainoun said he allows two students to park in the lot overnight because they have no parking. Alderman Fischman is concerned about the intersection of Commonwealth Avenue and Manet Road and with pedestrians crossing there because of the curve and the potential obstruction of the site line by the proposed freestanding sign. In Alderman Harney's opinion this evening was a bit harsh on Ms. Bennett, particularly given 
-the site's history and her long term connection to the city. He believes she has good intentions 
-and wishes to operate a successful business primarily serving residents of Newton. (He also 
-shared that his mother's best friend had owned the gift/card shop at this site.) Alderman Laredo
-said he does not doubt the good intentions. He wants to encourage businesses and their success; 
-however, the 1930s and 1940s were very different, there were fewer cars and most people 
-walked. He believes an overlap in class times has the potential for significant traffic and parking 
-issues. 
+    ["ACTION: HEARING CLOSED; HELD 7-0",
+"NOTE: The petition was presented by property owner Wally Zainoun and petitioner Debra Bennett who operates Core Harmony, the yoga and life coaching business for which they are seeking to locate four parking stalls in the front setback and to erect a freestanding sign to replace the existing blade sign that extends out from the building. (The proposed sign has been reduced from 25 square feet to 15 square feet, the limit allowed by special permit.) See the attached PowerPoint.In addition, Mr. Zainoun is requesting relief to allow office, service, and retail use and/or medical office in the event the second space, currently occupied by TNM Realty, in this legally nonconforming commercial building becomes vacant without the need to amend a special permit and to waive the two parking stalls that would be required for a future conversion to medical office use. Mr. Zainoun said this request was prompted by an inquiry from a husband and wife, both dentists, looking to open a small dental office. Located in a Multi Residence 1 District, the building was constructed in 1922 prior to zoning. Historically, the building has housed two tenants, which over the years have included a grocer, drug store, gift shop (for which a special permit was granted in 1973), insurance office, and poster shop. TNM Realty is located in the east side of the building and Core Harmony in the west side.Ms. Bennett has operated a virtual business out of her home for the past 14 years. She decided to open a studio to offer clients open classes at a lower cost. Classes include yoga, Pilates, fitness, wellness, weight loss, and relationships, as well as small business services, coaching, consulting, and web design. She plans to continue providing in-home and virtual corporate services. Given the size of the space (approximately 300 square feet in the main room), she anticipates no more than eight clients in a class. Most clients are from Newton and she expects many, perhaps 60%, will walk or bike to class. She explained that she signed a lease in August and prepared the interior for a Septemberopening. She was informed by the Inspectional Services Department when she went to amend her business registration that she needed a special permit. When asked why there appeared to be a delay in seeking the special permit, it was pointed out that the application was filed in December for public hearing in January, the earliest it could be after completing the review process the city requires for all special permit applications. The business is operating because in most cases the Inspectional Services Department does not issue a cease and desist if a special permit application is pending. Alderman Laredo was troubled that the owner did not advise Ms. Bennett prior to leasing the space that she needed a special permit. Mr. Zainoun said he was unaware that a special permit was required. When asked about the number of classes and times, Ms. Bennett said she plans to offer 10 to 12 classes a week. Day classes are generally for one hour; evening classes 1.5 hours. She expects that the front can provide parking for three to four cars. There are four spaces behind the building and there is one-hour parking available on the carriage lane. Currently, class times are 9:00 am to 10:00 am on Monday, Wednesday, Thursday and Friday,  4:00 pm to 5:00 pm on Monday, Wednesday and Thursday, 6:00 pm to 7:00 pm and 7:00 pm to 8:30 pm on Tuesday, 10:00 am to 11:00 am on Tuesday and Saturday, 1:00 pm to 2:00 pm on Saturday and possibly a 2:00 to 3:30 pm class. Aldermen Albright and Fuller suggested that a half hour gap between classes would ensure a smoother transition of the parking spaces. When asked about plans to use the side yard for outdoor classes, Ms. Bennett said initially she thought it would be pleasant space to utilize in nice weather, but the noise on Commonwealth Avenue makes is less than ideal for practicing yoga. Although, she would like to use it for small gatherings such as the Marathon much like anyone else uses their yard. Alderman Schwarz said that he is not particularly concerned about the proposed used given the building's past. However he like Alderman Laredo is troubled because this is not the first petition coming in after the fact seeking forgiveness. Alderman Fischman visited the site today and observed five cars, one parked tandem, occupying the entire rear lot. Mr. Zainoun said he allows two students to park in the lot overnight because they have no parking. Alderman Fischman is concerned about the intersection of Commonwealth Avenue and Manet Road and with pedestrians crossing there because of the curve and the potential obstruction of the site line by the proposed freestanding sign. In Alderman Harney's opinion this evening was a bit harsh on Ms. Bennett, particularly given the site's history and her long term connection to the city. He believes she has good intentions and wishes to operate a successful business primarily serving residents of Newton. (He also shared that his mother's best friend had owned the gift/card shop at this site.) Alderman Laredosaid he does not doubt the good intentions. He wants to encourage businesses and their success; however, the 1930s and 1940s were very different, there were fewer cars and most people walked. He believes an overlap in class times has the potential for significant traffic and parking issues. 
 Public Comment:
 Susan Servais, 4 Garrison Street, a 33-year resident said that a grocery and drug store from 
 another era cannot be compared to Commonwealth Avenue today. Traffic at certain times is 
@@ -642,17 +635,8 @@ which the state required the city to implement as part of the reconstruction.
 Alderman Crossley suggested that the petitioners install a bike rack. The committee also asked 
 for a copy of the 1973 special permit. Alderman Fischman moved to hold the petition, which 
 motion carried 7-0.", 2, 1, 3],
-   ["ACTION: HEARING CLOSED; HELD 7-0
-NOTE: This petition was presented by attorney Franklin Stearns of K&L Gates and director of 
-design and planning Richard Askin of WS Development. There are a number of special permits 
-on this 18-acre site, the most recent in 2011 rezoned the site to Business 4, allowed 
-reconstruction for a portion of 33 Boylston Street, reduced the total number of required parking 
-stalls, and included multiple site improvements such as reconfiguring parking stalls, changes to 
-landscaping, sidewalks, and lighting. The former Bloomingdale's Macy's building at 55 
-Boylston Street is also currently under reconstruction. When completed it will contain a Cinema 
-de Lux, The Sports Club/LA, a restaurant(s), and retail uses. The petitioner is seeking approval 
-of a comprehensive sign package for the new shopping center, which is being re-branded as The 
-Street Chestnut Hill. The Urban Design Commission spent three meetings reviewing the sign 
+   ["ACTION: HEARING CLOSED; HELD 7-0",
+"NOTE: This petition was presented by attorney Franklin Stearns of K&L Gates and director of design and planning Richard Askin of WS Development. There are a number of special permits on this 18-acre site, the most recent in 2011 rezoned the site to Business 4, allowed reconstruction for a portion of 33 Boylston Street, reduced the total number of required parking stalls, and included multiple site improvements such as reconfiguring parking stalls, changes to landscaping, sidewalks, and lighting. The former Bloomingdale's Macy's building at 55 Boylston Street is also currently under reconstruction. When completed it will contain a Cinema de Lux, The Sports Club/LA, a restaurant(s), and retail uses. The petitioner is seeking approval of a comprehensive sign package for the new shopping center, which is being re-branded as The Street Chestnut Hill. The Urban Design Commission spent three meetings reviewing the sign 
 package and the petitioner made a number of changes in response to its comments and 
 suggestions. Alderman Fuller asked whether the colors will be those shown in the submittal. 
 There was no public comment. 
@@ -666,8 +650,8 @@ noise? The committee asked the petitioner to break out the purposes of the diffe
 signs, i.e., identification, way finding, etc. and what each type of sign is meant to tell people. 
 Individual maps might be helpful. Alderman Laredo moved to hold the petition, which motion 
 carried 7-0.", 1, 1, 2],
-   ["ACTION: HEARING CLOSED; APPROVED 6-0
-NOTE: This petition is an amendment to petition #277-10(3) for which a public hearing was 
+   ["ACTION: HEARING CLOSED; APPROVED 6-0",
+"NOTE: This petition is an amendment to petition #277-10(3) for which a public hearing was 
 opened and closed on December 11, 2012. Attorneys Jason Rosenberg and Laurance Lee 
 represented the petitioner. Present were Aldermen Hess-Mahan (Chairman), Albright, Crossley, 
 Laredo, Fischman, Schwartz, and Harney; Aldermen. Lennon was also present. 
@@ -750,8 +734,8 @@ unanimously. ", 4, 3, 7 ],
    ["ACTIONS: APPROVED 5-0
 REQUEST TO ALLOW SERVICE USE AND/OR CONVERSION TO 
 MEDICAL OFFICE AND ASSOCIATED PARKING WAIVER WITHDRAWN 
-WITHOUT PREJUDICE 5-0
-NOTE: The public hearing for this item was opened and closed on January 15, 2013. (Please 
+WITHOUT PREJUDICE 5-0",
+"NOTE: The public hearing for this item was opened and closed on January 15, 2013. (Please 
 see attached excerpt from that report.) Since then, the tenant in the western side of the building, 
 Core Harmony the service use for which a special permit was sought, decided to terminate its 
 lease. This space was the subject of a special permit granted in 1973 to allow a retail use which 
@@ -792,8 +776,8 @@ shape of the lot make the prohibition on parking in the setback impracticable; r
 existing large blade sign with a freestanding sign of up to 15 square feet is more appropriate for 
 the building and its architecture. The motion to approve the petition as amended carried 
 unanimously, 5-0.",2,2,6 ],
-   ["ACTION: APPROVED 5-0
-NOTE: The public hearing was opened and closed on January 15, 2013. The attached email 
+   ["ACTION: APPROVED 5-0",
+"NOTE: The public hearing was opened and closed on January 15, 2013. The attached email 
 contains the petitioner's responses to questions raised at the public hearing. In addition, a 
 supplemental sign package is also attached. There are over 50 tenants, perhaps 70 total; 
 proposed tenant signs include the following: 
@@ -835,8 +819,8 @@ public interest given the size and shape of the site and its uniqueness; the sig
 the businesses on the site; the signs that have changeable content that will not flash or blink to 
 create an animated effect; the proposed signs will not adversely affect the neighborhood. The 
 motion to approve carried unanimously, 5-0.",1, 2, 5],
-   ["ACTION: HEARING CLOSED; APPROVED 6-0
-NOTE: The existing single-family home was constructed c. 1897. It is considered a 2.5 story 
+   ["ACTION: HEARING CLOSED; APPROVED 6-0",
+"NOTE: The existing single-family home was constructed c. 1897. It is considered a 2.5 story 
 structure. The previous owner constructed an addition and relocated the garage in 2003. The 
 petitioner added a second-story by-right guest suite over the garage in 2007. The petitioner now 
 wishes to add an addition to the rear of the house for a larger living room and upstairs bedroom 
@@ -852,8 +836,8 @@ detrimental than the existing nonconforming structure, resulting in an increase 
 of only 190 square feet; the proposed additions are both over existing decks and will not change 
 the footprint of the house or impact abutters; the house with the additions meets all other 
 dimensional requirements. The motion to approve carried unanimously. ", 5, 3, 7],
-   ["ACTION: HEARING CLOSED; APPROVED 6-0
-NOTE: The petition was presented by Christina Francis-Barta, Real Estate and Construction 
+   ["ACTION: HEARING CLOSED; APPROVED 6-0",
+"NOTE: The petition was presented by Christina Francis-Barta, Real Estate and Construction 
 Specialist from Bertucci's. In October of 2012 the Board of Aldermen approved an amendment 
 to special permit #149-03 to allow a 100-seat restaurant at the site as well as a waiver of 25 
 parking stalls. The petitioner wishes to add 20 outdoor seasonal patio seats to the north side of 
@@ -886,14 +870,14 @@ vehicles or pedestrians as it will be separated from the parking area; the waive
 amount of parking available; the proposed outdoor seating is consistent with the City's goals of 
 enlivening the Needham Street corridor and with the Comprehensive Plan. The motion to 
 approve carried unanimously.", 6, 3, 7],
-["ACTION: HEARING CLOSED; APPROVED 7-0
-NOTE: The petitioners wish to convert unfinished attic space in their single-family home into a master bedroom suite. They are seeking relief to increase the Floor Area Ratio (FAR) from .41, where .45 is allowed by right, to .53. Although the proposal includes the addition of three dormers, all are conforming and there are no changes proposed to the roofline or to the number of stories, lot coverage, or setbacks. The proposed conversion of the attic space will add approximately 678 square feet to the existing 2,400 square foot house. There was no public testimony and the hearing was closed. 
+["ACTION: HEARING CLOSED; APPROVED 7-0",
+"NOTE: The petitioners wish to convert unfinished attic space in their single-family home into a master bedroom suite. They are seeking relief to increase the Floor Area Ratio (FAR) from .41, where .45 is allowed by right, to .53. Although the proposal includes the addition of three dormers, all are conforming and there are no changes proposed to the roofline or to the number of stories, lot coverage, or setbacks. The proposed conversion of the attic space will add approximately 678 square feet to the existing 2,400 square foot house. There was no public testimony and the hearing was closed. 
 ***
 At the working session, Alderman Laredo moved approval of the petition finding that the conversion of attic space into a master suite with an increase of FAR from .41 to .53 is consistent with and not in derogation of size, scale and design of other structures in the neighborhood.
 Alderman Laredo motion was approved 7-0.", 11, 5, 16],
 
-["ACTION: HEARING CLOSED; APPROVED 7-0
-NOTE: The petitioners want to open a veterinary hospital in an existing building located in a 
+["ACTION: HEARING CLOSED; APPROVED 7-0",
+"NOTE: The petitioners want to open a veterinary hospital in an existing building located in a 
 Business 2 district. A veterinary hospital is considered a service use and requires a special 
 permit in a Business 2 district. The petitioners will occupy the entire building. Although there 
 are ten parking stalls (including one HP space) on the site, they also need relief to waive one 
@@ -937,16 +921,16 @@ Alderman Albright moved approval of the petition finding that it is an appropria
 veterinary hospital and the use will not adversely affect the neighborhood; there will be no 
 nuisance or serious hazard to vehicles or pedestrians; and the waiver of two parking stalls is 
 appropriate because compliance is impractical due to the location, size, frontage, depth, shape or grade of the lot. Alderman Albright's motion carried 7-0.", 12, 5, 17],
-["ACTION: APPROVED 7-0
-NOTE: This renewal application was filed after January 1, 2013, hence the delay. The business 
+["ACTION: APPROVED 7-0",
+"NOTE: This renewal application was filed after January 1, 2013, hence the delay. The business 
 has no outstanding zoning complaints, owes no money to the City of Newton, and has posted a 
 surety bond with the city.", 14, 5, 19],
-["ACTION: HEARING CLOSED
-NOTE: This item will be reported when it is voted out of committee.", 10, 5, 15],
-["ACTION: HEARING CLOSED
-NOTE: This item will be reported when it is voted out of committee.", 13, 5, 18],
-["ACTION: APPROVED 5-0-1 (Fischman abstaining)
-NOTE: The petition was presented by attorney G. Michael Peirce at a public hearing that was 
+["ACTION: HEARING CLOSED",
+"NOTE: This item will be reported when it is voted out of committee.", 10, 5, 15],
+["ACTION: HEARING CLOSED",
+"NOTE: This item will be reported when it is voted out of committee.", 13, 5, 18],
+["ACTION: APPROVED 5-0-1 (Fischman abstaining)",
+"NOTE: The petition was presented by attorney G. Michael Peirce at a public hearing that was 
 opened and closed on March 19, 2013. Present at the public hearing were Aldermen HessMahan, Laredo, Albright, Fischman, Schwartz, Crossley, and Harney as well as Aldermen 
 Ciccone and Lennon. The petitioner is seeking to demolish an existing two-family house and 
 carriage house and construct four new attached dwellings in two sets of two. Although the 
@@ -987,9 +971,9 @@ This evening, the Committee was pleased that the petitioner has provided additio
 towards the front of the property, including rhododendron, viburnum, etc. Both Aldermen 
 Laredo and Albright said they were struggling with the density issue. Is this essentially a rear lot 
 subdivision? How many other lots in the area could be developed? It was pointed out that most 
-lots in the area are approximately 9,000 square feet, too small for this type of project. Relative to 
-density, the lot area per unit is coACTION: HEARING CLOSED; APPROVED 6-0-1 (Fischman abstaining)
-NOTE: The petitioner was represented by attorney Rick Mann, 196 Battle Trail Road, 
+lots in the area are approximately 9,000 square feet, too small for this type of project. Relative to density, the lot area per unit is comparable to smaller sites with two units, which is most of the surrounding neighborhood. Consensus in Committee was that although in certain cases it is legitimate to ask a petitioner to install handicapped ramps, for example as was the case of a prior special permit for 258 Nevada Street, a corner lot at a four-way intersection, where the petitioner funded two of the ramps and the city the other two, in this instance there is no nexus between the relief sought and handicapped ramps across the street. Alderman Fischman, however, remained unconvinced. The Committee did not feel strongly either way about the protruding bay windows, but agreed if the petitioner were to remove them it could be through a consistency ruling. Alderman Laredo moved approval of the petition, finding that two single-family attached dwellings in an MR-1 zone where a two-family dwelling is allowed by right is appropriate because the lot area per unit is compatible with the surrounding neighborhood; both dwellings are sited to resemble the single-structure streetscape of the neighborhood; and relief to locate a driveway is appropriate because compliance is impractical due to the use, location, size, frontage, depth, shape and grade of the lot. The motion carried 5-0-1,with Alderman Fischman abstaining.", 13, 6, 20 ],
+["ACTION: HEARING CLOSED; APPROVED 6-0-1 (Fischman abstaining)",
+"NOTE: The petitioner was represented by attorney Rick Mann, 196 Battle Trail Road, 
 Needham. The petitioner recently purchased this single-family located on a corner lot at the 
 intersection of Hammond Street and Crosby Road. The house has been neglected and in need of updating. He wishes to construct a one-story addition to the rear to expand the kitchen and add a family room. The proposed addition will add approximately 400 square feet to the existing 4, 900 square-foot house. (The petitioner is also proposing a 150 square-foot deck off the family 
 room.) In addition, the petitioner is proposing to add a 330 square-foot second garage bay 
@@ -1011,49 +995,11 @@ because the lot area per unit is compatible with the surrounding neighborhood; b
 are sited to resemble the single-structure streetscape of the neighborhood; and relief to locate a 
 driveway is appropriate because compliance is impractical due to the use, location, size, 
 frontage, depth, shape and grade of the lot. The motion carried 5-0-1, with Alderman Fischman 
-abstaining.", 13, 6, 20],
-["ACTION: HEARING CLOSED; HELD 
-NOTE: This item will be reported when it is voted out of Committee.", 15, 7, 24],
-["NOTE: The petitioner was represented by attorney Rick Mann, 196 Battle Trail Road, 
-Needham. The petitioner recently purchased this single-family located on a corner lot at the 
-intersection of Hammond Street and Crosby Road. The house has been neglected and in need of 
-updating. He wishes to construct a one-story addition to the rear to expand the kitchen and add a 
-family room. The proposed addition will add approximately 400 square feet to the existing 4, 
-900 square-foot house. (The petitioner is also proposing a 150 square-foot deck off the family 
-room.) In addition, the petitioner is proposing to add a 330 square-foot second garage bay 
-adjacent to the existing one-car garage. Because this is a corner lot the east side (right side) of 
-the house has a 25-foot setback requirement from Crosby Road. To construct the garage as 
-proposed the petitioner is seeking a waiver of approximately 12.5 feet, reducing the setback to 
-approximately 12.7 feet. The Planning Department noted that it would only require 7.5 feet if it
-were considered a side setback. Should the special permit for the increase in Floor Area Ratio be 
-approved, the petitioner will need to obtain a variance from the Zoning Board of Appeals for the 
-front setback encroachment.
-There was no public comment, but the petitioner submitted a letter signed by neighbors at 126 
-Manet Road, 117 and 146 Hammond Street, and 65 Crosby Road in support of the petition
-***
-In working session, Alderman Fischman asked if the petitioner intends to make any 
-improvements to the sidewalk since the adjacent portion of sidewalk along Crosby Road appears to be the unpaved section. He noted that the Associate City Engineer suggests the petitioner upgrade the existing HP ramp at Hammond Street and Crosby Road. The petitioner is not sure if the existing HP ramp is up to current standards, but believes it can adequately accommodate a wheelchair or stroller. As to the sidewalk, it would involve a significant cost which he would prefer to not incur. The Committee discussed whether there was a nexus between the relief requested and the sidewalk/HP ramp. Alderman Fischman feels it is not an unreasonable public benefit to ask of petitioners. Aldermen Albright and Schwartz suggested a policy might be helpful since every time this come up the committee has the same deliberations. The Chairman expressed his doubts about creating a policy because each case is unique. The standard is supposed to be mitigation related to the relief granted.
-The Committee noted that the Associate City Engineer indicates that the site plan does not show 
-a utility pole and city tree along Hammond Street both in the way of the driveway. Initially, the 
-petitioner was proposing a circular driveway but revised the plan to the one that is in front of the
-Committee. Since there is no circular driveway, there is no conflict with the driveway as 
-proposed. The existing landscaping is somewhat overgrown and fencing is falling apart. The 
-petitioner plans to clean up and enhance the landscaping and replace the fencing. 
-Alderman Laredo moved approval of the petition finding that the proposed FAR of .45 where .34 
-is the maximum allowed by right is consistent with and not in derogation of the size, scale and 
-design of other structures in the neighborhood; the majority of the addition is to the rear of the 
-house, minimally visible from the street; the additional garage bay is in the best location re its 
-impact on the lot and abutters; the lot meets lot coverage and open space requirements. 
-The Planning Department noted that should the proposed garage bay and the existing bay are
-combined they will exceed the 700 square-foot garage allowed by right. A condition will be 
-included to require the bays remain separated. A condition also will be included to address 
-Alderman Crossley's concern that if the petitioner cannot obtain a variance for the front setback, 
-he will still be able to construct the addition. The Committee chose to not require the petitioner 
-to upgrade the HP ramp at Hammond Street and Crosby Road and install a sidewalk along 
-Crosby Road. 
-Alderman Laredo's motion to approve carried 6-0-1, with Alderman Fischman abstaining.", 16, 7, 25],
-["ACTION: HEARING CLOSED; APPROVED 7-0
-NOTE: The petition was presented by attorney Terrence Morris, 57 Elm Road, Newton. The 
+abstaining.", 16, 7, 25,],
+["ACTION: HEARING CLOSED; HELD",
+"NOTE: This item will be reported when it is voted out of Committee.", 15, 7, 24],
+["ACTION: HEARING CLOSED; APPROVED 7-0",
+"NOTE: The petition was presented by attorney Terrence Morris, 57 Elm Road, Newton. The 
 petitioner wishes to add two separate one-story additions to the rear of an existing T-shaped 
 building to square off the structure, which is located at the corner of Washington and Adams 
 Streets. The site was a 'gasoline selling and service station' from 1926 to 1999. Since 1999, 
@@ -1101,8 +1047,8 @@ hazard to vehicles or pedestrians as a result of the expansion. Applicable condi
 permit #559-70 are included in the current draft special permit, which supersedes #559-70. The 
 motion to approve carried 7-0.", 17, 7, 26,],
 ["ACTION: APPROVED 3-0-3 (Hess-Mahan, Albright, Harney voting in the affirmative;
-Crossley, Laredo, Schwartz abstaining)
-NOTE: This site was the subject of a previous petition subsequently withdrawn without 
+Crossley, Laredo, Schwartz abstaining)",
+"NOTE: This site was the subject of a previous petition subsequently withdrawn without 
 prejudice in late 2012. In the interim, the petitioner worked with the neighbors and made 
 substantial revisions before filing this revised petition, which was the subject of a public hearing 
 on April 9, 2013. Present at the hearing were Aldermen Hess-Mahan, Laredo, Harney, Crossley, 
@@ -1209,8 +1155,8 @@ streets. Ms. Young said she would work with attorney Buchbinder to try and craft
 both acceptable and doable.
 The motion to approve carried 3-0-3 with Aldermen Hess-Mahan, Albright, Harney voting in the 
 affirmative and Aldermen Crossley, Laredo, Schwartz abstaining.", 15, 9, 29],
-["ACTION: HEARING CLOSED; APPROVED 6-0
-NOTE: The petitioners wish to remain in their home but need more space to accommodate their 
+["ACTION: HEARING CLOSED; APPROVED 6-0",
+"NOTE: The petitioners wish to remain in their home but need more space to accommodate their 
 family of five. They are proposing to add a two-story addition to the right and rear sides of their 
 home in place of an existing sunroom in order to create a larger kitchen and family room on the 
 first floor and to add a bedroom and bath on the second floor. They are seeking a special permit 
@@ -1223,8 +1169,8 @@ moved approval of the petition finding that the proposed increase in FAR to .50 
 allowed by right is consistent with and not in derogation of the size, scale and design of other 
 structure in the neighborhood; most of the addition is to the rear of the house, minimally visible 
 from the street, the site meets lot coverage and open space requirements. The motion to approve carried unanimously.", 19, 10, 31],
-["ACTION: HEARING CLOSED; APPROVED 6-0
-NOTE: The petition was presented by attorney Stephen Buchbinder. The petitioner is proposing 
+["ACTION: HEARING CLOSED; APPROVED 6-0",
+"NOTE: The petition was presented by attorney Stephen Buchbinder. The petitioner is proposing 
 to add two additions, totaling 1,400 square feet, to the west side of the existing Miltons Store for 
 Men. The front entrance with a new 122 square-foot vestibule will be relocated to the west side 
 of the building facing Chestnut Hill Square. A 1,280 square-foot two-story addition will be 
@@ -1262,8 +1208,8 @@ Chestnut Hill Square and will have no negative affect on abutters; the site plan
 Chestnut Hill Square and the circulation plan and includes vehicular and pedestrian connections 
 between the sites; the project is in keeping with the city's 2007 Comprehensive Plan in 
 supporting existing business and attracting new business.", 23, 10, 35],
-["ACTION: HEARING CLOSED; APPROVED 6-0
-NOTE: The petitioners are seeking to add a 94.5 square-foot mudroom at the rear of their 
+["ACTION: HEARING CLOSED; APPROVED 6-0",
+"NOTE: The petitioners are seeking to add a 94.5 square-foot mudroom at the rear of their 
 condominium in a c.1880 dwelling and to fill in a 14.5 square-foot corner of the kitchen, totaling 
 109 square feet. The proposed additions will increase an already nonconforming floor area ratio 
 (FAR) from .76 to .77, where .51 is allowed by right. The proposal will also increase the 
@@ -1283,15 +1229,15 @@ because the additions square off the existing building and do not significantly 
 the dwelling is dimensionally conforming in most other respects. Before voting, the committee 
 agreed that this is the type of petition for which an administrative process needs to be created. 
 Alderman Laredo's motion to approve carried unanimously.", 24, 10, 36],
-["ACTION: HEARING CONTINUED TO A DATE TO BE DETERMINED", 20, 10, 32],
-["ACTION: HEARING CLOSED
-NOTE: This item will be reported when it is voted out of committee.", 21, 10, 33],
-["ACTION: HEARING CLOSED
-NOTE: This item will be reported when it is voted out of committee.", 22, 10, 34]]
+["ACTION: HEARING CONTINUED TO A DATE TO BE DETERMINED"," ", 20, 10, 32],
+["ACTION: HEARING CLOSED",
+"NOTE: This item will be reported when it is voted out of committee.", 21, 10, 33],
+["ACTION: HEARING CLOSED",
+"NOTE: This item will be reported when it is voted out of committee.", 22, 10, 34]]
 
-   aktions.each { |discussion, item_id, meeting_id, item_meeting_id|
+   aktions.each { |action, discussion, item_id, meeting_id, item_meeting_id|
 
-   aktion = Aktion.new(:discussion => discussion, :meeting_id => meeting_id)
+   aktion = Aktion.new(:action => action, :discussion => discussion, :meeting_id => meeting_id)
    aktion.creator_id = 1
    aktion.updater_id = 1
    aktion.save
@@ -1301,7 +1247,8 @@ NOTE: This item will be reported when it is voted out of committee.", 22, 10, 34
    actionitemmeeting.updater_id = 1
    actionitemmeeting.save
    activity = Activity.create(
-        :message => "Action at #{meeting.date} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}. #{discussion}",
+        :message => "Action at #{meeting.date.strftime("%m/%d/%y")} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}.",
+        :note => " #{action} #{discussion}",
         :activity_type => "NewAction", :date_actual => meeting.date)
    ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting.id)
    ActivityLog.create(
@@ -1391,13 +1338,13 @@ NOTE: This item will be reported when it is voted out of committee.", 22, 10, 34
 
 # land use
 
-   members = [[1, "Ted Hess-Mahan", 1, "2012-01-01"],
-         [2, "Deb Crossley", 2, "2012-01-01"], 
-         [3, "Greg Schwartz", 6, "2012-01-01"], 
-         [9, "Mitch Fischman", 2, "2012-01-01"], 
-         [10, "Susan Albright", 3, "2012-01-01"], 
-         [11, "Jay Harney", 4, "2012-01-01"], 
-         [12, "Marc Laredo",7, "2012-01-01"]]  
+   members = [[1, "Ald. Hess-Mahan (Chairman)", 1, "2012-01-01"],
+         [2, "Ald. Crossley", 2, "2012-01-01"], 
+         [3, "Ald. Schwartz", 6, "2012-01-01"], 
+         [9, "Ald. Fischman", 2, "2012-01-01"], 
+         [10, "Ald. Albright", 3, "2012-01-01"], 
+         [11, "Ald. Harney", 4, "2012-01-01"], 
+         [12, "Ald. Laredo",7, "2012-01-01"]]  
 
     members.each { |id, name, position, date|
       membership = Membership.new(:committee_id => 1, :person_id => id, :term_start => date, :display_as => name)

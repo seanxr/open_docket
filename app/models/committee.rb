@@ -65,5 +65,10 @@ class Committee < ActiveRecord::Base
    def memberships_past
     memberships.select{|x| x['term_end'] != nil}
   end
+
+   def members_names_string
+    memberships_current.collect { |id| Membership.find_by_id(id).display_as }.join(', ') 
+  end
+
   
 end

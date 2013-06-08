@@ -1,13 +1,19 @@
 <li>
-<span class="content">
+<div class="content">
   <%= activity.message %>
-</span>
-<span class="content">
-  <%= activity.note %>
-</span>
-<span class="timestamp">
+</div>
+<div class="content">
+  <% if activity.note && activity.note.size > 200 %>
+      <a class="toggle" href="javascript:void(0);">Expand/collapse</a>
+      <div class="content"><%= activity.note[0..200] %>...</div>
+      <div class="contentfull" style="display:none"><%= activity.note %></div>
+    <% else %>
+      <div class="content"><%= activity.note %></div>
+    <% end %>
+</div>
+<div class="timestamp">
   <%= activity.date_actual.strftime("%m/%d/%y") %>
-</span>
+</div>
 </li>
 
 

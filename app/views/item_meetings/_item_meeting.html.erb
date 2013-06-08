@@ -18,7 +18,7 @@
 <% else %>
   <% if item_meeting.agendable_type == "Item" %>
   <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
-    <span class="content">
+    <div class="content">
       <% if current_user && current_user.admin? %>
         <span class="handle" style="color: green;cursor:move;">[drag]</span>
       <% end %>
@@ -28,27 +28,27 @@
           data: { confirm: "You sure?" },
           title: "Title" %>
       <% end %>
-    </span>
-    <span class="content"><%= item_meeting.agendable.requested_by %></span>
-    <span class="content"><%= item_meeting.agendable.address %></span>
-    <% if item_meeting.agendable.request.size > 200 %>
+    </div>
+    <div class="content"><%= item_meeting.agendable.requested_by %></div>
+    <div class="content"><%= item_meeting.agendable.address %></div>
+    <% if item_meeting.agendable.request.size > 250 %>
       <a class="toggle" href="javascript:void(0);">Expand/collapse</a>
-      <span class="content"><%= item_meeting.agendable.request[0..200] %>...</span>
-      <span class="contentfull" style="display:none"><%= item_meeting.agendable.request %></span>
+      <div class="content"><%= item_meeting.agendable.request[0..200] %>...</div>
+      <div class="contentfull" style="display:none"><%= item_meeting.agendable.request %></div>
     <% else %>
-      <span class="content"><%= item_meeting.agendable.request %></span>
+      <div class="content"><%= item_meeting.agendable.request %></div>
     <% end %>
-    <span class="timestamp">
+    <div class="timestamp">
       <%= item_meeting.created_at.strftime("Added %m/%d/%y") %>
-    </span>
+    </div>
   </li>
 <% else %>
   <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
-    <span class="content">
+    <div class="content">
       <% if current_user && current_user.admin? %>
-        <span class="handle" style="color: green;cursor:move;">[drag]</span>
+        <div class="handle" style="color: green;cursor:move;">[drag]</div>
       <% end %>
-    <%= item_meeting.agendable.meeting_text %></span>
+    <%= item_meeting.agendable.meeting_text %></div>
   </li>
 <% end %>
 <% end %>

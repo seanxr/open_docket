@@ -1,5 +1,7 @@
 OpenDocket::Application.routes.draw do
 
+  get "attendance_texts/new"
+
 #  get "memberships/new"
 
 #  get "people/new"
@@ -52,6 +54,7 @@ OpenDocket::Application.routes.draw do
     resources :documents
     resources :meeting_texts
     resources :item_meetings
+    resources :attendance_texts
   end
 
   resources :dockets do
@@ -70,7 +73,6 @@ OpenDocket::Application.routes.draw do
   match '/items/:id/edit' => 'items#edit', :via => :post
   match '/meetings/:id/agenda' => 'meetings#agenda', :as => 'meeting_agenda', :via => :get
   match '/meetings/:id/report' => 'meetings#report', :as => 'meeting_report', :via => :get
-
   
  
   match '/help',    to: 'static_pages#help'

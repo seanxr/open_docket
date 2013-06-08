@@ -9,10 +9,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  meeting_id :integer
+#  action     :text
 #
 
 class Aktion < ActiveRecord::Base
-  attr_accessible :creator_id, :discussion, :meeting_id, :updater_id, :action_item_meetings_attributes
+  attr_accessible :creator_id, :discussion, :meeting_id, :updater_id, :action_item_meetings_attributes, :action
 
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'

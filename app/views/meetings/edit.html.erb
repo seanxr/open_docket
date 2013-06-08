@@ -1,17 +1,17 @@
-<% provide(:title, 'New Meeting') %>
-<h1>Create meeting</h1>
+<% provide(:title, 'Edit Meeting') %>
+<h1>Edit meeting</h1>
 
 <div class="row">
   <div class="span6 offset3">
 
-      <%= form_for([@meeting]) do |f| %>
+      <%= form_for(@meeting) do |f| %>
       <%= render :partial => 'shared/error_messages', :locals => {:object => @meeting} %>
 
         <div class="test">
           <%= f.label :date %>
-          <%= f.text_field :date, :value => Date.today, class: "date-picker" %>
+          <%= f.text_field :date, :value => @meeting.date, class: "date-picker" %>
           <%= f.label :time %>
-          <%= f.text_field :time %>
+          <%= f.text_field :time, :value => @meeting.time.strftime("%l:%M %p") %>
         </div>
 
         <% @sites.each do |site| %>
@@ -34,10 +34,8 @@
 <%#       <% end %>
         <span>Select a committee or committees for the meeting.</span><br/>
         <% for committee in @committees.each %>
-          <% if @committee && (committee.id == @committee.id) %>
-            <%= hidden_field_tag( "[has_committee]", @committee.id) %>
-            <%= hidden_field_tag( "[committee_meetings_attributes][]", committee.id) %>
-            <%= check_box_tag( "[committee_meetings_attributes][]", committee.id, true, :disabled => true) %> 
+          <% if @meeting.committees.include?(committee) %>
+             <%= check_box_tag( "[committee_meetings_attributes][]", committee.id, true) %> 
             <%= committee.name %>
           <% else %>
             <%= check_box_tag( "[committee_meetings_attributes][]", committee.id) %>
@@ -46,7 +44,7 @@
           <br/>
         <% end %>
 
-         <%= f.submit "New meeting", class: "btn btn-large btn-primary" %>
+         <%= f.submit "Edit meeting", class: "btn btn-large btn-primary" %>
        <% end %>
   </div>
 </div>

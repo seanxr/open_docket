@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605012818) do
+ActiveRecord::Schema.define(:version => 20130607004054) do
 
   create_table "action_item_meetings", :force => true do |t|
     t.integer  "aktion_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130605012818) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "meeting_id"
+    t.text     "action"
   end
 
   create_table "attachments", :force => true do |t|
@@ -57,6 +58,15 @@ ActiveRecord::Schema.define(:version => 20130605012818) do
     t.string   "owner_type"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "attendance_texts", :force => true do |t|
+    t.text     "text"
+    t.integer  "meeting_id"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "committee_meetings", :force => true do |t|
@@ -152,10 +162,15 @@ ActiveRecord::Schema.define(:version => 20130605012818) do
     t.integer  "room_id"
     t.integer  "creator_id"
     t.integer  "updater_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "assigner_id"
     t.time     "time"
+    t.text     "attendance_text"
+    t.integer  "agenda_submitted_by"
+    t.date     "agenda_submitted_on"
+    t.integer  "report_submitted_by"
+    t.date     "report_submitted_on"
   end
 
   create_table "memberships", :force => true do |t|

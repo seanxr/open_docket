@@ -9,15 +9,32 @@
 </div>
 <% end %>
 
-<ul class="items">
+<ul class="microposts">
   <% @items.each do |item| %>
     <li>
+    <div>
       <%= link_to item.name, item %>
       <% if current_user && current_user.admin? %>
         | <%= link_to "edit", edit_item_path(item.id) %>
       <% end %>
+    </div>
+    <div class="content"><%= item.requested_by %></div>
+    <div class="content"><%= item.address %></div>
+    <% if item.request && item.request.size > 250 %>
+      <a class="toggle" href="javascript:void(0);">Expand/collapse</a>
+      <div class="content"><%= item.request[0..200] %>...</div>
+      <div class="contentfull" style="display:none"><%= item.request %></div>
+    <% else %>
+      <div class="content"><%= item.request %></div>
+    <% end %>
     </li>
   <% end %>
 </ul>
-
+<script type="text/javascript">
+$('.toggle').click(function() {
+  var content = $(this).next();
+  $(content).toggle();
+  $(content).next().toggle(); 
+  return false;
+});</script>
 

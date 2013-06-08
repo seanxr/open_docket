@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: meeting_texts
+# Table name: meeting_text
 #
 #  id              :integer          not null, primary key
 #  meeting_id      :integer
