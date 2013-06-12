@@ -1,4 +1,7 @@
 class AttendanceTextsController < ApplicationController
+  before_filter :signed_in_user, only: [:new, :create, :edit, :update]
+  before_filter :admin_user,     only: [:new, :create, :edit, :update]
+  before_filter :get_parent # Defined in ApplicationController
 
   def new
     session[:return_to] = request.referer
@@ -18,9 +21,10 @@ class AttendanceTextsController < ApplicationController
     @attendance_text = AttendanceText.new(params[:attendance_text])
     @attendance_text.creator_id = current_user.id
     @attendance_text.updater_id = current_user.id
+    @attendance_text.meeting_id = (params[:meeting_id])
 
-    if @attendance_text.save_with_activity
-      flash[:success] = "You have succesfully created attendance text: #{@attendance_text.text[0..100]}!"
+    if @attendance_text.save_with_activity(current_user)
+      flash[:success] = "You have succesfully created attendance text: #{@attendance_text.name}!"
       redirect_to session[:return_to] 
     else
       render 'new'
@@ -37,7 +41,7 @@ class AttendanceTextsController < ApplicationController
         :note => "#{@attendance_text.text}",
         :activity_type => "NewAttendanceText", :date_actual => Date.today)
         ActivityLog.create!(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => @attendance_text.meeting.id)
-      flash[:success] = "You have succesfully updated attendance text: #{@attendance_text.text[0..100]}!"
+      flash[:success] = "You have succesfully updated attendance text: #{@attendance_text.name}!"
       redirect_to session[:return_to] 
     else
       render 'edit'

@@ -11,13 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607004054) do
+ActiveRecord::Schema.define(:version => 20130612023307) do
 
   create_table "action_item_meetings", :force => true do |t|
     t.integer  "aktion_id"
     t.integer  "item_meeting_id"
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "action_meetings", :force => true do |t|
+    t.integer  "meeting_id"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.integer  "reportable_id"
+    t.string   "reportable_type"
+    t.integer  "position"
+    t.integer  "assigner_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -149,12 +161,13 @@ ActiveRecord::Schema.define(:version => 20130607004054) do
 
   create_table "meeting_texts", :force => true do |t|
     t.integer  "meeting_id"
-    t.text     "meeting_text"
+    t.text     "text"
     t.integer  "action_required"
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "kind"
   end
 
   create_table "meetings", :force => true do |t|

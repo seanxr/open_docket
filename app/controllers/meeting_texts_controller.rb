@@ -13,7 +13,7 @@ class MeetingTextsController < ApplicationController
     @meeting_text.updater_id = current_user.id
 
     if @meeting_text.save_with_activity
-      flash[:success] = "You have succesfully created agenda text: #{@meeting_text.meeting_text}!"
+      flash[:success] = "You have succesfully created #{@meeting_text.name}!"
       redirect_to session[:return_to] 
     else
       render 'new'

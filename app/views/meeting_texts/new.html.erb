@@ -7,8 +7,9 @@
     <%= form_for([@meeting, @meeting_text]) do |f| %>
 
       <%= f.hidden_field 'meeting_id', :value => params[:meeting_id] %>
-      <%= f.label :meeting_text %>
-      <%= f.text_area :meeting_text, :size => "60x4" %>
+      <%= f.hidden_field 'kind', :value => params[:kind] %>
+      <%= f.label :text %>
+      <%= f.text_area :text, :size => "60x4" %>
 
       <%= f.submit "Create text", class: "btn btn-large btn-primary" %>
     <% end %>

@@ -1,4 +1,4 @@
-<% provide(:title, @meeting.date) %>
+<% provide(:title, @meeting.name + " Meeting") %>
 <div class="row">
   <aside class="span4">
   <section>
@@ -7,11 +7,9 @@
   </h1>
   <% if @meeting.committees %>
     <% @meeting.committees.each do |committee| %>
-      <li>
-      <span class="content"><%= link_to committee.name, committee_path(committee) %><%# | 
+      <div class="content"><%= link_to committee.name, committee_path(committee) %><%# | 
         <%#               <%= link_to "Remove", destroy_meeting_committee_path(@meeting, committee) %>	
-      </span>
-      </li>
+      </div>
     <% end %>
   <% end %>         
   <span><%= @meeting.time.strftime("%l:%M %p") %> </span>
@@ -33,7 +31,7 @@
     <ul class="nav nav-tabs">
      <% if @meeting.date < Date.today %>
       <li class="active"><a href="#actions" data-toggle="tab">Report</a></li>
-      <li><a href="#items" data-toggle="tab">Agenda&nbsp;(<%= @meeting.item_meetings.count %> items)</a></li>
+      <li><a href="#items" data-toggle="tab">Agenda&nbsp;(<%= @meeting.items.count %> items)</a></li>
      <% else %>
        <li class="active"><a href="#items" data-toggle="tab">Agenda&nbsp;(<%= @meeting.item_meetings.count %> items)</a></li>
       <% end %>
@@ -51,7 +49,7 @@
         <% if current_user && current_user.admin? %>
 
             | <%= link_to "Add an item to meeting", new_meeting_item_meeting_path(@meeting)%> | 
-            <%= link_to "Create agenda text", new_meeting_meeting_text_path(@meeting) %> |
+            <%= link_to "Create agenda text", new_meeting_meeting_text_path(@meeting, :kind => 'Agenda') %> |
             <%= link_to "Submit agenda", new_meeting_meeting_text_path(@meeting) %>
         <% end %>
           </div>
@@ -84,17 +82,26 @@
            <% else %>
              | <%= link_to "Edit attendance", edit_meeting_attendance_text_path(@meeting, @meeting.attendance_text)%>
            <% end %>
-            | <%= link_to "Submit report", new_meeting_meeting_text_path(@meeting) %>
+             | <%= link_to "Create report text", new_meeting_meeting_text_path(@meeting, :kind => 'Report') %>
+             | <%= link_to "Submit report", new_meeting_meeting_text_path(@meeting) %>
         <% end %>
       </div>
-                            <% if @meeting.attendance_text && @meeting.attendance_text.text.size > 250 %>
-				<a class="toggle" href="javascript:void(0);">Expand/collapse</a>&nbsp;	
-				<div class="content" style="padding-bottom:10px;"><%= @meeting.attendance_text.text[0..200] %> ...</div>
-				<div class="contentfull" style="display:none; padding-bottom:10px"><%= @meeting.attendance_text.text %></div>
-                              <% elsif @meeting.attendance_text %>
-				<div class="content" style="padding-bottom:10px"><%= @meeting.attendance_text.text %></div>
-			<% end %>
-            <%= render :partial => 'aktions/aktion' %>
+        <% if @meeting.action_meetings.any? %>
+          <ol id="action_meetings" class="microposts">
+            <%= render @meeting.action_meetings.order('position ASC') %>
+          </ol>            
+        <% end %>
+        <% if @meeting.items_without_actions.any? %>
+          <div>The following item(s) on the agenda have no actions reported:</div>
+          <% for item in @meeting.items_without_actions %>
+            <div><%= link_to "#"+ item.name, item_path(item.id) %>
+              <% if current_user && current_user.admin? %>
+	         &nbsp;|&nbsp;<%= link_to "Add an action", 
+		     new_meeting_aktion_path(@meeting)+"?agendable_type=item&agendable_id="+item.id.to_s %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %> 
       </div>
       <div class="tab-pane" id="documents"> 
         <ol class="microposts">
@@ -140,6 +147,12 @@
         $.get('/item_meetings/reorder?meeting='+<%= @meeting.id %>, $(this).sortable('serialize'));
         }});
       });
+  $(function() {
+      $("#action_meetings").sortable({items:'.action_meeting', handle:'.handle2', axis:'y', cursor: 'move', update: function(){
+        $.get('/action_meetings/reorder?meeting='+<%= @meeting.id %>, $(this).sortable('serialize'));
+        }});
+      });
+
 $('.toggle').click(function() {
   var content = $(this).next();
   $(content).toggle();

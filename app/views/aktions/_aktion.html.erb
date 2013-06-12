@@ -1,71 +1,73 @@
-  <% for action in @meeting.aktions %>
-    <% if @parent == "report" %>
-      <% for item_meeting in action.item_meetings %>
-     <div style="width:800px; padding-bottom: 10px; margin-bottom:10px;">
-       <% if item_meeting.agendable_type == "Item" %>
-		    <div id="itemnumber" style="width:100px; float:left;"><%= link_to "#"+ item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></div>
-                    <div id="description" style="width:700px; float: left;">
-    <span class="content"><%= item_meeting.agendable.requested_by %></span>
-    <span class="content"><%= item_meeting.agendable.address %></span>
-      <span class="content"><%= item_meeting.agendable.request %></span>
-                      </div>
-                    <div id="action_label" style="width:100px; float: left;">Action</div>
-                    <div id="action" style="width:700px; float:left;"><%= action.action %></div>
-                    <div id="action_label" style="width:800px; float: left;"><%= action.discussion %></div>
-	<% elsif item_meeting.agendable_type == "MeetingText" %> 
-	  	    <div id="text" style="width:800px;float:left;"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text %></div>
-		<% end %>
-              <% end %>
-    </div>
-    <% else %>
-     <% for item_meeting in action.item_meetings %>
-	     	<% if item_meeting.agendable_type == "Item" %>
-			<span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></span>
-		<% elsif item_meeting.agendable_type == "MeetingText" %> 
-			<% if MeetingText.find_by_id(item_meeting.agendable_id).meeting_text.size > 200 %>
-				<span class="content"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text[0..200] %> ...</span>
-			<% else %>
-				<span class="content"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text %></span>
-			<% end %>
-		<% end %>
+<% for action in @meeting.aktions %>
+  <% if @parent == "report" %>
+    <% for item_meeting in action.item_meetings %>
+      <div style="width:800px; padding-bottom: 10px; margin-bottom:10px;">
+      <% if item_meeting.agendable_type == "Item" %>
+	<div id="itemnumber" style="width:100px; float:left;"><%= link_to "#"+ item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></div>
+        <div id="description" style="width:700px; float: left;">
+          <span class="content"><%= item_meeting.agendable.requested_by %></span>
+          <span class="content"><%= item_meeting.agendable.address %></span>
+          <span class="content"><%= item_meeting.agendable.request %></span>
+        </div>
+        <div id="action_label" style="width:100px; float: left;">Action</div>
+        <div id="action" style="width:700px; float:left;"><%= action.action %></div>
+        <div id="action_label" style="width:800px; float: left;"><%= action.discussion %></div>
+      <% elsif item_meeting.agendable_type == "MeetingText" %> 
+	<div id="text" style="width:800px;float:left;"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text %></div>
+      <% end %>
+    </div>>
+    <% end %>
+  <% else %>
+    <% for item_meeting in action.item_meetings %>
+      <% if item_meeting.agendable_type == "Item" %>
+	<span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></span>
+      <% elsif item_meeting.agendable_type == "MeetingText" %> 
+	<% if MeetingText.find_by_id(item_meeting.agendable_id).meeting_text.size > 200 %>
+	  <span class="content"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text[0..200] %> ...</span>
+	<% else %>
+	  <span class="content"><%= MeetingText.find_by_id(item_meeting.agendable_id).meeting_text %></span>
 	<% end %>
-			 <% if current_user && current_user.admin? %>
-				      <span><%= link_to "Edit action", edit_aktion_path(action)%>
-				      <% end %>
-                                      <% if action.discussion.size > 250 %>
-                                <div> <%= action.action %> </div>
-				<a class="toggle" href="javascript:void(0);">Expand/collapse</a>&nbsp;	
-				<div class="content"><%= action.discussion[0..200] %> ...</div>
-				<div class="contentfull" style="display:none; padding-bottom:10px"><%= action.discussion %></div>
-                              <% else %>
-                                <div> <%= action.action %> </div>
-				<div class="content" style="padding-bottom:10px"><%= action.discussion %></div>
-			<% end %>
+      <% end %>
+    <% end %>
+    <% if current_user && current_user.admin? %>
+      <span><%= link_to "Edit action", edit_aktion_path(action)%>
+    <% end %>
+    <% if action.discussion.size > 250 %>
+      <div> <%= action.action %> </div>
+      <a class="toggle" href="javascript:void(0);">Expand/collapse</a>&nbsp;	
+      <div class="content" style="padding-bottom:10px"><%= action.discussion[0..200] %> ...</div>
+      <div class="contentfull" style="display:none; padding-bottom:10px"><%= action.discussion %></div>
+    <% else %>
+      <div> <%= action.action %> </div>
+      <div class="content" style="padding-bottom:10px"><%= action.discussion %></div>
+    <% end %>
   <% end %>
 <% end %>
- <span class="content">The following items have no actions, yet.</span>
- <ol class="microposts">
-  <% for item_meeting in @meeting.item_meetings.all%>
-	  <% if item_meeting.aktion %>
-	  <% else %>
-	<% if item_meeting.agendable_type == "Item" %>
-	<li>
-			<span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %>	
-			<% if current_user && current_user.admin? %>
-			  &nbsp;|&nbsp;<%= link_to "Add an action", 
-						new_meeting_aktion_path(item_meeting.meeting)+"?agendable_type=item&agendable_id="+item_meeting.agendable_id.to_s %>
-			<% end %>
-			</span>
-		</li>
-	<% elsif item_meeting.agendable_type == "MeetingText" && item_meeting.agendable.action_required %>
+<span class="content">The following items have no actions, yet.</span>
+  <ol class="microposts">
+    <% for item_meeting in @meeting.item_meetings.all%>
+      <% if item_meeting.aktion %>
+      <% else %>
+        <% if item_meeting.agendable_type == "Item" %>
+          <li>
+	    <span class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %>	
+	    <% if current_user && current_user.admin? %>
+	      &nbsp;|&nbsp;<%= link_to "Add an action", 
+		     new_meeting_aktion_path(item_meeting.meeting)+"?agendable_type=item&agendable_id="+item_meeting.agendable_id.to_s %>
+            <% end %>
+	    </span>
+          </li>
+        <% elsif item_meeting.agendable_type == "MeetingText" && item_meeting.agendable.action_required %>
 	  <li>
-	  <span class="content"><%= item_meeting.agendable.name %>
-		  	<% if current_user && current_user.admin? %>
-			  &nbsp;|&nbsp;<%= link_to "Add an action", 
-						new_meeting_aktion_path(item_meeting.meeting)+"?agendable_type=item&agendable_id="+item_meeting.agendable_id.to_s %>
-			<% end %>
-		</li>
-	<% end %>
-	<% end %>
-  <% end %>
-</ol>
+	    <span class="content"><%= item_meeting.agendable.name %>
+	    <% if current_user && current_user.admin? %>
+	        &nbsp;|&nbsp;<%= link_to "Add an action", 
+		    new_meeting_aktion_path(item_meeting.meeting)+"?agendable_type=item&agendable_id="+item_meeting.agendable_id.to_s %>
+	    <% end %>
+	  </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+
+

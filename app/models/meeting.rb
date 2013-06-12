@@ -37,6 +37,9 @@ class Meeting < ActiveRecord::Base
   has_many :item_meetings
   has_many :agendables, :through => :item_meetings
 
+  has_many :action_meetings
+  has_many :reportables, :through => :action_meetings
+
   has_many :action_item_meetings, :through => :item_meetings
 
   has_many :activity_logs, :as => :owner
@@ -51,7 +54,7 @@ class Meeting < ActiveRecord::Base
   belongs_to :updater,     :class_name => 'User'
    
   def name
-    self.date
+    self.date.strftime("%m/%d/%y")
   end
   
   def validate_committee
@@ -65,7 +68,7 @@ class Meeting < ActiveRecord::Base
   end
 
    def name_date_string
-     self.committee_names_string + " (" + self.name.strftime("%m/%d/%Y") + ")"
+     self.committee_names_string + " (" + self.date.strftime("%m/%d/%Y") + ")"
    end
 
    def members_names_string
@@ -75,4 +78,31 @@ class Meeting < ActiveRecord::Base
   def potential_items
     Item.all
   end
+
+  def item_item_meetings
+    item_meetings.all(:conditions => ["agendable_type = 'Item'"])
+  end
+
+  def items
+    item_item_meetings.collect { |x| Item.find_by_id(x.agendable_id) }
+  end
+
+  def items_with_actions
+    item_meetings_for_actions = action_item_meetings.collect { |x| ItemMeeting.find_by_id(x.item_meeting_id) }
+    item_meetings_for_actions.select { |x| x.agendable_type = "Item" }.collect { |i| Item.find_by_id(i.agendable_id) }
+  end
+
+  def items_without_actions
+    items - items_with_actions
+  end
+
+  def agenda_texts
+    meeting_texts.select { |x| x['kind']=="Agenda" }
+  end
+
+  def agenda_texts
+    meeting_texts.select { |x| x['kind']=="Report" }
+  end
+
+
 end

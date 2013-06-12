@@ -1,13 +1,23 @@
-.center.hero-unit
-  %h1 Welcome to Open Docket
-  %h2 This is the home page for the Open Docket application.
-  %ul(class="committees")
-  - @committees.each do |committee| 
-    %li
+.hero-unit
+  %h1 Welcome to Open Docket/Newton
+  %h2 This is a prototype docket management system for Newton, MA.
+  %div(style="width:400px; float: left; text-align:left")
+    Committees
+    - @committees.each do |committee| 
+      %div(style="text-align:left;")
       = link_to committee.name, committee 
-  /     Current user causes failure when user is not logged in
+    /     Current user causes failure when user is not logged in
   /      - if current_user.admin? 
   /        = " | "
   /        = link_to "edit", edit_committee_path(committee.id)
-  = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
+  %div(style="width:400px; float:left; text-align:left; padding-bottom: 20px;")
+    Upcoming Meetings
+    - @meetings.each do |meeting| 
+      %div(style="text-align:left;")
+      = link_to meeting.name_date_string, meeting 
+    /     Current user causes failure when user is not logged in
+  /      - if current_user.admin? 
+  /        = " | "
+  /        = link_to "edit", edit_committee_path(committee.id)
+  /  = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
   = link_to image_tag("OpenDocket_02.png", alt: "Open Docket"), 'http://opendocket.org/'

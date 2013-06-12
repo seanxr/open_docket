@@ -43,6 +43,7 @@ class Item < ActiveRecord::Base
   has_many :committees, through: :dockets, source: :committee
   has_many :item_meetings, :as => :agendable
   has_many :meetings, through: :item_meetings, :as => :agendable
+  has_many :action_item_meetings, through: :item_meetings, :as => :agendable
 
   scope :by_name, lambda{ |name| where(name: name) unless name.nil? }
 

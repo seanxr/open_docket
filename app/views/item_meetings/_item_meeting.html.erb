@@ -12,7 +12,7 @@
 <% else %>
   <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
     <span class="content">
-    <%= item_meeting.agendable.meeting_text %></span>
+    <%= item_meeting.agendable.text %></span>
   </li>
 <% end %>
 <% else %>
@@ -48,7 +48,7 @@
       <% if current_user && current_user.admin? %>
         <div class="handle" style="color: green;cursor:move;">[drag]</div>
       <% end %>
-    <%= item_meeting.agendable.meeting_text %></div>
+    <%= item_meeting.agendable.text %></div>
   </li>
 <% end %>
 <% end %>

@@ -403,20 +403,20 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
     log =  ActivityLog.create(:activity_id => activity.id, :owner_type => "Committee", :owner_id => 1) }
 
     meetingtexts = [["Public Hearings will be held on the following items, after which if the hearings are closed the committee will convene a working session:",
-                     1, "2012-12-14"],
+                     1, "2012-12-14", "Agenda"],
                     ["Respectfully submitted,",
-                     1, "2012-12-14"],
-                    ["Ted-Hess Mahan", 1, "2012-12-14"]
+                     1, "2012-12-14", "Agenda"],
+                    ["Ted-Hess Mahan", 1, "2012-12-14", "Agenda"]
     ]
 
-    meetingtexts.each { | meeting_text, meeting_id |
+    meetingtexts.each { | text, meeting_id, date, kind |
 
-    meetingtext = MeetingText.new(:meeting_text => meeting_text, :meeting_id => meeting_id)
+    meetingtext = MeetingText.new(:text => text, :meeting_id => meeting_id, :kind => kind)
     meetingtext.creator_id = 1
     meetingtext.updater_id = 1
     meetingtext.save
     activity = Activity.create(
-        :message => "Meeting text added to #{Meeting.find_by_id(meetingtext.meeting_id).date} meeting: #{meetingtext.meeting_text}",
+        :message => "#{kind} text added to #{Meeting.find_by_id(meetingtext.meeting_id).date} meeting: #{meetingtext.text}",
         :activity_type => "NewMeetingText", :date_actual => Meeting.find_by_id(meetingtext.meeting_id).date)
     ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meetingtext.meeting_id)}
 

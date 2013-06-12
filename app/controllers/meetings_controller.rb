@@ -91,6 +91,7 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.find(params[:id])
     @item_meetings = @meeting.item_meetings.order('position ASC')
+    @action_meetings = @meeting.action_meetings.order('position ASC')
     @documents = @meeting.documents
     @parent = @meeting
     @activities = @meeting.activities

@@ -13,8 +13,10 @@ class AktionsController < ApplicationController
 
   def create
     @item_meetings = params[:item_meetings_attributes]
-    params[:aktion][:action_item_meetings_attributes] = params[:item_meetings_attributes].map{
-       |x| {"item_meeting_id" => x, "creator_id" => current_user.id, "updater_id" => current_user.id}}
+    if params[:aktion][:action_item_meetings_attributes]
+      params[:aktion][:action_item_meetings_attributes] = params[:item_meetings_attributes].map{
+         |x| {"item_meeting_id" => x, "creator_id" => current_user.id, "updater_id" => current_user.id}}
+    end
     @action = Aktion.new(params[:aktion])
     @action.creator_id = current_user.id
     @action.updater_id = current_user.id
@@ -86,6 +88,5 @@ class AktionsController < ApplicationController
       render 'edit'
     end
   end
-
 
 end

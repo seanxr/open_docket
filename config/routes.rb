@@ -1,5 +1,7 @@
 OpenDocket::Application.routes.draw do
 
+  get "action_meetings/new"
+
   get "attendance_texts/new"
 
 #  get "memberships/new"
@@ -80,6 +82,7 @@ OpenDocket::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
   match 'item_meetings/reorder' => 'item_meetings#reorder', :as => 'item_meetings_reorder', :via => :get
+  match 'action_meetings/reorder' => 'action_meetings#reorder', :as => 'action_meetings_reorder', :via => :get
 
 #  get "documents/new"
 

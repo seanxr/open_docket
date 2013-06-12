@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: attendance_text
+# Table name: attendance_texts
 #
 #  id         :integer          not null, primary key
 #  text       :text
@@ -23,10 +23,13 @@ class AttendanceText < ActiveRecord::Base
   validates :meeting_id, presence: true
   validates_uniqueness_of :meeting_id
 
-  def save_with_activity 
+  def save_with_activity(current_user) 
 
     AttendanceText.transaction do
       self.save!
+      ActionMeeting.create!(
+        :meeting_id => meeting.id, :reportable_id => id, :reportable_type => "AttendanceText",
+        :creator_id => current_user.id, :updater_id => current_user.id)
       activity = Activity.create!(
         :message => "Attendance text added to #{meeting.date.strftime("%m/%d/%y")} meeting.",
         :note => "#{text}",
@@ -37,9 +40,9 @@ class AttendanceText < ActiveRecord::Base
 
   def name
     if text.length > 50
-      "Attendance text: "+ text[0..50]+"..."
+      text[0..50]+"..."
     else
-      "Attendance text: "+ text
+      text
     end
   end
 

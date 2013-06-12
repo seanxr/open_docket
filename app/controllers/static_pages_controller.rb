@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     @committees = Committee.all
+    @meetings = Meeting.all
   end
 
   def help

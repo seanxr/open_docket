@@ -5,13 +5,16 @@
   <div class="span6 offset3">
 
     <%= form_for(@action) do |f| %>
+    <%= render :partial => 'shared/error_messages', :locals => {:object => @action} %>
 
       <%= f.hidden_field 'meeting_id', :value => params[:meeting_id] %>
+      <%= f.label :action %>
+      <%= f.text_area :action, :size => "60x4" %>
       <%= f.label :discussion %>
       <%= f.text_area :discussion, :size => "60x12" %>
 
       <span>Select item or items.</span><br/>
-      <% for item_meeting in @meeting.item_meetings.each %>
+      <% for item_meeting in @meeting.item_item_meetings.each %>
           <% if @item && (item_meeting.agendable_id == @item.id) %>
             <%= check_box_tag( "[item_meetings_attributes][]", item_meeting.id, true) %> 
             <%= item_meeting.agendable.name %>

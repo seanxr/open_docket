@@ -1,0 +1,64 @@
+<% if @parent == "report" %>
+      <div style="width:800px; padding-bottom: 10px; margin-bottom:10px;">
+      <% if action_meeting.reportable_type == "Aktion" %>
+	      <div id="itemnumber" style="width:100px; float:left;">
+      	             <% action = Aktion.find_by_id(action_meeting.reportable_id) %>
+		     <% for item_meeting in action.item_meetings %>
+			     <div><%= link_to "#"+ item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></div>
+	              <% end %>
+	     </div>
+        <div id="description" style="width:700px; float: left;">
+          <span class="content"><%= item_meeting.agendable.requested_by %></span>
+          <span class="content"><%= item_meeting.agendable.address %></span>
+          <span class="content"><%= item_meeting.agendable.request %></span>
+        </div>
+        <div id="action_label" style="width:100px; float: left;">Action</div>
+        <div id="action" style="width:700px; float:left;"><%= action.action %></div>
+        <div id="action_label" style="width:800px; float: left;"><%= action.discussion %></div>
+	<% elsif action_meeting.reportable_type == "AttendanceText" %>
+          <% attendancetext = AttendanceText.find_by_id(action_meeting.reportable_id) %>
+         <div style="padding-bottom:10px"><%= attendancetext.text %></div>
+      <% elsif action_meeting.reportable_type == "MeetingText" %> 
+	<div id="text" style="width:800px;float:left;"><%= MeetingText.find_by_id(action_meeting.reportable_id).text %></div>
+      <% end %>
+    </div>
+    <% else %>
+    <% if action_meeting.reportable_type == "AttendanceText" %>
+      <li class="action_meeting" id="action_meetings_<%= action_meeting.id %>">
+      <% if current_user && current_user.admin? %>
+        <span class="handle2" style="color: green;cursor:move;">[drag]</span>
+      <% end %>
+         <% attendancetext = AttendanceText.find_by_id(action_meeting.reportable_id) %>
+         <div style="padding-bottom:10px"><%= attendancetext.text %></div>
+       </li>
+    <% elsif action_meeting.reportable_type == "MeetingText" %>
+      <li class="action_meeting" id="action_meetings_<%= action_meeting.id %>">
+      <% if current_user && current_user.admin? %>
+        <span class="handle2" style="color: green;cursor:move;">[drag]</span>
+      <% end %>
+         <% meetingtext = MeetingText.find_by_id(action_meeting.reportable_id) %>
+         <div style="padding-bottom:10px"><%= meetingtext.text %></div>
+       </li>
+     <% elsif action_meeting.reportable_type == "Aktion" %>
+       <li class="action_meeting" id="action_meetings_<%= action_meeting.id %>">
+         <% if current_user && current_user.admin? %>
+           <span class="handle2" style="color: green;cursor:move;">[drag]</span>
+         <% end %>
+      <% action = Aktion.find_by_id(action_meeting.reportable_id) %>
+      <% for item_meeting in action.item_meetings %>
+	<div class="content"><%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></div>
+      <% end %>
+      <% if current_user && current_user.admin? %>
+        <span><%= link_to "Edit action", edit_aktion_path(action)%></span>
+      <% end %>
+      <div><%= action.action %></div>
+      <% if action.discussion.size > 250 %>
+        <a class="toggle" href="javascript:void(0);">Expand/collapse</a>&nbsp;	
+        <div class="content" style="padding-bottom:10px"><%= action.discussion[0..200] %> ...</div>
+        <div class="contentfull" style="display:none; padding-bottom:10px"><%= action.discussion %></div>
+      <% else %>
+        <div class="content" style="padding-bottom:10px"><%= action.discussion %></div>
+      <% end %>
+    <% end %>
+    </li>  
+<% end %>

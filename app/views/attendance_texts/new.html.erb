@@ -6,7 +6,6 @@
 
     <%= form_for([@meeting, @attendance_text]) do |f| %>
 
-      <%= f.hidden_field 'meeting_id', :value => params[:meeting_id] %>
       <%= f.label :text %>
       <%= f.text_area :text, :value => @meeting.members_names_string,  :size => "60x4" %>
 

@@ -6,5 +6,11 @@
 <div><%= @meeting.committee_names_string %> Report </div>
 <div><%= @meeting.date.strftime("%A, %B %-d, %Y") %></div>
 </div>
-<div><%= @meeting.attendance_text.text %></div>
-<div><%= render :partial => 'aktions/aktion' %></div>
+<div>        <% if @meeting.action_meetings.any? %>
+          <ol id="action_meetings" class="microposts">
+            <%= render @meeting.action_meetings.order('position ASC') %>
+          </ol>
+        <% else %>
+            No report yet.
+        <% end %> 
+</div>

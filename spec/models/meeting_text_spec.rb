@@ -4,12 +4,13 @@
 #
 #  id              :integer          not null, primary key
 #  meeting_id      :integer
-#  meeting_text    :text
+#  text            :text
 #  action_required :integer
 #  creator_id      :integer
 #  updater_id      :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  kind            :string(255)
 #
 
 require 'spec_helper'

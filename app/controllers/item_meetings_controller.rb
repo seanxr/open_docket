@@ -21,11 +21,11 @@ class ItemMeetingsController < ApplicationController
 #    @potential_meetings = @agendable.potential_meetings
 
     if @item_meeting.save
-      @activity1 = Activity.create(
+      @activity = Activity.create(
                 :message => "Item #{@item_meeting.agendable.name} added to #{@item_meeting.meeting.committee_names_string} #{@item_meeting.meeting.name} meeting by #{@item_meeting.assigner.name}.",
                 :activity_type => "ItemToMeeting", :date_actual => Date.today)
-      ActivityLog.create(:activity_id => @activity1.id, :owner_type => @item_meeting.agendable.class.name, :owner_id => @item_meeting.agendable.id) 
-      ActivityLog.create(:activity_id => @activity1.id, :owner_type => "Meeting", :owner_id => @item_meeting.meeting.id) 
+      ActivityLog.create(:activity_id => @activity.id, :owner_type => @item_meeting.agendable.class.name, :owner_id => @item_meeting.agendable.id) 
+      ActivityLog.create(:activity_id => @activity.id, :owner_type => "Meeting", :owner_id => @item_meeting.meeting.id) 
       flash[:success] = "You have successfully added item #{@item_meeting.agendable.name} to the #{@item_meeting.meeting.committee_names_string} #{@item_meeting.meeting.date} meeting!"
       redirect_to session[:return_to] 
 #     redirect_to @agendable
