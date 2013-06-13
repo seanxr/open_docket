@@ -17,7 +17,7 @@ class Aktion < ActiveRecord::Base
 
   validates :meeting_id, presence: true
   validates :action, presence: true
-  validate :require_one_item
+#  validate :require_one_item
 
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'

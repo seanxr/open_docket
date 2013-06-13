@@ -1,5 +1,5 @@
 <% provide(:title, @meeting.date) %>
-<span class ="title"> <%= link_to "Back to meeting page", meeting_path(@meeting) %></span></br></br>
+<div class ="noprint"> <%= link_to "Back to meeting page", meeting_path(@meeting) %></div>
 <div class ="title" style="text-align:center;font-weight:bold; padding-bottom:20px;">
 	<div>City of Newton</div>
 <div class ="title">In Board of Alderman</div>
@@ -7,9 +7,7 @@
 <div><%= @meeting.date.strftime("%A, %B %-d, %Y") %></div>
 </div>
 <div>        <% if @meeting.action_meetings.any? %>
-          <ol id="action_meetings" class="microposts">
             <%= render @meeting.action_meetings.order('position ASC') %>
-          </ol>
         <% else %>
             No report yet.
         <% end %> 

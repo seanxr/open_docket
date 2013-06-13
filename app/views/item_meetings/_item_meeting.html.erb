@@ -1,19 +1,20 @@
 <% meeting = item_meeting.meeting %>
 <% if @parent == "agenda" %>
   <% if item_meeting.agendable_type == "Item" %>
-  <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
-    <span class="content">
+    <div style="float:left; width:800px;padding-bottom:10px;">
+    <div class="item_meeting" id="item_meetings_<%= item_meeting.id %>" style="float:left; width:100px;"> 
       <%= link_to item_meeting.agendable.name, item_path(item_meeting.agendable_id) %>
-    </span>
-    <span class="content"><%= item_meeting.agendable.requested_by %></span>
-    <span class="content"><%= item_meeting.agendable.address %></span>
-      <span class="content"><%= item_meeting.agendable.request %></span>
-  </li>
+    </div>
+    <div  style="float:left; width:700px;">
+    <div class="content"><%= item_meeting.agendable.requested_by %></div>
+    <div class="content"><%= item_meeting.agendable.address %></div>
+    <div class="content"><%= item_meeting.agendable.request %></div>
+  </div>
+</div>
 <% else %>
-  <li class="item_meeting" id="item_meetings_<%= item_meeting.id %>">
-    <span class="content">
-    <%= item_meeting.agendable.text %></span>
-  </li>
+    <div  style="float:left; width:800px;padding-bottom:10px;">
+    <%= item_meeting.agendable.text %></div>
+  </div>
 <% end %>
 <% else %>
   <% if item_meeting.agendable_type == "Item" %>
@@ -48,7 +49,13 @@
       <% if current_user && current_user.admin? %>
         <div class="handle" style="color: green;cursor:move;">[drag]</div>
       <% end %>
-    <%= item_meeting.agendable.text %></div>
+      <%= item_meeting.agendable.text %>      
+      <% if current_user && current_user.admin? %>
+        &nbsp;|&nbsp;<%= link_to "Remove from meeting", [meeting, item_meeting], method: :delete,
+          data: { confirm: "You sure?" },
+          title: "Title" %>
+        <% end %>
+      </div>
   </li>
 <% end %>
 <% end %>

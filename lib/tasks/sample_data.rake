@@ -636,9 +636,7 @@ Alderman Crossley suggested that the petitioners install a bike rack. The commit
 for a copy of the 1973 special permit. Alderman Fischman moved to hold the petition, which 
 motion carried 7-0.", 2, 1, 3],
    ["ACTION: HEARING CLOSED; HELD 7-0",
-"NOTE: This petition was presented by attorney Franklin Stearns of K&L Gates and director of design and planning Richard Askin of WS Development. There are a number of special permits on this 18-acre site, the most recent in 2011 rezoned the site to Business 4, allowed reconstruction for a portion of 33 Boylston Street, reduced the total number of required parking stalls, and included multiple site improvements such as reconfiguring parking stalls, changes to landscaping, sidewalks, and lighting. The former Bloomingdale's Macy's building at 55 Boylston Street is also currently under reconstruction. When completed it will contain a Cinema de Lux, The Sports Club/LA, a restaurant(s), and retail uses. The petitioner is seeking approval of a comprehensive sign package for the new shopping center, which is being re-branded as The Street Chestnut Hill. The Urban Design Commission spent three meetings reviewing the sign 
-package and the petitioner made a number of changes in response to its comments and 
-suggestions. Alderman Fuller asked whether the colors will be those shown in the submittal. 
+"NOTE: This petition was presented by attorney Franklin Stearns of K&L Gates and director of design and planning Richard Askin of WS Development. There are a number of special permits on this 18-acre site, the most recent in 2011 rezoned the site to Business 4, allowed reconstruction for a portion of 33 Boylston Street, reduced the total number of required parking stalls, and included multiple site improvements such as reconfiguring parking stalls, changes to landscaping, sidewalks, and lighting. The former Bloomingdale's Macy's building at 55 Boylston Street is also currently under reconstruction. When completed it will contain a Cinema de Lux, The Sports Club/LA, a restaurant(s), and retail uses. The petitioner is seeking approval of a comprehensive sign package for the new shopping center, which is being re-branded as The Street Chestnut Hill. The Urban Design Commission spent three meetings reviewing the sign package and the petitioner made a number of changes in response to its comments and suggestions. Alderman Fuller asked whether the colors will be those shown in the submittal. 
 There was no public comment. 
 The petitioner's presentation was very thorough and the submittal very detailed but because of 
 the scope and several of the types of signs proposed the committee agreed it was not prepared to 
@@ -1242,10 +1240,10 @@ Alderman Laredo's motion to approve carried unanimously.", 24, 10, 36],
    aktion.updater_id = 1
    aktion.save
    meeting = Meeting.find_by_id(meeting_id)
-   actionitemmeeting = ActionItemMeeting.new(:aktion_id => aktion.id, :item_meeting_id => item_meeting_id)
-   actionitemmeeting.creator_id = 1
-   actionitemmeeting.updater_id = 1
-   actionitemmeeting.save
+   actionmeeting = ActionMeeting.new(:meeting_id => meeting_id, :reportable_id => aktion.id, :reportable_type => "Aktion")
+   actionmeeting.creator_id = 1
+   actionmeeting.updater_id = 1
+   actionmeeting.save
    activity = Activity.create(
         :message => "Action at #{meeting.date.strftime("%m/%d/%y")} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}.",
         :note => " #{action} #{discussion}",

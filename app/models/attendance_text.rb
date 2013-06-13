@@ -14,7 +14,6 @@
 class AttendanceText < ActiveRecord::Base
   attr_accessible :creator_id, :meeting_id, :text, :updater_id
 
-  has_one :meeting
   belongs_to :meeting
 
   belongs_to :creator,     :class_name => 'User'

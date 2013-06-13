@@ -1,13 +1,12 @@
 <% provide(:title, @meeting.date) %>
-<span> <%= link_to "Back to meeting page", meeting_path(@meeting) %></br></br>
-<span>City of Newton</span></br>
-<span>In Board of Alderman</span></br>
-<span><%= @meeting.committee_names_string %> Agenda</span></br>
-<span><%= @meeting.date.strftime("%A, %B %-d, %Y") %></span></br>
-<span><%= @meeting.time.strftime("%l:%M %p") %></span></br>
-<span><%= @meeting.room.name %></span></br>
-<span>Newton City Hall</span></br></br>
-<div>		  <%= render @meeting.item_meetings.order('position ASC') %>
-	  </div>
-	  <div style="float:left">The location of this meeting is handicap accessible, and reasonable accommodations will be provided to persons requiring assistance. If you have a special accommodation need, please contact the Newton ADA Coordinator Trisha Guditz, 617 796-1156, via email at <a href="mailto:tguditz@newtonma.gov">TGuditz@newtonma.gov</a> or via TDD/TTY at 617 796-1089 at least two days in advance of the meeting date.</div>
-
+<div class ="noprint"> <%= link_to "Back to meeting page", meeting_path(@meeting) %></div>
+<div class ="title" style="text-align:center;font-weight:bold; padding-bottom:20px; width:800px;">
+	<div>City of Newton</div>
+<div class ="title">In Board of Alderman</div>
+<div><%= @meeting.committee_names_string %> Agenda
+</div>
+</div>
+<div style="width:800px;bottom-padding:20px;">
+  <%= render @meeting.item_meetings.order('position ASC') %>
+</div>
+<div style="width:800px;float:left">The location of this meeting is handicap accessible, and reasonable accommodations will be provided to persons requiring assistance. If you have a special accommodation need, please contact the Newton ADA Coordinator Trisha Guditz, 617 796-1156, via email at <a href="mailto:tguditz@newtonma.gov">TGuditz@newtonma.gov</a> or via TDD/TTY at 617 796-1089 at least two days in advance of the meeting date.</div>          
