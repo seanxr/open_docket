@@ -1,5 +1,7 @@
 OpenDocket::Application.routes.draw do
 
+  get "action_item_meeting/new"
+
   get "action_meetings/new"
 
   get "attendance_texts/new"

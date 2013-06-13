@@ -1,27 +1,30 @@
 <% if @parent == "report" %>
-      <div style="width:800px; padding-bottom: 10px; margin-bottom:10px;">
-      <% if action_meeting.reportable_type == "Aktion" %>
-	      <div id="itemnumber" style="width:100px; float:left;">
-      	             <% action = Aktion.find_by_id(action_meeting.reportable_id) %>
-		     <% for item_meeting in action.item_meetings %>
-			     <div><%= link_to "#"+ item_meeting.agendable.name, item_path(item_meeting.agendable_id) %></div>
-	              <% end %>
-	     </div>
-        <div id="description" style="width:700px; float: left;">
+  <% if action_meeting.reportable_type == "Aktion" %>
+     <% action = Aktion.find_by_id(action_meeting.reportable_id) %>
+     <% for item_meeting in action.item_meetings %>
+       <div style="width:800px; float:left; margin-bottom:10px;">
+	    <div id="itemnumber" style="width:100px; float:left;">
+		    <%= link_to "#"+ item_meeting.agendable.name, item_path(item_meeting.agendable_id) %>
+	    </div>
+        <div id="description" style="width:700px; float:left;">
           <span class="content"><%= item_meeting.agendable.requested_by %></span>
           <span class="content"><%= item_meeting.agendable.address %></span>
-          <span class="content"><%= item_meeting.agendable.request %></span>
-        </div>
-        <div id="action_label" style="width:100px; float: left;">Action</div>
+	  <span class="content"><%= item_meeting.agendable.request %></span>
+	</div>
+     </div>
+     <% end %>
+      <div style="width:800px; float:left; padding-bottom:20px;">
+
+         <div id="action_label" style="width:100px; float: left;">Action</div>
         <div id="action" style="width:700px; float:left;"><%= action.action %></div>
-        <div id="action_label" style="width:800px; float: left;"><%= action.discussion %></div>
+	<div id="action_label" style="width:800px; float:left;"><%= simple_format(action.discussion) %></div>
+     </div>
 	<% elsif action_meeting.reportable_type == "AttendanceText" %>
           <% attendancetext = AttendanceText.find_by_id(action_meeting.reportable_id) %>
-         <div style="padding-bottom:10px"><%= attendancetext.text %></div>
+         <div style="width:800px; float:left; padding-bottom:10px"><%= attendancetext.text %></div>
       <% elsif action_meeting.reportable_type == "MeetingText" %> 
-	<div id="text" style="width:800px;float:left;"><%= MeetingText.find_by_id(action_meeting.reportable_id).text %></div>
+	<div id="text" style="width:800px; float:left;"><%= MeetingText.find_by_id(action_meeting.reportable_id).text %></div>
       <% end %>
-    </div>
     <% else %>
     <% if action_meeting.reportable_type == "AttendanceText" %>
       <li class="action_meeting" id="action_meetings_<%= action_meeting.id %>">

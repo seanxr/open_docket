@@ -14,8 +14,8 @@
       <%= f.text_area :discussion, :size => "60x12" %>
 
       <span>Select item or items.</span><br/>
-      <% for item_meeting in @meeting.item_item_meetings.each %>
-          <% if @item && (item_meeting.agendable_id == @item.id) %>
+      <% for item_meeting in @meeting.item_meetings.each %>
+          <% if @item && (item_meeting.agendable.id == @item.id) %>
             <%= check_box_tag( "[item_meetings_attributes][]", item_meeting.id, true) %> 
             <%= item_meeting.agendable.name %>
           <% else %>

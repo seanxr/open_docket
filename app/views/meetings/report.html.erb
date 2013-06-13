@@ -1,12 +1,13 @@
 <% provide(:title, @meeting.date) %>
 <div class ="noprint"> <%= link_to "Back to meeting page", meeting_path(@meeting) %></div>
-<div class ="title" style="text-align:center;font-weight:bold; padding-bottom:20px;">
+<div class ="title" style="width:800px; text-align:center;font-weight:bold; padding-bottom:20px;">
 	<div>City of Newton</div>
 <div class ="title">In Board of Alderman</div>
 <div><%= @meeting.committee_names_string %> Report </div>
 <div><%= @meeting.date.strftime("%A, %B %-d, %Y") %></div>
 </div>
-<div>        <% if @meeting.action_meetings.any? %>
+<div style="width:800px;padding-bottom:20px;>    
+    	<% if @meeting.action_meetings.any? %>
             <%= render @meeting.action_meetings.order('position ASC') %>
         <% else %>
             No report yet.

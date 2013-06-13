@@ -12,8 +12,8 @@ class AktionsController < ApplicationController
   end
 
   def create
-    @item_meetings = params[:item_meetings_attributes]
-    if params[:aktion][:action_item_meetings_attributes]
+#    @item_meetings = params[:item_meetings_attributes]
+    if params[:item_meetings_attributes]
       params[:aktion][:action_item_meetings_attributes] = params[:item_meetings_attributes].map{
          |x| {"item_meeting_id" => x, "creator_id" => current_user.id, "updater_id" => current_user.id}}
     end

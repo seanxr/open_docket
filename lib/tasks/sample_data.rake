@@ -638,16 +638,7 @@ motion carried 7-0.", 2, 1, 3],
    ["ACTION: HEARING CLOSED; HELD 7-0",
 "NOTE: This petition was presented by attorney Franklin Stearns of K&L Gates and director of design and planning Richard Askin of WS Development. There are a number of special permits on this 18-acre site, the most recent in 2011 rezoned the site to Business 4, allowed reconstruction for a portion of 33 Boylston Street, reduced the total number of required parking stalls, and included multiple site improvements such as reconfiguring parking stalls, changes to landscaping, sidewalks, and lighting. The former Bloomingdale's Macy's building at 55 Boylston Street is also currently under reconstruction. When completed it will contain a Cinema de Lux, The Sports Club/LA, a restaurant(s), and retail uses. The petitioner is seeking approval of a comprehensive sign package for the new shopping center, which is being re-branded as The Street Chestnut Hill. The Urban Design Commission spent three meetings reviewing the sign package and the petitioner made a number of changes in response to its comments and suggestions. Alderman Fuller asked whether the colors will be those shown in the submittal. 
 There was no public comment. 
-The petitioner's presentation was very thorough and the submittal very detailed but because of 
-the scope and several of the types of signs proposed the committee agreed it was not prepared to 
-vote the petition this evening. For example, the wall panel signs proposed for the rear intended 
-to break up the blank wall facing Hammond Pond may change at the discretion of the owner: would they be rented? Could one be used for art or a photograph of the pond or even to reflect 
-the pond? Several committee members thought less might be more. Alderman Crossley said it's 
-a new world and the city's sign ordinance is extremely outdated, but is there too much visual 
-noise? The committee asked the petitioner to break out the purposes of the different types of 
-signs, i.e., identification, way finding, etc. and what each type of sign is meant to tell people. 
-Individual maps might be helpful. Alderman Laredo moved to hold the petition, which motion 
-carried 7-0.", 1, 1, 2],
+The petitioner's presentation was very thorough and the submittal very detailed but because of the scope and several of the types of signs proposed the committee agreed it was not prepared to vote the petition this evening. For example, the wall panel signs proposed for the rear intended to break up the blank wall facing Hammond Pond may change at the discretion of the owner: would they be rented? Could one be used for art or a photograph of the pond or even to reflect the pond? Several committee members thought less might be more. Alderman Crossley said it's a new world and the city's sign ordinance is extremely outdated, but is there too much visual noise? The committee asked the petitioner to break out the purposes of the different types of signs, i.e., identification, way finding, etc. and what each type of sign is meant to tell people. Individual maps might be helpful. Alderman Laredo moved to hold the petition, which motion carried 7-0.", 1, 1, 2],
    ["ACTION: HEARING CLOSED; APPROVED 6-0",
 "NOTE: This petition is an amendment to petition #277-10(3) for which a public hearing was 
 opened and closed on December 11, 2012. Attorneys Jason Rosenberg and Laurance Lee 
@@ -1244,6 +1235,10 @@ Alderman Laredo's motion to approve carried unanimously.", 24, 10, 36],
    actionmeeting.creator_id = 1
    actionmeeting.updater_id = 1
    actionmeeting.save
+   actionitemmeeting = ActionItemMeeting.new(:aktion_id => aktion.id, :item_meeting_id => item_meeting_id)
+   actionitemmeeting.creator_id = 1
+   actionitemmeeting.updater_id = 1
+   actionitemmeeting.save
    activity = Activity.create(
         :message => "Action at #{meeting.date.strftime("%m/%d/%y")} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}.",
         :note => " #{action} #{discussion}",

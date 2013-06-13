@@ -12,16 +12,18 @@
 #  assigner_id     :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  aktion_id       :integer
 #
 
 class ActionMeeting < ActiveRecord::Base
-  attr_accessible :assigner_id, :creator_id, :meeting_id, :position, :reportable_id, :reportable_type, :updater_id
+  attr_accessible :assigner_id, :creator_id, :meeting_id, :position, :reportable_id, :reportable_type, :updater_id, :aktion_id
 
-  has_one :meeting
-  has_one :reportable
+ # has_one :meeting
+ # has_one :reportable
  # has_many :action_item_meeting
  # has_many :aktions, :through => :action_item_meeting
-
+  belongs_to :aktion
+  
   belongs_to :meeting
   belongs_to :reportable, :polymorphic => true
 
@@ -31,8 +33,8 @@ class ActionMeeting < ActiveRecord::Base
 
   validates :reportable_id, presence: true
   validates :reportable_type, presence: true
-  validates :meeting_id, presence: true
-
+#  validates :meeting_id, presence: true
+#  validates :aktion_id, presence: true
   # Needs to be expanded for uniqueness on id and type
 
   validates_uniqueness_of :meeting_id, :scope => [:reportable_id, :reportable_type]

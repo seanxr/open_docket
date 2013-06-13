@@ -24,16 +24,13 @@ class Aktion < ActiveRecord::Base
 
   belongs_to :meeting
   has_many :action_item_meetings
+  has_many :action_meetings
   has_many :item_meetings, :through => :action_item_meetings
   has_many :agendables, :through => :item_meetings
   has_many :committee_meetings, :through => :meeting
   has_many :committees, :through => :committee_meetings
 
-  has_one :action_meeting, :as => :reportable
-#  has_one :meeting, through: :action_meetings, :as => :reportable
-
   accepts_nested_attributes_for :action_item_meetings 
-
 
   def require_one_item
     errors.add(:base, "You must select at least one item") if action_item_meetings.size < 2
