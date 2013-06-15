@@ -9,7 +9,7 @@
           %li= link_to "Docket Items", items_path
           %li= link_to "People", people_path
           %li= link_to "Help", help_path
-          - if signed_in?
+          - if signed_in? && current_user.admin?
             %li#fat-menu.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Admin
@@ -23,6 +23,7 @@
                 %li= link_to "Create Meeting", new_meeting_path
                 %li= link_to "Create Committee", new_committee_path
                 %li= link_to "Create Site", new_site_path
+          - if signed_in?
             %li#fat-menu.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Account

@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_filter :admin_user,     only: [:new, :create, :edit, :update]
 
   def create
+    @conf = Confguration.find_by_id(1)
     @item = Item.new(params[:item])
     @item.creator_id = current_user.id
     @item.updater_id = current_user.id
@@ -10,6 +11,9 @@ class ItemsController < ApplicationController
                 [ {"creator_id" => @item.creator_id, "updater_id" => @item.updater_id, 
                  "code" => "1", "as_of" => params[:status][:as_of] } ]
     if @item.save_with_activities(current_user)
+      @conf = Confguration.find_by_id(1)
+      @conf.item_counter = @conf.item_counter + 1
+      @conf.save
       flash[:success] = "You have succesfully created docket item #{@item.name}!"
       redirect_to @item
     else
@@ -42,6 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @conf = Confguration.find_by_id(1)
     @item = Item.new
     @people = Person.find(:all,:select=>'lname').map(&:lname)
   end

@@ -100,6 +100,9 @@ class Item < ActiveRecord::Base
   def save_with_activities(current_user)
     Item.transaction do
       self.save!
+      @conf = Confguration.find_by_id(1)
+      @conf.item_counter = @conf.item_counter + 1
+      @conf.save!
       activity1 = Activity.create!(
         :message => "Item #{name} entered in OpenDocket by #{current_user.name}",
         :activity_type => "NewItem", :date_actual => Date.today)

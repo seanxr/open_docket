@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613045917) do
+ActiveRecord::Schema.define(:version => 20130615031820) do
 
   create_table "action_item_meetings", :force => true do |t|
     t.integer  "aktion_id"
@@ -100,6 +100,18 @@ ActiveRecord::Schema.define(:version => 20130613045917) do
   end
 
   add_index "committees", ["name"], :name => "index_committees_on_name", :unique => true
+
+  create_table "confgurations", :force => true do |t|
+    t.integer  "item_counter"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "configurations", :force => true do |t|
+    t.integer  "item_counter"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "dockets", :force => true do |t|
     t.integer  "item_id"

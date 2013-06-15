@@ -12,9 +12,10 @@
   /        = link_to "edit", edit_committee_path(committee.id)
   %div(style="width:400px; float:left; text-align:left; padding-bottom: 20px;")
     Upcoming Meetings
-    - @meetings.each do |meeting| 
-      %div(style="text-align:left;")
-      = link_to meeting.name_date_string, meeting 
+    %div(style="width:400px; float:left; text-align:left; padding-bottom: 20px;height:150px;overflow:auto;")
+      - @meetings.each do |meeting| 
+        %div(style="text-align:left;")
+        = link_to meeting.name_date_string, meeting 
     /     Current user causes failure when user is not logged in
   /      - if current_user.admin? 
   /        = " | "

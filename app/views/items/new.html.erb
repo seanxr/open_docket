@@ -5,7 +5,7 @@
     <%= form_for(@item) do |f| %>
 	           
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :value => @conf.item_counter.to_s + "-13" %>
 
       <%= f.label :requested_by %>
       <%= f.text_field :requested_by %>
