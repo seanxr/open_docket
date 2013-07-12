@@ -12,12 +12,13 @@
           <%= f.text_field :date, :value => @meeting.date, class: "date-picker" %>
           <%= f.label :time %>
           <%= f.text_field :time, :value => @meeting.time.strftime("%l:%M %p") %>
+          <%= f.check_box :public_hearing %> &nbsp;Public hearing
         </div>
-
+        <br/>
         <% @sites.each do |site| %>
-          <span><%= site.name %></span><br/>
+          <div><%= site.name %></div>
           <% site.rooms.each do |room| %>
-            <%= f.radio_button :room_id, room.id %> <%= room.name %><br/>
+            <%= f.radio_button :room_id, room.id %> <%= room.name %></br>
           <% end %>
         <% end %>
 
@@ -32,7 +33,8 @@
 <%#         <%= committee.name %>
 <%#         <br/>
 <%#       <% end %>
-        <span>Select a committee or committees for the meeting.</span><br/>
+<br/>
+        <div>Select a committee or committees for the meeting.</div>
         <% for committee in @committees.each %>
           <% if @meeting.committees.include?(committee) %>
              <%= check_box_tag( "[committee_meetings_attributes][]", committee.id, true) %> 

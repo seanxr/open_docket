@@ -11,6 +11,12 @@
   <% else %>
     <h1>Re-open item <%= @parent.name %></h1>
   <% end %>
+<% elsif @parent.class.name == "Meeting" %>
+  <% if @kind == "Agenda" %>
+    <h1>Submit agenda for <%= @parent.name %></h1>
+  <% else %>
+    <h1>Submit report for <%= @parent.name %></h1>
+  <% end %>
 <% else %>
   <h1>Change status on <%= @parent.class.name %> <%= @parent.name %></h1>
 <% end %>
@@ -20,19 +26,19 @@
     <%= render :partial => 'shared/error_messages', :locals => {:object => @status} %>
 
       <%= f.label :statuser_id %>
-      <%= f.text_field :statuser_id %>
+      <%= f.collection_select(:statuser_id, Person.alpha_lname, :id, :name) %>
 
       <%= f.label :as_of %>
-      <%= f.text_field :as_of, :value => Date.today.to_s %>
+      <%= f.text_field :as_of, :value => Date.today, class: "date-picker" %>
 
-      <%= f.hidden_field :code, :value => @newcode %>
+      <%= f.hidden_field :code, :value => @new_code %>
 
       <%= label :activity, :note %>
       <%= text_field :activity, :note %>
 
 <%#      <%= date_select :as_of, {:order => [:year, :month, :day]},  {:class => "date-select"}   %>
 
-      <%= f.submit "Change status", class: "btn btn-large btn-primary" %> <%= link_to "Cancel", @parent %>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %> <%= link_to "Cancel", @parent %>
     <% end %>
   </div>
 </div>

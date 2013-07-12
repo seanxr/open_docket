@@ -80,7 +80,11 @@ namespace :db do
     activity.save
 
     log = ActivityLog.create(:activity_id => activity.id, :owner_type => "Committee", :owner_id => committee.id)}
-    
+
+# item counter
+
+    Confguration.create(:item_counter => 75)
+
 # begin items
 
     items = [["417-12",
@@ -120,67 +124,19 @@ namespace :db do
                "8"],
                ["258-12(2)",
                 "BH NORMANDY RIVERSIDE, LLC/MASSACHUSETTS BAY TRANSPORTATION AUTHORITY",
-                "petition for a SPECIAL PERMIT/SITE 
-PLAN APPROVAL to construct a mixed use, transit oriented development 
-including an office building of approximately 225,000 sq. ft., a residential 
-building containing 290 apartments with 5,000 sq. ft. of retail space, a three story 
-building containing approximately 15,000 sq. ft. of retail space and approximately 
-8,000 sq. ft. of community space, and related site improvements; to permit office 
-use on the ground floor, medical office use, retail and personal establishments of 
-more than 5,000 sq. ft., eating and drinking establishments of more than 5,000 sq. 
-ft. ,retail banking and financial services, and health club establishments on the 
-ground floor; and reduced minimum setbacks of side setback of office building, 
-and front setback of retail/community building; parking facility design standards 
-including stall width, stall depth, maneuvering space for end stalls, minimum 
-width for entrance and exit driveways, tandem stalls, number of required offstreet loading facilities and design standards of same, landscape screening 
-requirements, surfacing and curbing requirements and one foot candle lighting at 
-327 GROVE STREET, Ward 4, on land known as SBL 42, 11, 3A containing 
-approx. 9.4 acres of land in a proposed Mixed Use 3 Transit Oriented Zoned 
-district. (The public hearing, opened on 
-10/16/12, continued on 11/27/12, was closed on 12/18/12.) ",
-   "327 GROVE STREET",
-   "Ref: Sec 30-13(f), Table A Footnote ; 30-13(g); 30-15(v)(1); 30-15, 
-Table 3; 30-19(d)(22); 30-19(h); 30-19(h)(2)a); 30-19(h)(2)b); 30-19(h)(2)e); 30-
-19(h)(4)a); 30-19(h)(5)a); 30-19(i); 30-19(i)(1)a); 30-19(j); 30-19(j)(1)a); 30-
-19(j)(2)d); 30-19(l); 30-19(l)(2); 30-19(l)(3); 30-19(m); 30-23; 30-24; 30-24(i)(7) 
-of the City of Newton Revised Zoning Ord, 2012.",
+                "petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to construct a mixed use, transit oriented development including an office building of approximately 225,000 sq. ft., a residential building containing 290 apartments with 5,000 sq. ft. of retail space, a three story building containing approximately 15,000 sq. ft. of retail space and approximately 8,000 sq. ft. of community space, and related site improvements; to permit office use on the ground floor, medical office use, retail and personal establishments of more than 5,000 sq. ft., eating and drinking establishments of more than 5,000 sq. ft. ,retail banking and financial services, and health club establishments on the ground floor; and reduced minimum setbacks of side setback of office building, and front setback of retail/community building; parking facility design standards including stall width, stall depth, maneuvering space for end stalls, minimum width for entrance and exit driveways, tandem stalls, number of required offstreet loading facilities and design standards of same, landscape screening requirements, surfacing and curbing requirements and one foot candle lighting at 327 GROVE STREET, Ward 4, on land known as SBL 42, 11, 3A containing approx. 9.4 acres of land in a proposed Mixed Use 3 Transit Oriented Zoned district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was closed on 12/18/12.) ",
+                "327 GROVE STREET",
+   "Ref: Sec 30-13(f), Table A Footnote ; 30-13(g); 30-15(v)(1); 30-15, Table 3; 30-19(d)(22); 30-19(h); 30-19(h)(2)a); 30-19(h)(2)b); 30-19(h)(2)e); 30-19(h)(4)a); 30-19(h)(5)a); 30-19(i); 30-19(i)(1)a); 30-19(j); 30-19(j)(1)a); 30-19(j)(2)d); 30-19(l); 30-19(l)(2); 30-19(l)(3); 30-19(m); 30-23; 30-24; 30-24(i)(7) of the City of Newton Revised Zoning Ord, 2012.",
    "4"],
    ["272-12(3)",
     "BH NORMANDY OWNER, LLC",
-   "petition to AMEND Special Permit/Site Plan 
-Approval application #272-12, for which a public hearing was opened on October 
-9, 2012, with respect to EXTENDING a NONCONFORMING STRUCTURE to 
-allow construction of a ramp on the easterly side of the Hotel Indigo at 399 Grove 
-Street, Newton Lower Falls. (The Public Hearing was opened on 11/27/12 
-and closed on 12/18/12.)",
+   "petition to AMEND Special Permit/Site Plan Approval application #272-12, for which a public hearing was opened on October 9, 2012, with respect to EXTENDING a NONCONFORMING STRUCTURE to allow construction of a ramp on the easterly side of the Hotel Indigo at 399 Grove Street, Newton Lower Falls. (The Public Hearing was opened on 11/27/12 and closed on 12/18/12.)",
     "399 Grove Street",
     "Ref: Sec 30-24, 30-23, 30-21(b) of the City of Newton Rev Zoning Ord, 2012. ",
     "4"],
     ["272-12",
      "BH NORMANDY OWNER, LLC",
-     "petition for a SPECIAL PERMIT/SITE PLAN 
-APPROVAL for several improvements to be completed over two phases. The first 
-phase requires a special permit to (1) amend the current site plan by adding a pool 
-deck awning; reconfiguring the delivery and trash pick-up area at the front of the 
-hotel; reconfiguring the existing parking areas; reflecting existing and proposed 
-signage; and reflecting existing wireless communications equipment; (2) extend a 
-nonconforming structure by adding a pool deck awning; (3) obtain waivers for 
-number of parking stalls and parking facility design standards including stall 
-width, stall depth, handicap stall depth, maneuvering space for end stalls, 
-maneuvering space for aisles, maximum width for entrance and exit driveways, 
-landscape screening, interior landscaping, surfacing and curbing, one foot candle 
-lighting, number of bicycle parking spaces, and design of loading facilities; and 
-(4) authorize existing and proposed signage at 399 GROVE STREET, Ward 4.. 
-The second phase anticipates that a portion of the applicant's lot will be conveyed 
-or taken to provide rear access/egress to the proposed Riverside Development. 
-This taking or conveyance would require special permit relief to (6) authorize an 
-FAR greater than 1.0; (7) extend the existing nonconforming lot coverage; (8) 
-obtain relief for the existing nonconforming building (i.e., height, number of 
-stories and loading facility) as the building may be affected by a reduction in lot 
-area; and (9) obtain a waiver for number of required parking stalls; all on land 
-known as Section 42, Block 11, Lot 4 containing approximately 116,650 square 
-feet of land in a Business 5 Zoned district. (The Public Hearing, opened 
-on 10/09/12, continued to 11/27/12, was closed on 12/18/12.)",
+      "petition for a SPECIAL PERMIT/SITE PLAN APPROVAL for several improvements to be completed over two phases. The first phase requires a special permit to (1) amend the current site plan by adding a pool deck awning; reconfiguring the delivery and trash pick-up area at the front of the hotel; reconfiguring the existing parking areas; reflecting existing and proposed signage; and reflecting existing wireless communications equipment; (2) extend a nonconforming structure by adding a pool deck awning; (3) obtain waivers for number of parking stalls and parking facility design standards including stall width, stall depth, handicap stall depth, maneuvering space for end stalls, maneuvering space for aisles, maximum width for entrance and exit driveways, landscape screening, interior landscaping, surfacing and curbing, one foot candle lighting, number of bicycle parking spaces, and design of loading facilities; and (4) authorize existing and proposed signage at 399 GROVE STREET, Ward 4.. The second phase anticipates that a portion of the applicant's lot will be conveyed or taken to provide rear access/egress to the proposed Riverside Development. This taking or conveyance would require special permit relief to (6) authorize an FAR greater than 1.0; (7) extend the existing nonconforming lot coverage; (8) obtain relief for the existing nonconforming building (i.e., height, number of stories and loading facility) as the building may be affected by a reduction in lot area; and (9) obtain a waiver for number of required parking stalls; all on land known as Section 42, Block 11, Lot 4 containing approximately 116,650 square feet of land in a Business 5 Zoned district. (The Public Hearing, opened on 10/09/12, continued to 11/27/12, was closed on 12/18/12.)",
    "399 Grove Street",
    "Ref: Sections 30-15, Table 3; 30-19(d)(3); 30-19(d)(13); 30-19(h); 30-19(h)(2)a); 30-19(h)(2)b); 30-19(h)(2)c); 30-19(h)(2)e); 30-19(h)(3)b); 30-19(h)(4)b); 30-1(i); 30-19(i)(1); 30-19(i)(2); 30-19(j); 30-19(j)(1)a); 30-19(j)(2)e); 30-19(k)(1); 30-19(l); 30-19(m); 30-20(f)(1); 30-20(f)(2); 30-20(f)(9); 30-20(l); 30-21(b); 30-23; 30-24; and 30-26(a)(1) of the City of Newton Revised Zoning Ordinances, 2012. ",
     "4"],
@@ -271,7 +227,8 @@ in order to erect a one-story rear addition; delete the requirement for and refe
 "Sec 30-24, 30-23, 30-21, 30-19(h)(1), 30-19(i)(1)a), and (2), 30-19(j), 30-19(k) of the City of Newton Rev Zoning Ord, 2012",
 "7"], 
 ["144-13",
-"CLAUDIA JOSEPH & SEAN DOHERTY petition for SPECIAL PERMIT/SITE PLAN APPROVAL to EXTEND A NONCONFORMING STRUCTURE by adding a 94.5 sf mudroom at the rear of an existing two-family dwelling and to fill in a 14.5 sf corner of the kitchen at 140 CHURCH STREET, Newton Corner, on land known as SBL 72, 6, 4, containing approx. 9,070 sf of land in a district zoned MULTI RESIDENCE 1. ",
+"CLAUDIA JOSEPH & SEAN DOHERTY",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to EXTEND A NONCONFORMING STRUCTURE by adding a 94.5 sf mudroom at the rear of an existing two-family dwelling and to fill in a 14.5 sf corner of the kitchen at 140 CHURCH STREET, Newton Corner, on land known as SBL 72, 6, 4, containing approx. 9,070 sf of land in a district zoned MULTI RESIDENCE 1. ",
 "140 Church Street",
 "Sec 30-24, 30-23, 30-21(b), 30-15(u), 30-15 Table A of the City of Newton Rev Zoning Ord, 2012",
 ""],
@@ -281,22 +238,83 @@ in order to erect a one-story rear addition; delete the requirement for and refe
 "",
 "",
 ""],
-["61-13",
-"STEPHEN EDSALL/MICHAEL J. CEDRONE",
-"petition for a SPECIAL 
-PERMIT/SITE PLAN APPROVAL to construct 4 attached dwellings in 2 buildings; waive the side setback requirements; and locate a driveway within 10 feet of the side lot line at 288 NEVADA STREET, Ward 1, on land known as SBL 14, 8, 11, containing approx. 50,227 sq. ft. of land in a district zoned MULTI RESIDENCE 1.",
-"288 Nevada Street",
-"Sec. 30-24, 30-23, 30-9(b)(5)a) and b) of the City of Newton Rev Zoning Ord, 2012",
-"1"],
-["258-12(2)",
-"BH NORMANDY RIVERSIDE, LLC/MASSACHUSETTS BAY TRANSPORTATION AUTHORITY",
-"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to construct a mixed use, transit oriented development including an office building of approximately 225,000 sq. ft., a residential 
-building containing 290 apartments with 5,000 sq. ft. of retail space, a three story building containing approximately 15,000 sq. ft. of retail space and approximately 8,000 sq. ft. of community space, and related site improvements; to permit office use on the ground floor, medical office use, retail and personal establishments of more than 5,000 sq. ft., eating and drinking establishments of more than 5,000 sq. ft. ,retail banking and financial services, and health club establishments on the ground floor; and reduced minimum setbacks of side setback of office building, and front setback of retail/community building; parking facility design standards including stall width, stall depth, maneuvering space for end stalls, minimum width for entrance and exit driveways, tandem stalls, number of required offstreet loading facilities and design standards of same, landscape screening requirements, surfacing and curbing requirements and one foot candle lighting at 327 GROVE STREET, Ward 4, on land known as SBL 42, 11, 3A containing approx. 9.4 acres of land in a proposed Mixed Use 3 Transit Oriented Zoned 
-district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was closed on 12/18/12.) 90-Days 6/20/13",
-"327 Grove Street",
-"Sec 30-13(f), Table A Footnote ; 30-13(g); 30-15(v)(1); 30-15, Table 3; 30-19(d)(22); 30-19(h); 30-19(h)(2)a); 30-19(h)(2)b); 30-19(h)(2)e); 30-19(h)(4)a); 30-19(h)(5)a); 30-19(i); 30-19(i)(1)a); 30-19(j); 30-19(j)(1)a); 30-19(j)(2)d); 30-19(l); 30-19(l)(2); 30-19(l)(3); 30-19(m); 30-23; 30-24; 30-24(i)(7) of the City of Newton Revised Zoning Ord, 2012.",
-"4"],
-    ]
+["366-12",
+"Ciccone Motors",
+"Application for a Class 2 Automobile Dealer License",
+"75 Adams Street, Newtonville, MA 02458",
+"",
+""],
+["388-12",
+"Tody's Services, Inc.",
+"Application for a Class 3 Automobile Dealer License",
+"1362 Washington Street, West Newton, MA 02465",
+"",
+""],
+["121-13",
+"Stan's Automotive Inc./Joseph Kammouj",
+"Application for a Class 2 Automobile Dealer License",
+"249 Centre Street, Newton Corner, MA",
+"",
+""],
+["159-13",
+"Sonomo Classics LLC/David M. Rosenberg",
+"Application for a Class 2 Automobile Dealer License",
+"1215 Chestnut Street, Newton Upper Falls, MA 02464",
+"",
+""],
+["176-13",
+"PRESIDENT LENNON in conjunction with Newton Wellesley Hospital",
+"recommending the re-appointment/appointment of the following individuals to the Newton Wellesley Hospital Neighborhood Council pursuant to condition 29 of special permit #470-04 for terms concurrent with the 2012-2013 Board of Aldermen:
+(A) Therese Fitzpatrick
+1935 Beacon Street
+Newton, MA 02468
+(B) Katherine Ballou (new appointee)
+261 Dorset Road
+Newton, MA 02464
+(C) Andree Saulnier
+54 Longfellow Road
+Newton, MA 02462
+(D) Alderman Jay Harney (Ward 4)
+(E) Alderman John Rice (Ward 5)",
+"",
+"",
+""],
+["307-12(2)",
+"WMACH, INC/THE CHEESECAKE FACTORY, INC.",
+"petition to AMEND special permit #307-12, granted on 12/20/12, which permitted three restaurants over 50 seats, waived up to 111 parking stalls, and permitted a sign package which includes secondary signs larger than 50 square feet, in order to construct a 131-square foot enclosed vestibule within the previously permitted 1,118 patio area and to erect two additional secondary signs at 199 BOYLSTON STREET, Ward 7, in a district zoned Business 1",
+"199 Boylston St.",
+"Sec. 30-24, 30-23, 30-11(k), 30-20(f)(2), 30-20(l), 30-21(b) of the City of Newton Rev Zoning Ord, 2012",
+"7",],
+["160-3",
+"ARTHUR X. DUFFY, TRUSTEE OF SYLVAN AVENUE REALTY TRUST",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL for a garage of 973 sq. ft. at 44 SYLVAN AVENUE, West Newton, Ward 2, on land known as SBL 32, 53, 51, containing approximately 43,000 sq. ft. of land in a district zoned Single Residence 1.",
+"44 Sylvan Avenue, West Newton",
+"Sec, 30-24, 30-23, and 30-8(b)(7) of the City of Newton Rev Zoning Ord, 2012.",
+"2",],
+["177-13",
+"SHARON BURNS, FARMSTEAD TABLE /STEPHEN WEISBERG",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to allow more than fifty seats in a restaurant and to waive the eight additional parking spaces required by the proposed additional seats at 71 UNION STREET, Ward 6, Newton Centre, on land known as SBL 61, 36, 8, located in a district zoned Business 1.",
+"71 Union Street",
+"Sec 30-24, 30-23, 30-11(d)(9), 30-19(d)(13), 30-19(m) of the City of Newton Rev Zoning Ord, 2012.", 
+"6"],
+["178-13", 
+"RIVERSIDE CHILDREN'S CENTER /THE UNION CHURCH OF WABAN",
+"petition to AMEND SITE PLAN APPROVAL #704-83, granted on 12/19/83 for a nursery school for no more than 15 children, to increase the enrollment to a maximum of 55 students and for a SPECIAL PERMIT/SITE PLAN APPROVAL to waive 8 parking stalls and for associated waivers including parking within front and side setbacks and within 5' from a street; required dimensions for parking stalls and minimum aisle width; landscape screening and interior landscaping requirements; lighting requirements including waiving barriers at edges of surfaced areas; minimum 3-foot wide curb ramps; bicycle parking facilities at 14 COLLINS ROAD, Ward 5, Waban, on land known as SBL 55, 48, 36 and 37", 
+"14 Collins Road, Waban",
+"Sec 30-24, 30-23, 30-5(a)(3)(d)(iii), 30-19(d)(16), 30-19(h)(1), (2)(a), (2)(b), ( 3)(a), (i)(1), (i)(1)a), (i)(2), (j)(1)a), (j)(1)b), (j)(2)e), (j)(2)f), (k), and 30-19(m) of the City of Newton Rev Zoning Ord, 2012.",
+"5"],
+["179-13",
+"BEECHER TERRACE HOMES, LLC.",
+"petition for SPECIAL PERMIT/SITE PLAN APPROVAL to construct single-family attached dwelling(s) containing 5 units and to waive the 10-foot driveway setback requirements and for a retaining wall greater than 4 feet located within a setback at 22 and 26 BEECHER TERRACE, Ward 6, on land known as SBL 65, 8, 46 and 47, containing a total of 32,826 sf of land in a district zoned MULTI RESIDENCE 1.",
+"22 and 26 Beecher Terrace",
+"Sec 30-24, 30-23, 30-9(b)(5), (a), (b), 30-5(b)(4) of the City of Newton Rev Zoning Ord, 2012.",
+"6"],
+["180-13",
+"SURGE CAPITAL CORPORATION",
+"petition for a SPECIAL PERMIT/SITE PLAN APPROVAL to create garage parking for 2 cars beneath a single-family dwelling currently under construction which will increase the Floor Area Ratio to .48 where .45 is allowed by right at 20 BURRAGE ROAD, Ward 7, on land known as SBL 73, 28, 6, containing approx. 5,771 sf of land in a district zoned SINGLE FAMILY 2.",
+"20 Burrage Road",
+"Sec 30-24, 30-23, 30-15(u) and Table A of the City of Newton Rev Zoning Ord, 2012.", 
+"7",]]
 
     items.each { |name, requested_by, request, address, reference, ward|
     item = Item.new(:name => name, :requested_by => requested_by, :request => request, :address => address, :reference => reference, :ward => ward)
@@ -324,51 +342,127 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
     log = ActivityLog.create(:activity_id => activity.id, :owner_type => "Item", :owner_id => item.id) }
 
     # end items
-    dockets = [[1,1],
-               [1,2],
-               [1,3],
-               [1,4],
-               [1,5],
-               [1,6],
-               [1,7],
-               [1,8],
-               [1,9],
-               [1,10],
-               [1,11],
-               [1,12],
-               [1,13],
-               [1,14],
-               [1,15],
-               [1,16],
-               [1,17],
-               [1,18],
-               [1,19],
-               [1,20],
-               [1,21],
-               [1,22],
-               [1,23],
-               [1,24],
-               [1,25]]
 
-    dockets.each { |committee_id, item_id|
+    # dockets on
+
+    dockets = [[1,1, "2012-12-10"],
+               [1,2, "2012-12-10"],
+               [1,3, "2012-12-10"],
+               [1,4, "2012-12-10"],
+               [1,5, "2012-12-10"],
+               [1,6, "2012-12-10"],
+               [1,7, "2012-12-10"],
+               [1,8, "2012-12-10"],
+               [1,9, "2012-12-10"],
+               [1,10, "2012-12-10"],
+               [1,11, "2012-12-10"],
+               [1,12, "2012-12-10"],
+               [1,13, "2012-12-10"],
+               [1,14, "2012-12-10"],
+               [1,15, "2012-12-10"],
+               [1,16, "2012-12-10"],
+               [1,17, "2012-12-10"],
+               [1,18, "2012-12-10"],
+               [1,19, "2012-12-10"],
+               [1,20, "2012-12-10"],
+               [1,21, "2012-12-10"],
+               [1,22, "2012-12-10"],
+               [1,23, "2012-12-10"],
+               [1,24, "2012-12-10"],
+               [1,25, "2012-12-10"],
+               [1,25, "2012-12-10"],
+               [1,26, "2012-12-10"],
+               [1,27, "2012-12-10"],
+               [1,28, "2012-12-10"],
+               [1,29, "2012-12-10"],
+               [1,30, "2012-12-10"],
+               [1,31, "2012-12-10"],
+               [1,32, "2012-12-10"],
+               [1,33, "2012-12-10"],
+               [1,34, "2012-12-10"],
+               [1,35, "2012-12-10"],
+               [1,36, "2012-12-10"],
+               ]
+
+    dockets.each { |committee_id, item_id, as_of|
     
     docket = Docket.new(:committee_id => committee_id, :item_id => item_id)
     docket.creator_id = 1
     docket.updater_id = 1
     docket.save
-    docket_status = Status.new(code: 1, statused_type: "Docket", statused_id: docket.id, as_of: "2012-12-06")
+    docket_status = Status.new(code: 1, statused_type: "Docket", statused_id: docket.id, as_of: as_of)
     docket_status.creator_id = 1
     docket_status.updater_id = 1
     docket_status.save
 
     activity = Activity.new(
                 :message => "Item ##{Item.find_by_id(item_id).name} added to #{Committee.find_by_id(committee_id).name} docket.",
-                :activity_type => "ItemToDocket", :date_actual => "2012-12-01")
+                :activity_type => "ItemToDocket", :date_actual => as_of)
     activity.creator_id = 1
     activity.updater_id = 1
     activity.save
     log =  ActivityLog.create(:activity_id => activity.id, :owner_type => "Item", :owner_id => item_id) 
     log =  ActivityLog.create(:activity_id => activity.id, :owner_type => "Committee", :owner_id => committee_id)} 
+
+
+    # dockets off
+
+    dockets = [[1,1, "2013-2-10"],
+               [1,3, "2013-2-10"],
+               [1,4, "2013-2-10"],
+               [1,5, "2013-2-10"],
+               [1,6, "2013-2-10"],
+               [1,7, "2013-2-10"],
+               [1,8, "2013-2-10"],
+               [1,9, "2013-2-10"],
+               [1,10, "2013-2-10"],
+               [1,11, "2013-2-10"],
+               [1,12, "2013-2-10"],
+               [1,13, "2013-2-10"],
+               [1,14, "2013-2-10"],
+               [1,15, "2013-2-10"],
+               [1,16, "2013-2-10"],
+               [1,17, "2013-2-10"],
+               [1,18, "2013-2-10"],
+               [1,19, "2013-2-10"],
+               [1,20, "2013-2-10"],
+               [1,21, "2013-2-10"],
+               [1,22, "2013-2-10"],
+               [1,23, "2013-2-10"],
+               [1,24, "2013-2-10"],
+               [1,25, "2013-2-10"],
+               [1,25, "2013-2-10"],
+               [1,26, "2013-2-10"],
+               [1,27, "2013-2-10"],
+               [1,28, "2013-2-10"],
+               [1,29, "2013-2-10"],
+               [1,30, "2013-2-10"],
+               [1,31, "2013-2-10"],
+               [1,32, "2013-2-10"],
+               [1,33, "2013-2-10"],
+               [1,34, "2013-2-10"],
+               [1,35, "2013-2-10"],
+               [1,36, "2013-2-10"],
+               ]
+
+    dockets.each { |committee_id, docket_id, as_of|
+    
+    docket = Docket.find(docket_id)
+    docket_status = Status.new(code: 2, statused_type: "Docket", statused_id: docket_id, as_of: as_of)
+    docket_status.creator_id = 1
+    docket_status.updater_id = 1
+    docket_status.save
+
+    activity = Activity.new(
+                :message => "Item ##{Item.find_by_id(docket.item_id).name} removed from #{Committee.find_by_id(docket.committee_id).name} docket.",
+                :activity_type => "ItemToDocket", :date_actual => as_of)
+    activity.creator_id = 1
+    activity.updater_id = 1
+    activity.save
+    log =  ActivityLog.create(:activity_id => activity.id, :owner_type => "Item", :owner_id => docket.item_id) 
+    log =  ActivityLog.create(:activity_id => activity.id, :owner_type => "Committee", :owner_id => docket.committee_id)} 
+
+
 
     # land use meetings
 
@@ -379,10 +473,13 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
                 ["2013-03-19", "19:00", 1],
                 ["2013-04-02", "19:00", 4],
                 ["2013-04-09", "19:00", 1],
-                ["2013-04-23", "19:00", 4],
+                ["2013-04-23", "19:45", 4],
                 ["2013-05-07", "19:00", 4],
                 ["2013-05-14", "19:00", 1],
-                ["2013-05-21", "19:00", 4]]
+                ["2013-05-21", "19:00", 4],
+                ["2013-06-04", "19:00", 4],
+                ["2013-06-11", "19:00", 1],
+                ["2013-06-18", "19:00", 4]]
 
     meetings.each { |date, time, room_id|
    
@@ -404,12 +501,22 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
 
     meetingtexts = [["Public Hearings will be held on the following items, after which if the hearings are closed the committee will convene a working session:",
                      1, "2012-12-14", "Agenda"],
-                    ["Respectfully submitted,",
-                     1, "2012-12-14", "Agenda"],
-                    ["Ted-Hess Mahan", 1, "2012-12-14", "Agenda"]
-    ]
+                    ["Public Hearings will be held on the following items and if the hearings are closed the Committee will entertain a motion to enter a working session in room 222:", 3, "2013-02-10", "Agenda"],
+                    ["Please note, this evening's discussion will focus on traffic and parking.", 4, "2013-03-02", "Agenda"],
+                    ["Public Hearings will be held on the following items; at the conclusion of the hearings and provided they are closed, the committee will convene in working session in room 222 to discuss petition nos. 59-13, 60-13, 376-1, and possibly 58-13 or 61-13.", 5, "2013-03-15", "Agenda"],
+                    ["Public hearings will be held on the following items, if the hearings are closed and time allows, it is the Chairman's intention to take up petitions #105-13 and #106-13 in working session in room 222:", 7, "2013-04-08", "Agenda"],
+                    ["Please note time.", 8, "2013-04-17", "Agenda"],
+                    ["Request for Consistency Determination re Lot 4 which was the subject of special permit #92-12 granted on August 13, 2012 to Golden Development Corp. for a rear lot subdivision at 112-116 Dedham Street, Ward 5. The petitioner wishes to construct an approximately 4' high retainingwall with a drain pipe behind the wall to capture water runoff coming from two neighboring properties that are upstream from this site.", 9, "2013-04-26", "Agenda"],
+                    ["Public hearings will be held on the following petitions, after which if time allows the committee will hold a working session in room 222.", 10, "2013-05-08", "Agenda"],
+                    ["Application for a Class 2 Automobile Dealer License", 12, "2013-05-24", "Agenda"],
+                    ["Application for a Class 3 Automobile Dealer License", 12, "2013-05-24", "Agenda"],
+                    ["Application for a Class 2 Automobile Dealer License", 12, "2013-05-24", "Agenda"],
+                    ["Application for a Class 2 Automobile Dealer License", 12, "2013-05-24", "Agenda"],
+                    ["Public Hearings will be held on the following items, after which if time allows a working session will be held in room 222:", 13, "2013-06-03", "Agenda"],
+                    ["Public Hearings were held on the following items:", 13, "2013-06-12", "Report",2],
+                    ["The meeting was adjourned at approximately 11:00 PM.", 13, "2013-06-12", "Report", 10], ]
 
-    meetingtexts.each { | text, meeting_id, date, kind |
+    meetingtexts.each { | text, meeting_id, date, kind, position |
 
     meetingtext = MeetingText.new(:text => text, :meeting_id => meeting_id, :kind => kind)
     meetingtext.creator_id = 1
@@ -418,8 +525,52 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
     activity = Activity.create(
         :message => "#{kind} text added to #{Meeting.find_by_id(meetingtext.meeting_id).date} meeting: #{meetingtext.text}",
         :activity_type => "NewMeetingText", :date_actual => Meeting.find_by_id(meetingtext.meeting_id).date)
-    ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meetingtext.meeting_id)}
+    ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meetingtext.meeting_id)
+    if meetingtext.kind == "Report"
+       actionmeeting = ActionMeeting.new(:meeting_id => meeting_id, :reportable_id => meetingtext.id, :reportable_type => "MeetingText", :position => position)
+       actionmeeting.creator_id = 1
+       actionmeeting.updater_id = 1
+       actionmeeting.save
+    end
+    }
 
+# attendance
+
+attendances = [["1", "2013-01-16", "Present: Ald. Hess-Mahan (Chairman), Ald. Laredo, Albright, Crossley, Schwartz, Harney, Fischman; absent: Ald. Merrill; also present: Ald. Fuller
+City staff: Alexandra Ananth, Katie Holmes, Amanda Stout, Eve Tapper (Planning Department), Robert Waddick (Assistant City Solicitor), Linda Finucane (Assistant Clerk of the Board)"],
+              ["2", "2013-02-07", "Present: Ald. Hess-Mahan (Chairman), Ald. Crossley, Laredo, Fischman, and Schwartz; absent: Ald. Harney; 1 vacancy; also present: Ald. Fuller and Baker
+City staff: Alexandra Ananth (Senior Planner), Katy Holmes (Planning), Amanda Stout (Planner), Eve Tapper (Chief Planner for Current Planning), Robert Waddick (Assistant City Solicitor), Linda Finucane (Assistant Clerk of the Board)"],
+              ["3", "2013-02-14", "Present: Ald. Hess-Mahan (Chairman), Ald. Laredo, Albright, Crossley, Fischman, and Harney;
+absent Ald. Schwartz; 1 vacancy; also present: Ald. Lennon
+City staff: Alexandra Ananth (Senior Planner), Ouida Young (Associate City Solicitor), Linda Finucane (Assistant Clerk of the Board)"],
+              ["5", "2013-03-22", "Present: Ald. Hess-Mahan (Chairman), Ald. Laredo, Albright, Fischman, Schwartz, Crossley,and Harney; 1 vacancy; also present: Ald. Ciccone and Lennon
+City staff: Eve Tapper (Chief Planner for Current Planning), Robert Waddick (Assistant City Solicitor), Linda Finucane (Assistant Clerk of the Board of Aldermen)"],
+              ["6", "2013-04-04", "Present: Ald. Hess-Mahan (Chairman), Ald. Laredo, Albright, Harney, Schwartz, and Fischman; absent Ald. Crossley; 1 vacancy; also present: Ald. Gentile
+City staff:Eve Tapper (Chief Planner for Current Planning), Candace Havens (Director of Planning & Development), Linda Finucane (Assistant Clerk of the Board)"],
+              ["7", "2013-04-11", "Present: Ald. Hess-Mahan (Chairman), Ald. Laredo, Harney, Crossley, Schwartz, Fischman, and Albright; 1 vacancy; also present: Ald. Ciccone and Lennon
+City Staff: Alexandra Ananth (Senior Planner), Robert Waddick (Assistant City Solicitor), Linda Finucane (Assistant Clerk of the Board)"],
+              ["9", "2013-05-09", "Present: Ald. Hess-Mahan (Chairman), Ald. Laredo, Albright, Schwartz, Crossley, and Harney; absent: Ald. Fischman; 1 vacancy; also present: Ald. Gentile and Sangiolo
+City staff: Alexandra Ananth (Chief Planner), Ouida Young (Associate City Solicitor), Linda Finucane (Assistant Clerk of the Board of Aldermen)"],
+              ["10", "2013-05-16", "Present: Hess-Mahan (Chairman), Ald. Laredo, Albright, Crossley, Fischman, and Schwartz; absent: Ald. Harney; 1 vacancy; also present: Ald. Lennon and Linsky
+City Staff: Alexandra Ananth (Senior Planner), Robert Waddick (Assistant City Solicitor), Linda Finucane (Assistant Clerk of the Board)"],
+              ["12", "2013-06-06", "Present: Ald. Hess-Mahan (Chairman), Ald. Albright, Crossley, Laredo, Harney, Schwartz, and Fischman; 1 vacancy
+City staff: Alexandra Ananth (Chief Planner for Current Planning), Candace Havens (Director of Planning & Development), Ouida Young (Associate City Solicitor), Linda Finucane (Assistant Clerk of the Board)"],
+              ["13", "2013-06-12", "Present: Ald. Hess-Mahan (Chairman), Ald. Laredo, Albright, Crossley, Schwartz, Fischman, and Harney; 1 vacancy; also present: Ald. Rice
+City staff: Alexandra Ananth (Chief Planner for Current Planning), Robert Waddick (Assistant City Solicitor), Linda Finucane (Assistant Clerk of the Board of Aldermen)"]]
+
+  attendances.each { | meeting_id, date, text |
+  attendancetext = AttendanceText.new(:text => text, :meeting_id => meeting_id)
+  attendancetext.creator_id = 1
+  attendancetext.updater_id = 1
+  attendancetext.save
+  activity = Activity.create(
+                :message => "Attendance text added to #{Meeting.find_by_id(meeting_id).date.strftime("%m/%d/%y")} meeting.",
+                :activity_type => "AttendanceTextAdded", :date_actual => date )
+  ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting_id)
+  actionmeeting = ActionMeeting.new(:meeting_id => meeting_id, :reportable_id => attendancetext.id, :reportable_type => "AttendanceText",
+        :creator_id => 1, :updater_id => 1, :position => 1)
+  actionmeeting.save
+ }
 
 
 # items on meetings
@@ -430,14 +581,14 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
                     ["Item", 3, 1, "2012-12-14", 2],
                     ["Item", 1, 2, "2013-01-17", 2],
                     ["Item", 2, 2, "2013-01-17", 1],
-                    ["Item", 4, 3, "2013-01-14", 1],
-                    ["Item", 5, 3, "2013-01-14", 2],
+                    ["Item", 4, 3, "2013-01-14", 2],
+                    ["Item", 5, 3, "2013-01-14", 3],
                     ["Item", 6, 3, "2013-01-14", 3],
-                    ["Item", 7, 4, "2013-01-14", 1],
-                    ["Item", 8, 4, "2013-02-14", 2],
-                    ["Item", 9, 4, "2013-02-14", 3],
-                    ["MeetingText", 2, 1, "2012-12-14",5],
-                    ["MeetingText", 3, 1, "2012-12-14",6],
+                    ["Item", 7, 4, "2013-01-14", 2],
+                    ["Item", 8, 4, "2013-02-14", 3],
+                    ["Item", 9, 4, "2013-02-14", 4],
+                    ["MeetingText", 2, 3, "2012-12-14",1],
+                    ["MeetingText", 3, 4, "2012-12-14",1],
                     ["Item", 10, 5, "2013-03-14", 1],
                     ["Item", 11, 5, "2013-03-14", 2],
                     ["Item", 12, 5, "2013-03-14", 3],
@@ -462,7 +613,32 @@ district. (The public hearing, opened on 10/16/12, continued on 11/27/12, was cl
                     ["Item", 24, 10, "2013-05-06", 6],
                     ["Item", 25, 11, "2013-05-13", 1],
                     ["Item", 7, 11, "2013-05-13", 2],
-                     ]
+                    ["MeetingText", 4, 5, "2012-12-14",1],
+                    ["MeetingText", 5, 7, "2012-12-14",1],
+                    ["MeetingText", 6, 8, "2012-12-14",1],
+                    ["MeetingText", 7, 9, "2012-12-14",1],
+                    ["MeetingText", 8, 10, "2012-12-14",1],
+                    ["MeetingText", 9, 12, "2012-12-14",1],
+                    ["MeetingText", 10, 12, "2012-12-14",3],
+                    ["MeetingText", 11, 12, "2012-12-14",5],
+                    ["MeetingText", 12, 12, "2012-12-14",7],
+                    ["MeetingText", 13, 13, "2012-12-14",1],
+                    ["Item", 26, 12, "2013-05-23", 2],
+                    ["Item", 27, 12, "2013-05-23", 4],
+                    ["Item", 28, 12, "2013-05-23", 6],
+                    ["Item", 29, 12, "2013-05-23", 8],
+                    ["Item", 21, 12, "2013-05-23", 9],
+                    ["Item", 30, 12, "2013-05-23", 10],                    
+                    ["Item", 31, 13, "2013-06-03", 2],                     
+                    ["Item", 32, 13, "2013-06-03", 3], 
+                    ["Item", 33, 13, "2013-06-03", 4], 
+                    ["Item", 34, 13, "2013-06-03", 5], 
+                    ["Item", 35, 13, "2013-06-03", 6], 
+                    ["Item", 36, 13, "2013-06-03", 7],
+                    ["Item", 7, 14, "2013-06-08", 1],
+                    ["Item", 9, 14, "2013-06-08", 2],
+                    ["Item", 8, 14, "2013-06-08", 3],
+    ]
 
     itemmeetings.each { |agendable_type, agendable_id, meeting_id, date_actual, position|
 
@@ -579,7 +755,6 @@ documents = [["http://www.newtonma.gov/civica/filebank/blobdload.asp?BlobID=4872
       end
     end }
 
-
  
 
 # actions
@@ -590,51 +765,16 @@ In working session, Ms. Holmes reviewed the relief requested. She pointed out th
     ["ACTION: HEARING CLOSED; HELD 7-0",
 "NOTE: The petition was presented by property owner Wally Zainoun and petitioner Debra Bennett who operates Core Harmony, the yoga and life coaching business for which they are seeking to locate four parking stalls in the front setback and to erect a freestanding sign to replace the existing blade sign that extends out from the building. (The proposed sign has been reduced from 25 square feet to 15 square feet, the limit allowed by special permit.) See the attached PowerPoint.In addition, Mr. Zainoun is requesting relief to allow office, service, and retail use and/or medical office in the event the second space, currently occupied by TNM Realty, in this legally nonconforming commercial building becomes vacant without the need to amend a special permit and to waive the two parking stalls that would be required for a future conversion to medical office use. Mr. Zainoun said this request was prompted by an inquiry from a husband and wife, both dentists, looking to open a small dental office. Located in a Multi Residence 1 District, the building was constructed in 1922 prior to zoning. Historically, the building has housed two tenants, which over the years have included a grocer, drug store, gift shop (for which a special permit was granted in 1973), insurance office, and poster shop. TNM Realty is located in the east side of the building and Core Harmony in the west side.Ms. Bennett has operated a virtual business out of her home for the past 14 years. She decided to open a studio to offer clients open classes at a lower cost. Classes include yoga, Pilates, fitness, wellness, weight loss, and relationships, as well as small business services, coaching, consulting, and web design. She plans to continue providing in-home and virtual corporate services. Given the size of the space (approximately 300 square feet in the main room), she anticipates no more than eight clients in a class. Most clients are from Newton and she expects many, perhaps 60%, will walk or bike to class. She explained that she signed a lease in August and prepared the interior for a Septemberopening. She was informed by the Inspectional Services Department when she went to amend her business registration that she needed a special permit. When asked why there appeared to be a delay in seeking the special permit, it was pointed out that the application was filed in December for public hearing in January, the earliest it could be after completing the review process the city requires for all special permit applications. The business is operating because in most cases the Inspectional Services Department does not issue a cease and desist if a special permit application is pending. Alderman Laredo was troubled that the owner did not advise Ms. Bennett prior to leasing the space that she needed a special permit. Mr. Zainoun said he was unaware that a special permit was required. When asked about the number of classes and times, Ms. Bennett said she plans to offer 10 to 12 classes a week. Day classes are generally for one hour; evening classes 1.5 hours. She expects that the front can provide parking for three to four cars. There are four spaces behind the building and there is one-hour parking available on the carriage lane. Currently, class times are 9:00 am to 10:00 am on Monday, Wednesday, Thursday and Friday,  4:00 pm to 5:00 pm on Monday, Wednesday and Thursday, 6:00 pm to 7:00 pm and 7:00 pm to 8:30 pm on Tuesday, 10:00 am to 11:00 am on Tuesday and Saturday, 1:00 pm to 2:00 pm on Saturday and possibly a 2:00 to 3:30 pm class. Aldermen Albright and Fuller suggested that a half hour gap between classes would ensure a smoother transition of the parking spaces. When asked about plans to use the side yard for outdoor classes, Ms. Bennett said initially she thought it would be pleasant space to utilize in nice weather, but the noise on Commonwealth Avenue makes is less than ideal for practicing yoga. Although, she would like to use it for small gatherings such as the Marathon much like anyone else uses their yard. Alderman Schwarz said that he is not particularly concerned about the proposed used given the building's past. However he like Alderman Laredo is troubled because this is not the first petition coming in after the fact seeking forgiveness. Alderman Fischman visited the site today and observed five cars, one parked tandem, occupying the entire rear lot. Mr. Zainoun said he allows two students to park in the lot overnight because they have no parking. Alderman Fischman is concerned about the intersection of Commonwealth Avenue and Manet Road and with pedestrians crossing there because of the curve and the potential obstruction of the site line by the proposed freestanding sign. In Alderman Harney's opinion this evening was a bit harsh on Ms. Bennett, particularly given the site's history and her long term connection to the city. He believes she has good intentions and wishes to operate a successful business primarily serving residents of Newton. (He also shared that his mother's best friend had owned the gift/card shop at this site.) Alderman Laredosaid he does not doubt the good intentions. He wants to encourage businesses and their success; however, the 1930s and 1940s were very different, there were fewer cars and most people walked. He believes an overlap in class times has the potential for significant traffic and parking issues. 
 Public Comment:
-Susan Servais, 4 Garrison Street, a 33-year resident said that a grocery and drug store from 
-another era cannot be compared to Commonwealth Avenue today. Traffic at certain times is 
-bumper to bumper. It is unlikely with all of the large medical offices nearby that a doctor or 
-dentist would locate here. The previous poster business was operated by a neighbor and most of 
-its business was online. There is a longtime parking situation in the neighborhood and the 
-residents would appreciate keeping outside parkers off the neighborhood streets. The 
-neighborhood does not want a bigger commercial area. 
-Janet Razulis, 266 Commonwealth Avenue, a 22-year resident, has no major objection to Core 
-Harmony but is concerned about the future of the space currently occupied by the real estate 
-office and would prefer the owner be required to return to amend a special permit. However, she 
-supports the limited scope of the fitness use and associated parking.
-Saul Wisnia, 24 Hamlin Road, who spoke in favor of the prior petition, grew up and his mother 
-lived for 50 years 300 yards from the subject site. He attended both high school and college with 
-Ms. Bennett and said there was probably not a more appropriate tenant. He noted that the type of 
-client this type of business attracts is likely to walk and bike when feasible. 
-Gloria Gavris, 21 Monadnock Road, who is president of the Chestnut Hill Association, echoed 
-the concerns about parking and asked the committee to be mindful of the parking constraints. 
-However, she is not concerned by the use of the space for a yoga studio, but agrees there should 
-be a gap between classes. 
-Betty Cohen, 104 Manet Road, walks to her office at Boston College and agreed that the 
-intersection of Commonwealth Avenue and Manet Road is dangerous and that a free standing 
-sign could block the view further. Manet Road is parked up every day. (The east side of Manet 
-Road is a resident restricted area and parking is prohibited all days on the west side.) She is 
-concerned about pedestrians crossing Commonwealth Avenue from the carriage lane and with 
-cars parking on Commonwealth. 
-Aphrodite Giannakopoulas, 214 Commonwealth Avenue, said that the city is becoming too 
-commercial and that people in the neighborhood had paid a lot of money to live there and it 
-should be kept as it is.
-After the conclusion of the public hearing, the committee held a scoping session in which the 
-Planning Department was asked to meet with the petitioners to address the following issues prior 
-to working session: 
-reasonable class hours from Ms. Bennett that she can live with including a gap between 
-each class
-a parking plan for both spaces - Core Harmony and TNM Realty
-renting spaces or allowing non-tenants to park on the property
-current available on-street parking 
-size, location, lighting re the proposed sign and if it impacts the site line from 
-Commonwealth Avenue
-pedestrian crossing/safety/crosswalk - the committee was reminded that Commonwealth 
-Avenue/Route 30 is a state road recently reconstructed by the state that project included 
-pavement markings, crosswalks, and a number of new or amended parking restrictions
-which the state required the city to implement as part of the reconstruction.
-Alderman Crossley suggested that the petitioners install a bike rack. The committee also asked 
-for a copy of the 1973 special permit. Alderman Fischman moved to hold the petition, which 
-motion carried 7-0.", 2, 1, 3],
+Susan Servais, 4 Garrison Street, a 33-year resident said that a grocery and drug store from another era cannot be compared to Commonwealth Avenue today. Traffic at certain times is bumper to bumper. It is unlikely with all of the large medical offices nearby that a doctor or dentist would locate here. The previous poster business was operated by a neighbor and most of its business was online. There is a longtime parking situation in the neighborhood and the residents would appreciate keeping outside parkers off the neighborhood streets. The neighborhood does not want a bigger commercial area. Janet Razulis, 266 Commonwealth Avenue, a 22-year resident, has no major objection to Core Harmony but is concerned about the future of the space currently occupied by the real estate office and would prefer the owner be required to return to amend a special permit. However, she supports the limited scope of the fitness use and associated parking.Saul Wisnia, 24 Hamlin Road, who spoke in favor of the prior petition, grew up and his mother lived for 50 years 300 yards from the subject site. He attended both high school and college with Ms. Bennett and said there was probably not a more appropriate tenant. He noted that the type of client this type of business attracts is likely to walk and bike when feasible. 
+Gloria Gavris, 21 Monadnock Road, who is president of the Chestnut Hill Association, echoed the concerns about parking and asked the committee to be mindful of the parking constraints. However, she is not concerned by the use of the space for a yoga studio, but agrees there should be a gap between classes. 
+Betty Cohen, 104 Manet Road, walks to her office at Boston College and agreed that the intersection of Commonwealth Avenue and Manet Road is dangerous and that a free standing sign could block the view further. Manet Road is parked up every day. (The east side of Manet Road is a resident restricted area and parking is prohibited all days on the west side.) She is concerned about pedestrians crossing Commonwealth Avenue from the carriage lane and with cars parking on Commonwealth. 
+Aphrodite Giannakopoulas, 214 Commonwealth Avenue, said that the city is becoming too commercial and that people in the neighborhood had paid a lot of money to live there and it should be kept as it is.
+After the conclusion of the public hearing, the committee held a scoping session in which the Planning Department was asked to meet with the petitioners to address the following issues prior to working session: 
+reasonable class hours from Ms. Bennett that she can live with including a gap between each class
+a parking plan for both spaces - Core Harmony and TNM Realty renting spaces or allowing non-tenants to park on the property current available on-street parking 
+size, location, lighting re the proposed sign and if it impacts the site line from Commonwealth Avenue pedestrian crossing/safety/crosswalk - the committee was reminded that Commonwealth Avenue/Route 30 is a state road recently reconstructed by the state that project included pavement markings, crosswalks, and a number of new or amended parking restrictions which the state required the city to implement as part of the reconstruction.
+Alderman Crossley suggested that the petitioners install a bike rack. The committee also asked for a copy of the 1973 special permit. 
+Alderman Fischman moved to hold the petition, which motion carried 7-0.", 2, 1, 3],
    ["ACTION: HEARING CLOSED; HELD 7-0",
 "NOTE: This petition was presented by attorney Franklin Stearns of K&L Gates and director of design and planning Richard Askin of WS Development. There are a number of special permits on this 18-acre site, the most recent in 2011 rezoned the site to Business 4, allowed reconstruction for a portion of 33 Boylston Street, reduced the total number of required parking stalls, and included multiple site improvements such as reconfiguring parking stalls, changes to landscaping, sidewalks, and lighting. The former Bloomingdale's Macy's building at 55 Boylston Street is also currently under reconstruction. When completed it will contain a Cinema de Lux, The Sports Club/LA, a restaurant(s), and retail uses. The petitioner is seeking approval of a comprehensive sign package for the new shopping center, which is being re-branded as The Street Chestnut Hill. The Urban Design Commission spent three meetings reviewing the sign package and the petitioner made a number of changes in response to its comments and suggestions. Alderman Fuller asked whether the colors will be those shown in the submittal. 
 There was no public comment. 
@@ -644,54 +784,13 @@ The petitioner's presentation was very thorough and the submittal very detailed 
 opened and closed on December 11, 2012. Attorneys Jason Rosenberg and Laurance Lee 
 represented the petitioner. Present were Aldermen Hess-Mahan (Chairman), Albright, Crossley, 
 Laredo, Fischman, Schwartz, and Harney; Aldermen. Lennon was also present. 
-In 2010 the petitioner received special permit #277-10 to redevelop the site as a mixed-used development with ground floor retail and second and third floor apartments. However, that special permit was not exercised and the petitioner is now seeking a special permit to construct a three-story, nine-unit multi-family building. The subject site has an existing single-family house on an approximately 12,000 square foot lot. As in the previous special permit, the house will be demolished. The petitioner owns an adjacent lot to the west at 138-142 Adams Street and 
-intends to transfer a strip of property from this lot to the subject site to create conforming 
-setbacks. The new lot will be approximately 14,835 square feet. Most of the site is located in a 
-Business 2 zone with the small transferred piece of land remaining in the Business 1 zone. The 
-proposed building has an 18-stall parking area behind it. Access to the parking will be from 
-Cottage Court. The petitioner is proposing a sidewalk along Cottage Court adjacent to the 
-subject site. 
-Relief is sought to permit a multi-family dwelling in the Business 2 zone; to permit a three-story 
-building 33 feet in height; and for a building between 10,000 and 19,999 square feet of gross 
-floor area. In addition, the petitioner seeks a number of waivers from the parking requirements, 
-including dimensionally nonconforming stalls; landscape screening, and lighting requirements 
-for an outdoor parking facility. One of the nine units will be deeded as an inclusionary housing 
-unit and the three ground-floor units will be designed as 'adaptable' under the Massachusetts 
-Architectural Access Code. 
-The proposed facade is stucco, with tongue and groove siding and panels and aluminum clad 
-windows. A brick wall to create privacy for the first floor tenants is shown along a portion of the 
-front and side property lines. The proposed building height is 33 feet with a two-foot parapet to 
-screen the rooftop mechanicals. Most of the neighboring buildings are 2.5 stories with gable 
-rooflines; although the proposed building is three stories it has a flat roof which makes it more 
-compatible. The proposed units range in size from 1,000 to 1,400 square feet; all will be twobedroom units. The petitioner expects they will be rental units. 
-A dumpster is located at the northwest corner of the site. A brick enclosure with a gate is 
-proposed to screen the dumpster. The only outdoor usable space is four decks and three patios. 
-A planting plan shows deciduous trees on all four corners of the site and at the entrance to the 
-parking area. If possible, the petitioner will preserve the existing street trees (one maple and two 
-honey locusts) on Adams Street; if not, the petitioner will replace them. Lighting will be 
-residential in character. 
-Alderman Albright asked if the petitioner still intends to pave Cottage Court. The petitioner will 
-do so, but needs consent from all the residents because it is a private way. She asked if the 
-petitioner could provide more screening around the parking lot. 
-Alderman Crossley asked the petitioner and the architect if they would consider more of the 
-same materials and elements used in the previously-approved building, which blended within the context of the neighborhood so well. She particularly liked the horizontal lines and the 
-modulating back to front. Alderman Albright agreed. Alderman Crossley asked if there was a 
-way to get more space in the front of the building. The Chairman asked if the petitioner would 
-consider landscaping instead of the brick wall in front. In response to a question from Alderman 
-Schwartz, it was explained that the upper units were designed as 'upside down townhouses' -
-you enter at the bedroom level and go up to the living level which accesses the decks. Public comment at the December 12 hearing included 
-Deborah Visco represented her parents who live at 153-155 Adams Street. Although she is 
-pleased that the current proposal is all residential, she has concerns about the tree roots that have 
-caused the sidewalk to heave as well as periodic flooding on Adams Street.
-Diane Proia, 11A Cottage Court, opposed the 2010 petition and is not in favor of this proposal. 
-Although it has 'ribbons and bows, it is still a big box.' It is too much for such a small space. 
-Eighteen additional cars will cause congestion. A number of children live on Cottage Court and 
-she has concerns about the sidewalk narrowing the private way causing safety issues for children 
-who play outside. 
-Dan Murphy, who owns 158 Adams Street, said Cottage Court is not wide enough to sustain the 
-additional traffic. 
-Corey Cutler, who owns 390 Watertown Street, thanked the attorneys and petitioner for keeping 
-the neighbors in the loop and believes this will be a boon to the area. 
+In 2010 the petitioner received special permit #277-10 to redevelop the site as a mixed-used development with ground floor retail and second and third floor apartments. However, that special permit was not exercised and the petitioner is now seeking a special permit to construct a three-story, nine-unit multi-family building. The subject site has an existing single-family house on an approximately 12,000 square foot lot. As in the previous special permit, the house will be demolished. The petitioner owns an adjacent lot to the west at 138-142 Adams Street and intends to transfer a strip of property from this lot to the subject site to create conforming setbacks. The new lot will be approximately 14,835 square feet. Most of the site is located in a Business 2 zone with the small transferred piece of land remaining in the Business 1 zone. The proposed building has an 18-stall parking area behind it. Access to the parking will be from Cottage Court. The petitioner is proposing a sidewalk along Cottage Court adjacent to the subject site. 
+Relief is sought to permit a multi-family dwelling in the Business 2 zone; to permit a three-story building 33 feet in height; and for a building between 10,000 and 19,999 square feet of gross floor area. In addition, the petitioner seeks a number of waivers from the parking requirements, including dimensionally nonconforming stalls; landscape screening, and lighting requirements for an outdoor parking facility. One of the nine units will be deeded as an inclusionary housing unit and the three ground-floor units will be designed as 'adaptable' under the Massachusetts Architectural Access Code. 
+The proposed facade is stucco, with tongue and groove siding and panels and aluminum clad windows. A brick wall to create privacy for the first floor tenants is shown along a portion of the front and side property lines. The proposed building height is 33 feet with a two-foot parapet to screen the rooftop mechanicals. Most of the neighboring buildings are 2.5 stories with gable rooflines; although the proposed building is three stories it has a flat roof which makes it more compatible. The proposed units range in size from 1,000 to 1,400 square feet; all will be twobedroom units. The petitioner expects they will be rental units. A dumpster is located at the northwest corner of the site. A brick enclosure with a gate is proposed to screen the dumpster. The only outdoor usable space is four decks and three patios. A planting plan shows deciduous trees on all four corners of the site and at the entrance to the parking area. If possible, the petitioner will preserve the existing street trees (one maple and two honey locusts) on Adams Street; if not, the petitioner will replace them. Lighting will be residential in character. 
+Alderman Albright asked if the petitioner still intends to pave Cottage Court. The petitioner will do so, but needs consent from all the residents because it is a private way. She asked if the petitioner could provide more screening around the parking lot. Alderman Crossley asked the petitioner and the architect if they would consider more of the same materials and elements used in the previously-approved building, which blended within the context of the neighborhood so well. She particularly liked the horizontal lines and the modulating back to front. Alderman Albright agreed. Alderman Crossley asked if there was a way to get more space in the front of the building. The Chairman asked if the petitioner would consider landscaping instead of the brick wall in front. In response to a question from Alderman Schwartz, it was explained that the upper units were designed as 'upside down townhouses' -you enter at the bedroom level and go up to the living level which accesses the decks. Public comment at the December 12 hearing included Deborah Visco represented her parents who live at 153-155 Adams Street. Although she is pleased that the current proposal is all residential, she has concerns about the tree roots that have caused the sidewalk to heave as well as periodic flooding on Adams Street.
+Diane Proia, 11A Cottage Court, opposed the 2010 petition and is not in favor of this proposal. Although it has 'ribbons and bows, it is still a big box.' It is too much for such a small space. Eighteen additional cars will cause congestion. A number of children live on Cottage Court and she has concerns about the sidewalk narrowing the private way causing safety issues for children who play outside. 
+Dan Murphy, who owns 158 Adams Street, said Cottage Court is not wide enough to sustain the additional traffic. 
+Corey Cutler, who owns 390 Watertown Street, thanked the attorneys and petitioner for keeping the neighbors in the loop and believes this will be a boon to the area. 
 ***
 In response to concerns raised at the public hearing on December 12, the petitioner submitted 
 revised plans that necessitate additional relief not included in the original petition. The petitioner 
@@ -720,12 +819,8 @@ interior landscape screening and lighting is impracticable given the size of the
 will provide one inclusionary housing unit and the three first floor units will be adaptable units 
 under the Massachusetts Architectural Access Code. Alderman Harney's motion carried 
 unanimously. ", 4, 3, 7 ],
-   ["ACTIONS: APPROVED 5-0
-REQUEST TO ALLOW SERVICE USE AND/OR CONVERSION TO 
-MEDICAL OFFICE AND ASSOCIATED PARKING WAIVER WITHDRAWN 
-WITHOUT PREJUDICE 5-0",
-"NOTE: The public hearing for this item was opened and closed on January 15, 2013. (Please 
-see attached excerpt from that report.) Since then, the tenant in the western side of the building, 
+   ["ACTIONS: APPROVED 5-0 REQUEST TO ALLOW SERVICE USE AND/OR CONVERSION TO MEDICAL OFFICE AND ASSOCIATED PARKING WAIVER WITHDRAWN WITHOUT PREJUDICE 5-0",
+"NOTE: The public hearing for this item was opened and closed on January 15, 2013. (Please see attached excerpt from that report.) Since then, the tenant in the western side of the building, 
 Core Harmony the service use for which a special permit was sought, decided to terminate its 
 lease. This space was the subject of a special permit granted in 1973 to allow a retail use which 
 occupied the space until 1998. 
@@ -1222,7 +1317,34 @@ Alderman Laredo's motion to approve carried unanimously.", 24, 10, 36],
 ["ACTION: HEARING CLOSED",
 "NOTE: This item will be reported when it is voted out of committee.", 21, 10, 33],
 ["ACTION: HEARING CLOSED",
-"NOTE: This item will be reported when it is voted out of committee.", 22, 10, 34]]
+"NOTE: This item will be reported when it is voted out of committee.", 22, 10, 34],
+["ACTION: APPROVED 4-0 (Harney, Schwartz, Fischman not voting)",
+"Note: These two licenses, albeit late, are 2013 renewals. There are no outstanding issues with either business and the committee approved both licenses 4-0.", [26,27], 12, [49, 50]],
+["ACTION: APPROVED 4-0 (Harney, Schwartz, Fischman not voting)",
+"NOTE: There has been a license on this site since 2009; however, the previous licensee has vacated the premises; Mr. Kammouj, who was present this evening, has a lease through 2015. The committee approved this new license 4-0, which like all 2013 licenses is valid through December 31, 2013.", 28, 12, 51],   
+["ACTION: APPROVED 4-0 (Harney, Schwartz, Fischman not voting)", 
+"NOTE: Attorney Stephen Buchbinder was present with Mr. Rosenberg. Mr. Buchbinder explained that Mr. Rosenberg, owner of the Biltmore Cafe, is a collector of antique cars who sometimes sells more than the four vehicles per year the Registry of Motor Vehicles allows an individual to sell without a license. Mr. Rosenberg has an office at 1215 Chestnut Street, but his vehicles will be housed inside elsewhere. The committee voted 4-0 to approve the license.", 29, 12, 52],
+["ACTION: APPROVED 6-0-1 (Schwartz abstaining)",
+"NOTE: The petitioners were represented by attorney Stephen Buchbinder at a public hearing that was opened and closed on May 14, 2013. A prior petition for essentially the same project was withdrawn without prejudice because of neighborhood concern over the proposed removal of a street tree. Cutting down or removal of a street tree requires a public hearing in accordance with G.L. chapter 87. The project has been redesigned with t he driveway around the street tree. The petitioners propose to demolish the existing dwelling and construct a new by-right single-family dwelling, but because the lot is irregularly shaped and slopes up the petitioners are seeking relief to construct a series of retaining walls greater than four feet within the front and side setbacks to provide access to a proposed basement garage. The maximum retaining wall height is approximately eight feet. The proposed driveway is approximately nine feet wide at the street. The Planning Department likes that the garage is located on the side of the proposed new house, but is concerned that the driveway is narrow and that backing out of the garage may be difficult. The Planning Department is also concerned that the petitioner will need to excavate close to the side property line to construct the proposed retaining walls. It recommends that the petitioners submit a tree preservation plan and work with abutters to protect any trees whose roots may be affected. The committee agreed that locating the garage on the side is preferable to the front of the house. The re was discussion about whether the street tree was worth preserving. The city's tree warden has determined the tree still has life. Alderman Fischman believes the tree is critical to the neighborhood. He noted that 34 Wilde Road, which abuts the petitioners' proposed driveway, was recently purchased by a developer who demolished the house and removed at least eight mature trees, resulting in a lot that looks like a 'war zone.' Alderman Crossley believes the street tree is near the end of its life. She said the petitioners have tried to placate everybody. A mature tree recently came down on a neighboring property. Alderman Laredo said he appreciates Alderman Fischman's concerns, but the tree has uprooted the sidewalk and created a safety issue. The petitioner s are working with the new owner of 34 Wilde Road to relocate the proposed walls closer to the property line which will widen the driveway. If they reach an agreement the petitioners will submit a revised site plan and wall elevation. Jonathan Frieze, 43 Wilde Road, said the petitioners have jumped through hoops. The design of the house is beautiful; it creates a larger green space in the front making it more attractive to neighbors. Albert Fine, an architect who lives at 55 Wilde Road, pointed out that construction could hasten the demise of the street tree. Land Use Committee Report June 4, 2013 Page 3 Barbara Hankin, 202 Nehoiden Road, noted that the tree roots have compromise d the sidewalk impeding pedestrian passage. Elena DuPlessis, 20 Wilde Road ; Jeff Kaplan, 37 Wilde Road; Mikele Rauch, 54 Wilde Road; and Matt Weinzierl and Coventry Edwards-Pitt, 14 Wilde Road, sent emails in support of the petition. 
+*** This evening, the committee reviewed a revised plan, agreed to by the owner of 34 Wilde Road, showing the retaining wall moved two feet closer to the south side lot line of 34 Wilde Road. The relocation allows more maneuvering room for vehicles. All runoff will be contained on the site. The Associate City Engineer suggested that the petitioner get a permanent easement for the proposed backfill on the adjacent property and a temporary easement for the construction of the base of the wall and the wall itself. The petitioners have agreed to submit a tree preservation plan prior to obtaining a building permit. The Planning Department suggested that if the special permit is approved it include a condition to allow the driveway to be widened should the street tree be removed without an amendment to the special permit. Alderman Crossley moved approval finding that the proposed change in grade and the retaining walls in the side setback will not adversely affect the neighborhood; all runoff will be retained on the site; and the dwelling is conforming in all other respects. The motion to approve carried 6 in favor, none opposed, with Alderman Schwartz abstaining because he missed the discussion.", 30, 12, 53], 
+["APPROVED 7-0", 
+"Condition #29 requires the establishment of a Neighborhood Council, with its membership comprised of one resident property owner from a number of streets as well as a designee of Newton Wellesley Hospital and two Aldermen, one each from Wards 4 and 5, and a representative from the department of Planning & Development, whose terms are concurrent with the Board of Aldermen. The re-appointees and the one new appointee were approved 7-0.", 31, 12, 54],
+
+["PUBLIC HEARING CLOSED; APPROVED 7-0", 
+"The petition was presented by attorneys William Shaevel and Ashley Walter of Shaevel & Krems. The Cheesecake Factory will occupy one of the three spec restaurants approved in special permit #307-12. The space is located at the far right of the interior mall closest to Bloomingdales Men's and Home Store. The petitioner is seeking to amend the special permit to add a 131 square-foot vestibule to this portion of the building and to add two secondary signs to identify The Cheesecake Factory. The two proposed sign are in addition to a previously-approved 300 square-foot sign for this space. One secondary sign, which exceeds the 50 square feet permitted, is 97 square feet, and will be located on the east corner facade of the interior mall facing Hammond Pond Parkway. The other sign, which qualifies as a second secondary sign, is 4.25 square feet and is located immediately above the proposed vestibule entry. The signs have been reviewed by the Urban Design Commission, which recommends approval. The proposed vestibule, which is located in a portion of the 1,118 square foot area approved for patio seating, will help conserve energy and provide a sheltered place for patrons waiting to be seated. In addition, at the suggestion of the Planning Department, the petitioner will provide two handicapped parking stalls in front of the restaurant and five 'to go' parking spaces as well as an HP ramp and new crosswalk. There are no changes proposed to the number of parking spaces or to traffic circulation. 
+Joe Avotins, Senior Project Manager from The Cheesecake Factory's corporate office in Irvine California explained that in addition to the weather factor, the vestibules are a brand identity for The Cheesecake Factory. The company now has 174 locations across the United States and the Mideast. Mr. Avotins said the CEO/founder of The Cheesecake Factory personally vets the designs of all the restaurants and he assured the committee that only quality materials are used in   construction. There was no public comment. 
+In working session, it was confirmed that 987 square feet will remain in the outdoor patio area for seasonal seating. The committee complimented the petitioner on the creation of a more detailed separation of the seating from the public. Alderman Laredo moved approval of the petition finding that the proposed 131 square-foot addition will not be substantially more detrimental to the neighborhood than the existing building and the proposed signs are in the public interest for way finding at the site. The motion to approve carried 7-0.",31, 13, 55 ],
+["PUBLIC HEARING CLOSED; APPROVED 7-0", 
+"The petitioner was represented by attorneys Jason Rosenberg and Laurance Lee. The petitioner is in the process of constructing a new by-right single-family dwelling with an attached two-bay garage that contains a 973 square feet. A garage exceeding 700 square feet is allowed if the additional space is partitioned off and not used for a third vehicle. The new owner Edward DeNoble, who for the past 13 years has resided at 69 Prince Street, decided that with a new driver in the family it would make sense to have a three-bay garage. There is no change in the footprint of the permitted house. The only proposed physical change is the addition of a third garage door. The garage does not face the street; it is located 40 feet from the closest side lot line, which is an empty lot. The petitioner is proposing extensive landscaping including wood fencing and stone walls. 
+Robert Gervis, 204 Forest Avenue, spoke in support of the petition. 
+*** 
+In working session, there was little discussion. The committee commented on the handsomeness of the house and Alderman Albright moved approval finding that the 43,000 square-foot site is appropriate for the 973 square-foot garage; it will not adversely affect the neighborhood; the dwelling has a by-right building permit and the addition of a third bay in the garage will not change the footprint of the dwelling that meets open space and lot coverage requirements. Alderman Albright's motion carried 7-0.", 32, 13, 56], 
+["PUBLIC HEARING CLOSED; APPROVED 7-0", 
+"The petitioner, who opened her restaurant last August, wishes to add up to 20 outdoor seasonal seats in addition to the 48 interior seats. A special permit is required for a restaurant with more than 50 seats. In addition, twenty more seats and additional staff create a parking demand of eight parking stalls. As there is no parking on the site the petitioner is seeking relief to waive the number of required parking stalls. The petitioner proposes to locate the outdoor seats on an existing 400 square-foot deck to the rear of the building, which abuts the Sovereign Bank parking lot. The only physical changes proposed are a new landing and staircase down to the basement level to provide a second means of emergency egress to meet code requirements. The deck is enclosed with lattice work but has no roof. A structural engineer has verified the deck is structurally sound. One long table, which is a trend in the restaurant industry to encourage conviviality among patrons, will accommodate twelve diners. 
+The petitioner submitted a parking survey showing the availability of parking for the proposed expanded use. The study was undertaken last summer over the course of seven days during lunch hours when parking in Newton Centre is most scarce. The study appears to show sufficient parking capacity within a comfortable five-minute walk. The petitioner said that approximate 75% of her employees use public transportation or bike; other employees park at the long-term meters in the Cypress Street municipal lot. The petitioner doesn't believe that the additional seating will cut down on waiting time, since most patrons have reservations and if they don't it is long wait. There was no public comment. 
+*** 
+In working session, Alderman Fischman asked if the petitioner would consider subsidizing T passes for employees. Alderman Harney pointed out that the MBTA no longer offers programs to assist employers who wish to subsidize passes. Also, this type of condition is difficult for the city to enforce. The Planning Department suggested that since part of the relief is to waive eight parking spaces the petitioner contribute to the Newton Centre Parking and Pedestrian Improvements Fund to help mitigate parking impacts on the neighborhood. Although other petitioners such as Panera Bread and Terry O'Reilly's have made voluntary contributions, several committee members objected conditioning the special permit to require a voluntary contribution. Others suggested pro-rating the amount of the contribution. Alderman Laredo and Schwartz were troubled by what appears to be the lack of consistency associated with this type of contribution. The Chairman pointed out that there is a docket item in Zoning & Planning to allow payments-in-lieu of providing required off-street parking spaces when parking spaces are waived as part of a special permit application; however, it doesn't seem to have much support and the cost proposed for each space is very high. Alderman Schwartz and Laredo both said and the majority of the committee agreed that the petitioner could at any time contribute to the fund and/or offer T pass subsidies to her employees. The committee did not vote to include either condition. Alderman Schwartz moved to approve the petition finding that the additional seat will be seasonal only; the business is located near four municipal parking lots and the MTBA; studies indicate there is sufficient parking in Newton Centre, particularly in the evening; literal compliance with the parking requirements is impracticable because the site has no parking.", 33, 13, 57],
+["Held", "No discussion", [34,35,36], 13, [58, 59, 60]]]
 
    aktions.each { |action, discussion, item_id, meeting_id, item_meeting_id|
 
@@ -1231,21 +1353,39 @@ Alderman Laredo's motion to approve carried unanimously.", 24, 10, 36],
    aktion.updater_id = 1
    aktion.save
    meeting = Meeting.find_by_id(meeting_id)
-   actionmeeting = ActionMeeting.new(:meeting_id => meeting_id, :reportable_id => aktion.id, :reportable_type => "Aktion")
+   actionmeeting = ActionMeeting.new(:meeting_id => meeting_id, :reportable_id => aktion.id, :reportable_type => "Aktion", :position => 5)
    actionmeeting.creator_id = 1
    actionmeeting.updater_id = 1
    actionmeeting.save
-   actionitemmeeting = ActionItemMeeting.new(:aktion_id => aktion.id, :item_meeting_id => item_meeting_id)
-   actionitemmeeting.creator_id = 1
-   actionitemmeeting.updater_id = 1
-   actionitemmeeting.save
-   activity = Activity.create(
-        :message => "Action at #{meeting.date.strftime("%m/%d/%y")} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}.",
-        :note => " #{action} #{discussion}",
-        :activity_type => "NewAction", :date_actual => meeting.date)
-   ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting.id)
-   ActivityLog.create(
-        :activity_id => activity.id, :owner_type => "Item", :owner_id => item_id)  }
+   if item_meeting_id.kind_of?(Array)
+     for itemmeeting in item_meeting_id
+       actionitemmeeting = ActionItemMeeting.new(:aktion_id => aktion.id, :item_meeting_id => itemmeeting)
+       actionitemmeeting.creator_id = 1
+       actionitemmeeting.updater_id = 1
+       actionitemmeeting.save
+     end
+       activity = Activity.create(
+          :message => "Action at #{meeting.date.strftime("%m/%d/%y")} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}.",
+          :note => " #{action} #{discussion}",
+          :activity_type => "NewAction", :date_actual => meeting.date)
+       ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting.id)
+    for itemmeeting in item_meeting_id
+       ActivityLog.create(
+          :activity_id => activity.id, :owner_type => "Item", :owner_id => ItemMeeting.find_by_id(itemmeeting).agendable_id)
+     end
+   else
+       actionitemmeeting = ActionItemMeeting.new(:aktion_id => aktion.id, :item_meeting_id => item_meeting_id)
+       actionitemmeeting.creator_id = 1
+       actionitemmeeting.updater_id = 1
+       actionitemmeeting.save
+       activity = Activity.create(
+          :message => "Action at #{meeting.date.strftime("%m/%d/%y")} #{meeting.committee_names_string} meeting for item(s): #{aktion.item_names_string}.",
+          :note => " #{action} #{discussion}",
+          :activity_type => "NewAction", :date_actual => meeting.date)
+       ActivityLog.create(:activity_id => activity.id, :owner_type => "Meeting", :owner_id => meeting.id)
+       ActivityLog.create(
+          :activity_id => activity.id, :owner_type => "Item", :owner_id => item_id)
+    end  }
 
  # people
 
@@ -1478,7 +1618,38 @@ Alderman Laredo's motion to approve carried unanimously.", 24, 10, 36],
       ActivityLog.create!(:activity_id => activity.id, :owner_type => "Comittee", :owner_id => 8) 
       ActivityLog.create!(:activity_id => activity.id, :owner_type => "Person", :owner_id => id) }
 
+# Submissions
 
+  statuses = [["Meeting", 1, 1, 1, "2013-01-12"],
+              ["Meeting", 1, 2, 1, "2013-01-17"],
+              ["Meeting", 2, 1, 1, "2013-02-03"],
+              ["Meeting", 2, 2, 1, "2013-02-07"],
+              ["Meeting", 3, 1, 1, "2013-02-10"],
+              ["Meeting", 3, 2, 1, "2013-02-14"],
+              ["Meeting", 4, 1, 1, "2013-03-03"],
+              ["Meeting", 5, 1, 1, "2013-03-17"],
+              ["Meeting", 5, 2, 1, "2013-03-21"],
+              ["Meeting", 6, 1, 1, "2013-03-31"],
+              ["Meeting", 6, 2, 1, "2013-04-04"],
+              ["Meeting", 7, 1, 1, "2013-04-07"],
+              ["Meeting", 7, 2, 1, "2013-04-11"],
+              ["Meeting", 8, 1, 1, "2013-04-21"],
+              ["Meeting", 9, 1, 1, "2013-05-05"],
+              ["Meeting", 9, 2, 1, "2013-05-09"],
+              ["Meeting", 10, 1, 1, "2013-05-12"],
+              ["Meeting", 10, 2, 1, "2013-05-16"],
+              ["Meeting", 11, 1, 1, "2013-05-19"],
+              ["Meeting", 12, 1, 1, "2013-06-02"],
+              ["Meeting", 12, 2, 1, "2013-06-06"],
+              ["Meeting", 13, 1, 1, "2013-06-09"],
+              ["Meeting", 13, 2, 1, "2013-06-13"],
+              ["Meeting", 14, 1, 1, "2013-06-16"],]
+
+  statuses.each { | statused_type, statused_id, code, statuser_id, as_of |
+    status = Status.new(:statused_type => statused_type, :statused_id => statused_id, :code => code, :statuser_id => statuser_id, :as_of => as_of)
+    status.creator_id = 1
+    status.updater_id = 1
+    status.save}
   end
 end
 

@@ -13,10 +13,11 @@
 #  agendable_type :string(255)
 #  position       :integer
 #  assigner_id    :integer
+#  public_hearing :boolean
 #
 
 class ItemMeeting < ActiveRecord::Base
-  attr_accessible :agendable_id, :agendable_type, :creator_id, :item_id, :meeting_id, :updater_id, :assigner_id, :position
+  attr_accessible :agendable_id, :agendable_type, :creator_id, :item_id, :meeting_id, :updater_id, :assigner_id, :position, :public_hearing
 
   has_one :meeting
   has_one :agendable

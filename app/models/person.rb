@@ -26,6 +26,8 @@ class Person < ActiveRecord::Base
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
 
+  scope :alpha_lname, :order => 'lname ASC'
+
   def name
     self.fname + " " + self.lname
   end

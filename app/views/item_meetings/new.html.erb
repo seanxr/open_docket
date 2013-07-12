@@ -8,12 +8,13 @@
     <%= f.hidden_field 'agendable_type', :value => @agendable.class.name %>
     <%= f.hidden_field 'agendable_id', :value => @agendable.id %>
       <% @potential_meetings.each do |meeting| %>
-        <%= f.radio_button :meeting_id, meeting.id %> <%=  meeting.name_date_string %><br />
-      
+        <%= f.radio_button :meeting_id, meeting.id %> <%=  meeting.name_date_string %><br />     
+        <% if meeting.public_hearing && @agendable.requires_public_hearing %>
+          &nbsp;&nbsp;&nbsp;&nbsp;<%= f.check_box :public_hearing %> Public hearing
+        <% end %> 
       <% end %>
-
     <%= f.label :assigner_id %>
-    <%= f.collection_select(:assigner_id, Person.all, :id, :name) %>
+    <%= f.collection_select(:assigner_id, @assigners, :id, :name) %>
 
       <%= f.submit "Add item to meeting", class: "btn btn-large btn-primary" %>
     <% end %>
@@ -27,9 +28,11 @@
         <%= f.radio_button :agendable_id, item.id %> <%= item.name %><br />
       
       <% end %>
+      <% if @meeting.public_hearing %>
+        <%= f.check_box :public_hearing %> Public hearing (Will not apply if item does not require a public hearing)
+      <% end %>
         <%= f.label :assigner_id %>
-        <%= f.collection_select(:assigner_id, Person.all, :id, :name) %>
-
+        <%= f.collection_select(:assigner_id, @assigners, :id, :name) %>
       <%= f.submit "Add item to meeting", class: "btn btn-large btn-primary" %>
     <% end %>
   <% end %>

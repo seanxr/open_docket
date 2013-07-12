@@ -16,11 +16,14 @@
 #  agenda_submitted_on :date
 #  report_submitted_by :integer
 #  report_submitted_on :date
+#  public_hearing      :boolean
+#  notice              :text
 #
 
 
 class Meeting < ActiveRecord::Base
-  attr_accessible :creator_id, :date, :room_id, :updater_id, :committee_meetings_attributes, :time
+  attr_accessible :creator_id, :date, :room_id, :updater_id, :committee_meetings_attributes, :time, :public_hearing, :notice
+
   default_scope :order => "date DESC"
 
   has_many :committee_meetings
@@ -33,6 +36,8 @@ class Meeting < ActiveRecord::Base
   has_many :documents, :through => :attachments, :as => :owner
 
   has_many :aktions
+
+  has_many :statuses, :as => :statused
  
   has_many :item_meetings
   has_many :agendables, :through => :item_meetings
@@ -47,14 +52,19 @@ class Meeting < ActiveRecord::Base
 
   belongs_to :room
   has_one :site, :through => :room
-
+    
   has_one :attendance_text
+  has_one :notice
 
   belongs_to :creator,     :class_name => 'User'
   belongs_to :updater,     :class_name => 'User'
    
   def name
     self.date.strftime("%m/%d/%y")
+  end
+
+  def self.upcoming
+     all.select { |x| x['date'] >= Date.today }
   end
   
   def validate_committee
@@ -76,7 +86,11 @@ class Meeting < ActiveRecord::Base
    end
  
   def potential_items
-    Item.all
+    potential_items = []
+    for committee in self.committees 
+      potential_items = potential_items + committee.items
+    end
+    potential_items
   end
 
   def item_item_meetings
@@ -100,8 +114,20 @@ class Meeting < ActiveRecord::Base
     meeting_texts.select { |x| x['kind']=="Agenda" }
   end
 
-  def agenda_texts
+  def report_texts
     meeting_texts.select { |x| x['kind']=="Report" }
+  end
+
+  def agenda_submissions
+    statuses.select { |x| x['code'] == 1 }
+  end
+
+  def report_submissions
+    statuses.select { |x| x['code'] == 2 }
+  end
+
+  def public_hearing_item_meetings
+    item_item_meetings.select { |x| x['public_hearing'] == true }.sort_by { |y| y.position }
   end
 
 

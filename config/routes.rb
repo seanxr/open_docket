@@ -1,5 +1,11 @@
 OpenDocket::Application.routes.draw do
 
+  get "activities/new"
+
+  get "notices/new"
+
+  get "submissions/new"
+
   get "action_item_meeting/new"
 
   get "action_meetings/new"
@@ -29,10 +35,13 @@ OpenDocket::Application.routes.draw do
 
   resources :memberships
 
+  resources :notices
+
   resources :items do 
+    resources :activities
     resources :dockets
-    resources :item_meetings
     resources :documents
+    resources :item_meetings
     resources :statuses
   end
  
@@ -54,11 +63,13 @@ OpenDocket::Application.routes.draw do
 
   resources :meetings do
     resources :aktions
+    resources :attendance_texts
     resources :committee_meetings
     resources :documents
-    resources :meeting_texts
     resources :item_meetings
-    resources :attendance_texts
+    resources :meeting_texts
+    resources :notices
+    resources :statuses
   end
 
   resources :dockets do
@@ -76,8 +87,8 @@ OpenDocket::Application.routes.draw do
   match '/committees/:id/edit' => 'committees#edit', :via => :post
   match '/items/:id/edit' => 'items#edit', :via => :post
   match '/meetings/:id/agenda' => 'meetings#agenda', :as => 'meeting_agenda', :via => :get
-  match '/meetings/:id/report' => 'meetings#report', :as => 'meeting_report', :via => :get
-  
+  match '/meetings/:id/public_hearing_notice' => 'meetings#public_hearing_notice', :as => 'meeting_public_hearing_notice', :via => :get
+  match '/meetings/:id/report' => 'meetings#report', :as => 'meeting_report', :via => :get  
  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

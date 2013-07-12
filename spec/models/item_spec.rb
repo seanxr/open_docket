@@ -2,19 +2,20 @@
 #
 # Table name: items
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  opened_on    :date
-#  requested_by :text
-#  draft        :boolean
-#  request      :text
-#  address      :text
-#  ward         :string(255)
-#  creator_id   :integer
-#  updater_id   :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  reference    :text
+#  id                      :integer          not null, primary key
+#  name                    :string(255)
+#  opened_on               :date
+#  requested_by            :text
+#  draft                   :boolean
+#  request                 :text
+#  address                 :text
+#  ward                    :string(255)
+#  creator_id              :integer
+#  updater_id              :integer
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  reference               :text
+#  requires_public_hearing :boolean
 #
 
 require 'spec_helper'

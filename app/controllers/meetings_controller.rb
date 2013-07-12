@@ -18,9 +18,9 @@ class MeetingsController < ApplicationController
         @activity = Activity.create(
                 :message => "Created new #{@committee_names_string} meeting for #{@meeting.date.strftime("%m/%d/%y") }.",
                 :activity_type => "NewMeeting", :date_actual => @meeting.created_at)
+          flash[:success] = "You have succesfully created a #{@committee_names_string} meeting on #{@meeting.date.strftime("%m/%d/%y") } in #{@meeting.room.site.name}, #{@meeting.room.name}!"
         ActivityLog.create(:activity_id => @activity.id, :owner_type => "Meeting", :owner_id => @meeting.id)
         @committee_meetings.each { |i| ActivityLog.create(:activity_id => @activity.id, :owner_type => "Committee", :owner_id => i) }
-        flash[:success] = "You have succesfully created a #{@committee_names_string} meeting on #{@meeting.date.strftime("%m/%d/%y") } in #{@meeting.room.site.name}, #{@meeting.room.name}!"
         redirect_to session[:return_to] 
       else
         render 'new'
@@ -106,6 +106,13 @@ class MeetingsController < ApplicationController
     @parent = "agenda"
     render :layout => false
   end
+
+  def public_hearing_notice
+    @meeting = Meeting.find(params[:id])
+    @parent = "agenda"
+    render :layout => false
+  end
+
 
   def report
     @meeting = Meeting.find(params[:id])

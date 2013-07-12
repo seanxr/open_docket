@@ -5,4 +5,7 @@
 <%#    <%= meetingtitle = meetingtitle + " " + meeting.date.to_s %>
 <%= link_to  meeting.date.strftime("%m/%d/%y") + " (" + meeting.time.strftime("%l:%M %p") + ")" + " -- " + meeting.committees.collect { |committee| committee.name}.join(" | ") +
   ", " + Room.find_by_id(meeting.room_id).name, meeting_path(meeting.id) %>
+      <% if meeting.public_hearing %>
+        (Public Hearing)
+    <% end %>
 </li>

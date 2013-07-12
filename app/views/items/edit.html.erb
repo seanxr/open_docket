@@ -5,6 +5,9 @@
   <div class="span6 offset3">
     <%= form_for(@item) do |f| %>
 	
+      <%= f.check_box :requires_public_hearing %>
+      <%= f.label :requires_public_hearing %>
+
       <%= f.check_box :draft %>
       <%= f.label :draft %>
 

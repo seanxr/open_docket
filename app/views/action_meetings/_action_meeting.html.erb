@@ -21,7 +21,7 @@
      </div>
 	<% elsif action_meeting.reportable_type == "AttendanceText" %>
           <% attendancetext = AttendanceText.find_by_id(action_meeting.reportable_id) %>
-         <div style="width:800px; float:left; padding-bottom:10px"><%= attendancetext.text %></div>
+         <div style="width:800px; float:left; padding-bottom:10px"><%=simple_format h attendancetext.text %></div>
       <% elsif action_meeting.reportable_type == "MeetingText" %> 
 	<div id="text" style="width:800px; float:left;"><%= MeetingText.find_by_id(action_meeting.reportable_id).text %></div>
       <% end %>
@@ -32,7 +32,7 @@
         <span class="handle2" style="color: green;cursor:move;">[drag]</span>
       <% end %>
          <% attendancetext = AttendanceText.find_by_id(action_meeting.reportable_id) %>
-         <div style="padding-bottom:10px"><%= attendancetext.text %></div>
+         <div style="padding-bottom:10px"><%= simple_format h attendancetext.text %></div>
        </li>
     <% elsif action_meeting.reportable_type == "MeetingText" %>
       <li class="action_meeting" id="action_meetings_<%= action_meeting.id %>">

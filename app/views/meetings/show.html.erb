@@ -3,8 +3,12 @@
   <aside class="span4">
   <section>
   <h1>
-    Meeting: <%= @meeting.date.strftime("%m/%d/%y") %>
-  </h1>
+    <% if @meeting.public_hearing %>
+      Public Hearing/Meeting: <%= @meeting.date.strftime("%m/%d/%y") %>
+    <% else %>
+      Meeting: <%= @meeting.date.strftime("%m/%d/%y") %>
+    <% end %>
+    </h1>
   <% if @meeting.committees %>
     <% @meeting.committees.each do |committee| %>
       <div class="content"><%= link_to committee.name, committee_path(committee) %><%# | 
@@ -23,8 +27,16 @@
   <span class="timestamp">Created by <%= @meeting.creator.name %> on <%= @meeting.created_at.strftime("%m/%d/%y") %></span>
   <span class="timestamp">Last updated by <%= @meeting.updater.name %> on <%= @meeting.updated_at.strftime("%m/%d/%y") %></span>         
   <% if current_user && current_user.admin? %>
-    <span> <%= link_to "Edit", edit_meeting_path(@meeting)%></span>
-  <% end %>
+    <div> <%= link_to "Edit", edit_meeting_path(@meeting)%></div>
+    <% if @meeting.public_hearing %>
+      <% if @meeting.notice %>
+        <div>Notice of the public hearing will be published <%= @meeting.notice.publication %>, with a copy posted online at www.ci.newton.ma.us and in a conspicuous place at Newton City Hall.</div>
+         <div><%= link_to "Edit", edit_meeting_notice_path(@meeting, @meeting.notice) %></div>
+       <% else %>
+         <%= link_to "Create public hearing notice publication information", new_meeting_notice_path(@meeting) %>
+       <% end %>
+     <% end %>
+   <% end %>
   </section>
   </aside>
   <div class="span8">
@@ -44,13 +56,20 @@
      <% else %>
        <div class="tab-pane active" id="items">
      <% end %>
-          <div>
+          <div style="padding-bottom:20px;">
             <%= link_to "Print agenda", meeting_agenda_path(@meeting) %>
+            <% if @meeting.public_hearing %>
+              | <%= link_to "Print public hearing notice", meeting_public_hearing_notice_path(@meeting) %>
+            <% end %>
         <% if current_user && current_user.admin? %>
 
-            | <%= link_to "Add an item to meeting", new_meeting_item_meeting_path(@meeting)%> | 
-            <%= link_to "Create agenda text", new_meeting_meeting_text_path(@meeting, :kind => 'Agenda') %> |
-            <%= link_to "Submit agenda", new_meeting_meeting_text_path(@meeting) %>
+          | <%= link_to "Add an item to meeting", new_meeting_item_meeting_path(@meeting)%>
+          | <%= link_to "Create agenda text", new_meeting_meeting_text_path(@meeting, :kind => 'Agenda') %>
+          <% if @meeting.agenda_submissions.count < 1 %>
+            | <%= link_to "Submit agenda", new_meeting_status_path(@meeting, :new_code => 1, :kind => 'Agenda') %>
+          <% else %>
+            | Agenda submitted
+          <% end %>
         <% end %>
           </div>
         <% if @meeting.item_meetings.any? %>
@@ -61,20 +80,24 @@
           <ol class="microposts">
             <li>
               <% if current_user && current_user.admin? %>
-                <span class="content">There are no items on the meeting agenda. Navigate to an item to add it to this meeting.</span>
+                <span class="content">There are no items on the meeting agenda.  <%= link_to "Add an item to this meeting", new_meeting_item_meeting_path(@meeting)%>
+ or navigate to an item and add it to this meeting.</span>
               <% else %>
                 <span class="content">There are no items on the meeting agenda.</span>
               <% end %>
             </li>
           </ol>    
-        <% end %> 
+        <% end %>
+        <% if @meeting.agenda_submissions.count >0 %>
+          <div>Agenda submitted by <%= Person.find(@meeting.agenda_submissions.last.statuser_id).name %> on <%= @meeting.agenda_submissions.last.as_of.strftime("%m/%d/%y") %>. </div>
+        <%end %>
       </div>
      <% if @meeting.date < Date.today %>
        <div class="tab-pane active" id="actions">
      <% else %>
        <div class="tab-pane" id="actions">
      <% end %>
-          <div>
+          <div style="padding-bottom:20px;">
             <%= link_to "Print report", meeting_report_path(@meeting) %>
         <% if current_user && current_user.admin? %>
            <% if !@meeting.attendance_text %>
@@ -83,7 +106,11 @@
              | <%= link_to "Edit attendance", edit_meeting_attendance_text_path(@meeting, @meeting.attendance_text)%>
            <% end %>
              | <%= link_to "Create report text", new_meeting_meeting_text_path(@meeting, :kind => 'Report') %>
-             | <%= link_to "Submit report", new_meeting_meeting_text_path(@meeting) %>
+          <% if @meeting.report_submissions.count < 1 %>
+            | <%= link_to "Submit report", new_meeting_status_path(@meeting, :new_code => 2, :kind => 'Report') %>
+          <% else %>
+            | Report submitted
+          <% end %>
         <% end %>
       </div>
         <% if @meeting.action_meetings.any? %>
@@ -102,6 +129,9 @@
             </div>
           <% end %>
         <% end %> 
+        <% if @meeting.report_submissions.count > 0 %>
+          <div>Report submitted by <%= Person.find(@meeting.report_submissions.last.statuser_id).name %> on <%= @meeting.report_submissions.last.as_of.strftime("%m/%d/%y") %>. </div>
+        <% end %>
       </div>
       <div class="tab-pane" id="documents"> 
         <ol class="microposts">
@@ -124,6 +154,7 @@
         </div>
 
         <div class="tab-pane" id="activities">
+  
           <% if @meeting.activities.any? %>
             <ol class="microposts">
               <%= render @meeting.activities %>

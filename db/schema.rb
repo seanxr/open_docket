@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615031820) do
+ActiveRecord::Schema.define(:version => 20130712013329) do
 
   create_table "action_item_meetings", :force => true do |t|
     t.integer  "aktion_id"
@@ -117,12 +117,13 @@ ActiveRecord::Schema.define(:version => 20130615031820) do
     t.integer  "item_id"
     t.integer  "committee_id"
     t.text     "note"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.date     "as_of"
     t.integer  "assigner_id"
+    t.boolean  "public_hearing"
   end
 
   add_index "dockets", ["committee_id"], :name => "index_dockets_on_committee_id"
@@ -153,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20130615031820) do
     t.string   "agendable_type"
     t.integer  "position"
     t.integer  "assigner_id"
+    t.boolean  "public_hearing"
   end
 
   create_table "items", :force => true do |t|
@@ -165,9 +167,10 @@ ActiveRecord::Schema.define(:version => 20130615031820) do
     t.string   "ward"
     t.integer  "creator_id"
     t.integer  "updater_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.text     "reference"
+    t.boolean  "requires_public_hearing"
   end
 
   add_index "items", ["name"], :name => "index_docket_items_on_number", :unique => true
@@ -197,6 +200,8 @@ ActiveRecord::Schema.define(:version => 20130615031820) do
     t.date     "agenda_submitted_on"
     t.integer  "report_submitted_by"
     t.date     "report_submitted_on"
+    t.boolean  "public_hearing"
+    t.text     "notice"
   end
 
   create_table "memberships", :force => true do |t|
@@ -210,6 +215,15 @@ ActiveRecord::Schema.define(:version => 20130615031820) do
     t.datetime "updated_at",   :null => false
     t.integer  "creator_id"
     t.integer  "updater_id"
+  end
+
+  create_table "notices", :force => true do |t|
+    t.integer  "meeting_id"
+    t.text     "publication"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "updater_id"
+    t.integer  "creator_id"
   end
 
   create_table "people", :force => true do |t|

@@ -1,0 +1,23 @@
+<% provide(:title, 'Create Public Hearing Notice') %>
+<h1>Edit Public Hearing Notice Publication Information</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <div>On this page, enter public hearing notice publication information. The text above and below the text entry box below indicates what will appear before and after the publication information you enter on the notice of public hearing. For example, you might enter: Monday, December 31, 2012 and Tuesday, January 8, 2013 in The Boston Globe and Wednesday, January 9, 2013 in the Newton Tab,</div><br/>
+    <div>Public hearings will be held on <%= @meeting.date.strftime("%A, %B %-d, %Y") %> at <%= @meeting.time.strftime("%l:%M %p")  %>, in <%= @meeting.room.name %>, <%= @meeting.room.floor %>, <%= @meeting.room.site.name %>, before the <%= @meeting.committee_names_string %> for the purpose of hearing the following petitions, at which time all parties interested in these items shall be heard. Notice will be published </div><br/>
+
+
+    <%= form_for([@meeting, @notice]) do |f| %>
+
+	         <%= f.hidden_field 'meeting_id', :value => params[:meeting_id] %>
+
+	    <%= f.text_area :publication, :value => @notice.publication, :size => "60x4" %>
+      <div>, with a copy posted online at www.ci.newton.ma.us and in a conspicuous place at Newton City Hall.</div><br/>
+
+      <%= f.submit "Create notice", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+

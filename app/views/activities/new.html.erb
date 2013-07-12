@@ -1,0 +1,20 @@
+<% provide(:title, 'Create ad hoc Activity') %>
+<h1>Create ad hoc Activity</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <%= form_for([@meeting, @activity]) do |f| %>
+
+      <%= f.label :message %>
+      <%= f.text_area :message, :size => "60x2" %>
+
+      <%= f.label :note %>
+      <%= f.text_area :note, :size => "60x4" %>
+
+      <%= f.submit "Create activity", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+

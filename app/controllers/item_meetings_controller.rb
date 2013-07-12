@@ -10,6 +10,7 @@ class ItemMeetingsController < ApplicationController
       @potential_items = @meeting.potential_items
     end
     @item_meeting = ItemMeeting.new
+    @assigners = Person.alpha_lname  
   end
 
   def create

@@ -13,3 +13,10 @@
             No report yet.
         <% end %> 
 </div>
+<% if @meeting.agenda_submissions.count >1 %>
+  <div style="width:800px;padding-bottom:20px;">
+    <div style="padding-bottom:20px;">Respectfully submitted,</div>
+    <div><%= Person.find(@meeting.agenda_submissions.last.statuser_id).name %></div>
+  </div>
+<% end %>
+

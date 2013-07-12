@@ -2,16 +2,17 @@
 #
 # Table name: dockets
 #
-#  id           :integer          not null, primary key
-#  item_id      :integer
-#  committee_id :integer
-#  note         :text
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  creator_id   :integer
-#  updater_id   :integer
-#  as_of        :date
-#  assigner_id  :integer
+#  id             :integer          not null, primary key
+#  item_id        :integer
+#  committee_id   :integer
+#  note           :text
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  creator_id     :integer
+#  updater_id     :integer
+#  as_of          :date
+#  assigner_id    :integer
+#  public_hearing :boolean
 #
 
 class Docket < ActiveRecord::Base

@@ -12,6 +12,8 @@
           <%= f.text_field :date, :value => Date.today, class: "date-picker" %>
           <%= f.label :time %>
           <%= f.text_field :time %>
+          <%= f.check_box :public_hearing %>
+          Public hearing
         </div>
 
         <% @sites.each do |site| %>

@@ -27,4 +27,12 @@ class Activity < ActiveRecord::Base
 
   default_scope order('date_actual DESC, created_at DESC')    
 
+  def name
+    if message.length > 50
+      message[0..50]+"..."
+    else
+      message
+    end
+  end
+
 end

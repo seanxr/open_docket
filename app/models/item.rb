@@ -2,25 +2,26 @@
 #
 # Table name: items
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  opened_on    :date
-#  requested_by :text
-#  draft        :boolean
-#  request      :text
-#  address      :text
-#  ward         :string(255)
-#  creator_id   :integer
-#  updater_id   :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  reference    :text
+#  id                      :integer          not null, primary key
+#  name                    :string(255)
+#  opened_on               :date
+#  requested_by            :text
+#  draft                   :boolean
+#  request                 :text
+#  address                 :text
+#  ward                    :string(255)
+#  creator_id              :integer
+#  updater_id              :integer
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  reference               :text
+#  requires_public_hearing :boolean
 #
 
 class Item < ActiveRecord::Base
   attr_accessible :address, :draft, :name, :opened_on, :precinct, :request, 
                   :requested_by, :updater_id, :creator_id, :ward, :reference, 
-                  :statuses_attributes
+                  :statuses_attributes, :requires_public_hearing
 
   validates :name, presence: true, length: { maximum: 20 }, 
             uniqueness: { case_sensitive: false }
@@ -52,6 +53,18 @@ class Item < ActiveRecord::Base
 
     dockets.find_by_committee_id(committee.id)
 
+  end
+
+  def opendockets
+
+    dockets.find_all { |docket| docket.statuses.last.code == 1 }
+  
+  end
+
+  def closeddockets
+
+    dockets.find_all { |docket| docket.statuses.last.code == 2 }
+  
   end
 
   def ondocket!(committee, note)

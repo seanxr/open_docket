@@ -1,0 +1,18 @@
+<% provide(:title, @meeting.date) %>
+<div class ="noprint"> <%= link_to "Back to meeting page", meeting_path(@meeting) %></div>
+<div class ="title" style="text-align:center;font-weight:bold; padding-bottom:20px; width:800px;">
+	<div>City of Newton</div>
+        <div class ="title">Legal Notice</div>
+        <div><%= @meeting.date.strftime("%A, %B %-d, %Y") %></div>
+      </div>
+      <div  style="width:800px;padding-bottom:20px;">Public hearings will be held on <%= @meeting.date.strftime("%A, %B %-d, %Y") %> at <%= @meeting.time.strftime("%l:%M %p")  %>, in <%= @meeting.room.name %>, <%= @meeting.room.floor %>, <%= @meeting.room.site.name %>, before the <%= @meeting.committee_names_string %> for the purpose of hearing the following petitions, at which time all parties interested in these items shall be heard. Notice will be published <%= @meeting.notice.publication %>, with a copy posted online at www.ci.newton.ma.us and in a conspicuous place at Newton City Hall.</div>
+<div style="width:800px;padding-bottom:20px;">
+  <%= render @meeting.public_hearing_item_meetings %>
+</div>
+<% if @meeting.agenda_submissions.count >1 %>
+  <div style="width:800px;padding-bottom:20px;">
+    <div style="padding-bottom:20px;">Respectfully submitted,</div>
+    <div><%= Person.find(@meeting.agenda_submissions.last.statuser_id).name %></div>
+  </div>
+<% end %>
+<div style="width:800px;float:left">The location of this meeting is handicap accessible, and reasonable accommodations will be provided to persons requiring assistance. If you have a special accommodation need, please contact the Newton ADA Coordinator Trisha Guditz, 617 796-1156, via email at <a href="mailto:tguditz@newtonma.gov">TGuditz@newtonma.gov</a> or via TDD/TTY at 617 796-1089 at least two days in advance of the meeting date.</div>          

@@ -3,7 +3,10 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@item) do |f| %>
-	           
+
+      <%= f.check_box :requires_public_hearing %>
+      <%= f.label :requires_public_hearing %>
+
       <%= f.label :name %>
       <%= f.text_field :name, :value => @conf.item_counter.to_s + "-13" %>
 

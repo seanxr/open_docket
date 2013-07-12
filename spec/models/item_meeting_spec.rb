@@ -13,6 +13,7 @@
 #  agendable_type :string(255)
 #  position       :integer
 #  assigner_id    :integer
+#  public_hearing :boolean
 #
 
 require 'spec_helper'

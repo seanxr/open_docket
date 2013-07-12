@@ -18,23 +18,26 @@
   <span><%= @item.reference %></span>
   <span>Ward: <%= @item.ward %></span>
   <% @item.statuses.each do |status| %>
-    <% if status == @item.statuses.first %>
+    <% if status == @item.statuses.first && status.code == 1%>
       <span>Opened:&nbsp;
-      <% elsif status == @item.statuses.third %>
-        <span>Re-opened:&nbsp;
-        <% else %>
-          <span>Closed:&nbsp;
-          <% end %>
-          <%= status.as_of.strftime("%m/%d/%y") %></span>
-      <% end %>
+    <% elsif status.code == 1 %>
+      <span>Re-opened:&nbsp;
+    <% else %>
+      <span>Closed:&nbsp;
+    <% end %>
+      <%= status.as_of.strftime("%m/%d/%y") %></span>
+    <% end %>
+  <% if @item.requires_public_hearing %>
+    <div>This item requires a public hearing.</div>
+  <% end %>
       <span class="timestamp">Created by <%= @item.creator.name %> on <%= @item.created_at.strftime("%m/%d/%y") %></span>
       <span class="timestamp">Last updated by <%= @item.updater.name %> on <%= @item.updated_at.strftime("%m/%d/%y") %></span>
       <% if current_user && current_user.admin? %>
         <span><%= link_to "Edit", edit_item_path(@item)%>&nbsp;|&nbsp;
           <% if @item.statuses.last.code = 1 %>
-            <%= link_to "Close", new_item_status_path(@item)%>
+            <%= link_to "Close", new_item_status_path(@item, :new_code => 1)%>
           <% else %>
-            <%= link_to "Re-open", new_item_status_path(@item)%>
+            <%= link_to "Re-open", new_item_status_path(@item, :new_code => 1)%>
           <% end %>
         <% end %>
         </section>
@@ -82,12 +85,18 @@
                     <ol class="microposts">
                       <%= render @meetings %>
                     </ol>
-                    <%= link_to "Add to another meeting", new_item_item_meeting_path(@item)%>.
+                      <% if current_user && current_user.admin? %>
+                        <% if @item.potential_meetings.count == 0 %>
+                          There are no potential meetings for this item.
+                        <% else %>
+                          <%= link_to "Add to another meeting", new_item_item_meeting_path(@item)%>
+                        <% end %>
+                      <% end %>
                   <% else %>
                     <ol class="microposts">
                       <li>
                       <span class="content">Not on any meetings. 
-                        <% if current_user && current_user.admin? %>
+                        <% if current_user && current_user.admin? && @item.potential_meetings.count == 0 %>
                           <%= link_to "Add to a meeting", new_item_item_meeting_path(@item)%>.
                         <% end %>
                         </li>
@@ -100,21 +109,46 @@
                 <div class="tab-pane" id="dockets">
                   <% if @item.dockets.any? %>
                     <ol class="microposts">
-                      <% @item.dockets.each do |docket| %>
+                      <% @item.opendockets.each do |docket| %>
+                        <li>
+                        <span class="content">
+                          <%= link_to docket.committee.name, committee_path(docket.committee_id) %>&nbsp;(<%= docket.age %>&nbsp;days)
+                        </span>
+                        <% docket.statuses.each do |status| %>
+                          <div class="timestamp">
+                            <% if status.code == 1 %>
+                              Added to docket <%= status.as_of.strftime("%m/%d/%y") %>
+                            <% else %>
+                              Removed from docket <%= docket.created_at.strftime("%m/%d/%y") %>
+                            <% end %>
+                          <% if current_user && current_user.admin? %>
+                            &nbsp;|&nbsp;<%= link_to "Remove from docket", new_docket_status_path(docket.id) %>
+                          <% end %>
+                        <% end %>
+                        </li>
+                      <% end %>
+                      <% @item.closeddockets.each do |docket| %>
+                        <li>Previously on the following dockets</li>
                         <li>
                         <span class="content">
                           <%= link_to docket.committee.name, committee_path(docket.committee_id) %>
                         </span>
-                        <span class="timestamp">
-                          Added to docket <%= docket.created_at.strftime("%m/%d/%y") %>&nbsp;(<%= docket.age %> days) 
+                        <% docket.statuses.each do |status| %>
+                          <div class="timestamp">
+                            <% if status.code == 1 %>
+                              Added to docket <%= status.as_of.strftime("%m/%d/%y") %>
+                            <% else %>
+                              Removed from docket <%= docket.created_at.strftime("%m/%d/%y") %>
+                            <% end %>
                           <% if current_user && current_user.admin? %>
                             &nbsp;|&nbsp;<%= link_to "Remove from docket", new_docket_status_path(docket.id) %>
                           <% end %>
-                        </span>
+                        <% end %>
+                        </div>
                         </li>
-                      <% end %>           
+                      <% end %>
                     </ol>
-                    <% if @item.not_docket_committees.count > 0 && current_user && current_user.admin? %>
+                  <% if @item.not_docket_committees.count > 0 && current_user && current_user.admin? %>
                       <span class="content"><%= link_to "Add to another docket", new_item_docket_path(@item)%>.</span>
                     <% end %>
                   <% else %>

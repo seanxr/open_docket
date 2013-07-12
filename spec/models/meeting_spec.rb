@@ -16,6 +16,8 @@
 #  agenda_submitted_on :date
 #  report_submitted_by :integer
 #  report_submitted_on :date
+#  public_hearing      :boolean
+#  notice              :text
 #
 
 require 'spec_helper'
